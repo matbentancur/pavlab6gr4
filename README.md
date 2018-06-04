@@ -2,7 +2,7 @@
 
 Para clonar el GIT desde una terminal:
 
-git clone https://github.com/matbentancur/pav
+git clone https://github.com/matbentancur/pavlab6gr4
 
 Este procedimiento se ejecuta una sola vez y se descarga todo el contenido del repositorio.
 
