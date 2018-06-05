@@ -37,7 +37,12 @@
 		<Unit filename="include/DtContacto.h" />
 		<Unit filename="include/DtConversacion.h" />
 		<Unit filename="include/DtGrupo.h" />
+		<Unit filename="include/DtImagen.h" />
+		<Unit filename="include/DtMensaje.h" />
 		<Unit filename="include/DtPrivada.h" />
+		<Unit filename="include/DtSimple.h" />
+		<Unit filename="include/DtTarjetaContacto.h" />
+		<Unit filename="include/DtVideo.h" />
 		<Unit filename="include/EstadoConversacion.h" />
 		<Unit filename="include/EstadoIngreso.h" />
 		<Unit filename="include/Fecha.h" />
@@ -47,7 +52,12 @@
 		<Unit filename="src/DtContacto.cpp" />
 		<Unit filename="src/DtConversacion.cpp" />
 		<Unit filename="src/DtGrupo.cpp" />
+		<Unit filename="src/DtImagen.cpp" />
+		<Unit filename="src/DtMensaje.cpp" />
 		<Unit filename="src/DtPrivada.cpp" />
+		<Unit filename="src/DtSimple.cpp" />
+		<Unit filename="src/DtTarjetaContacto.cpp" />
+		<Unit filename="src/DtVideo.cpp" />
 		<Unit filename="src/Fecha.cpp" />
 		<Unit filename="src/FechaHora.cpp" />
 		<Unit filename="src/Sesion.cpp" />
