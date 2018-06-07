@@ -34,6 +34,8 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="include/ConversacionController.h" />
+		<Unit filename="include/ConversacionFactory.h" />
 		<Unit filename="include/DtContacto.h" />
 		<Unit filename="include/DtConversacion.h" />
 		<Unit filename="include/DtGrupo.h" />
@@ -47,8 +49,17 @@
 		<Unit filename="include/EstadoIngreso.h" />
 		<Unit filename="include/Fecha.h" />
 		<Unit filename="include/FechaHora.h" />
+		<Unit filename="include/IConversacionController.h" />
+		<Unit filename="include/IMensajeController.h" />
+		<Unit filename="include/IUsuarioController.h" />
+		<Unit filename="include/MensajeController.h" />
 		<Unit filename="include/Sesion.h" />
+		<Unit filename="include/Usuario.h" />
+		<Unit filename="include/UsuarioController.h" />
+		<Unit filename="include/UsuarioFactory.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="src/ConversacionController.cpp" />
+		<Unit filename="src/ConversacionFactory.cpp" />
 		<Unit filename="src/DtContacto.cpp" />
 		<Unit filename="src/DtConversacion.cpp" />
 		<Unit filename="src/DtGrupo.cpp" />
@@ -60,7 +71,11 @@
 		<Unit filename="src/DtVideo.cpp" />
 		<Unit filename="src/Fecha.cpp" />
 		<Unit filename="src/FechaHora.cpp" />
+		<Unit filename="src/MensajeController.cpp" />
 		<Unit filename="src/Sesion.cpp" />
+		<Unit filename="src/Usuario.cpp" />
+		<Unit filename="src/UsuarioController.cpp" />
+		<Unit filename="src/UsuarioFactory.cpp" />
 		<Extensions>
 			<code_completion />
 			<debugger />
