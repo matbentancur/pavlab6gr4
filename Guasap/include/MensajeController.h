@@ -3,7 +3,7 @@
 
 #include "IMensajeController.h"
 
-class MensajeController {
+class MensajeController : public IMensajeController{
     private:
         int idConversacion;
 
