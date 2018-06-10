@@ -13,6 +13,7 @@ class Estado{
         FechaHora publicado;
     public:
         Estado();
+        Estado(string,FechaHora);
         string getTexto();
         FechaHora getPublicado();
 
