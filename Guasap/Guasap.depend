@@ -178,7 +178,7 @@
 	<string>
 	"DtMensaje.h"
 
-1528395378 d:\materias tecnologo\programación avanzada\laboratorio 6\pavlab6gr4-master\guasap\include\dtmensaje.h
+1528678754 d:\materias tecnologo\programación avanzada\laboratorio 6\pavlab6gr4-master\guasap\include\dtmensaje.h
 	"FechaHora.h"
 
 1528395378 d:\materias tecnologo\programación avanzada\laboratorio 6\pavlab6gr4-master\guasap\include\fechahora.h
@@ -290,4 +290,50 @@
 1528606130 d:\materias tecnologo\programación avanzada\laboratorio 6\pavlab6gr4-master\guasap\include\dtparticipante.h
 	<string>
 	"FechaHora.h"
+
+1528612466 source:d:\materias tecnologo\programación avanzada\laboratorio 6\pavlab6gr4-master\guasap\src\estado.cpp
+	"Estado.h"
+
+1528650838 d:\materias tecnologo\programación avanzada\laboratorio 6\pavlab6gr4-master\guasap\include\estado.h
+	<string>
+	"FechaHora.h"
+
+1528689419 source:d:\materias tecnologo\programación avanzada\laboratorio 6\pavlab6gr4-master\guasap\src\mensaje.cpp
+	"Mensaje.h"
+
+1528689319 d:\materias tecnologo\programación avanzada\laboratorio 6\pavlab6gr4-master\guasap\include\mensaje.h
+	"FechaHora.h"
+	"DtMensaje.h"
+	"DtReceptor.h"
+	<set>
+
+1528682693 source:d:\materias tecnologo\programación avanzada\laboratorio 6\pavlab6gr4-master\guasap\src\simple.cpp
+	"Simple.h"
+
+1528687291 d:\materias tecnologo\programación avanzada\laboratorio 6\pavlab6gr4-master\guasap\include\simple.h
+	"DtSimple.h"
+
+1528684407 source:d:\materias tecnologo\programación avanzada\laboratorio 6\pavlab6gr4-master\guasap\src\tarjetacontacto.cpp
+	"TarjetaContacto.h"
+
+1528683905 d:\materias tecnologo\programación avanzada\laboratorio 6\pavlab6gr4-master\guasap\include\tarjetacontacto.h
+	"DtTarjetaContacto.h"
+	"Mensaje.h"
+
+1528685918 source:d:\materias tecnologo\programación avanzada\laboratorio 6\pavlab6gr4-master\guasap\src\imagen.cpp
+
+1528685863 source:d:\materias tecnologo\programación avanzada\laboratorio 6\pavlab6gr4-master\guasap\src\multimedia.cpp
+
+1528688993 source:d:\materias tecnologo\programación avanzada\laboratorio 6\pavlab6gr4-master\guasap\src\grupo.cpp
+
+1528690410 source:d:\materias tecnologo\programación avanzada\laboratorio 6\pavlab6gr4-master\guasap\src\conversacion.cpp
+	"Conversacion.h"
+
+1528690442 d:\materias tecnologo\programación avanzada\laboratorio 6\pavlab6gr4-master\guasap\include\conversacion.h
+	"DtConversacion.h"
+	"DtMensaje.h"
+	"DtReceptor.h"
+	<set>
+
+1528688943 source:d:\materias tecnologo\programación avanzada\laboratorio 6\pavlab6gr4-master\guasap\src\privada.cpp
 
