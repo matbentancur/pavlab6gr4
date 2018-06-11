@@ -1,12 +1,12 @@
-#ifndef DTRECEPTOR_H
-#define DTRECEPTOR_H
+#ifndef DTRECEPTOR
+#define DTRECEPTOR
 
 #include <string>
 #include "FechaHora.h"
 
 using namespace std;
 
-class DtReceptor {
+class DtReceptor{
 
     private:
         string celular;
@@ -22,4 +22,4 @@ class DtReceptor {
         FechaHora getVistoFechaHora();
 };
 
-#endif
+#endif // DTRECEPTOR_H_INCLUDED
