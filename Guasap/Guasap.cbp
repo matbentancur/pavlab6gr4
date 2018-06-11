@@ -55,6 +55,9 @@
 		<Unit filename="include/IConversacionController.h" />
 		<Unit filename="include/IMensajeController.h" />
 		<Unit filename="include/IUsuarioController.h" />
+		<Unit filename="include/ManejadorMensaje.h" />
+		<Unit filename="include/ManejadorUsuario.h" />
+		<Unit filename="include/ManejadorUsuarioConversacion.h" />
 		<Unit filename="include/MensajeController.h" />
 		<Unit filename="include/MensajeFactory.h" />
 		<Unit filename="include/Sesion.h" />
@@ -78,6 +81,9 @@
 		<Unit filename="src/Estado.cpp" />
 		<Unit filename="src/Fecha.cpp" />
 		<Unit filename="src/FechaHora.cpp" />
+		<Unit filename="src/ManejadorMensaje.cpp" />
+		<Unit filename="src/ManejadorUsuario.cpp" />
+		<Unit filename="src/ManejadorUsuarioConversacion.cpp" />
 		<Unit filename="src/MensajeController.cpp" />
 		<Unit filename="src/MensajeFactory.cpp" />
 		<Unit filename="src/Sesion.cpp" />
