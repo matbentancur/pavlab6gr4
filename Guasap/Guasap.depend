@@ -496,3 +496,11 @@
 	<string>
 	"FechaHora.h"
 
+1528666961 source:/home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/src/MensajeFactory.cpp
+	"MensajeFactory.h"
+
+1528666961 /home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/include/MensajeFactory.h
+	<iostream>
+	"IMensajeController.h"
+	"MensajeController.h"
+
