@@ -4,7 +4,9 @@
 #include "Mensaje.h"
 
 class Multimedia : public Mensaje{
-
+    public:
+        Multimedia(int,FechaHora,bool);
+        ~Multimedia();
 
 };
 

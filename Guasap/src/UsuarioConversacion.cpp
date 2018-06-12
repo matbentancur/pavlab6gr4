@@ -22,15 +22,15 @@ EstadoConversacion UsuarioConversacion::getEstadoConversacion() {
 void UsuarioConversacion::setEstadoConversacion(EstadoConversacion estadoConversacion) {
     this->estadoConversacion = estadoConversacion;
 }
-
-DtContacto UsuarioConversacion::obtenerConversacion(){
-
-}
-
-set<DtMensaje*> UsuarioConversacion::obtenerMensajes(int){
-
-}
-
-set<DtReceptor*> UsuarioConversacion::verInfoMensaje(int){
-
-}
+//
+//DtContacto UsuarioConversacion::obtenerConversacion(){
+//
+//}
+//
+//set<DtMensaje*> UsuarioConversacion::obtenerMensajes(int){
+//
+//}
+//
+//set<DtReceptor*> UsuarioConversacion::verInfoMensaje(int){
+//
+//}

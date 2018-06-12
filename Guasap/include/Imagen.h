@@ -1,6 +1,7 @@
 #ifndef IMAGEN_H_INCLUDED
 #define IMAGEN_H_INCLUDED
 
+#include "DtMensaje.h"
 #include "DtImagen.h"
 #include "Multimedia.h"
 
@@ -12,8 +13,7 @@ class Imagen : public Multimedia{
         string texto;
         int tamanio;
     public:
-        Imagen(DtImagen&);
-
+        Imagen(int,FechaHora,bool,string,string,string,int);
         string getUrl();
         string getFormato();
         string getTexto();
@@ -23,6 +23,8 @@ class Imagen : public Multimedia{
         void setFormato(string);
         void setTexto(string);
         void setTamanio(int);
+
+        DtMensaje getDtMensaje();
 
         ~Imagen();
 

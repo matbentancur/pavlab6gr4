@@ -1,9 +1,10 @@
+#include <string>
 #include <sstream>
 #include <cstdlib>
 #include <iostream>
 #include <stdio.h>
-#include <stdexcept>
-#include <typeinfo>
+//#include <stdexcept>
+//#include <typeinfo>
 #include "UsuarioFactory.h"
 
 using namespace std;
@@ -86,7 +87,7 @@ int main()
     }
     break;
     case 2:
-        cout << "\n\Cerrar Guasap\n";
+        cout << "\n\nCerrar Guasap\n";
         break;
     case 3:
         cout << "\n\tAgregar contactos\n\n";
@@ -98,10 +99,10 @@ int main()
         cout << "\n\tEnviar mensajes\n\n";
         break;
     case 6:
-        cout << "\n\Ver mensajes\n\n";
+        cout << "\n\nVer mensajes\n\n";
         break;
     case 7:
-        cout << "\n\Archivar conversaciones\n\n";
+        cout << "\n\nArchivar conversaciones\n\n";
         break;
     case 8:
         cout << "\n\tModificar usuario\n\n";
@@ -113,7 +114,7 @@ int main()
         cout << "\n\tModificar fecha del sistema\n\n";
         break;
     case 11:
-        cout << "\n\Consultar fecha del sistema\n\n";
+        cout << "\n\nConsultar fecha del sistema\n\n";
         break;
     case 12:
         cout << "\n\tInicializar/cargar un conjunto de datos de prueba\n\n";

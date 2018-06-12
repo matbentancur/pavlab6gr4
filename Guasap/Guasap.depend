@@ -729,3 +729,292 @@
 	"FechaHora.h"
 	"Usuario.h"
 
+1528840154 source:/home/tecnoinf/Documentos/mbentancur/pav/pavlab6gr4/Guasap/main.cpp
+	<string>
+	<sstream>
+	<cstdlib>
+	<iostream>
+	<stdio.h>
+	"UsuarioFactory.h"
+
+1528835731 /home/tecnoinf/Documentos/mbentancur/pav/pavlab6gr4/Guasap/include/UsuarioFactory.h
+	<iostream>
+	"UsuarioController.h"
+	"IUsuarioController.h"
+
+1528835731 /home/tecnoinf/Documentos/mbentancur/pav/pavlab6gr4/Guasap/include/UsuarioController.h
+	"IUsuarioController.h"
+
+1528840226 /home/tecnoinf/Documentos/mbentancur/pav/pavlab6gr4/Guasap/include/IUsuarioController.h
+	<set>
+	<string>
+	"DtContacto.h"
+	"EstadoIngreso.h"
+	"FechaHora.h"
+
+1528835731 /home/tecnoinf/Documentos/mbentancur/pav/pavlab6gr4/Guasap/include/DtContacto.h
+	<string>
+
+1528835731 /home/tecnoinf/Documentos/mbentancur/pav/pavlab6gr4/Guasap/include/EstadoIngreso.h
+
+1528835731 /home/tecnoinf/Documentos/mbentancur/pav/pavlab6gr4/Guasap/include/FechaHora.h
+	"Fecha.h"
+
+1528835731 /home/tecnoinf/Documentos/mbentancur/pav/pavlab6gr4/Guasap/include/Fecha.h
+	<stdexcept>
+
+1528838223 source:/home/tecnoinf/Documentos/mbentancur/pav/pavlab6gr4/Guasap/src/Conversacion.cpp
+	"Conversacion.h"
+
+1528839223 /home/tecnoinf/Documentos/mbentancur/pav/pavlab6gr4/Guasap/include/Conversacion.h
+	"DtConversacion.h"
+	"DtMensaje.h"
+	"DtReceptor.h"
+	<set>
+
+1528835731 /home/tecnoinf/Documentos/mbentancur/pav/pavlab6gr4/Guasap/include/DtConversacion.h
+
+1528835731 /home/tecnoinf/Documentos/mbentancur/pav/pavlab6gr4/Guasap/include/DtMensaje.h
+	"FechaHora.h"
+
+1528835731 /home/tecnoinf/Documentos/mbentancur/pav/pavlab6gr4/Guasap/include/DtReceptor.h
+	<string>
+	"FechaHora.h"
+
+1528839903 source:/home/tecnoinf/Documentos/mbentancur/pav/pavlab6gr4/Guasap/src/ConversacionController.cpp
+	"ConversacionController.h"
+
+1528835731 /home/tecnoinf/Documentos/mbentancur/pav/pavlab6gr4/Guasap/include/ConversacionController.h
+	"IConversacionController.h"
+
+1528835731 /home/tecnoinf/Documentos/mbentancur/pav/pavlab6gr4/Guasap/include/IConversacionController.h
+	<set>
+	"DtConversacion.h"
+
+1528835731 source:/home/tecnoinf/Documentos/mbentancur/pav/pavlab6gr4/Guasap/src/ConversacionFactory.cpp
+	"ConversacionFactory.h"
+
+1528835731 /home/tecnoinf/Documentos/mbentancur/pav/pavlab6gr4/Guasap/include/ConversacionFactory.h
+	<iostream>
+	"ConversacionController.h"
+	"IConversacionController.h"
+
+1528835731 source:/home/tecnoinf/Documentos/mbentancur/pav/pavlab6gr4/Guasap/src/DtContacto.cpp
+	"DtContacto.h"
+
+1528835731 source:/home/tecnoinf/Documentos/mbentancur/pav/pavlab6gr4/Guasap/src/DtConversacion.cpp
+	"DtConversacion.h"
+
+1528835731 source:/home/tecnoinf/Documentos/mbentancur/pav/pavlab6gr4/Guasap/src/DtGrupo.cpp
+	"DtGrupo.h"
+
+1528835731 /home/tecnoinf/Documentos/mbentancur/pav/pavlab6gr4/Guasap/include/DtGrupo.h
+	<string>
+	"DtConversacion.h"
+
+1528835731 source:/home/tecnoinf/Documentos/mbentancur/pav/pavlab6gr4/Guasap/src/DtImagen.cpp
+	"DtImagen.h"
+
+1528835731 /home/tecnoinf/Documentos/mbentancur/pav/pavlab6gr4/Guasap/include/DtImagen.h
+	<string>
+	"DtMensaje.h"
+
+1528835731 source:/home/tecnoinf/Documentos/mbentancur/pav/pavlab6gr4/Guasap/src/DtMensaje.cpp
+	"DtMensaje.h"
+
+1528835731 source:/home/tecnoinf/Documentos/mbentancur/pav/pavlab6gr4/Guasap/src/DtParticipante.cpp
+	"DtParticipante.h"
+
+1528835731 /home/tecnoinf/Documentos/mbentancur/pav/pavlab6gr4/Guasap/include/DtParticipante.h
+	<string>
+	"FechaHora.h"
+
+1528835731 source:/home/tecnoinf/Documentos/mbentancur/pav/pavlab6gr4/Guasap/src/DtPrivada.cpp
+	"DtPrivada.h"
+
+1528835731 /home/tecnoinf/Documentos/mbentancur/pav/pavlab6gr4/Guasap/include/DtPrivada.h
+	<string>
+	"DtConversacion.h"
+
+1528835731 source:/home/tecnoinf/Documentos/mbentancur/pav/pavlab6gr4/Guasap/src/DtReceptor.cpp
+	"DtReceptor.h"
+
+1528835731 source:/home/tecnoinf/Documentos/mbentancur/pav/pavlab6gr4/Guasap/src/DtSimple.cpp
+	"DtSimple.h"
+
+1528835731 /home/tecnoinf/Documentos/mbentancur/pav/pavlab6gr4/Guasap/include/DtSimple.h
+	<string>
+	"DtMensaje.h"
+
+1528835731 source:/home/tecnoinf/Documentos/mbentancur/pav/pavlab6gr4/Guasap/src/DtTarjetaContacto.cpp
+	"DtTarjetaContacto.h"
+
+1528835731 /home/tecnoinf/Documentos/mbentancur/pav/pavlab6gr4/Guasap/include/DtTarjetaContacto.h
+	<string>
+	"DtMensaje.h"
+
+1528835731 source:/home/tecnoinf/Documentos/mbentancur/pav/pavlab6gr4/Guasap/src/DtVideo.cpp
+	"DtVideo.h"
+
+1528835731 /home/tecnoinf/Documentos/mbentancur/pav/pavlab6gr4/Guasap/include/DtVideo.h
+	<string>
+	"DtMensaje.h"
+
+1528835731 source:/home/tecnoinf/Documentos/mbentancur/pav/pavlab6gr4/Guasap/src/Estado.cpp
+	"Estado.h"
+
+1528835731 /home/tecnoinf/Documentos/mbentancur/pav/pavlab6gr4/Guasap/include/Estado.h
+	<string>
+	"FechaHora.h"
+
+1528835731 source:/home/tecnoinf/Documentos/mbentancur/pav/pavlab6gr4/Guasap/src/Fecha.cpp
+	"Fecha.h"
+
+1528835731 source:/home/tecnoinf/Documentos/mbentancur/pav/pavlab6gr4/Guasap/src/FechaHora.cpp
+	"FechaHora.h"
+
+1528835731 source:/home/tecnoinf/Documentos/mbentancur/pav/pavlab6gr4/Guasap/src/Mensaje.cpp
+	"Mensaje.h"
+
+1528837278 /home/tecnoinf/Documentos/mbentancur/pav/pavlab6gr4/Guasap/include/Mensaje.h
+	"FechaHora.h"
+	"DtMensaje.h"
+	"DtReceptor.h"
+	"UsuarioMensaje.h"
+	<set>
+
+1528835731 /home/tecnoinf/Documentos/mbentancur/pav/pavlab6gr4/Guasap/include/UsuarioMensaje.h
+	"FechaHora.h"
+	"Usuario.h"
+
+1528835731 /home/tecnoinf/Documentos/mbentancur/pav/pavlab6gr4/Guasap/include/Usuario.h
+	<string>
+	<set>
+	<map>
+	"Fecha.h"
+	"FechaHora.h"
+	"DtContacto.h"
+	"DtConversacion.h"
+	"DtMensaje.h"
+
+1528835731 source:/home/tecnoinf/Documentos/mbentancur/pav/pavlab6gr4/Guasap/src/MensajeController.cpp
+	"MensajeController.h"
+
+1528835731 /home/tecnoinf/Documentos/mbentancur/pav/pavlab6gr4/Guasap/include/MensajeController.h
+	"IMensajeController.h"
+
+1528835731 /home/tecnoinf/Documentos/mbentancur/pav/pavlab6gr4/Guasap/include/IMensajeController.h
+	<set>
+	"DtMensaje.h"
+	"DtImagen.h"
+	"DtSimple.h"
+
+1528840028 source:/home/tecnoinf/Documentos/mbentancur/pav/pavlab6gr4/Guasap/src/Sesion.cpp
+	"Sesion.h"
+	"ManejadorUsuario.h"
+
+1528835731 /home/tecnoinf/Documentos/mbentancur/pav/pavlab6gr4/Guasap/include/Sesion.h
+	<string>
+	"EstadoIngreso.h"
+
+1528839989 /home/tecnoinf/Documentos/mbentancur/pav/pavlab6gr4/Guasap/include/ManejadorUsuario.h
+	"Usuario.h"
+	<map>
+
+1528835731 source:/home/tecnoinf/Documentos/mbentancur/pav/pavlab6gr4/Guasap/src/ManejadorMensaje.cpp
+
+1528840020 source:/home/tecnoinf/Documentos/mbentancur/pav/pavlab6gr4/Guasap/src/ManejadorUsuario.cpp
+	"ManejadorUsuario.h"
+	<iostream>
+
+1528835731 source:/home/tecnoinf/Documentos/mbentancur/pav/pavlab6gr4/Guasap/src/ManejadorUsuarioConversacion.cpp
+	"ManejadorUsuarioConversacion.h"
+	<iostream>
+
+1528835731 /home/tecnoinf/Documentos/mbentancur/pav/pavlab6gr4/Guasap/include/ManejadorUsuarioConversacion.h
+	"UsuarioConversacion.h"
+	<map>
+
+1528835731 /home/tecnoinf/Documentos/mbentancur/pav/pavlab6gr4/Guasap/include/UsuarioConversacion.h
+	<set>
+	"EstadoConversacion.h"
+	"DtContacto.h"
+	"DtMensaje.h"
+	"DtReceptor.h"
+
+1528835731 /home/tecnoinf/Documentos/mbentancur/pav/pavlab6gr4/Guasap/include/EstadoConversacion.h
+
+1528835731 source:/home/tecnoinf/Documentos/mbentancur/pav/pavlab6gr4/Guasap/src/MensajeFactory.cpp
+	"MensajeFactory.h"
+
+1528835731 /home/tecnoinf/Documentos/mbentancur/pav/pavlab6gr4/Guasap/include/MensajeFactory.h
+	<iostream>
+	"IMensajeController.h"
+	"MensajeController.h"
+
+1528837428 source:/home/tecnoinf/Documentos/mbentancur/pav/pavlab6gr4/Guasap/src/Simple.cpp
+	"Simple.h"
+
+1528837315 /home/tecnoinf/Documentos/mbentancur/pav/pavlab6gr4/Guasap/include/Simple.h
+	"DtSimple.h"
+	"Mensaje.h"
+
+1528837489 source:/home/tecnoinf/Documentos/mbentancur/pav/pavlab6gr4/Guasap/src/TarjetaContacto.cpp
+	"TarjetaContacto.h"
+
+1528837473 /home/tecnoinf/Documentos/mbentancur/pav/pavlab6gr4/Guasap/include/TarjetaContacto.h
+	"DtTarjetaContacto.h"
+	"Mensaje.h"
+
+1528840058 source:/home/tecnoinf/Documentos/mbentancur/pav/pavlab6gr4/Guasap/src/Usuario.cpp
+	"Usuario.h"
+
+1528838336 source:/home/tecnoinf/Documentos/mbentancur/pav/pavlab6gr4/Guasap/src/Grupo.cpp
+	"Grupo.h"
+
+1528838304 /home/tecnoinf/Documentos/mbentancur/pav/pavlab6gr4/Guasap/include/Grupo.h
+	"Conversacion.h"
+	"DtGrupo.h"
+	"FechaHora.h"
+
+1528838924 source:/home/tecnoinf/Documentos/mbentancur/pav/pavlab6gr4/Guasap/src/Imagen.cpp
+	"Imagen.h"
+
+1528838817 /home/tecnoinf/Documentos/mbentancur/pav/pavlab6gr4/Guasap/include/Imagen.h
+	"DtMensaje.h"
+	"DtImagen.h"
+	"Multimedia.h"
+
+1528838446 /home/tecnoinf/Documentos/mbentancur/pav/pavlab6gr4/Guasap/include/Multimedia.h
+	"Mensaje.h"
+
+1528838981 source:/home/tecnoinf/Documentos/mbentancur/pav/pavlab6gr4/Guasap/src/Multimedia.cpp
+	"Multimedia.h"
+
+1528839212 source:/home/tecnoinf/Documentos/mbentancur/pav/pavlab6gr4/Guasap/src/Privada.cpp
+	"Privada.h"
+
+1528839056 /home/tecnoinf/Documentos/mbentancur/pav/pavlab6gr4/Guasap/include/Privada.h
+	"Conversacion.h"
+	"DtPrivada.h"
+
+1528840086 source:/home/tecnoinf/Documentos/mbentancur/pav/pavlab6gr4/Guasap/src/UsuarioConversacion.cpp
+	"UsuarioConversacion.h"
+	"EstadoConversacion.h"
+
+1528835731 source:/home/tecnoinf/Documentos/mbentancur/pav/pavlab6gr4/Guasap/src/UsuarioFactory.cpp
+	"UsuarioFactory.h"
+
+1528835731 source:/home/tecnoinf/Documentos/mbentancur/pav/pavlab6gr4/Guasap/src/UsuarioMensaje.cpp
+	"UsuarioMensaje.h"
+
+1528840431 source:/home/tecnoinf/Documentos/mbentancur/pav/pavlab6gr4/Guasap/src/UsuarioController.cpp
+	"UsuarioController.h"
+
+1528839481 source:/home/tecnoinf/Documentos/mbentancur/pav/pavlab6gr4/Guasap/src/Video.cpp
+	"Video.h"
+
+1528839423 /home/tecnoinf/Documentos/mbentancur/pav/pavlab6gr4/Guasap/include/Video.h
+	"DtVideo.h"
+	"Multimedia.h"
+

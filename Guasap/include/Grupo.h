@@ -12,8 +12,7 @@ class Grupo : public Conversacion{
         string urlImagen;
         FechaHora creacion;
     public:
-        Grupo(DtGrupo&);
-        Grupo(string,string,FechaHora);
+        Grupo(int,string,string,string,FechaHora);
 
         string getNombre();
         string getUrlImagen();

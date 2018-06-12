@@ -8,11 +8,10 @@
 
 class Conversacion{
 
-    private:
+    protected:
         int idConversacion;
         string origen;
     public:
-        Conversacion(DtConversacion&);
         Conversacion(int,string);
 
         int getIdConversacion();

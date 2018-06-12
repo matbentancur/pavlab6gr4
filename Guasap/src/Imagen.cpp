@@ -1,13 +1,6 @@
 #include "Imagen.h"
 
-Imagen::Imagen(DtImagen &dtImagen){
-    this->setUrl(dtImagen.getUrl());
-    this->setFormato(dtImagen.getFormato());
-    this->setTexto(dtImagen.getTexto());
-    this->setTamanio(dtImagen.getTamanio());
-}
-
-Imagen::Imagen(string url,string formato,string texto,int tamanio){
+Imagen::Imagen(int codigo, FechaHora enviado, bool visto, string url,string formato,string texto,int tamanio) : Multimedia(codigo,enviado,visto){
     this->url     = url;
     this->formato = formato;
     this->texto   = texto;
@@ -46,8 +39,9 @@ void Imagen::setTamanio(int tamanio){
     this->tamanio = tamanio;
 }
 
-DtImagen Imagen::getDtMensaje(){
- //
+DtMensaje Imagen::getDtMensaje(){
+    DtImagen dtImagen = DtImagen(this->codigo, this->enviado, this->visto, this->url, this->formato, this->tamanio, this->texto);
+    return dtImagen;
 }
 
 Imagen::~Imagen(){}

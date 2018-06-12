@@ -1,10 +1,5 @@
 #include "Conversacion.h"
 
-Conversacion::Conversacion(DtConversacion &dtConversacion){
-    this->setIdConversacion(dtConversacion.getIdConversacion());
-    // this->setOrigen(dtConversacion.getOrigen());
-}
-
 Conversacion::Conversacion(int idConversacion,string origen){
      this->idConversacion = idConversacion;
      this->origen         = origen;

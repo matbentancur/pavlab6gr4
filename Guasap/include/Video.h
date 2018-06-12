@@ -10,13 +10,13 @@ class Video : public Multimedia{
         string url;
         int duracion;
     public:
-        Video(DtVideo&);
+        Video(int,FechaHora,bool,string,int);
         string getUrl();
         int getDuracion();
         void setUrl(string);
         void setDuracion(int);
 
-        virtual DtVideo getDtMensaje()=0;
+        DtMensaje getDtMensaje();
         ~Video();
 };
 

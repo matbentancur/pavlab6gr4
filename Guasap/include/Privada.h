@@ -10,8 +10,7 @@ class Privada : public Conversacion{
         string nombre;
         string destino;
     public:
-        Privada(DtPrivada&);
-        Privada(string,string);
+        Privada(int,string,string,string);
 
         string getNombre();
         string getDestino();
@@ -19,7 +18,7 @@ class Privada : public Conversacion{
         void setNombre(string);
         void setDestino(string);
 
-        DtPrivada getDtConversacion();
+        DtConversacion getDtConversacion();
         ~Privada();
 
 };

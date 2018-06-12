@@ -1,13 +1,6 @@
 #include "Grupo.h"
 
-Grupo::Grupo(DtGrupo& dtgrupo){
-    this->setIdConversacion(dtgrupo.getIdConversacion());
-    this->setNombre(dtgrupo.getNombre());
-}
-
-Grupo::Grupo(int idConversacion,string origen,string nombre,string urlImagen,FechaHora creacion){
-    this->idConversacion = idConversacion;
-    this->origen         = origen;
+Grupo::Grupo(int idConversacion,string origen,string nombre,string urlImagen,FechaHora creacion) : Conversacion(idConversacion, origen){
     this->nombre         = nombre;
     this->urlImagen      = urlImagen;
     this->creacion       = creacion;
@@ -30,11 +23,11 @@ void Grupo::setNombre(string nombre){
 }
 
 void Grupo::setUrlImagen(string urlImagen){
-    this->urlImagen;
+    this->urlImagen = urlImagen;
 }
 
 void Grupo::setCreacion(FechaHora creacion){
-    this->creacion;
+    this->creacion = creacion;
 }
 /*
 DtGrupo Grupo::getDtConversacion(){

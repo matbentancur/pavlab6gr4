@@ -29,7 +29,7 @@ class Mensaje{
         void setVisto(bool);
 
         ~Mensaje();
-//        virtual DtMensaje getDtMensaje() = 0;
+        virtual DtMensaje getDtMensaje() = 0;
         set <DtReceptor*> getReceptores(); // no se implementa, no se pide en lab.
 };
 

@@ -12,8 +12,9 @@ void Simple::setTexto(string texto){
     this->texto = texto;
 }
 
-DtMensaje getDtMensaje(){
-    //return this->DtMensaje;
+DtMensaje Simple::getDtMensaje(){
+    DtSimple dtSimple = DtSimple(this->codigo, this->enviado, this->visto, this->texto);
+    return dtSimple;
 }
 
 Simple::~Simple(){}

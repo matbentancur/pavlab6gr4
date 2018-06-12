@@ -71,17 +71,17 @@ bool Usuario::agregarContacto(Usuario* usuario){
     return true;
 }
 
-set<DtConversacion*> Usuario::obtenerConversacionesActivas(){
-
-}
-
-set<DtConversacion*> Usuario::obtenerConversacionesArchivadas(){
-
-}
-
-set<DtMensaje*> Usuario::obtenerMensajes(int){
-
-}
+//set<DtConversacion*> Usuario::obtenerConversacionesActivas(){
+//
+//}
+//
+//set<DtConversacion*> Usuario::obtenerConversacionesArchivadas(){
+//
+//}
+//
+//set<DtMensaje*> Usuario::obtenerMensajes(int){
+//
+//}
 
 //set<DtReceptor*> verInfoMensaje(int){
 //
@@ -91,26 +91,26 @@ set<DtMensaje*> Usuario::obtenerMensajes(int){
 //
 //}
 
-void Usuario::ingresarIdConversacion(int){
-
-}
-
-set<DtConversacion*> Usuario::obtenerConversaciones(){
-
-}
-
-bool Usuario::buscarConversacion(int){
-
-}
+//void Usuario::ingresarIdConversacion(int){
+//
+//}
+//
+//set<DtConversacion*> Usuario::obtenerConversaciones(){
+//
+//}
+//
+//bool Usuario::buscarConversacion(int){
+//
+//}
 
 //obtenerContacto(): DtContacto{
 //
 //}
 
-DtConversacion Usuario::obtenerConversacion(int){
-
-}
-
-bool Usuario::iniciarConversacion(Usuario){
-
-}
+//DtConversacion Usuario::obtenerConversacion(int){
+//
+//}
+//
+//bool Usuario::iniciarConversacion(Usuario){
+//
+//}

@@ -2,6 +2,7 @@
 #define IUSUARIOCONTROLLER_H
 
 #include <set>
+#include <string>
 #include "DtContacto.h"
 #include "EstadoIngreso.h"
 #include "FechaHora.h"

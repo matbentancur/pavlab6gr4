@@ -11,17 +11,17 @@ ManejadorUsuario* ManejadorUsuario::getInstancia(){
     return ManejadorUsuario::instancia;
 }
 
-Usuario* ManejadorUsuario::findUsuario(string celular){
-    return this->usuarios[celular];
-}
+//Usuario* ManejadorUsuario::findUsuario(string celular){
+//    return this->usuarios[celular];
+//}
 
-bool ManejadorUsuario::existeUsuario(int idUsuario){
-    if(findUsuario(idUsuario) == NULL){
-        return false;
-    }else{
-        return true;
-    }
-}
+//bool ManejadorUsuario::existeUsuario(string idUsuario){
+//    if(findUsuario(idUsuario) == NULL){
+//        return false;
+//    }else{
+//        return true;
+//    }
+//}
 
 ManejadorUsuario::~ManejadorUsuario(){
     map<string,Usuario*>::iterator i;
