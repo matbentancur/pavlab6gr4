@@ -34,6 +34,7 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="include/Conversacion.h" />
 		<Unit filename="include/ConversacionController.h" />
 		<Unit filename="include/ConversacionFactory.h" />
 		<Unit filename="include/DtContacto.h" />
@@ -52,19 +53,28 @@
 		<Unit filename="include/EstadoIngreso.h" />
 		<Unit filename="include/Fecha.h" />
 		<Unit filename="include/FechaHora.h" />
+		<Unit filename="include/Grupo.h" />
 		<Unit filename="include/IConversacionController.h" />
 		<Unit filename="include/IMensajeController.h" />
 		<Unit filename="include/IUsuarioController.h" />
+		<Unit filename="include/Imagen.h" />
+		<Unit filename="include/Mensaje.h" />
 		<Unit filename="include/ManejadorMensaje.h" />
 		<Unit filename="include/ManejadorUsuario.h" />
 		<Unit filename="include/ManejadorUsuarioConversacion.h" />
 		<Unit filename="include/MensajeController.h" />
 		<Unit filename="include/MensajeFactory.h" />
+		<Unit filename="include/Multimedia.h" />
+		<Unit filename="include/Privada.h" />
 		<Unit filename="include/Sesion.h" />
+		<Unit filename="include/Simple.h" />
+		<Unit filename="include/TarjetaContacto.h" />
 		<Unit filename="include/Usuario.h" />
 		<Unit filename="include/UsuarioController.h" />
 		<Unit filename="include/UsuarioFactory.h" />
+		<Unit filename="include/Video.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="src/Conversacion.cpp" />
 		<Unit filename="src/ConversacionController.cpp" />
 		<Unit filename="src/ConversacionFactory.cpp" />
 		<Unit filename="src/DtContacto.cpp" />
@@ -81,15 +91,23 @@
 		<Unit filename="src/Estado.cpp" />
 		<Unit filename="src/Fecha.cpp" />
 		<Unit filename="src/FechaHora.cpp" />
+		<Unit filename="src/Grupo.cpp" />
+		<Unit filename="src/Imagen.cpp" />
+		<Unit filename="src/Mensaje.cpp" />
 		<Unit filename="src/ManejadorMensaje.cpp" />
 		<Unit filename="src/ManejadorUsuario.cpp" />
 		<Unit filename="src/ManejadorUsuarioConversacion.cpp" />
 		<Unit filename="src/MensajeController.cpp" />
 		<Unit filename="src/MensajeFactory.cpp" />
+		<Unit filename="src/Multimedia.cpp" />
+		<Unit filename="src/Privada.cpp" />
 		<Unit filename="src/Sesion.cpp" />
+		<Unit filename="src/Simple.cpp" />
+		<Unit filename="src/TarjetaContacto.cpp" />
 		<Unit filename="src/Usuario.cpp" />
 		<Unit filename="src/UsuarioController.cpp" />
 		<Unit filename="src/UsuarioFactory.cpp" />
+		<Unit filename="src/Video.cpp" />
 		<Extensions>
 			<code_completion />
 			<debugger />
