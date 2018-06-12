@@ -4,6 +4,7 @@
 #include "FechaHora.h"
 #include "DtMensaje.h"
 #include "DtReceptor.h"
+#include "UsuarioMensaje.h"
 #include <set>
 
 using namespace std;
@@ -14,6 +15,8 @@ class Mensaje{
         int codigo;
         FechaHora enviado;
         bool visto;
+        set<UsuarioMensaje*> usuarioMensaje;
+
     public:
         Mensaje(DtMensaje&);
         Mensaje(int,FechaHora,bool);
@@ -27,7 +30,7 @@ class Mensaje{
 
         ~Mensaje();
 //        virtual DtMensaje getDtMensaje() = 0;
-        set <DtReceptor*> getReceptores();
+        set <DtReceptor*> getReceptores(); // no se implementa, no se pide en lab.
 };
 
 #endif // MENSAJE_H_INCLUDED

@@ -605,10 +605,11 @@
 1528768079 source:/home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/src/Mensaje.cpp
 	"Mensaje.h"
 
-1528769017 /home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/include/Mensaje.h
+1528774077 /home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/include/Mensaje.h
 	"FechaHora.h"
 	"DtMensaje.h"
 	"DtReceptor.h"
+	"UsuarioMensaje.h"
 	<set>
 
 1528398572 source:/home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/src/MensajeController.cpp
@@ -678,11 +679,11 @@
 
 1528686127 source:/home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/src/ManejadorMensaje.cpp
 
-1528666788 source:/home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/src/ManejadorUsuario.cpp
+1528771740 source:/home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/src/ManejadorUsuario.cpp
 	"ManejadorUsuario.h"
 	<iostream>
 
-1528666788 /home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/include/ManejadorUsuario.h
+1528771682 /home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/include/ManejadorUsuario.h
 	"Usuario.h"
 	<map>
 
@@ -716,4 +717,15 @@
 1528768667 /home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/include/TarjetaContacto.h
 	"DtTarjetaContacto.h"
 	"Mensaje.h"
+
+1528686127 source:/home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/src/UsuarioConversacion.cpp
+	"UsuarioConversacion.h"
+	"EstadoConversacion.h"
+
+1528773854 source:/home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/src/UsuarioMensaje.cpp
+	"UsuarioMensaje.h"
+
+1528773787 /home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/include/UsuarioMensaje.h
+	"FechaHora.h"
+	"Usuario.h"
 

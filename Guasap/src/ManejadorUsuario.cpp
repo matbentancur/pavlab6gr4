@@ -11,12 +11,12 @@ ManejadorUsuario* ManejadorUsuario::getInstancia(){
     return ManejadorUsuario::instancia;
 }
 
-Usuario* ManejadorUsuario::findUsuario(int idUsuario){
-    return this->usuarios[idUsuario];
+Usuario* ManejadorUsuario::findUsuario(string celular){
+    return this->usuarios[celular];
 }
 
 ManejadorUsuario::~ManejadorUsuario(){
-    map<int,Usuario*>::iterator i;
+    map<string,Usuario*>::iterator i;
     for(i = usuarios.begin(); i !=usuarios.end();++i)
         delete i->second;
 }

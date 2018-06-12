@@ -19,7 +19,7 @@ class Privada : public Conversacion{
         void setNombre(string);
         void setDestino(string);
 
-        // DtPrivada getDtConversacion();
+        DtPrivada getDtConversacion();
         ~Privada();
 
 };
