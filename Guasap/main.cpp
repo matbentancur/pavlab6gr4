@@ -4,24 +4,87 @@
 #include <stdio.h>
 #include <stdexcept>
 #include <typeinfo>
+#include "UsuarioFactory.h"
 
 using namespace std;
 
 //FUNCIONES AUXILIARES
-void menu();
+void menuPrincipal();
 
 int main()
 {
     int numOper = 0;
+    string celularSistema= "";
+    string celularIngresado = "";
     bool salir = false;
+    bool existeUsuario = true;
+    bool ingresarOtroNumero = true;
     char opcion = 'n';
     do {
-    menu();
+    menuPrincipal();
     cin >> numOper;
     switch (numOper) {
-    case 1:
-        cout << "\n\Abrir Guasap\n\n";
+    case 1: {
+        cout << "\n\nAbrir Guasap\n\n";
+        cout << "\nIngrese el numero de celular: ";
+        cin >> celularIngresado;
+        UsuarioFactory* usuarioFactory = UsuarioFactory::getInstancia();
+        IUsuarioController* iUsuarioController = usuarioFactory->getIUsuarioController();
+        do{
+        EstadoIngreso estadoIngreso = iUsuarioController->ingresar(celularIngresado);
+        switch(estadoIngreso){
+        case 1: {
+            cout << "\nIngreso valido -  FALTA IMPLEMENTAR\n";
+            break;
+        }
+        case 2:
+            celularSistema = celularIngresado;
+            do {
+                cout << "\nNo existe un usuario con ese numero de celular.\n";
+                cout << "\nLista de operaciones disponibles:\n\n";
+                cout << "1)  Ingresar otro numero\n";
+                cout << "2)  Darse de alta con el numero " + celularIngresado + " \n";
+                cout << "3)  Cancelar (volver al menu principal)\n";
+                cout << "\nIngrese el numero de la operacion a realizar: ";
+                cin >> numOper;
+                switch (numOper) {
+                case 1: {
+                    cout << "\nIngrese el numero de celular: ";
+                    cin >> celularIngresado;
+                    ingresarOtroNumero = false;
+                    break;
+                }
+                case 2: {
+                    cout << "\nDar de alta un usuario -  FALTA IMPLEMENTAR\n";
+                    ingresarOtroNumero = false;
+                    existeUsuario = false;
+                    break;
+                }
+                case 3: {
+                    ingresarOtroNumero = false;
+                    existeUsuario = false;
+                    break;
+                }
+                }
+            } while (existeUsuario);
+//            iUsuarioController->crearUsuario();
+            break;
+//            } while (!ingresarOtroNumero);
+            break;
+        case 3:
+            cout << "\nMismo numero que el usuario logueado -  NO HACE NADA\n";
+            break;
+        case 4: {
+            cout << "\nYa hay una sesion iniciada -  FALTA IMPLEMENTAR\n";
+//            iUsuarioController->cerrarGuasap();
+//            EstadoIngreso estadoIngreso = iUsuarioController->ingresar(celular);
+            break;
+        }
+        }
         break;
+    } while (!ingresarOtroNumero);
+    }
+    break;
     case 2:
         cout << "\n\Cerrar Guasap\n";
         break;
@@ -74,10 +137,10 @@ int main()
     return 0;
 }
 
-void menu() {
+void menuPrincipal() {
   cout << "\nProgramacion Avanzada - Laboratorio 6\n\n";
   cout << "\t\tGUASAP\n\n";
-  cout << "Lista de operaciones disponibles:\n";
+  cout << "Lista de operaciones disponibles:\n\n";
   cout << "1)  Abrir Guasap\n";
   cout << "2)  Cerrar Guasap\n";
   cout << "3)  Agregar contactos\n";
