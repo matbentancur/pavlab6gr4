@@ -3,6 +3,7 @@
 
 #include <string>
 #include <set>
+#include <map>
 #include "Fecha.h"
 #include "FechaHora.h"
 #include "DtContacto.h"
@@ -18,6 +19,7 @@ class Usuario {
         string imagen;
         string descripcion;
         FechaHora ultimaConexion;
+        map<string,Usuario*> contactos;
 
     public:
         Usuario();
@@ -43,9 +45,9 @@ class Usuario {
         FechaHora getUltimaConexion();
         void setUltimaConexion(FechaHora);
 
-        set<DtContacto*> obtenerContactos();
+        map<string,DtContacto> obtenerContactos();
         DtContacto getDtContacto();
-        bool agregarContacto(Usuario);
+        bool agregarContacto(Usuario*);
         set<DtConversacion*> obtenerConversacionesActivas();
         set<DtConversacion*> obtenerConversacionesArchivadas();
         set<DtMensaje*> obtenerMensajes(int);

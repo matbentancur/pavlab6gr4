@@ -1,5 +1,5 @@
-#ifndef DTRECEPTOR_H_INCLUDED
-#define DTRECEPTOR_H_INCLUDED
+#ifndef DTRECEPTOR
+#define DTRECEPTOR
 
 #include <string>
 #include "FechaHora.h"
@@ -19,7 +19,7 @@ class DtReceptor{
         virtual ~DtReceptor();
         string getCelular();
         string getNombre();
-        FechaHora getFechaHora();
+        FechaHora getVistoFechaHora();
 };
 
 #endif // DTRECEPTOR_H_INCLUDED

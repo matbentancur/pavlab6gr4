@@ -46,16 +46,29 @@ FechaHora Usuario::getUltimaConexion() {
     return this->ultimaConexion;
 }
 
-set<DtContacto*> Usuario::obtenerContactos(){
-
+map<string,DtContacto> Usuario::obtenerContactos(){
+    map<string,DtContacto> listaContactos;
+	map<string,Usuario*>::iterator i;
+    for(i = contactos.begin(); i != contactos.end(); ++i){
+//		DtContacto dtContacto = (*i)->getDtContacto();
+//		listaContactos[dtContacto.getCelular()] = dtContacto;
+	}
+	return listaContactos;
 }
 
 DtContacto Usuario::getDtContacto(){
-
+    DtContacto dtContacto = DtContacto(this->celular, this->nombre, this->imagen);
+    return dtContacto;
 }
 
-bool Usuario::agregarContacto(Usuario){
-
+bool Usuario::agregarContacto(Usuario* usuario){
+    map<string,Usuario*>::iterator i;
+    i = this->contactos.find(usuario->getCelular());
+    if (i != this->contactos.end()){
+        return false;
+    }
+    this->contactos[usuario->getCelular()] = usuario;
+    return true;
 }
 
 set<DtConversacion*> Usuario::obtenerConversacionesActivas(){
