@@ -14,6 +14,7 @@ class ManejadorUsuario{
     public:
         static ManejadorUsuario* getInstancia();
         Usuario* findUsuario(int);
+        bool existeUsuario(int);
         void agregarUsuario(Usuario*);
         virtual ~ManejadorUsuario();
 };

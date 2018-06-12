@@ -15,7 +15,7 @@ class Sesion {
         Sesion();
         virtual ~Sesion();
         string getSesion();
-//        EstadoIngreso getEstado();
+        EstadoIngreso getEstado(string);
 };
 
 #endif // SESION_H
