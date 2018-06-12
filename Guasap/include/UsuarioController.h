@@ -15,7 +15,8 @@ class UsuarioController : public IUsuarioController {
         DtContacto agregarContacto(string);
         bool confirmarContacto();
         EstadoIngreso ingresar(string);
-        FechaHora crearUsuario(string,string,string);
+        FechaHora crearUsuario(string,string,string,string);
+        void modificarUsuario(string,string,string);
         void cerrarGuasap(string);
 };
 

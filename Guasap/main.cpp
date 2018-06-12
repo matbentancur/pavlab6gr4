@@ -6,14 +6,18 @@
 //#include <stdexcept>
 //#include <typeinfo>
 #include "UsuarioFactory.h"
+#include "Usuario.h"
 
 using namespace std;
 
 //FUNCIONES AUXILIARES
 void menuPrincipal();
+void prueba();
 
 int main()
 {
+    prueba();
+    return 0;
     int numOper = 0;
     string celularSistema= "";
     string celularIngresado = "";
@@ -29,10 +33,11 @@ int main()
         cout << "\n\nAbrir Guasap\n\n";
         cout << "\nIngrese el numero de celular: ";
         cin >> celularIngresado;
-        UsuarioFactory* usuarioFactory = UsuarioFactory::getInstancia();
-        IUsuarioController* iUsuarioController = usuarioFactory->getIUsuarioController();
+//        UsuarioFactory* usuarioFactory = UsuarioFactory::getInstancia();
+//        IUsuarioController* iUsuarioController = usuarioFactory->getIUsuarioController();
         do{
-        EstadoIngreso estadoIngreso = iUsuarioController->ingresar(celularIngresado);
+//        EstadoIngreso estadoIngreso = iUsuarioController->ingresar(celularIngresado);
+EstadoIngreso estadoIngreso = userOK;
         switch(estadoIngreso){
         case 1: {
             cout << "\nIngreso valido -  FALTA IMPLEMENTAR\n";
@@ -156,4 +161,12 @@ void menuPrincipal() {
   cout << "12)  Inicializar/cargar un conjunto de datos de prueba\n";
   cout << "13)  Salir\n\n";
   cout << "Ingrese el numero de la operacion a realizar: ";
+}
+
+void prueba(){
+    Usuario* a = new Usuario("123", "nomPrueba1", "a", "b");
+    Usuario* b = new Usuario("456", "nomPrueba2", "a", "b");
+    a->agregarContacto(b);
+    map<string,Usuario*>::iterator i = a->contactos.begin();
+    cout << "celular: " + i->first;
 }

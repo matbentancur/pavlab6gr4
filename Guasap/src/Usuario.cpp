@@ -26,24 +26,48 @@ string Usuario::getCelular() {
     return this->celular;
 }
 
+void Usuario::setCelular(string celular){
+    this->celular = celular;
+}
+
 string Usuario::getNombre() {
     return this->nombre;
+}
+
+void Usuario::setNombre(string nombre){
+    this->nombre = nombre;
 }
 
 Fecha Usuario::getRegistro() {
     return this->registro;
 }
 
+void Usuario::setRegistro(Fecha registro){
+    this->registro = registro;
+}
+
 string Usuario::getImagen() {
     return this->imagen;
+}
+
+void Usuario::setImagen(string imagen){
+    this->imagen = imagen;
 }
 
 string Usuario::getDescripcion() {
     return this->descripcion;
 }
 
+void Usuario::setDescripcion(string descripcion){
+    this->descripcion = descripcion;
+}
+
 FechaHora Usuario::getUltimaConexion() {
     return this->ultimaConexion;
+}
+
+void Usuario::setUltimaConexion(FechaHora ultimaConexion){
+    this->ultimaConexion = ultimaConexion;
 }
 
 map<string,DtContacto> Usuario::obtenerContactos(){
@@ -67,7 +91,7 @@ bool Usuario::agregarContacto(Usuario* usuario){
     if (i != this->contactos.end()){
         return false;
     }
-    this->contactos[usuario->getCelular()] = usuario;
+    this->contactos.insert(std::pair<string, Usuario*>(usuario->getCelular(), usuario));
     return true;
 }
 

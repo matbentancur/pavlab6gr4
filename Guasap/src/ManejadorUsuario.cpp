@@ -11,17 +11,27 @@ ManejadorUsuario* ManejadorUsuario::getInstancia(){
     return ManejadorUsuario::instancia;
 }
 
-//Usuario* ManejadorUsuario::findUsuario(string celular){
-//    return this->usuarios[celular];
-//}
+Usuario* ManejadorUsuario::findUsuario(string celular){
+    return this->usuarios[celular];
+}
 
-//bool ManejadorUsuario::existeUsuario(string idUsuario){
-//    if(findUsuario(idUsuario) == NULL){
-//        return false;
-//    }else{
-//        return true;
-//    }
-//}
+bool ManejadorUsuario::agregarUsuario(Usuario* usuario){
+    map<string,Usuario*>::iterator i;
+    i = this->usuarios.find(usuario->getCelular());
+    if (i != this->usuarios.end()){
+        return false;
+    }
+    this->usuarios.insert(pair<string, Usuario*>(usuario->getCelular(), usuario));
+    return true;
+}
+
+bool ManejadorUsuario::existeUsuario(string idUsuario){
+    if(findUsuario(idUsuario) == NULL){
+        return false;
+    }else{
+        return true;
+    }
+}
 
 ManejadorUsuario::~ManejadorUsuario(){
     map<string,Usuario*>::iterator i;

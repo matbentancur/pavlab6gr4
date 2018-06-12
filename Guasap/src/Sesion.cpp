@@ -1,6 +1,14 @@
 #include "Sesion.h"
 #include "ManejadorUsuario.h"
 
+Sesion* Sesion::instancia = NULL;
+
+Sesion* Sesion::getInstancia(){
+    if (instancia == NULL)
+        instancia = new Sesion();
+    return instancia;
+}
+
 Sesion::Sesion()
 {
     //ctor
@@ -17,23 +25,23 @@ string Sesion::getSesion(){
 
 //EstadoIngreso Sesion::getEstado(string celularIngresado){
 //    ManejadorUsuario* manejadorUsuario = ManejadorUsuario::getInstancia();
-//    if(!(manejadorUsuario->existeUsuario(celularIngresado)){
-//        return 1;
+//    if(!(manejadorUsuario->existeUsuario(celularIngresado))){
+//        return userOK;
 //    }else if(manejadorUsuario->existeUsuario(celularIngresado)){
 //        if(this->celular == NULL){
 //            this.celular = celularIngresado;
-//            return 2;
+//            return userInexistente;
 //        }
 //    }else if(manejadorUsuario->existeUsuario(celularIngresado)){
 //        if(celularIngresado == this->celular){
 //            if(this->celular != NULL && this.celular == celularIngresado){
-//                return 3;
+//                return igualUserLog;
 //            }
 //        }
 //    }else if(manejadorUsuario->existeUsuario(celularIngresado)){
 //        if(celularIngresado == this->celular){
 //            if(this->celular != NULL && this.celular != celularIngresado){
-//                return 4;
+//                return distintoUserLog;
 //            }
 //        }
 //    }

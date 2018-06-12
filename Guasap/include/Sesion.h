@@ -10,11 +10,13 @@ class Sesion {
 
     private:
         string celular;
+        static Sesion* instancia;
+        Sesion();
 
     public:
-        Sesion();
         virtual ~Sesion();
         string getSesion();
+        static Sesion* getInstancia();
         EstadoIngreso getEstado(string);
 };
 
