@@ -58,10 +58,10 @@
 		<Unit filename="include/IMensajeController.h" />
 		<Unit filename="include/IUsuarioController.h" />
 		<Unit filename="include/Imagen.h" />
-		<Unit filename="include/Mensaje.h" />
 		<Unit filename="include/ManejadorMensaje.h" />
 		<Unit filename="include/ManejadorUsuario.h" />
 		<Unit filename="include/ManejadorUsuarioConversacion.h" />
+		<Unit filename="include/Mensaje.h" />
 		<Unit filename="include/MensajeController.h" />
 		<Unit filename="include/MensajeFactory.h" />
 		<Unit filename="include/Multimedia.h" />
@@ -71,7 +71,9 @@
 		<Unit filename="include/TarjetaContacto.h" />
 		<Unit filename="include/Usuario.h" />
 		<Unit filename="include/UsuarioController.h" />
+		<Unit filename="include/UsuarioConversacion.h" />
 		<Unit filename="include/UsuarioFactory.h" />
+		<Unit filename="include/UsuarioMensaje.h" />
 		<Unit filename="include/Video.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/Conversacion.cpp" />
@@ -91,23 +93,20 @@
 		<Unit filename="src/Estado.cpp" />
 		<Unit filename="src/Fecha.cpp" />
 		<Unit filename="src/FechaHora.cpp" />
-		<Unit filename="src/Grupo.cpp" />
-		<Unit filename="src/Imagen.cpp" />
-		<Unit filename="src/Mensaje.cpp" />
 		<Unit filename="src/ManejadorMensaje.cpp" />
 		<Unit filename="src/ManejadorUsuario.cpp" />
 		<Unit filename="src/ManejadorUsuarioConversacion.cpp" />
+		<Unit filename="src/Mensaje.cpp" />
 		<Unit filename="src/MensajeController.cpp" />
 		<Unit filename="src/MensajeFactory.cpp" />
-		<Unit filename="src/Multimedia.cpp" />
-		<Unit filename="src/Privada.cpp" />
 		<Unit filename="src/Sesion.cpp" />
 		<Unit filename="src/Simple.cpp" />
 		<Unit filename="src/TarjetaContacto.cpp" />
 		<Unit filename="src/Usuario.cpp" />
 		<Unit filename="src/UsuarioController.cpp" />
+		<Unit filename="src/UsuarioConversacion.cpp" />
 		<Unit filename="src/UsuarioFactory.cpp" />
-		<Unit filename="src/Video.cpp" />
+		<Unit filename="src/UsuarioMensaje.cpp" />
 		<Extensions>
 			<code_completion />
 			<debugger />
