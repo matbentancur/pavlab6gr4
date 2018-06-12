@@ -1,0 +1,339 @@
+# depslib dependency file v1.0
+1528075484 source:/home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/main.cpp
+	<iostream>
+
+1528083062 source:/home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/src/Fecha.cpp
+	"Fecha.h"
+
+1528084329 /home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/include/Fecha.h
+	<stdexcept>
+
+1528083599 source:/home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/src/Sesion.cpp
+	"Sesion.h"
+
+1528084323 /home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/include/Sesion.h
+	<string>
+	"EstadoIngreso.h"
+
+1528084368 /home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/include/EstadoIngreso.h
+
+1528084528 source:/home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/src/FechaHora.cpp
+	"FechaHora.h"
+
+1528084340 /home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/include/FechaHora.h
+	"Fecha.h"
+
+1528086119 source:/home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/src/DtContacto.cpp
+	"DtContacto.h"
+
+1528086193 /home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/include/DtContacto.h
+	<string>
+
+1528086676 source:/home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/src/DtConversacion.cpp
+	"DtConversacion.h"
+
+1528086624 /home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/include/DtConversacion.h
+
+1528087804 source:/home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/src/DtPrivada.cpp
+	"DtPrivada.h"
+
+1528087726 /home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/include/DtPrivada.h
+	<string>
+	"DtConversacion.h"
+
+1528088085 source:/home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/src/DtGrupo.cpp
+	"DtGrupo.h"
+
+1528088112 /home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/include/DtGrupo.h
+	<string>
+	"DtConversacion.h"
+
+1528169325 source:/home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/src/DtMensaje.cpp
+	"DtMensaje.h"
+
+1528169197 /home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/include/DtMensaje.h
+	"FechaHora.h"
+
+1528170891 source:/home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/src/DtSimple.cpp
+	"DtSimple.h"
+
+1528172220 /home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/include/DtSimple.h
+	<string>
+	"DtMensaje.h"
+
+1528171267 source:/home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/src/DtImagen.cpp
+	"DtImagen.h"
+
+1528171545 /home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/include/DtImagen.h
+	<string>
+	"DtMensaje.h"
+
+1528171682 source:/home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/src/DtVideo.cpp
+	"DtVideo.h"
+
+1528171701 /home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/include/DtVideo.h
+	<string>
+	"DtMensaje.h"
+
+1528172317 source:/home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/src/DtTarjetaContacto.cpp
+	"DtTarjetaContacto.h"
+
+1528172254 /home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/include/DtTarjetaContacto.h
+	<string>
+	"DtMensaje.h"
+
+1528395461 source:/home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/src/Usuario.cpp
+	"Usuario.h"
+
+1528388605 /home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/include/Usuario.h
+	<string>
+	<set>
+	"Fecha.h"
+	"FechaHora.h"
+	"DtContacto.h"
+	"DtConversacion.h"
+	"DtMensaje.h"
+
+1528397836 source:/home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/src/ConversacionController.cpp
+	"ConversacionController.h"
+
+1528398084 /home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/include/ConversacionController.h
+	"IConversacionController.h"
+
+1528398220 /home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/include/IConversacionController.h
+	<set>
+	"DtConversacion.h"
+
+1528397960 source:/home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/src/ConversacionFactory.cpp
+	"ConversacionFactory.h"
+
+1528397709 /home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/include/ConversacionFactory.h
+	<iostream>
+	"ConversacionController.h"
+	"IConversacionController.h"
+
+1528397167 source:/home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/src/UsuarioController.cpp
+	"UsuarioController.h"
+
+1528398464 /home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/include/UsuarioController.h
+	"IUsuarioController.h"
+
+1528397337 /home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/include/IUsuarioController.h
+	<set>
+	"DtContacto.h"
+	"EstadoIngreso.h"
+	"FechaHora.h"
+
+1528398392 source:/home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/src/UsuarioFactory.cpp
+	"UsuarioFactory.h"
+
+1528397308 /home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/include/UsuarioFactory.h
+	<iostream>
+	"UsuarioController.h"
+	"IUsuarioController.h"
+
+1528395378 source:d:\materias tecnologo\programación avanzada\laboratorio 6\pavlab6gr4-master\guasap\main.cpp
+	<iostream>
+
+1528395378 source:d:\materias tecnologo\programación avanzada\laboratorio 6\pavlab6gr4-master\guasap\src\conversacioncontroller.cpp
+	"ConversacionController.h"
+
+1528395378 d:\materias tecnologo\programación avanzada\laboratorio 6\pavlab6gr4-master\guasap\include\conversacioncontroller.h
+	"IConversacionController.h"
+
+1528395378 d:\materias tecnologo\programación avanzada\laboratorio 6\pavlab6gr4-master\guasap\include\iconversacioncontroller.h
+	<set>
+	"DtConversacion.h"
+
+1528395378 d:\materias tecnologo\programación avanzada\laboratorio 6\pavlab6gr4-master\guasap\include\dtconversacion.h
+
+1528395378 source:d:\materias tecnologo\programación avanzada\laboratorio 6\pavlab6gr4-master\guasap\src\conversacionfactory.cpp
+	"ConversacionFactory.h"
+
+1528395378 d:\materias tecnologo\programación avanzada\laboratorio 6\pavlab6gr4-master\guasap\include\conversacionfactory.h
+	<iostream>
+	"ConversacionController.h"
+	"IConversacionController.h"
+
+1528395378 source:d:\materias tecnologo\programación avanzada\laboratorio 6\pavlab6gr4-master\guasap\src\dtcontacto.cpp
+	"DtContacto.h"
+
+1528395378 d:\materias tecnologo\programación avanzada\laboratorio 6\pavlab6gr4-master\guasap\include\dtcontacto.h
+	<string>
+
+1528395378 source:d:\materias tecnologo\programación avanzada\laboratorio 6\pavlab6gr4-master\guasap\src\dtconversacion.cpp
+	"DtConversacion.h"
+
+1528395378 source:d:\materias tecnologo\programación avanzada\laboratorio 6\pavlab6gr4-master\guasap\src\dtgrupo.cpp
+	"DtGrupo.h"
+
+1528395378 d:\materias tecnologo\programación avanzada\laboratorio 6\pavlab6gr4-master\guasap\include\dtgrupo.h
+	<string>
+	"DtConversacion.h"
+
+1528395378 source:d:\materias tecnologo\programación avanzada\laboratorio 6\pavlab6gr4-master\guasap\src\dtimagen.cpp
+	"DtImagen.h"
+
+1528395378 d:\materias tecnologo\programación avanzada\laboratorio 6\pavlab6gr4-master\guasap\include\dtimagen.h
+	<string>
+	"DtMensaje.h"
+
+1528678754 d:\materias tecnologo\programación avanzada\laboratorio 6\pavlab6gr4-master\guasap\include\dtmensaje.h
+	"FechaHora.h"
+
+1528395378 d:\materias tecnologo\programación avanzada\laboratorio 6\pavlab6gr4-master\guasap\include\fechahora.h
+	"Fecha.h"
+
+1528395378 d:\materias tecnologo\programación avanzada\laboratorio 6\pavlab6gr4-master\guasap\include\fecha.h
+	<stdexcept>
+
+1528395378 source:d:\materias tecnologo\programación avanzada\laboratorio 6\pavlab6gr4-master\guasap\src\dtmensaje.cpp
+	"DtMensaje.h"
+
+1528395378 source:d:\materias tecnologo\programación avanzada\laboratorio 6\pavlab6gr4-master\guasap\src\dtprivada.cpp
+	"DtPrivada.h"
+
+1528395378 d:\materias tecnologo\programación avanzada\laboratorio 6\pavlab6gr4-master\guasap\include\dtprivada.h
+	<string>
+	"DtConversacion.h"
+
+1528395378 source:d:\materias tecnologo\programación avanzada\laboratorio 6\pavlab6gr4-master\guasap\src\dtsimple.cpp
+	"DtSimple.h"
+
+1528395378 d:\materias tecnologo\programación avanzada\laboratorio 6\pavlab6gr4-master\guasap\include\dtsimple.h
+	<string>
+	"DtMensaje.h"
+
+1528395378 source:d:\materias tecnologo\programación avanzada\laboratorio 6\pavlab6gr4-master\guasap\src\dttarjetacontacto.cpp
+	"DtTarjetaContacto.h"
+
+1528395378 d:\materias tecnologo\programación avanzada\laboratorio 6\pavlab6gr4-master\guasap\include\dttarjetacontacto.h
+	<string>
+	"DtMensaje.h"
+
+1528395378 source:d:\materias tecnologo\programación avanzada\laboratorio 6\pavlab6gr4-master\guasap\src\dtvideo.cpp
+	"DtVideo.h"
+
+1528395378 d:\materias tecnologo\programación avanzada\laboratorio 6\pavlab6gr4-master\guasap\include\dtvideo.h
+	<string>
+	"DtMensaje.h"
+
+1528395378 source:d:\materias tecnologo\programación avanzada\laboratorio 6\pavlab6gr4-master\guasap\src\fecha.cpp
+	"Fecha.h"
+
+1528395378 source:d:\materias tecnologo\programación avanzada\laboratorio 6\pavlab6gr4-master\guasap\src\fechahora.cpp
+	"FechaHora.h"
+
+1528395378 source:d:\materias tecnologo\programación avanzada\laboratorio 6\pavlab6gr4-master\guasap\src\mensajecontroller.cpp
+	"MensajeController.h"
+
+1528395378 d:\materias tecnologo\programación avanzada\laboratorio 6\pavlab6gr4-master\guasap\include\mensajecontroller.h
+	"IMensajeController.h"
+
+1528395378 d:\materias tecnologo\programación avanzada\laboratorio 6\pavlab6gr4-master\guasap\include\imensajecontroller.h
+	<set>
+	"DtMensaje.h"
+	"DtImagen.h"
+	"DtSimple.h"
+
+1528395378 source:d:\materias tecnologo\programación avanzada\laboratorio 6\pavlab6gr4-master\guasap\src\sesion.cpp
+	"Sesion.h"
+
+1528395378 d:\materias tecnologo\programación avanzada\laboratorio 6\pavlab6gr4-master\guasap\include\sesion.h
+	<string>
+	"EstadoIngreso.h"
+
+1528395378 d:\materias tecnologo\programación avanzada\laboratorio 6\pavlab6gr4-master\guasap\include\estadoingreso.h
+
+1528395378 source:d:\materias tecnologo\programación avanzada\laboratorio 6\pavlab6gr4-master\guasap\src\usuario.cpp
+	"Usuario.h"
+
+1528395378 d:\materias tecnologo\programación avanzada\laboratorio 6\pavlab6gr4-master\guasap\include\usuario.h
+	<string>
+	<set>
+	"Fecha.h"
+	"FechaHora.h"
+	"DtContacto.h"
+	"DtConversacion.h"
+	"DtMensaje.h"
+
+1528395378 source:d:\materias tecnologo\programación avanzada\laboratorio 6\pavlab6gr4-master\guasap\src\usuariocontroller.cpp
+	"UsuarioController.h"
+
+1528395378 d:\materias tecnologo\programación avanzada\laboratorio 6\pavlab6gr4-master\guasap\include\usuariocontroller.h
+	"IUsuarioController.h"
+
+1528395378 d:\materias tecnologo\programación avanzada\laboratorio 6\pavlab6gr4-master\guasap\include\iusuariocontroller.h
+	<set>
+	"DtContacto.h"
+	"EstadoIngreso.h"
+	"FechaHora.h"
+
+1528395378 source:d:\materias tecnologo\programación avanzada\laboratorio 6\pavlab6gr4-master\guasap\src\usuariofactory.cpp
+	"UsuarioFactory.h"
+
+1528395378 d:\materias tecnologo\programación avanzada\laboratorio 6\pavlab6gr4-master\guasap\include\usuariofactory.h
+	<iostream>
+	"UsuarioController.h"
+	"IUsuarioController.h"
+
+1528605792 source:d:\materias tecnologo\programación avanzada\laboratorio 6\pavlab6gr4-master\guasap\src\dtreceptor.cpp
+	"DtReceptor.h"
+
+1528605293 d:\materias tecnologo\programación avanzada\laboratorio 6\pavlab6gr4-master\guasap\include\dtreceptor.h
+	<string>
+	"FechaHora.h"
+
+1528606413 source:d:\materias tecnologo\programación avanzada\laboratorio 6\pavlab6gr4-master\guasap\src\dtparticipante.cpp
+	"DtParticipante.h"
+
+1528606130 d:\materias tecnologo\programación avanzada\laboratorio 6\pavlab6gr4-master\guasap\include\dtparticipante.h
+	<string>
+	"FechaHora.h"
+
+1528612466 source:d:\materias tecnologo\programación avanzada\laboratorio 6\pavlab6gr4-master\guasap\src\estado.cpp
+	"Estado.h"
+
+1528650838 d:\materias tecnologo\programación avanzada\laboratorio 6\pavlab6gr4-master\guasap\include\estado.h
+	<string>
+	"FechaHora.h"
+
+1528689419 source:d:\materias tecnologo\programación avanzada\laboratorio 6\pavlab6gr4-master\guasap\src\mensaje.cpp
+	"Mensaje.h"
+
+1528689319 d:\materias tecnologo\programación avanzada\laboratorio 6\pavlab6gr4-master\guasap\include\mensaje.h
+	"FechaHora.h"
+	"DtMensaje.h"
+	"DtReceptor.h"
+	<set>
+
+1528682693 source:d:\materias tecnologo\programación avanzada\laboratorio 6\pavlab6gr4-master\guasap\src\simple.cpp
+	"Simple.h"
+
+1528687291 d:\materias tecnologo\programación avanzada\laboratorio 6\pavlab6gr4-master\guasap\include\simple.h
+	"DtSimple.h"
+
+1528684407 source:d:\materias tecnologo\programación avanzada\laboratorio 6\pavlab6gr4-master\guasap\src\tarjetacontacto.cpp
+	"TarjetaContacto.h"
+
+1528683905 d:\materias tecnologo\programación avanzada\laboratorio 6\pavlab6gr4-master\guasap\include\tarjetacontacto.h
+	"DtTarjetaContacto.h"
+	"Mensaje.h"
+
+1528685918 source:d:\materias tecnologo\programación avanzada\laboratorio 6\pavlab6gr4-master\guasap\src\imagen.cpp
+
+1528685863 source:d:\materias tecnologo\programación avanzada\laboratorio 6\pavlab6gr4-master\guasap\src\multimedia.cpp
+
+1528688993 source:d:\materias tecnologo\programación avanzada\laboratorio 6\pavlab6gr4-master\guasap\src\grupo.cpp
+
+1528777038 source:d:\materias tecnologo\programación avanzada\laboratorio 6\pavlab6gr4-master\guasap\src\conversacion.cpp
+	"Conversacion.h"
+
+1528777071 d:\materias tecnologo\programación avanzada\laboratorio 6\pavlab6gr4-master\guasap\include\conversacion.h
+	"DtConversacion.h"
+	"DtMensaje.h"
+	"DtReceptor.h"
+	<set>
+
+1528688943 source:d:\materias tecnologo\programación avanzada\laboratorio 6\pavlab6gr4-master\guasap\src\privada.cpp
+
