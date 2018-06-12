@@ -1,106 +1,143 @@
 # depslib dependency file v1.0
-1528075484 source:/home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/main.cpp
+1528666788 source:/home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/main.cpp
 	<iostream>
+	<sstream>
+	<cstdlib>
+	<iostream>
+	<stdio.h>
+	<stdexcept>
+	<typeinfo>
 
-1528395378 
+1528083062 
 
 1528083062 source:/home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/src/Fecha.cpp
+	"Fecha.h"
 	"Fecha.h"
 
 1528084329 /home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/include/Fecha.h
 	<stdexcept>
+	<stdexcept>
 
-1528395378 >
+1528084329 >
 
 1528083599 source:/home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/src/Sesion.cpp
+	"Sesion.h"
 	"Sesion.h"
 
 1528084323 /home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/include/Sesion.h
 	<string>
 	"EstadoIngreso.h"
+	<string>
+	"EstadoIngreso.h"
 
-1528395378 reso.h"
+1528084323 reso.h"
 
 1528084368 /home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/include/EstadoIngreso.h
 
 1528084528 source:/home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/src/FechaHora.cpp
 	"FechaHora.h"
+	"FechaHora.h"
 
-1528606130 .h"
+1528666961 .h"
 
 1528084340 /home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/include/FechaHora.h
+	"Fecha.h"
 	"Fecha.h"
 
 1528086119 source:/home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/src/DtContacto.cpp
 	"DtContacto.h"
+	"DtContacto.h"
 
-1528395378 o.h"
+1528086119 o.h"
 
 1528086193 /home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/include/DtContacto.h
+	<string>
 	<string>
 
 1528086676 source:/home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/src/DtConversacion.cpp
 	"DtConversacion.h"
+	"DtConversacion.h"
 
-1528395378 acion.h"
+1528087726 acion.h"
 
 1528086624 /home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/include/DtConversacion.h
 
 1528087804 source:/home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/src/DtPrivada.cpp
 	"DtPrivada.h"
+	"DtPrivada.h"
 
 1528087726 /home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/include/DtPrivada.h
+	<string>
+	"DtConversacion.h"
 	<string>
 	"DtConversacion.h"
 
 1528088085 source:/home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/src/DtGrupo.cpp
 	"DtGrupo.h"
+	"DtGrupo.h"
 
-1528395378 "
+1528395461 "
 
 1528088112 /home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/include/DtGrupo.h
+	<string>
+	"DtConversacion.h"
 	<string>
 	"DtConversacion.h"
 
 1528169325 source:/home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/src/DtMensaje.cpp
 	"DtMensaje.h"
+	"DtMensaje.h"
 
 1528169197 /home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/include/DtMensaje.h
+	"FechaHora.h"
 	"FechaHora.h"
 
 1528170891 source:/home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/src/DtSimple.cpp
 	"DtSimple.h"
+	"DtSimple.h"
 
-1528395378 h"
+1528398912 h"
 
 1528172220 /home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/include/DtSimple.h
 	<string>
 	"DtMensaje.h"
+	<string>
+	"DtMensaje.h"
 
-1528171267 source:/home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/src/DtImagen.cpp
+1528171349 source:/home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/src/DtImagen.cpp
+	"DtImagen.h"
 	"DtImagen.h"
 
 1528171545 /home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/include/DtImagen.h
 	<string>
 	"DtMensaje.h"
+	<string>
+	"DtMensaje.h"
 
 1528171682 source:/home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/src/DtVideo.cpp
+	"DtVideo.h"
 	"DtVideo.h"
 
 1528171701 /home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/include/DtVideo.h
 	<string>
 	"DtMensaje.h"
+	<string>
+	"DtMensaje.h"
 
 1528172317 source:/home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/src/DtTarjetaContacto.cpp
 	"DtTarjetaContacto.h"
+	"DtTarjetaContacto.h"
 
-1528395378 Contacto.h"
+1528172317 Contacto.h"
 
 1528172254 /home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/include/DtTarjetaContacto.h
 	<string>
 	"DtMensaje.h"
+	<string>
+	"DtMensaje.h"
 
 1528395461 source:/home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/src/Usuario.cpp
+	"Usuario.h"
 	"Usuario.h"
 
 1528388605 /home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/include/Usuario.h
@@ -111,42 +148,63 @@
 	"DtContacto.h"
 	"DtConversacion.h"
 	"DtMensaje.h"
+	<string>
+	<set>
+	"Fecha.h"
+	"FechaHora.h"
+	"DtContacto.h"
+	"DtConversacion.h"
+	"DtMensaje.h"
 
 1528397836 source:/home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/src/ConversacionController.cpp
 	"ConversacionController.h"
+	"ConversacionController.h"
 
-1528395378 ionController.h"
+1528397836 ionController.h"
 
 1528398084 /home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/include/ConversacionController.h
 	"IConversacionController.h"
+	"IConversacionController.h"
 
-1528395378 cionController.h"
+1528397709 cionController.h"
 
 1528398220 /home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/include/IConversacionController.h
+	<set>
+	"DtConversacion.h"
 	<set>
 	"DtConversacion.h"
 
 1528397960 source:/home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/src/ConversacionFactory.cpp
 	"ConversacionFactory.h"
+	"ConversacionFactory.h"
 
-1528395378 ionFactory.h"
+1528397960 ionFactory.h"
 
 1528397709 /home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/include/ConversacionFactory.h
+	<iostream>
+	"ConversacionController.h"
+	"IConversacionController.h"
 	<iostream>
 	"ConversacionController.h"
 	"IConversacionController.h"
 
 1528397167 source:/home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/src/UsuarioController.cpp
 	"UsuarioController.h"
+	"UsuarioController.h"
 
-1528395378 ntroller.h"
+1528397167 ntroller.h"
 
 1528398464 /home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/include/UsuarioController.h
 	"IUsuarioController.h"
+	"IUsuarioController.h"
 
-1528395378 ontroller.h"
+1528397308 ontroller.h"
 
 1528397337 /home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/include/IUsuarioController.h
+	<set>
+	"DtContacto.h"
+	"EstadoIngreso.h"
+	"FechaHora.h"
 	<set>
 	"DtContacto.h"
 	"EstadoIngreso.h"
@@ -154,10 +212,14 @@
 
 1528398392 source:/home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/src/UsuarioFactory.cpp
 	"UsuarioFactory.h"
+	"UsuarioFactory.h"
 
-1528395378 ctory.h"
+1528666961 ctory.h"
 
 1528397308 /home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/include/UsuarioFactory.h
+	<iostream>
+	"UsuarioController.h"
+	"IUsuarioController.h"
 	<iostream>
 	"UsuarioController.h"
 	"IUsuarioController.h"
@@ -207,8 +269,6 @@
 1528395378 d:\materias tecnologo\programación avanzada\laboratorio 6\pavlab6gr4-master\guasap\include\dtimagen.h
 	<string>
 	"DtMensaje.h"
-
-1528678754 d:\materias tecnologo\programación avanzada\laboratorio 6\pavlab6gr4-master\guasap\include\dtmensaje.h
 
 1528395378 d:\materias tecnologo\programación avanzada\laboratorio 6\pavlab6gr4-master\guasap\include\dtmensaje.h
 	"FechaHora.h"
@@ -312,7 +372,7 @@
 1528605792 source:d:\materias tecnologo\programación avanzada\laboratorio 6\pavlab6gr4-master\guasap\src\dtreceptor.cpp
 	"DtReceptor.h"
 
-1528605792 r.h"
+1528666961 r.h"
 
 1528605293 d:\materias tecnologo\programación avanzada\laboratorio 6\pavlab6gr4-master\guasap\include\dtreceptor.h
 	<string>
@@ -321,7 +381,7 @@
 1528606413 source:d:\materias tecnologo\programación avanzada\laboratorio 6\pavlab6gr4-master\guasap\src\dtparticipante.cpp
 	"DtParticipante.h"
 
-1528606413 pante.h"
+1528666961 pante.h"
 
 1528606130 d:\materias tecnologo\programación avanzada\laboratorio 6\pavlab6gr4-master\guasap\include\dtparticipante.h
 	<string>
@@ -352,6 +412,8 @@
 1528684407 source:d:\materias tecnologo\programación avanzada\laboratorio 6\pavlab6gr4-master\guasap\src\tarjetacontacto.cpp
 	"TarjetaContacto.h"
 
+1528684407 ntacto.h"
+
 1528683905 d:\materias tecnologo\programación avanzada\laboratorio 6\pavlab6gr4-master\guasap\include\tarjetacontacto.h
 	"DtTarjetaContacto.h"
 	"Mensaje.h"
@@ -365,6 +427,8 @@
 1528690410 source:d:\materias tecnologo\programación avanzada\laboratorio 6\pavlab6gr4-master\guasap\src\conversacion.cpp
 	"Conversacion.h"
 
+1528690410 ion.h"
+
 1528690442 d:\materias tecnologo\programación avanzada\laboratorio 6\pavlab6gr4-master\guasap\include\conversacion.h
 	"DtConversacion.h"
 	"DtMensaje.h"
@@ -373,6 +437,47 @@
 
 1528688943 source:d:\materias tecnologo\programación avanzada\laboratorio 6\pavlab6gr4-master\guasap\src\privada.cpp
 
+1528666961 source:/home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/src/DtParticipante.cpp
+	"DtParticipante.h"
+
+1528666961 /home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/include/DtParticipante.h
+	<string>
+	"FechaHora.h"
+
+1528666961 source:/home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/src/DtReceptor.cpp
+	"DtReceptor.h"
+
+1528666961 /home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/include/DtReceptor.h
+	<string>
+	"FechaHora.h"
+
+1528398572 source:/home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/src/MensajeController.cpp
+	"MensajeController.h"
+
+1528667135 /home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/include/MensajeController.h
+	"IMensajeController.h"
+
+1528398912 /home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/include/IMensajeController.h
+	<set>
+	"DtMensaje.h"
+	"DtImagen.h"
+	"DtSimple.h"
+
+1528666961 source:/home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/src/Estado.cpp
+	"Estado.h"
+
+1528666961 /home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/include/Estado.h
+	<string>
+	"FechaHora.h"
+
+1528666961 source:/home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/src/MensajeFactory.cpp
+	"MensajeFactory.h"
+
+1528666961 /home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/include/MensajeFactory.h
+	<iostream>
+	"IMensajeController.h"
+	"MensajeController.h"
+
 1528666788 source:/home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/main.cpp
 	<sstream>
 	<cstdlib>
@@ -380,6 +485,30 @@
 	<stdio.h>
 	<stdexcept>
 	<typeinfo>
+
+1528768079 source:/home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/src/Conversacion.cpp
+	"Conversacion.h"
+
+1528768079 /home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/include/Conversacion.h
+	"DtConversacion.h"
+	"DtMensaje.h"
+	"DtReceptor.h"
+	<set>
+
+1528086624 /home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/include/DtConversacion.h
+
+1528169197 /home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/include/DtMensaje.h
+	"FechaHora.h"
+
+1528084340 /home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/include/FechaHora.h
+	"Fecha.h"
+
+1528084329 /home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/include/Fecha.h
+	<stdexcept>
+
+1528686127 /home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/include/DtReceptor.h
+	<string>
+	"FechaHora.h"
 
 1528397836 source:/home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/src/ConversacionController.cpp
 	"ConversacionController.h"
@@ -390,8 +519,6 @@
 1528398220 /home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/include/IConversacionController.h
 	<set>
 	"DtConversacion.h"
-
-1528086624 /home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/include/DtConversacion.h
 
 1528397960 source:/home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/src/ConversacionFactory.cpp
 	"ConversacionFactory.h"
@@ -424,15 +551,6 @@
 	<string>
 	"DtMensaje.h"
 
-1528169197 /home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/include/DtMensaje.h
-	"FechaHora.h"
-
-1528084340 /home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/include/FechaHora.h
-	"Fecha.h"
-
-1528084329 /home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/include/Fecha.h
-	<stdexcept>
-
 1528169325 source:/home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/src/DtMensaje.cpp
 	"DtMensaje.h"
 
@@ -449,13 +567,6 @@
 1528087726 /home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/include/DtPrivada.h
 	<string>
 	"DtConversacion.h"
-
-1528666961 source:/home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/src/DtReceptor.cpp
-	"DtReceptor.h"
-
-1528666961 /home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/include/DtReceptor.h
-	<string>
-	"FechaHora.h"
 
 1528170891 source:/home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/src/DtSimple.cpp
 	"DtSimple.h"
@@ -478,11 +589,27 @@
 	<string>
 	"DtMensaje.h"
 
+1528666961 source:/home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/src/Estado.cpp
+	"Estado.h"
+
+1528666961 /home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/include/Estado.h
+	<string>
+	"FechaHora.h"
+
 1528083062 source:/home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/src/Fecha.cpp
 	"Fecha.h"
 
 1528084528 source:/home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/src/FechaHora.cpp
 	"FechaHora.h"
+
+1528768079 source:/home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/src/Mensaje.cpp
+	"Mensaje.h"
+
+1528769017 /home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/include/Mensaje.h
+	"FechaHora.h"
+	"DtMensaje.h"
+	"DtReceptor.h"
+	<set>
 
 1528398572 source:/home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/src/MensajeController.cpp
 	"MensajeController.h"
@@ -496,6 +623,14 @@
 	"DtImagen.h"
 	"DtSimple.h"
 
+1528666961 source:/home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/src/MensajeFactory.cpp
+	"MensajeFactory.h"
+
+1528666961 /home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/include/MensajeFactory.h
+	<iostream>
+	"IMensajeController.h"
+	"MensajeController.h"
+
 1528083599 source:/home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/src/Sesion.cpp
 	"Sesion.h"
 
@@ -505,12 +640,13 @@
 
 1528084368 /home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/include/EstadoIngreso.h
 
-1528395461 source:/home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/src/Usuario.cpp
+1528685761 source:/home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/src/Usuario.cpp
 	"Usuario.h"
 
-1528388605 /home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/include/Usuario.h
+1528685225 /home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/include/Usuario.h
 	<string>
 	<set>
+	<map>
 	"Fecha.h"
 	"FechaHora.h"
 	"DtContacto.h"
@@ -537,17 +673,47 @@
 	"UsuarioController.h"
 	"IUsuarioController.h"
 
-1528666961 source:/home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/src/Estado.cpp
-	"Estado.h"
+1528686127 source:/home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/src/DtReceptor.cpp
+	"DtReceptor.h"
 
-1528666961 /home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/include/Estado.h
-	<string>
-	"FechaHora.h"
+1528686127 source:/home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/src/ManejadorMensaje.cpp
 
-1528666961 source:/home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/src/MensajeFactory.cpp
-	"MensajeFactory.h"
-
-1528666961 /home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/include/MensajeFactory.h
+1528666788 source:/home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/src/ManejadorUsuario.cpp
+	"ManejadorUsuario.h"
 	<iostream>
-	"IMensajeController.h"
-	"MensajeController.h"
+
+1528666788 /home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/include/ManejadorUsuario.h
+	"Usuario.h"
+	<map>
+
+1528686127 source:/home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/src/ManejadorUsuarioConversacion.cpp
+	"ManejadorUsuarioConversacion.h"
+	<iostream>
+
+1528686127 /home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/include/ManejadorUsuarioConversacion.h
+	"UsuarioConversacion.h"
+	<map>
+
+1528686127 /home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/include/UsuarioConversacion.h
+	<set>
+	"EstadoConversacion.h"
+	"DtContacto.h"
+	"DtMensaje.h"
+	"DtReceptor.h"
+
+1528084364 /home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/include/EstadoConversacion.h
+
+1528768553 source:/home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/src/Simple.cpp
+	"Simple.h"
+
+1528768552 /home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/include/Simple.h
+	"DtSimple.h"
+	"Mensaje.h"
+
+1528768952 source:/home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/src/TarjetaContacto.cpp
+	"TarjetaContacto.h"
+
+1528768667 /home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/include/TarjetaContacto.h
+	"DtTarjetaContacto.h"
+	"Mensaje.h"
+

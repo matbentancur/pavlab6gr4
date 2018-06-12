@@ -10,10 +10,10 @@ using namespace std;
 
 class Mensaje{
 
-    private:
-        int       codigo;
+    protected:
+        int codigo;
         FechaHora enviado;
-        bool      visto;
+        bool visto;
     public:
         Mensaje(DtMensaje&);
         Mensaje(int,FechaHora,bool);
@@ -26,7 +26,7 @@ class Mensaje{
         void setVisto(bool);
 
         ~Mensaje();
-        virtual DtMensaje getDtMensaje()=0;
+//        virtual DtMensaje getDtMensaje() = 0;
         set <DtReceptor*> getReceptores();
 };
 

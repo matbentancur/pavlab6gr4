@@ -9,7 +9,6 @@ class Simple : public Mensaje{
     private:
         string texto;
     public:
-        Simple(DtSimple&);
         Simple(int,FechaHora,bool,string);
 
         string getTexto();

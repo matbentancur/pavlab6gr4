@@ -1,16 +1,6 @@
 #include "Simple.h"
 
-Simple::Simple(DtSimple &dtSimple){
-    this->setCodigo(dtSimple.getCodigo());
-    this->setEnviado(dtSimple.getEnviado());
-    this->setVisto(dtSimple.getVisto());
-    this->texto = texto;
-}
-
-Simple::Simple(int codigo,FechaHora enviado,bool visto,string texto){
-    this->setCodigo(codigo);
-    this->setEnviado(enviado);
-    this->setVisto(visto);
+Simple::Simple(int codigo,FechaHora enviado,bool visto,string texto) : Mensaje(codigo, enviado, visto){
     this->texto = texto;
 }
 
