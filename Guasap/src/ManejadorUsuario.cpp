@@ -15,6 +15,14 @@ Usuario* ManejadorUsuario::findUsuario(string celular){
     return this->usuarios[celular];
 }
 
+bool ManejadorUsuario::existeUsuario(int idUsuario){
+    if(findUsuario(idUsuario) == NULL){
+        return false;
+    }else{
+        return true;
+    }
+}
+
 ManejadorUsuario::~ManejadorUsuario(){
     map<string,Usuario*>::iterator i;
     for(i = usuarios.begin(); i !=usuarios.end();++i)

@@ -22,8 +22,8 @@ bool UsuarioController::confirmarContacto(){
 
 }
 
-EstadoIngreso UsuarioController::ingresar(string){
-
+EstadoIngreso UsuarioController::ingresar(string celularIngresado){
+    return Sesion.getEstado(celularIngresado);
 }
 
 FechaHora UsuarioController::crearUsuario(string,string,string){
