@@ -19,8 +19,8 @@ class IUsuarioController {
         virtual DtContacto agregarContacto(string) = 0;
 //        virtual bool confirmarContacto() = 0;
 //        virtual EstadoIngreso ingresar(string) = 0;
-//        virtual FechaHora crearUsuario(string,string,string,string) = 0;
-//        virtual bool modificarUsuario(string,string,string) = 0;
+        virtual FechaHora crearUsuario(string,string,string,string) = 0;
+        virtual void modificarUsuario(string,string,string) = 0;
 //        virtual void cerrarGuasap(string) = 0;
 
         virtual ~IUsuarioController() {}
