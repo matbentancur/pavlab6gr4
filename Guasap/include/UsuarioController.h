@@ -2,6 +2,7 @@
 #define USUARIOCONTROLLER_H
 
 #include "IUsuarioController.h"
+#include "Sesion.h"
 
 class UsuarioController : public IUsuarioController {
     private:
@@ -11,7 +12,7 @@ class UsuarioController : public IUsuarioController {
         UsuarioController();
         virtual ~UsuarioController();
 
-        set<DtContacto*> listarContactos();
+        map<string,DtContacto> listarContactos();
         DtContacto agregarContacto(string);
         bool confirmarContacto();
         EstadoIngreso ingresar(string);

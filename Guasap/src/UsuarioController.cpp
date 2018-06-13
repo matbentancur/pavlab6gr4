@@ -1,5 +1,4 @@
 #include "UsuarioController.h"
-#include "Sesion.h"
 
 UsuarioController::UsuarioController()
 {
@@ -11,9 +10,12 @@ UsuarioController::~UsuarioController()
     //dtor
 }
 
-//set<DtContacto*> UsuarioController::listarContactos(){
-//
-//}
+map<string,DtContacto> UsuarioController::listarContactos(){
+    Sesion* sesion = Sesion::getInstancia();
+    ManejadorUsuario* manejadorUsuario = ManejadorUsuario::getInstancia();
+    Usuario* usuario = manejadorUsuario->findUsuario(sesion->getSesion());
+    return usuario->obtenerContactos();
+}
 
 //DtContacto UsuarioController::agregarContacto(string){
 //
@@ -35,19 +37,16 @@ FechaHora UsuarioController::crearUsuario(string celular, string nombre, string 
     usuario->registro = registro;
     ManejadorUsuario* manejadorUsuario = ManejadorUsuario::getInstancia();
     manejadorUsuario->agregarUsuario(usuario);
-
     return registro;
 }
 
 void UsuarioController::modificarUsuario(string nombre, string imagen, string descripcion){
-
     Sesion* sesion = Sesion::getInstancia();
     ManejadorUsuario* manejadorUsuario = ManejadorUsuario::getInstancia();
     Usuario* usuario = manejadorUsuario->findUsuario(sesion->getSesion());
     usuario->setNombre(nombre);
     usuario->setImagen(imagen);
     usuario->setDescripcion(descripcion);
-
 }
 
 void UsuarioController::cerrarGuasap(string){
