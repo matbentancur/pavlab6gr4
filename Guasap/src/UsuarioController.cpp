@@ -17,9 +17,19 @@ map<string,DtContacto> UsuarioController::listarContactos(){
     return usuario->obtenerContactos();
 }
 
-//DtContacto UsuarioController::agregarContacto(string){
-//
-//}
+DtContacto UsuarioController::agregarContacto(string celular){
+    Sesion* sesion = Sesion::getInstancia();
+    ManejadorUsuario* manejadorUsuario = ManejadorUsuario::getInstancia();
+    Usuario* usuario = manejadorUsuario->findUsuario(sesion->getSesion());
+    Usuario* contacto = manejadorUsuario->findUsuario(celular);
+    if(usuario->agregarContacto(contacto)){
+        return contacto->getDtContacto();
+    }
+    else{
+        throw invalid_argument("\nNo se pudo agregar el contacto");
+    }
+}
+
 
 bool UsuarioController::confirmarContacto(){
     return true;
