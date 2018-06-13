@@ -15,8 +15,8 @@ using namespace std;
 class IUsuarioController {
     public:
 
-//        virtual set<DtContacto*> listarContactos() = 0;
-//        virtual DtContacto agregarContacto(string) = 0;
+        virtual map<string,DtContacto> listarContactos() = 0;
+        virtual DtContacto agregarContacto(string) = 0;
 //        virtual bool confirmarContacto() = 0;
 //        virtual EstadoIngreso ingresar(string) = 0;
 //        virtual FechaHora crearUsuario(string,string,string,string) = 0;
