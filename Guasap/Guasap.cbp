@@ -93,12 +93,16 @@
 		<Unit filename="src/Estado.cpp" />
 		<Unit filename="src/Fecha.cpp" />
 		<Unit filename="src/FechaHora.cpp" />
+		<Unit filename="src/Grupo.cpp" />
+		<Unit filename="src/Imagen.cpp" />
 		<Unit filename="src/ManejadorMensaje.cpp" />
 		<Unit filename="src/ManejadorUsuario.cpp" />
 		<Unit filename="src/ManejadorUsuarioConversacion.cpp" />
 		<Unit filename="src/Mensaje.cpp" />
 		<Unit filename="src/MensajeController.cpp" />
 		<Unit filename="src/MensajeFactory.cpp" />
+		<Unit filename="src/Multimedia.cpp" />
+		<Unit filename="src/Privada.cpp" />
 		<Unit filename="src/Sesion.cpp" />
 		<Unit filename="src/Simple.cpp" />
 		<Unit filename="src/TarjetaContacto.cpp" />
@@ -107,6 +111,7 @@
 		<Unit filename="src/UsuarioConversacion.cpp" />
 		<Unit filename="src/UsuarioFactory.cpp" />
 		<Unit filename="src/UsuarioMensaje.cpp" />
+		<Unit filename="src/Video.cpp" />
 		<Extensions>
 			<code_completion />
 			<debugger />
