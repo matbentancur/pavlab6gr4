@@ -26,7 +26,7 @@ bool ManejadorUsuario::agregarUsuario(Usuario* usuario){
 }
 
 bool ManejadorUsuario::existeUsuario(string idUsuario){
-    if(findUsuario(idUsuario) == NULL){
+    if(this->usuarios.find(idUsuario) == this->usuarios.end()){
         return false;
     }else{
         return true;

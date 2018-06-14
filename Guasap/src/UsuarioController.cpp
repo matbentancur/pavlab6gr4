@@ -36,9 +36,8 @@ bool UsuarioController::confirmarContacto(){
 }
 
 EstadoIngreso UsuarioController::ingresar(string celularIngresado){
-    //Sesion* sesion = Sesion::getInstancia();
-//    return sesion->getEstado(celularIngresado);
-    return userOK;
+    Sesion* sesion = Sesion::getInstancia();
+    return sesion->getEstado(celularIngresado);
 }
 
 FechaHora UsuarioController::crearUsuario(string celular, string nombre, string imagen, string descripcion){
