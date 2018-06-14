@@ -16,6 +16,7 @@ class Sesion {
     public:
         virtual ~Sesion();
         string getSesion();
+        void setSesion(string);
         static Sesion* getInstancia();
         EstadoIngreso getEstado(string);
 };

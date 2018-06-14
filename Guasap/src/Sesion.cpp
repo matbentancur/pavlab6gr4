@@ -11,7 +11,7 @@ Sesion* Sesion::getInstancia(){
 
 Sesion::Sesion()
 {
-    //ctor
+    this->celular = "NULL";
 }
 
 Sesion::~Sesion()
@@ -23,26 +23,27 @@ string Sesion::getSesion(){
     return this->celular;
 }
 
-//EstadoIngreso Sesion::getEstado(string celularIngresado){
-//    ManejadorUsuario* manejadorUsuario = ManejadorUsuario::getInstancia();
-//    if(!(manejadorUsuario->existeUsuario(celularIngresado))){
-//        return userOK;
-//    }else if(manejadorUsuario->existeUsuario(celularIngresado)){
-//        if(this->celular == NULL){
-//            this.celular = celularIngresado;
-//            return userInexistente;
-//        }
-//    }else if(manejadorUsuario->existeUsuario(celularIngresado)){
-//        if(celularIngresado == this->celular){
-//            if(this->celular != NULL && this.celular == celularIngresado){
-//                return igualUserLog;
-//            }
-//        }
-//    }else if(manejadorUsuario->existeUsuario(celularIngresado)){
-//        if(celularIngresado == this->celular){
-//            if(this->celular != NULL && this.celular != celularIngresado){
-//                return distintoUserLog;
-//            }
-//        }
-//    }
-//}
+void Sesion::setSesion(string celular){
+    this->celular = celular;
+}
+
+EstadoIngreso Sesion::getEstado(string celularIngresado){
+    ManejadorUsuario* manejadorUsuario = ManejadorUsuario::getInstancia();
+    EstadoIngreso estadoIngreso;
+    if(manejadorUsuario->existeUsuario(celularIngresado)){
+        if(this->celular == "NULL"){
+            this->celular = celularIngresado;
+            estadoIngreso = userOK;
+        }else if(this->celular != "NULL"){
+            if(this->celular == celularIngresado){
+                estadoIngreso = igualUserLog;
+            }else if(this->celular != celularIngresado){
+                estadoIngreso = distintoUserLog;
+            }
+        }
+    }
+    if(!(manejadorUsuario->existeUsuario(celularIngresado))){
+        estadoIngreso = userInexistente;
+    }
+    return estadoIngreso;
+}
