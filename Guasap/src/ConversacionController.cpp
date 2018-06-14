@@ -14,13 +14,19 @@ ConversacionController::~ConversacionController()
 //
 //}
 //
-//set<DtConversacion*> ConversacionController::listarConversacionesActivas(){
-//
-//}
-//
-//set<DtConversacion*> ConversacionController::listarConversacionesArchivadas(){
-//
-//}
+map<int,DtConversacion> ConversacionController::listarConversacionesActivas(){
+    Sesion* sesion = Sesion::getInstancia();
+    ManejadorUsuario* manejadorUsuario = ManejadorUsuario::getInstancia();
+    Usuario* usuario = manejadorUsuario->findUsuario(sesion->getSesion());
+    return usuario->obtenerConversacionesActivas();
+}
+
+map<int,DtConversacion> ConversacionController::listarConversacionesArchivadas(){
+    Sesion* sesion = Sesion::getInstancia();
+    ManejadorUsuario* manejadorUsuario = ManejadorUsuario::getInstancia();
+    Usuario* usuario = manejadorUsuario->findUsuario(sesion->getSesion());
+    return usuario->obtenerConversacionesArchivadas();
+}
 //
 //bool ConversacionController::archivarConversacion(){
 //

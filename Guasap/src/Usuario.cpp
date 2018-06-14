@@ -102,15 +102,26 @@ map<int,DtConversacion> Usuario::obtenerConversacionesActivas(){
 	set<UsuarioConversacion*>::iterator i;
     for(i = usuarioConversacion.begin(); i != usuarioConversacion.end(); ++i){
         UsuarioConversacion * usuarioConversacion = *i;
+        if (usuarioConversacion->getEstado() == 1){
         DtConversacion dtConversacion = usuarioConversacion->obtenerConversacion();
         listaConversaciones.insert(std::pair<int, DtConversacion>(dtConversacion.getIdConversacion(), dtConversacion));
+        }
 	}
 	return listaConversaciones;
 }
-//
-//set<DtConversacion*> Usuario::obtenerConversacionesArchivadas(){
-//
-//}
+
+map<int,DtConversacion> Usuario::obtenerConversacionesArchivadas(){
+    map<int,DtConversacion> listaConversaciones;
+	set<UsuarioConversacion*>::iterator i;
+    for(i = usuarioConversacion.begin(); i != usuarioConversacion.end(); ++i){
+        UsuarioConversacion * usuarioConversacion = *i;
+        if (usuarioConversacion->getEstado() == 2){
+        DtConversacion dtConversacion = usuarioConversacion->obtenerConversacion();
+        listaConversaciones.insert(std::pair<int, DtConversacion>(dtConversacion.getIdConversacion(), dtConversacion));
+        }
+	}
+	return listaConversaciones;
+}
 //
 //set<DtMensaje*> Usuario::obtenerMensajes(int){
 //

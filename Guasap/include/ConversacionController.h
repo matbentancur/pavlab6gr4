@@ -9,8 +9,8 @@ class ConversacionController : public IConversacionController {
         virtual ~ConversacionController();
 
         set<DtConversacion*> listarConversaciones();
-        set<DtConversacion*> listarConversacionesActivas();
-        set<DtConversacion*> listarConversacionesArchivadas();
+        map<int,DtConversacion> listarConversacionesActivas();
+        map<int,DtConversacion> listarConversacionesArchivadas();
         bool archivarConversacion();
         void ingresarIdConversacion(int);
         DtConversacion obtenerConversacion(int);

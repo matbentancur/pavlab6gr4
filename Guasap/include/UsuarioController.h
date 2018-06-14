@@ -2,7 +2,6 @@
 #define USUARIOCONTROLLER_H
 
 #include "IUsuarioController.h"
-#include "Sesion.h"
 
 class UsuarioController : public IUsuarioController {
     private:

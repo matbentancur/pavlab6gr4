@@ -4,6 +4,7 @@
 #include <set>
 #include <map>
 #include <string>
+#include "Sesion.h"
 #include "DtContacto.h"
 #include "EstadoIngreso.h"
 #include "FechaHora.h"
