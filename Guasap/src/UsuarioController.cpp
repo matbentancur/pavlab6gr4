@@ -18,21 +18,22 @@ map<string,DtContacto> UsuarioController::listarContactos(){
 }
 
 DtContacto UsuarioController::agregarContacto(string celular){
-    Sesion* sesion = Sesion::getInstancia();
+    this->celularContacto = celular;
     ManejadorUsuario* manejadorUsuario = ManejadorUsuario::getInstancia();
-    Usuario* usuario = manejadorUsuario->findUsuario(sesion->getSesion());
     Usuario* contacto = manejadorUsuario->findUsuario(celular);
-    if(usuario->agregarContacto(contacto)){
-        return contacto->getDtContacto();
-    }
-    else{
-        throw invalid_argument("\nNo se pudo agregar el contacto");
-    }
+    return contacto->getDtContacto();
 }
 
 
 bool UsuarioController::confirmarContacto(){
-    return true;
+    Sesion* sesion = Sesion::getInstancia();
+    ManejadorUsuario* manejadorUsuario = ManejadorUsuario::getInstancia();
+    Usuario* usuario = manejadorUsuario->findUsuario(sesion->getSesion());
+    Usuario* contacto = manejadorUsuario->findUsuario(this->celularContacto);
+    if(usuario->agregarContacto(contacto)){
+        return true;
+    }
+    return false;
 }
 
 EstadoIngreso UsuarioController::ingresar(string celularIngresado){
@@ -44,7 +45,7 @@ EstadoIngreso UsuarioController::ingresar(string celularIngresado){
 FechaHora UsuarioController::crearUsuario(string celular, string nombre, string imagen, string descripcion){
     Usuario* usuario = new Usuario(celular, nombre, imagen, descripcion);
     FechaHora registro = FechaHora(10,10,10,10,10); //ingresar fecha del reloj
-    usuario->registro = registro;
+    usuario->setRegistro(registro);
     ManejadorUsuario* manejadorUsuario = ManejadorUsuario::getInstancia();
     manejadorUsuario->agregarUsuario(usuario);
     return registro;

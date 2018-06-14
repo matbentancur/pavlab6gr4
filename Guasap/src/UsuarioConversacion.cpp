@@ -11,21 +11,21 @@ UsuarioConversacion::~UsuarioConversacion()
     //dtor
 }
 
-UsuarioConversacion::UsuarioConversacion(EstadoConversacion estadoConversacion) {
-    this->estadoConversacion = estadoConversacion;
+UsuarioConversacion::UsuarioConversacion(EstadoConversacion estado) {
+    this->estado = estado;
 }
 
-EstadoConversacion UsuarioConversacion::getEstadoConversacion() {
-    return this->estadoConversacion;
+EstadoConversacion UsuarioConversacion::getEstado() {
+    return this->estado;
 }
 
-void UsuarioConversacion::setEstadoConversacion(EstadoConversacion estadoConversacion) {
-    this->estadoConversacion = estadoConversacion;
+void UsuarioConversacion::setEstado(EstadoConversacion estado) {
+    this->estado = estado;
 }
-//
-//DtContacto UsuarioConversacion::obtenerConversacion(){
-//
-//}
+
+DtConversacion UsuarioConversacion::obtenerConversacion(){
+    return this->conversacion->getDtConversacion();
+}
 //
 //set<DtMensaje*> UsuarioConversacion::obtenerMensajes(int){
 //

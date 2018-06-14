@@ -9,12 +9,13 @@
 #include "DtContacto.h"
 #include "DtConversacion.h"
 #include "DtMensaje.h"
+#include "UsuarioConversacion.h"
 
 using namespace std;
 
 class Usuario {
 
-    public:
+    private:
         string celular;
         string nombre;
         Fecha registro;
@@ -22,6 +23,7 @@ class Usuario {
         string descripcion;
         FechaHora ultimaConexion;
         map<string,Usuario*> contactos;
+        set<UsuarioConversacion*> usuarioConversacion;
 
     public:
         Usuario();
@@ -50,8 +52,8 @@ class Usuario {
         map<string,DtContacto> obtenerContactos();
         DtContacto getDtContacto();
         bool agregarContacto(Usuario*);
-        set<DtConversacion*> obtenerConversacionesActivas();
-        set<DtConversacion*> obtenerConversacionesArchivadas();
+        map<int,DtConversacion> obtenerConversacionesActivas();
+        map<int,DtConversacion> obtenerConversacionesArchivadas();
         set<DtMensaje*> obtenerMensajes(int);
 //        set<DtReceptor*> verInfoMensaje(int);
 //        DtReceptor getDtReceptor();

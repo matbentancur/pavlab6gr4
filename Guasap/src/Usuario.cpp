@@ -97,9 +97,16 @@ bool Usuario::agregarContacto(Usuario* usuario){
     return true;
 }
 
-//set<DtConversacion*> Usuario::obtenerConversacionesActivas(){
-//
-//}
+map<int,DtConversacion> Usuario::obtenerConversacionesActivas(){
+    map<int,DtConversacion> listaConversaciones;
+	set<UsuarioConversacion*>::iterator i;
+    for(i = usuarioConversacion.begin(); i != usuarioConversacion.end(); ++i){
+        UsuarioConversacion * usuarioConversacion = *i;
+        DtConversacion dtConversacion = usuarioConversacion->obtenerConversacion();
+        listaConversaciones.insert(std::pair<int, DtConversacion>(dtConversacion.getIdConversacion(), dtConversacion));
+	}
+	return listaConversaciones;
+}
 //
 //set<DtConversacion*> Usuario::obtenerConversacionesArchivadas(){
 //

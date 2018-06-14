@@ -1,5 +1,5 @@
-#ifndef DTRECEPTOR
-#define DTRECEPTOR
+#ifndef DTRECEPTOR_H_INCLUDED
+#define DTRECEPTOR_H_INCLUDED
 
 #include <string>
 #include "FechaHora.h"

@@ -19,7 +19,7 @@ class Conversacion{
         void setIdConversacion(int);
         void setOrigen(string);
 
-        virtual DtConversacion getDtConversacion()=0;
+        virtual DtConversacion getDtConversacion() = 0;
         set<DtMensaje*> getMensajes();
         set<DtReceptor*> verInfoMensaje(int);
 

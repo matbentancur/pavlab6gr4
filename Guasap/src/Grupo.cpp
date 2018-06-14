@@ -29,9 +29,10 @@ void Grupo::setUrlImagen(string urlImagen){
 void Grupo::setCreacion(FechaHora creacion){
     this->creacion = creacion;
 }
-/*
-DtGrupo Grupo::getDtConversacion(){
 
+DtConversacion Grupo::getDtConversacion(){
+    DtGrupo dtGrupo = DtGrupo(this->idConversacion, this->nombre);
+    return dtGrupo;
 }
-*/
+
 Grupo::~Grupo(){}

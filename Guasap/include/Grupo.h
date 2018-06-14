@@ -22,7 +22,7 @@ class Grupo : public Conversacion{
         void setUrlImagen(string);
         void setCreacion(FechaHora);
 
-        // DtGrupo getDtConversacion();
+        DtConversacion getDtConversacion();
         ~Grupo();
 
 };

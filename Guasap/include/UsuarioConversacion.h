@@ -3,14 +3,16 @@
 
 #include <set>
 #include "EstadoConversacion.h"
-#include "DtContacto.h"
+#include "DtConversacion.h"
 #include "DtMensaje.h"
 #include "DtReceptor.h"
+#include "Conversacion.h"
 
 class UsuarioConversacion {
 
     private:
-        EstadoConversacion estadoConversacion;
+        EstadoConversacion estado;
+        Conversacion* conversacion;
 
     public:
         UsuarioConversacion();
@@ -18,10 +20,10 @@ class UsuarioConversacion {
 
         ~UsuarioConversacion();
 
-        EstadoConversacion getEstadoConversacion();
-        void setEstadoConversacion(EstadoConversacion);
+        EstadoConversacion getEstado();
+        void setEstado(EstadoConversacion);
 
-        DtContacto obtenerConversacion();
+        DtConversacion obtenerConversacion();
         set<DtMensaje*> obtenerMensajes(int);
         set<DtReceptor*> verInfoMensaje(int);
 

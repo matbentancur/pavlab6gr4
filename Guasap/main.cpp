@@ -164,9 +164,9 @@ void menuPrincipal() {
 }
 
 void prueba(){
-    Usuario* a = new Usuario("123", "nomPrueba1", "a", "b");
-    Usuario* b = new Usuario("456", "nomPrueba2", "a", "b");
-    a->agregarContacto(b);
-    map<string,Usuario*>::iterator i = a->contactos.begin();
-    cout << "celular: " + i->first;
+//    Usuario* a = new Usuario("123", "nomPrueba1", "a", "b");
+//    Usuario* b = new Usuario("456", "nomPrueba2", "a", "b");
+//    a->agregarContacto(b);
+//    map<string,Usuario*>::iterator i = a->contactos.begin();
+//    cout << "celular: " + i->first;
 }
