@@ -1,7 +1,6 @@
 #ifndef DTIMAGEN_H
 #define DTIMAGEN_H
 
-#include <string>
 #include "DtMensaje.h"
 
 class DtImagen : public DtMensaje {

@@ -75,7 +75,9 @@ map<string,DtContacto> Usuario::obtenerContactos(){
 	map<string,Usuario*>::iterator i;
     for(i = contactos.begin(); i != contactos.end(); ++i){
 //		DtContacto dtContacto = (*i)->getDtContacto();
-//		listaContactos[dtContacto.getCelular()] = dtContacto;
+        Usuario * usuario = i->second;
+        DtContacto dtContacto = usuario->getDtContacto();
+        listaContactos.insert(std::pair<string, DtContacto>(usuario->getCelular(), dtContacto));
 	}
 	return listaContactos;
 }
