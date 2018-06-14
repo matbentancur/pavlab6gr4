@@ -2,6 +2,7 @@
 #define USUARIOCONVERSACION_H
 
 #include <set>
+#include <map>
 #include "EstadoConversacion.h"
 #include "DtConversacion.h"
 #include "DtMensaje.h"
@@ -26,7 +27,7 @@ class UsuarioConversacion {
         void setEstado(EstadoConversacion);
 
         DtConversacion obtenerConversacion();
-        set<DtMensaje*> obtenerMensajes(int);
+        map<int,DtMensaje> obtenerMensajes(int);
         set<DtReceptor*> verInfoMensaje(int);
 
 };
