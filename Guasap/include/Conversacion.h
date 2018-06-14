@@ -1,16 +1,22 @@
 #ifndef CONVERSACION_H_INCLUDED
 #define CONVERSACION_H_INCLUDED
 
+#include <set>
+#include <map>
 #include "DtConversacion.h"
 #include "DtMensaje.h"
 #include "DtReceptor.h"
-#include <set>
+#include "Mensaje.h"
+
+class Mensaje;
 
 class Conversacion{
 
     protected:
         int idConversacion;
         string origen;
+        map<int,Mensaje*> mensajes;
+
     public:
         Conversacion(int,string);
 
@@ -20,7 +26,7 @@ class Conversacion{
         void setOrigen(string);
 
         virtual DtConversacion getDtConversacion() = 0;
-        set<DtMensaje*> getMensajes();
+        map<int,DtMensaje> getMensajes();
         set<DtReceptor*> verInfoMensaje(int);
 
         ~Conversacion();

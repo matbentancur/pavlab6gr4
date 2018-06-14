@@ -9,6 +9,8 @@
 
 using namespace std;
 
+class UsuarioMensaje;
+
 class Mensaje{
 
     protected:
@@ -18,7 +20,6 @@ class Mensaje{
         set<UsuarioMensaje*> usuarioMensaje;
 
     public:
-        Mensaje(DtMensaje&);
         Mensaje(int,FechaHora,bool);
 
         int getCodigo();

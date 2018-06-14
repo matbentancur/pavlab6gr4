@@ -11,6 +11,8 @@
 #include "DtMensaje.h"
 #include "UsuarioConversacion.h"
 
+class UsuarioConversacion;
+
 using namespace std;
 
 class Usuario {

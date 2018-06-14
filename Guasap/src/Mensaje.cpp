@@ -1,11 +1,5 @@
 #include "Mensaje.h"
 
-Mensaje::Mensaje(DtMensaje &dtMensaje){
-    this->setCodigo(dtMensaje.getCodigo());
-    this->setEnviado(dtMensaje.getEnviado());
-    this->setVisto(dtMensaje.getVisto());
-}
-
 Mensaje::Mensaje(int codigo,FechaHora enviado,bool visto){
     this->codigo  = codigo;
     this->enviado = enviado;

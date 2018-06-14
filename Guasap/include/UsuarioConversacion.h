@@ -8,6 +8,8 @@
 #include "DtReceptor.h"
 #include "Conversacion.h"
 
+class Conversacion;
+
 class UsuarioConversacion {
 
     private:

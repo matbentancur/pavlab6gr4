@@ -14,7 +14,7 @@ class Simple : public Mensaje{
         string getTexto();
         void setTexto(string);
 
-         DtMensaje getDtMensaje();
+        DtMensaje getDtMensaje();
         ~Simple();
 };
 

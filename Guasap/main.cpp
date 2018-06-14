@@ -3,7 +3,7 @@
 #include <cstdlib>
 #include <iostream>
 #include <stdio.h>
-//#include <stdexcept>
+#include <stdexcept>
 //#include <typeinfo>
 #include "UsuarioFactory.h"
 #include "Sesion.h"

@@ -21,4 +21,15 @@ void Conversacion::setOrigen(string origen){
         this->origen = origen;
 }
 
+map<int,DtMensaje> Conversacion::getMensajes(){
+    map<int,DtMensaje> listaMensajes;
+	map<int,Mensaje*>::iterator i;
+    for(i = mensajes.begin(); i != mensajes.end(); ++i){
+        Mensaje * mensaje = i->second;
+        DtMensaje dtMensaje = mensaje->getDtMensaje();
+        listaMensajes.insert(std::pair<int, DtMensaje>(mensaje->getCodigo(), dtMensaje));
+	}
+	return listaMensajes;
+}
+
 Conversacion::~Conversacion(){}
