@@ -15,7 +15,6 @@ class DtReceptor{
 
     public:
         DtReceptor();
-        DtReceptor(string,string);
         DtReceptor(string,string,FechaHora);
         virtual ~DtReceptor();
         string getCelular();

@@ -10,11 +10,6 @@ DtReceptor::~DtReceptor()
     //dtor
 }
 
-DtReceptor::DtReceptor(string celular, string nombre) {
-    this->celular = celular;
-    this->nombre = nombre;
-}
-
 DtReceptor::DtReceptor(string celular, string nombre, FechaHora vistoFechaHora) {
     this->celular = celular;
     this->nombre = nombre;

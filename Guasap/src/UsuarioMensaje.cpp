@@ -30,3 +30,8 @@ void UsuarioMensaje::setVistoFechaHora(FechaHora vistoFechaHora){
 Usuario* UsuarioMensaje::getUsuario(){
     return this->usuario;
 }
+
+DtReceptor UsuarioMensaje::getDtReceptor(){
+    DtReceptor dtReceptor = DtReceptor(this->usuario->getCelular(), this->usuario->getNombre(), this->vistoFechaHora);
+    return dtReceptor;
+}

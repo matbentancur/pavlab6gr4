@@ -22,6 +22,8 @@ class UsuarioMensaje {
 
         Usuario* getUsuario();
 
+        DtReceptor getDtReceptor();
+
         virtual ~UsuarioMensaje();
 };
 

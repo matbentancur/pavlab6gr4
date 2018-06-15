@@ -139,11 +139,6 @@ map<int,DtMensaje> Usuario::obtenerMensajes(int idConversacion){
 //
 //}
 
-DtReceptor Usuario::getDtReceptor(){
-    DtReceptor dtReceptor = DtReceptor(this->celular, this->nombre);
-    return dtReceptor;
-}
-
 //void Usuario::ingresarIdConversacion(int){
 //
 //}

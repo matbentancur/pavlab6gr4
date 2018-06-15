@@ -35,8 +35,7 @@ map <string,DtReceptor> Mensaje::getReceptores(){
 	set<UsuarioMensaje*>::iterator i;
     for(i = usuarioMensaje.begin(); i != usuarioMensaje.end(); ++i){
         UsuarioMensaje* um = *i;
-        DtReceptor dtReceptor = um->getUsuario()->getDtReceptor();
-//        dtReceptor->vistoFechaHora
+        DtReceptor dtReceptor = um->getDtReceptor();
         listaReceptores.insert(std::pair<string, DtReceptor>(dtReceptor.getCelular(), dtReceptor));
 	}
 	return listaReceptores;
