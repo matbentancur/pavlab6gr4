@@ -2,6 +2,7 @@
 #define USUARIOCONVERSACION_H
 
 #include <set>
+#include <map>
 #include "EstadoConversacion.h"
 #include "DtConversacion.h"
 #include "DtMensaje.h"

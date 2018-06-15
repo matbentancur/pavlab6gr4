@@ -18,7 +18,7 @@ class Conversacion{
         map<int,Mensaje*> mensajes;
 
     public:
-        Conversacion(int,string);
+        Conversacion(int,string);git clone https://github.com/matbentancur/pavlab6gr4
 
         int getIdConversacion();
         string getOrigen();
