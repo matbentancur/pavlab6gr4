@@ -103,8 +103,8 @@ map<int,DtConversacion> Usuario::obtenerConversacionesActivas(){
     for(i = usuarioConversacion.begin(); i != usuarioConversacion.end(); ++i){
         UsuarioConversacion * usuarioConversacion = *i;
         if (usuarioConversacion->getEstado() == 1){
-        DtConversacion dtConversacion = usuarioConversacion->obtenerConversacion();
-        listaConversaciones.insert(std::pair<int, DtConversacion>(dtConversacion.getIdConversacion(), dtConversacion));
+            DtConversacion dtConversacion = usuarioConversacion->obtenerConversacion();
+            listaConversaciones.insert(std::pair<int, DtConversacion>(dtConversacion.getIdConversacion(), dtConversacion));
         }
 	}
 	return listaConversaciones;
@@ -116,24 +116,33 @@ map<int,DtConversacion> Usuario::obtenerConversacionesArchivadas(){
     for(i = usuarioConversacion.begin(); i != usuarioConversacion.end(); ++i){
         UsuarioConversacion * usuarioConversacion = *i;
         if (usuarioConversacion->getEstado() == 2){
-        DtConversacion dtConversacion = usuarioConversacion->obtenerConversacion();
-        listaConversaciones.insert(std::pair<int, DtConversacion>(dtConversacion.getIdConversacion(), dtConversacion));
+            DtConversacion dtConversacion = usuarioConversacion->obtenerConversacion();
+            listaConversaciones.insert(std::pair<int, DtConversacion>(dtConversacion.getIdConversacion(), dtConversacion));
         }
 	}
 	return listaConversaciones;
 }
-//
-//set<DtMensaje*> Usuario::obtenerMensajes(int){
-//
-//}
+
+map<int,DtMensaje> Usuario::obtenerMensajes(int idConversacion){
+    map<int,DtMensaje> listaMensajes;
+    set<UsuarioConversacion*>::iterator i;
+    for(i = usuarioConversacion.begin(); i != usuarioConversacion.end(); ++i){
+        UsuarioConversacion * usuarioConversacion = *i;
+        if (usuarioConversacion->getConversacion()->getIdConversacion() == idConversacion){
+            listaMensajes = usuarioConversacion->getConversacion()->getMensajes();
+        }
+	}
+	return listaMensajes;
+}
 
 //set<DtReceptor*> verInfoMensaje(int){
 //
 //}
 
-//DtReceptor getDtReceptor(){
-//
-//}
+DtReceptor Usuario::getDtReceptor(){
+    DtReceptor dtReceptor = DtReceptor(this->celular, this->nombre);
+    return dtReceptor;
+}
 
 //void Usuario::ingresarIdConversacion(int){
 //

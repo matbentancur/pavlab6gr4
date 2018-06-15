@@ -11,7 +11,10 @@ class MensajeController : public IMensajeController{
         MensajeController();
         virtual ~MensajeController();
 
-        set<DtMensaje*> listarMensajes(int);
+        int getIdConversaion();
+        void setIdConversaion(int);
+
+        map<int,DtMensaje> listarMensajes(int);
 //        virtual set<DtReceptor*> verInfoMensajeEnviado(int);
         set<DtMensaje*> crearMensajeImagen(DtImagen);
         set<DtMensaje*> crearMensajeSimple(DtSimple);

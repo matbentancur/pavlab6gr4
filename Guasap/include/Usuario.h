@@ -9,6 +9,7 @@
 #include "DtContacto.h"
 #include "DtConversacion.h"
 #include "DtMensaje.h"
+#include "DtReceptor.h"
 #include "UsuarioConversacion.h"
 
 class UsuarioConversacion;
@@ -56,9 +57,9 @@ class Usuario {
         bool agregarContacto(Usuario*);
         map<int,DtConversacion> obtenerConversacionesActivas();
         map<int,DtConversacion> obtenerConversacionesArchivadas();
-        set<DtMensaje*> obtenerMensajes(int);
+        map<int,DtMensaje> obtenerMensajes(int);
 //        set<DtReceptor*> verInfoMensaje(int);
-//        DtReceptor getDtReceptor();
+        DtReceptor getDtReceptor();
         void ingresarIdConversacion(int);
         set<DtConversacion*> obtenerConversaciones();
         bool buscarConversacion(int);

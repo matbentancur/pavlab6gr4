@@ -30,4 +30,16 @@ void Mensaje::setVisto(bool visto){
     this->visto = visto;
 }
 
+map <string,DtReceptor> Mensaje::getReceptores(){
+    map<string,DtReceptor> listaReceptores;
+	set<UsuarioMensaje*>::iterator i;
+    for(i = usuarioMensaje.begin(); i != usuarioMensaje.end(); ++i){
+        UsuarioMensaje* um = *i;
+        DtReceptor dtReceptor = um->getUsuario()->getDtReceptor();
+//        dtReceptor->vistoFechaHora
+        listaReceptores.insert(std::pair<string, DtReceptor>(dtReceptor.getCelular(), dtReceptor));
+	}
+	return listaReceptores;
+}
+
 Mensaje::~Mensaje(){}

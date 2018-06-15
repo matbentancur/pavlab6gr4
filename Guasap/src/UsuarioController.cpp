@@ -10,6 +10,14 @@ UsuarioController::~UsuarioController()
     //dtor
 }
 
+string UsuarioController::getCelularContacto(){
+    return this->celularContacto;
+}
+
+void UsuarioController::setCelularContacto(string celularContacto){
+    this->celularContacto = celularContacto;
+}
+
 map<string,DtContacto> UsuarioController::listarContactos(){
     Sesion* sesion = Sesion::getInstancia();
     ManejadorUsuario* manejadorUsuario = ManejadorUsuario::getInstancia();
@@ -18,7 +26,7 @@ map<string,DtContacto> UsuarioController::listarContactos(){
 }
 
 DtContacto UsuarioController::agregarContacto(string celular){
-    this->celularContacto = celular;
+    this->setCelularContacto(celular);
     ManejadorUsuario* manejadorUsuario = ManejadorUsuario::getInstancia();
     Usuario* contacto = manejadorUsuario->findUsuario(celular);
     return contacto->getDtContacto();
@@ -29,7 +37,7 @@ bool UsuarioController::confirmarContacto(){
     Sesion* sesion = Sesion::getInstancia();
     ManejadorUsuario* manejadorUsuario = ManejadorUsuario::getInstancia();
     Usuario* usuario = manejadorUsuario->findUsuario(sesion->getSesion());
-    Usuario* contacto = manejadorUsuario->findUsuario(this->celularContacto);
+    Usuario* contacto = manejadorUsuario->findUsuario(this->getCelularContacto());
     if(usuario->agregarContacto(contacto)){
         return true;
     }

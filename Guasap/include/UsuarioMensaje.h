@@ -13,6 +13,15 @@ class UsuarioMensaje {
 
     public:
         UsuarioMensaje(bool, FechaHora, Usuario*);
+
+        bool getVisto();
+        void setVisto(bool);
+
+        FechaHora getVistoFechaHora();
+        void setVistoFechaHora(FechaHora);
+
+        Usuario* getUsuario();
+
         virtual ~UsuarioMensaje();
 };
 

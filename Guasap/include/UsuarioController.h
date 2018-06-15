@@ -11,6 +11,9 @@ class UsuarioController : public IUsuarioController {
         UsuarioController();
         virtual ~UsuarioController();
 
+        string getCelularContacto();
+        void setCelularContacto(string);
+
         map<string,DtContacto> listarContactos();
         DtContacto agregarContacto(string);
         bool confirmarContacto();

@@ -1,11 +1,11 @@
 #ifndef MENSAJE_H_INCLUDED
 #define MENSAJE_H_INCLUDED
 
+#include <set>
 #include "FechaHora.h"
 #include "DtMensaje.h"
 #include "DtReceptor.h"
 #include "UsuarioMensaje.h"
-#include <set>
 
 using namespace std;
 
@@ -29,9 +29,10 @@ class Mensaje{
         bool getVisto();
         void setVisto(bool);
 
-        ~Mensaje();
         virtual DtMensaje getDtMensaje() = 0;
-        set <DtReceptor*> getReceptores(); // no se implementa, no se pide en lab.
+        map <string,DtReceptor> getReceptores();
+
+        ~Mensaje();
 };
 
 #endif // MENSAJE_H_INCLUDED
