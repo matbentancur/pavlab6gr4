@@ -32,3 +32,11 @@ map<string,DtReceptor> MensajeController::verInfoMensajeEnviado(int codigo){
     Usuario* usuario = manejadorUsuario->findUsuario(sesion->getSesion());
     return usuario->verInfoMensaje(this->getIdConversacion(), codigo);
 }
+
+bool MensajeController::enviarMensajeConversacion(DtMensaje){
+    return true;
+}
+
+bool MensajeController::enviarMensajeNuevaConversacion(DtMensaje){
+    return true;
+}

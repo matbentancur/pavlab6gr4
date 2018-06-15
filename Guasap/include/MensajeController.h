@@ -16,6 +16,9 @@ class MensajeController : public IMensajeController{
 
         map<int,DtMensaje> listarMensajes(int);
         map<string,DtReceptor> verInfoMensajeEnviado(int);
+        bool enviarMensajeConversacion(DtMensaje);
+        bool enviarMensajeNuevaConversacion(DtMensaje);
+
         set<DtMensaje*> crearMensajeImagen(DtImagen);
         set<DtMensaje*> crearMensajeSimple(DtSimple);
 //        void eliminarMensaje(string,listaMensajes); //ver entrada
