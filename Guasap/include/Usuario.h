@@ -64,8 +64,6 @@ class Usuario {
         bool agregarUsuarioConversacion(UsuarioConversacion*);
 
         bool buscarConversacion(int);
-//        obtenerContacto(): DtContacto //repetida con getDtContacto.
-        DtConversacion obtenerConversacion(int);
         bool iniciarConversacion(Usuario);
 
 };

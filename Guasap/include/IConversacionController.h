@@ -18,6 +18,7 @@ class IConversacionController {
         virtual bool archivarConversacion(int) = 0;
         virtual bool agregarSeleccionContactoGrupo(string) = 0;
         virtual bool quitarSeleccionContactoGrupo(string) = 0;
+        virtual bool altaGrupo(string,string) = 0;
 //        virtual DtConversacion obtenerConversacion(int) = 0;
 //        virtual DtConversacion iniciarConversacion(int) = 0;
 

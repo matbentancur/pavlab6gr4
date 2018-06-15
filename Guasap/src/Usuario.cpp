@@ -168,14 +168,6 @@ bool Usuario::agregarUsuarioConversacion(UsuarioConversacion* usuarioConversacio
 //
 //}
 
-//obtenerContacto(): DtContacto{
-//
-//}
-
-//DtConversacion Usuario::obtenerConversacion(int){
-//
-//}
-//
 //bool Usuario::iniciarConversacion(Usuario){
 //
 //}
