@@ -4,15 +4,20 @@
 #include "IConversacionController.h"
 
 class ConversacionController : public IConversacionController {
+
+    private:
+        map<string,DtContacto> listaContactosGrupoElegidos;
+        map<string,DtContacto> listaContactosGrupoRestantes;
+
     public:
         ConversacionController();
         virtual ~ConversacionController();
 
-        set<DtConversacion*> listarConversaciones();
         map<int,DtConversacion> listarConversacionesActivas();
         map<int,DtConversacion> listarConversacionesArchivadas();
-        bool archivarConversacion();
-        void ingresarIdConversacion(int);
+        bool archivarConversacion(int);
+        bool seleccionarContactoGrupo(string);
+
         DtConversacion obtenerConversacion(int);
         DtConversacion iniciarConversacion(int);
 };

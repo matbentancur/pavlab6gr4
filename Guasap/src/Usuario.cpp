@@ -147,14 +147,18 @@ map<string,DtReceptor> Usuario::verInfoMensaje(int idConversacion, int codigo){
 	return listaReceptores;
 }
 
-//void Usuario::ingresarIdConversacion(int){
-//
-//}
-//
-//set<DtConversacion*> Usuario::obtenerConversaciones(){
-//
-//}
-//
+bool Usuario::archivarConversacion(int idConversacion){
+    set<UsuarioConversacion*>::iterator i;
+    for(i = usuarioConversacion.begin(); i != usuarioConversacion.end(); ++i){
+        UsuarioConversacion * usuarioConversacion = *i;
+        if (usuarioConversacion->getConversacion()->getIdConversacion() == idConversacion){
+            usuarioConversacion->setEstado(archivada);
+            return true;
+        }
+	}
+	return false;
+}
+
 //bool Usuario::buscarConversacion(int){
 //
 //}
