@@ -129,15 +129,23 @@ map<int,DtMensaje> Usuario::obtenerMensajes(int idConversacion){
     for(i = usuarioConversacion.begin(); i != usuarioConversacion.end(); ++i){
         UsuarioConversacion * usuarioConversacion = *i;
         if (usuarioConversacion->getConversacion()->getIdConversacion() == idConversacion){
-            listaMensajes = usuarioConversacion->getConversacion()->getMensajes();
+            listaMensajes = usuarioConversacion->obtenerMensajes();
         }
 	}
 	return listaMensajes;
 }
 
-//set<DtReceptor*> verInfoMensaje(int){
-//
-//}
+map<string,DtReceptor> Usuario::verInfoMensaje(int idConversacion, int codigo){
+    map<string,DtReceptor> listaReceptores;
+    set<UsuarioConversacion*>::iterator i;
+    for(i = usuarioConversacion.begin(); i != usuarioConversacion.end(); ++i){
+        UsuarioConversacion * usuarioConversacion = *i;
+        if (usuarioConversacion->getConversacion()->getIdConversacion() == idConversacion){
+            listaReceptores = usuarioConversacion->verInfoMensaje(codigo);
+        }
+	}
+	return listaReceptores;
+}
 
 //void Usuario::ingresarIdConversacion(int){
 //

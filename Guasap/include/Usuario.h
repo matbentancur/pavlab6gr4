@@ -58,7 +58,7 @@ class Usuario {
         map<int,DtConversacion> obtenerConversacionesActivas();
         map<int,DtConversacion> obtenerConversacionesArchivadas();
         map<int,DtMensaje> obtenerMensajes(int);
-//        set<DtReceptor*> verInfoMensaje(int);
+        map<string,DtReceptor> verInfoMensaje(int,int);
         void ingresarIdConversacion(int);
         set<DtConversacion*> obtenerConversaciones();
         bool buscarConversacion(int);

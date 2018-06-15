@@ -27,7 +27,7 @@ class Conversacion{
 
         virtual DtConversacion getDtConversacion() = 0;
         map<int,DtMensaje> getMensajes();
-        set<DtReceptor*> verInfoMensaje(int);
+        map<string,DtReceptor> verInfoMensaje(int);
 
         ~Conversacion();
 };

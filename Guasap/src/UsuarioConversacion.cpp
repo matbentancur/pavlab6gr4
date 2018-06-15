@@ -34,7 +34,7 @@ DtConversacion UsuarioConversacion::obtenerConversacion(){
 map<int,DtMensaje> UsuarioConversacion::obtenerMensajes(){
     return this->conversacion->getMensajes();
 }
-//
-//set<DtReceptor*> UsuarioConversacion::verInfoMensaje(int){
-//
-//}
+
+map<string,DtReceptor> UsuarioConversacion::verInfoMensaje(int codigo){
+    return this->conversacion->verInfoMensaje(codigo);
+}

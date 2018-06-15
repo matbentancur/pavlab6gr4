@@ -32,4 +32,16 @@ map<int,DtMensaje> Conversacion::getMensajes(){
 	return listaMensajes;
 }
 
+map<string,DtReceptor> Conversacion::verInfoMensaje(int codigo){
+    map<string,DtReceptor> listaReceptores;
+	map<int,Mensaje*>::iterator i;
+    for(i = mensajes.begin(); i != mensajes.end(); ++i){
+        Mensaje * mensaje = i->second;
+        if (mensaje->getCodigo() == codigo){
+            listaReceptores = mensaje->getReceptores();
+        }
+	}
+	return listaReceptores;
+}
+
 Conversacion::~Conversacion(){}

@@ -30,7 +30,7 @@ class UsuarioConversacion {
 
         DtConversacion obtenerConversacion();
         map<int,DtMensaje> obtenerMensajes();
-        set<DtReceptor*> verInfoMensaje(int);
+        map<string,DtReceptor> verInfoMensaje(int);
 
 };
 

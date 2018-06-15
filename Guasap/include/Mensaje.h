@@ -30,7 +30,7 @@ class Mensaje{
         void setVisto(bool);
 
         virtual DtMensaje getDtMensaje() = 0;
-        map <string,DtReceptor> getReceptores();
+        map<string,DtReceptor> getReceptores();
 
         ~Mensaje();
 };
