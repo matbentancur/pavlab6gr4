@@ -159,6 +159,11 @@ bool Usuario::archivarConversacion(int idConversacion){
 	return false;
 }
 
+bool Usuario::agregarUsuarioConversacion(UsuarioConversacion* usuarioConversacion){
+    this->usuarioConversacion.insert(usuarioConversacion);
+    return true;
+}
+
 //bool Usuario::buscarConversacion(int){
 //
 //}

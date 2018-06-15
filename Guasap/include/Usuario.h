@@ -61,6 +61,8 @@ class Usuario {
         map<string,DtReceptor> verInfoMensaje(int,int);
         bool archivarConversacion(int);
 
+        bool agregarUsuarioConversacion(UsuarioConversacion*);
+
         bool buscarConversacion(int);
 //        obtenerContacto(): DtContacto //repetida con getDtContacto.
         DtConversacion obtenerConversacion(int);

@@ -1,18 +1,14 @@
 #include "UsuarioConversacion.h"
 #include "EstadoConversacion.h"
 
-UsuarioConversacion::UsuarioConversacion()
-{
-    //ctor
-}
-
 UsuarioConversacion::~UsuarioConversacion()
 {
     //dtor
 }
 
-UsuarioConversacion::UsuarioConversacion(EstadoConversacion estado) {
+UsuarioConversacion::UsuarioConversacion(EstadoConversacion estado, Conversacion* conversacion) {
     this->estado = estado;
+    this->conversacion = conversacion;
 }
 
 EstadoConversacion UsuarioConversacion::getEstado() {
@@ -25,6 +21,10 @@ void UsuarioConversacion::setEstado(EstadoConversacion estado) {
 
 Conversacion* UsuarioConversacion::getConversacion() {
     return this->conversacion;
+}
+
+void UsuarioConversacion::setConversacion(Conversacion* conversacion) {
+    this->conversacion = conversacion;
 }
 
 DtConversacion UsuarioConversacion::obtenerConversacion(){

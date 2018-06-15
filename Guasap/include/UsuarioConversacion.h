@@ -18,8 +18,7 @@ class UsuarioConversacion {
         Conversacion* conversacion;
 
     public:
-        UsuarioConversacion();
-        UsuarioConversacion(EstadoConversacion);
+        UsuarioConversacion(EstadoConversacion, Conversacion*);
 
         ~UsuarioConversacion();
 
@@ -27,6 +26,7 @@ class UsuarioConversacion {
         void setEstado(EstadoConversacion);
 
         Conversacion* getConversacion();
+        void setConversacion(Conversacion*);
 
         DtConversacion obtenerConversacion();
         map<int,DtMensaje> obtenerMensajes();
