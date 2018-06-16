@@ -1,5 +1,9 @@
 #include "Mensaje.h"
 
+Mensaje::Mensaje(){
+
+}
+
 Mensaje::Mensaje(int codigo,FechaHora enviado,bool visto, Usuario* emisor){
     this->codigo  = codigo;
     this->enviado = enviado;

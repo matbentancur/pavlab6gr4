@@ -24,6 +24,7 @@ class Mensaje{
         set<UsuarioMensaje*> usuarioMensaje;
 
     public:
+        Mensaje();
         Mensaje(int,FechaHora,bool,Usuario*);
 
         int getCodigo();

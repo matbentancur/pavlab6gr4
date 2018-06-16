@@ -10,6 +10,13 @@ DtImagen::~DtImagen()
     //dtor
 }
 
+DtImagen::DtImagen(string url, string formato, int tamanio, string texto) : DtMensaje(){
+    this->url = url;
+    this->formato = formato;
+    this->tamanio = tamanio;
+    this->texto = texto;
+}
+
 DtImagen::DtImagen(int codigo, FechaHora enviado, bool visto, Usuario* emisor, string url, string formato, int tamanio, string texto) : DtMensaje(codigo, enviado, visto, emisor){
     this->url = url;
     this->formato = formato;

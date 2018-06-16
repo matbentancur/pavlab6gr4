@@ -5,6 +5,7 @@
 
 class Multimedia : public Mensaje{
     public:
+        Multimedia();
         Multimedia(int,FechaHora,bool,Usuario*);
         ~Multimedia();
 

@@ -13,6 +13,7 @@ class DtImagen : public DtMensaje {
 
     public:
         DtImagen();
+        DtImagen(string, string, int, string);
         DtImagen(int, FechaHora, bool, Usuario*, string, string, int, string);
         virtual ~DtImagen();
         string getUrl();
