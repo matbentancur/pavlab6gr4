@@ -11,6 +11,7 @@
 #include "DtMensaje.h"
 #include "DtReceptor.h"
 #include "UsuarioConversacion.h"
+#include "Mensaje.h"
 
 class UsuarioConversacion;
 class DtMensaje;
@@ -63,7 +64,7 @@ class Usuario {
         bool archivarConversacion(int);
 
         bool agregarUsuarioConversacion(UsuarioConversacion*);
-        bool enviarMensajeConversacion(int,DtMensaje);
+        bool enviarMensajeConversacion(int,Mensaje*);
 
         bool buscarConversacion(int);
         bool iniciarConversacion(Usuario);

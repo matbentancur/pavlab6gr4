@@ -30,7 +30,7 @@ class Conversacion{
         map<int,DtMensaje> getMensajes();
         map<string,DtReceptor> verInfoMensaje(int);
 
-        bool agregrarMensaje(DtMensaje);
+        bool agregrarMensaje(Mensaje*);
 
         ~Conversacion();
 };

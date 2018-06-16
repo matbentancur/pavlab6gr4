@@ -164,13 +164,12 @@ bool Usuario::agregarUsuarioConversacion(UsuarioConversacion* usuarioConversacio
     return true;
 }
 
-bool Usuario::enviarMensajeConversacion(int idConversacion, DtMensaje nuevoMensaje){
+bool Usuario::enviarMensajeConversacion(int idConversacion, Mensaje* nuevoMensaje){
     set<UsuarioConversacion*>::iterator i;
     for(i = usuarioConversacion.begin(); i != usuarioConversacion.end(); ++i){
         UsuarioConversacion * usuarioConversacion = *i;
         if (usuarioConversacion->getConversacion()->getIdConversacion() == idConversacion){
-//            usuarioConversacion->setEstado(archivada);
-            return true;
+            return usuarioConversacion->enviarMensajeConversacion(nuevoMensaje);
         }
 	}
 	return false;

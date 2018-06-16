@@ -44,8 +44,8 @@ map<string,DtReceptor> Conversacion::verInfoMensaje(int codigo){
 	return listaReceptores;
 }
 
-bool Conversacion::agregrarMensaje(DtMensaje nuevoMensaje){
-//    mensajes.insert(std::pair<int, DtMensaje>(nuevoMensaje.getCodigo(), nuevoMensaje));
+bool Conversacion::agregrarMensaje(Mensaje* nuevoMensaje){
+    mensajes.insert(std::pair<int, Mensaje*>(nuevoMensaje->getCodigo(), nuevoMensaje));
 	return true;
 }
 

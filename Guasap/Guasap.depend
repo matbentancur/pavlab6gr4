@@ -488,10 +488,10 @@
 	"UsuarioFactory.h"
 	"Sesion.h"
 
-1529177887 source:/home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/src/Conversacion.cpp
+1529179612 source:/home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/src/Conversacion.cpp
 	"Conversacion.h"
 
-1529178088 /home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/include/Conversacion.h
+1529179523 /home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/include/Conversacion.h
 	<set>
 	<map>
 	"DtConversacion.h"
@@ -623,10 +623,10 @@
 	"UsuarioMensaje.h"
 	"Usuario.h"
 
-1529174251 source:/home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/src/MensajeController.cpp
+1529181126 source:/home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/src/MensajeController.cpp
 	"MensajeController.h"
 
-1529093148 /home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/include/MensajeController.h
+1529178626 /home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/include/MensajeController.h
 	"IMensajeController.h"
 
 1529093383 /home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/include/IMensajeController.h
@@ -656,10 +656,10 @@
 
 1528084368 /home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/include/EstadoIngreso.h
 
-1529178160 source:/home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/src/Usuario.cpp
+1529179863 source:/home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/src/Usuario.cpp
 	"Usuario.h"
 
-1529178185 /home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/include/Usuario.h
+1529179955 /home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/include/Usuario.h
 	<string>
 	<set>
 	<map>
@@ -670,6 +670,7 @@
 	"DtMensaje.h"
 	"DtReceptor.h"
 	"UsuarioConversacion.h"
+	"Mensaje.h"
 
 1529011524 source:/home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/src/UsuarioController.cpp
 	"UsuarioController.h"
@@ -717,7 +718,7 @@
 	"UsuarioConversacion.h"
 	<map>
 
-1529177766 /home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/include/UsuarioConversacion.h
+1529179917 /home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/include/UsuarioConversacion.h
 	<set>
 	<map>
 	"EstadoConversacion.h"
@@ -725,6 +726,7 @@
 	"DtMensaje.h"
 	"DtReceptor.h"
 	"Conversacion.h"
+	"Mensaje.h"
 
 1528084364 /home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/include/EstadoConversacion.h
 
@@ -742,7 +744,7 @@
 	"DtTarjetaContacto.h"
 	"Mensaje.h"
 
-1529174784 source:/home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/src/UsuarioConversacion.cpp
+1529179832 source:/home/mbentancur/Dropbox/Todos Mis Datos/Documentos/Estudio/Tecnologo/Tercer Semestre/Programacion Avanzada/Laboratorio/06/pavlab6gr4/Guasap/src/UsuarioConversacion.cpp
 	"UsuarioConversacion.h"
 	"EstadoConversacion.h"
 
