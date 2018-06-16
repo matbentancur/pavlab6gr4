@@ -10,7 +10,7 @@ class Video : public Multimedia{
         string url;
         int duracion;
     public:
-        Video(int,FechaHora,bool,string,int);
+        Video(int,FechaHora,bool,Usuario*,string,int);
         string getUrl();
         int getDuracion();
         void setUrl(string);

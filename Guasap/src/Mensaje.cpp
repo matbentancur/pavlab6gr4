@@ -1,33 +1,42 @@
 #include "Mensaje.h"
 
-Mensaje::Mensaje(int codigo,FechaHora enviado,bool visto){
+Mensaje::Mensaje(int codigo,FechaHora enviado,bool visto, Usuario* emisor){
     this->codigo  = codigo;
     this->enviado = enviado;
-    this->visto   = visto;
+    this->visto = visto;
+    this->emisor = emisor;
 }
 
 int Mensaje::getCodigo(){
         return this->codigo;
 }
 
-FechaHora Mensaje::getEnviado(){
-        return this->enviado;
-}
-
-bool Mensaje::getVisto(){
-        return this->visto;
-}
-
 void Mensaje::setCodigo(int codigo){
     this->codigo = codigo;
+}
+
+FechaHora Mensaje::getEnviado(){
+        return this->enviado;
 }
 
 void Mensaje::setEnviado(FechaHora enviado){
     this->enviado = enviado;
 }
 
+bool Mensaje::getVisto(){
+        return this->visto;
+}
+
 void Mensaje::setVisto(bool visto){
     this->visto = visto;
+}
+
+Usuario* Mensaje::getEmisor(){
+        return this->emisor;
+}
+
+void Mensaje::setEmisor(Usuario* emisor){
+    this->emisor = emisor;
 }
 
 map <string,DtReceptor> Mensaje::getReceptores(){

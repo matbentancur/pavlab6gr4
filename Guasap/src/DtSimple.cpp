@@ -10,7 +10,7 @@ DtSimple::~DtSimple()
     //dtor
 }
 
-DtSimple::DtSimple(int codigo, FechaHora enviado, bool visto, string texto) : DtMensaje(codigo, enviado, visto){
+DtSimple::DtSimple(int codigo, FechaHora enviado, bool visto, Usuario* emisor, string texto) : DtMensaje(codigo, enviado, visto, emisor){
     this->texto = texto;
 }
 

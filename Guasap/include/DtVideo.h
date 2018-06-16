@@ -11,7 +11,7 @@ class DtVideo : public DtMensaje {
 
     public:
         DtVideo();
-        DtVideo(int, FechaHora, bool, string, int);
+        DtVideo(int, FechaHora, bool, Usuario*, string, int);
         virtual ~DtVideo();
         string getUrl();
         int getDuracion();

@@ -11,7 +11,7 @@ class DtSimple : public DtMensaje {
 
     public:
         DtSimple();
-        DtSimple(int, FechaHora, bool, string);
+        DtSimple(int, FechaHora, bool, Usuario*, string);
         virtual ~DtSimple();
         string getTexto();
 };

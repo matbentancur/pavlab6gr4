@@ -3,6 +3,9 @@
 
 #include <string>
 #include "FechaHora.h"
+#include "Usuario.h"
+
+class Usuario;
 
 class DtMensaje {
 
@@ -10,14 +13,16 @@ class DtMensaje {
         int codigo;
         FechaHora enviado;
         bool visto;
+        Usuario* emisor;
 
     public:
         DtMensaje();
-        DtMensaje(int, FechaHora, bool);
+        DtMensaje(int, FechaHora, bool, Usuario*);
         virtual ~DtMensaje();
         int getCodigo();
         FechaHora getEnviado();
         bool getVisto();
+        Usuario* getEmisor();
 
 };
 

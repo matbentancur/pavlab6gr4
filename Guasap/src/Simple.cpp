@@ -1,6 +1,6 @@
 #include "Simple.h"
 
-Simple::Simple(int codigo,FechaHora enviado,bool visto,string texto) : Mensaje(codigo, enviado, visto){
+Simple::Simple(int codigo,FechaHora enviado,bool visto,Usuario* emisor,string texto) : Mensaje(codigo, enviado, visto, emisor){
     this->texto = texto;
 }
 
@@ -13,7 +13,7 @@ void Simple::setTexto(string texto){
 }
 
 DtMensaje Simple::getDtMensaje(){
-    DtSimple dtSimple = DtSimple(this->codigo, this->enviado, this->visto, this->texto);
+    DtSimple dtSimple = DtSimple(this->codigo, this->enviado, this->visto, this->emisor, this->texto);
     return dtSimple;
 }
 

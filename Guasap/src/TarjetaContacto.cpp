@@ -1,6 +1,6 @@
 #include "TarjetaContacto.h"
 
-TarjetaContacto::TarjetaContacto(int codigo,FechaHora enviado,bool visto,string nombre, string telefono) : Mensaje(codigo, enviado, visto){
+TarjetaContacto::TarjetaContacto(int codigo,FechaHora enviado,bool visto,Usuario* emisor,string nombre, string telefono) : Mensaje(codigo, enviado, visto, emisor){
     this->nombre   = nombre;
     this->telefono = telefono;
 }
@@ -22,7 +22,7 @@ void TarjetaContacto::setTelefono(){
 }
 
 DtMensaje TarjetaContacto::getDtMensaje(){
-    DtTarjetaContacto dtTarjetaContacto = DtTarjetaContacto(this->codigo, this->enviado, this->visto, this->nombre, this->telefono);
+    DtTarjetaContacto dtTarjetaContacto = DtTarjetaContacto(this->codigo, this->enviado, this->visto, this->emisor, this->nombre, this->telefono);
     return dtTarjetaContacto;
 }
 

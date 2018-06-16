@@ -10,7 +10,7 @@ class TarjetaContacto : public Mensaje{
         string nombre;
         string telefono;
     public:
-        TarjetaContacto(int,FechaHora,bool,string,string);
+        TarjetaContacto(int,FechaHora,bool,Usuario*,string,string);
 
         string getNombre();
         void setNombre();

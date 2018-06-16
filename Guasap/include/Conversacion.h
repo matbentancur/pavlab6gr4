@@ -9,6 +9,7 @@
 #include "Mensaje.h"
 
 class Mensaje;
+class DtMensaje;
 
 class Conversacion{
 
@@ -28,6 +29,8 @@ class Conversacion{
         virtual DtConversacion getDtConversacion() = 0;
         map<int,DtMensaje> getMensajes();
         map<string,DtReceptor> verInfoMensaje(int);
+
+        bool agregrarMensaje(DtMensaje);
 
         ~Conversacion();
 };

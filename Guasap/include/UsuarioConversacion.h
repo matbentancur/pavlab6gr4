@@ -10,6 +10,7 @@
 #include "Conversacion.h"
 
 class Conversacion;
+class DtMensaje;
 
 class UsuarioConversacion {
 
@@ -31,6 +32,8 @@ class UsuarioConversacion {
         DtConversacion obtenerConversacion();
         map<int,DtMensaje> obtenerMensajes();
         map<string,DtReceptor> verInfoMensaje(int);
+
+        bool enviarMensajeConversacion(DtMensaje);
 
 };
 

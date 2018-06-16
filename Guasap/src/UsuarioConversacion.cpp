@@ -38,3 +38,7 @@ map<int,DtMensaje> UsuarioConversacion::obtenerMensajes(){
 map<string,DtReceptor> UsuarioConversacion::verInfoMensaje(int codigo){
     return this->conversacion->verInfoMensaje(codigo);
 }
+
+bool enviarMensajeConversacion(DtMensaje){
+
+}

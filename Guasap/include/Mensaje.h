@@ -6,10 +6,13 @@
 #include "DtMensaje.h"
 #include "DtReceptor.h"
 #include "UsuarioMensaje.h"
+#include "Usuario.h"
 
 using namespace std;
 
 class UsuarioMensaje;
+class Usuario;
+class DtMensaje;
 
 class Mensaje{
 
@@ -17,10 +20,11 @@ class Mensaje{
         int codigo;
         FechaHora enviado;
         bool visto;
+        Usuario* emisor;
         set<UsuarioMensaje*> usuarioMensaje;
 
     public:
-        Mensaje(int,FechaHora,bool);
+        Mensaje(int,FechaHora,bool,Usuario*);
 
         int getCodigo();
         void setCodigo(int);
@@ -28,6 +32,8 @@ class Mensaje{
         void setEnviado(FechaHora);
         bool getVisto();
         void setVisto(bool);
+        Usuario* getEmisor();
+        void setEmisor(Usuario*);
 
         virtual DtMensaje getDtMensaje() = 0;
         map<string,DtReceptor> getReceptores();

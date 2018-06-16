@@ -10,7 +10,7 @@ DtVideo::~DtVideo()
     //dtor
 }
 
-DtVideo::DtVideo(int codigo, FechaHora enviado, bool visto, string url, int duracion) : DtMensaje(codigo, enviado, visto){
+DtVideo::DtVideo(int codigo, FechaHora enviado, bool visto, Usuario* emisor, string url, int duracion) : DtMensaje(codigo, enviado, visto, emisor){
     this->url = url;
     this->duracion = duracion;
 }

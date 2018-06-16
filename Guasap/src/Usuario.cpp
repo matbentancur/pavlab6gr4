@@ -164,6 +164,18 @@ bool Usuario::agregarUsuarioConversacion(UsuarioConversacion* usuarioConversacio
     return true;
 }
 
+bool Usuario::enviarMensajeConversacion(int idConversacion, DtMensaje nuevoMensaje){
+    set<UsuarioConversacion*>::iterator i;
+    for(i = usuarioConversacion.begin(); i != usuarioConversacion.end(); ++i){
+        UsuarioConversacion * usuarioConversacion = *i;
+        if (usuarioConversacion->getConversacion()->getIdConversacion() == idConversacion){
+//            usuarioConversacion->setEstado(archivada);
+            return true;
+        }
+	}
+	return false;
+}
+
 //bool Usuario::buscarConversacion(int){
 //
 //}

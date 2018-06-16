@@ -1,9 +1,9 @@
 #include "Imagen.h"
 
-Imagen::Imagen(int codigo, FechaHora enviado, bool visto, string url,string formato,string texto,int tamanio) : Multimedia(codigo,enviado,visto){
-    this->url     = url;
+Imagen::Imagen(int codigo, FechaHora enviado, bool visto, Usuario* emisor, string url,string formato,string texto,int tamanio) : Multimedia(codigo,enviado,visto,emisor){
+    this->url = url;
     this->formato = formato;
-    this->texto   = texto;
+    this->texto = texto;
     this->tamanio = tamanio;
 }
 
@@ -40,7 +40,7 @@ void Imagen::setTamanio(int tamanio){
 }
 
 DtMensaje Imagen::getDtMensaje(){
-    DtImagen dtImagen = DtImagen(this->codigo, this->enviado, this->visto, this->url, this->formato, this->tamanio, this->texto);
+    DtImagen dtImagen = DtImagen(this->codigo, this->enviado, this->visto, this->emisor, this->url, this->formato, this->tamanio, this->texto);
     return dtImagen;
 }
 

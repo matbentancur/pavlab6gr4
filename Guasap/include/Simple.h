@@ -9,7 +9,7 @@ class Simple : public Mensaje{
     private:
         string texto;
     public:
-        Simple(int,FechaHora,bool,string);
+        Simple(int,FechaHora,bool,Usuario*, string);
 
         string getTexto();
         void setTexto(string);

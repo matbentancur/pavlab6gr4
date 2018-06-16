@@ -13,6 +13,7 @@
 #include "UsuarioConversacion.h"
 
 class UsuarioConversacion;
+class DtMensaje;
 
 using namespace std;
 
@@ -62,6 +63,7 @@ class Usuario {
         bool archivarConversacion(int);
 
         bool agregarUsuarioConversacion(UsuarioConversacion*);
+        bool enviarMensajeConversacion(int,DtMensaje);
 
         bool buscarConversacion(int);
         bool iniciarConversacion(Usuario);

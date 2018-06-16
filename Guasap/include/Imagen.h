@@ -13,7 +13,7 @@ class Imagen : public Multimedia{
         string texto;
         int tamanio;
     public:
-        Imagen(int,FechaHora,bool,string,string,string,int);
+        Imagen(int,FechaHora,bool,Usuario*,string,string,string,int);
         string getUrl();
         string getFormato();
         string getTexto();

@@ -34,6 +34,9 @@ map<string,DtReceptor> MensajeController::verInfoMensajeEnviado(int codigo){
 }
 
 bool MensajeController::enviarMensajeConversacion(DtMensaje){
+    Sesion* sesion = Sesion::getInstancia();
+    ManejadorUsuario* manejadorUsuario = ManejadorUsuario::getInstancia();
+    Usuario* usuario = manejadorUsuario->findUsuario(sesion->getSesion());
     return true;
 }
 

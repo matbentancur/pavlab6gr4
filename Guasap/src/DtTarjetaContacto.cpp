@@ -10,7 +10,7 @@ DtTarjetaContacto::~DtTarjetaContacto()
     //dtor
 }
 
-DtTarjetaContacto::DtTarjetaContacto(int codigo, FechaHora enviado, bool visto, string nombre, string telefono) : DtMensaje(codigo, enviado, visto){
+DtTarjetaContacto::DtTarjetaContacto(int codigo, FechaHora enviado, bool visto, Usuario* emisor, string nombre, string telefono) : DtMensaje(codigo, enviado, visto,emisor){
     this->nombre = nombre;
     this->telefono = telefono;
 }

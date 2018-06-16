@@ -1,6 +1,6 @@
 #include "Video.h"
 
-Video::Video(int codigo, FechaHora enviado, bool visto, string url, int duracion) : Multimedia(codigo,enviado, visto){
+Video::Video(int codigo, FechaHora enviado, bool visto, Usuario* emisor, string url, int duracion) : Multimedia(codigo,enviado, visto,emisor){
     this->url      = url;
     this->duracion = duracion;
 }
@@ -22,7 +22,7 @@ void Video::setDuracion(int duracion){
 }
 
 DtMensaje Video::getDtMensaje(){
-    DtVideo dtVideo = DtVideo(this->codigo, this->enviado, this->visto, this->url, this->duracion);
+    DtVideo dtVideo = DtVideo(this->codigo, this->enviado, this->visto, this->emisor, this->url, this->duracion);
     return dtVideo;
 }
 
