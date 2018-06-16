@@ -51,7 +51,7 @@ EstadoIngreso UsuarioController::ingresar(string celularIngresado){
 
 FechaHora UsuarioController::crearUsuario(string celular, string nombre, string imagen, string descripcion){
     Usuario* usuario = new Usuario(celular, nombre, imagen, descripcion);
-    FechaHora registro = FechaHora(10,10,10,10,10); //ingresar fecha del reloj
+    FechaHora registro = FechaHora(10,10,2018,10,10); //ingresar fecha del reloj
     usuario->setRegistro(registro);
     ManejadorUsuario* manejadorUsuario = ManejadorUsuario::getInstancia();
     manejadorUsuario->agregarUsuario(usuario);
