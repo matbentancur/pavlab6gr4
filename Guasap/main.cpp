@@ -5,6 +5,7 @@
 #include <stdio.h>
 #include <stdexcept>
 #include "UsuarioFactory.h"
+#include "FechaHora.h"
 
 using namespace std;
 
@@ -13,6 +14,8 @@ void menuPrincipal();
 void listarContactos();
 bool existeSesion();
 void mensajeSesion();
+FechaHora consultarReloj();
+void modificarReloj(FechaHora&);
 
 int main() {
     int numOper = 0;
@@ -214,9 +217,28 @@ int main() {
                 break;
             case 10:
                 cout << "\n\tModificar fecha del sistema\n\n";
+                cout << "Ingrese dia\n";
+                cin >> dia;
+                cout << "Ingrese mes\n";
+                cin >> mes;
+                cout << "Ingrese anio\n";
+                cin >> anio;
+                cout << "Ingrese hora\n";
+                cin >> hora;
+                cout << "Ingrese minuto\n";
+                cin >> minuto;
+                try{
+                    FechaHora fechaHora = FechaHora(dia, mes, anio, hora, minuto);
+                    modificarReloj(fechaHora);
+                }catch(invalid_argument& ia){
+                    cout<< ia.what()<<"\n";
+                    cin.get();
+                }
                 break;
             case 11:
                 cout << "\n\nConsultar fecha del sistema\n\n";
+                datosReloj = consultarReloj();
+                cout<< "La fecha/hora es "<< datosReloj;
                 break;
             case 12:
                 cout << "\n\tInicializar/cargar un conjunto de datos de prueba\n\n";
@@ -282,4 +304,14 @@ bool existeSesion(){
 
 void mensajeSesion(){
     cout << "\nNo hay ninguna sesion activa, primero debe iniciar sesion.\n";
+}
+
+void modificarReloj(FechaHora& fechaHora){
+    FechaHora* nuevaFechaHora = new FechaHora(fechaHora);
+    cout<< "Fecha actualizada\n";
+}
+
+FechaHora consultarReloj(){
+    FechaHora dReloj = FechaHora();
+    return dReloj;
 }
