@@ -20,7 +20,11 @@ class UsuarioController : public IUsuarioController {
         EstadoIngreso ingresar(string);
         FechaHora crearUsuario(string,string,string,string);
         void modificarUsuario(string,string,string);
-        void cerrarGuasap(string);
+        void cerrarGuasap();
+        void crearSesion(string);
+        bool existeSesion();
+        bool existeUsuario(string);
+        bool yaEsContacto(string);
 };
 
 #endif // USUARIOCONTROLLER_H
