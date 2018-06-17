@@ -36,6 +36,8 @@ class Mensaje{
         Usuario* getEmisor();
         void setEmisor(Usuario*);
 
+        bool agregarUsuarioMensaje(UsuarioMensaje*);
+
         virtual DtMensaje getDtMensaje() = 0;
         map<string,DtReceptor> getReceptores();
 

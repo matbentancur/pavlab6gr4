@@ -24,7 +24,6 @@ class ConversacionController : public IConversacionController {
         bool quitarSeleccionContactoGrupo(string);
         bool altaGrupo(string,string);
 
-        DtConversacion obtenerConversacion(int);
         DtConversacion iniciarConversacion(int);
 };
 

@@ -72,6 +72,8 @@ bool ConversacionController::altaGrupo(string nombre,string urlImagen){
     int nuevoIdConversaion = this->getUltimoIdConversacion() + 1;
     FechaHora creacion = FechaHora(10,10,10,10,10); //ingresar fecha del reloj
     Grupo* nuevoGrupo = new Grupo(nuevoIdConversaion,usuario->getCelular(), nombre, urlImagen, creacion);
+    nuevoGrupo->agregarAdministrador(usuario);
+    nuevoGrupo->agregarReceptor(usuario);
     UsuarioConversacion* nuevoUsuarioConversacion = new UsuarioConversacion(activa,nuevoGrupo);
     usuario->agregarUsuarioConversacion(nuevoUsuarioConversacion);
 
@@ -80,16 +82,13 @@ bool ConversacionController::altaGrupo(string nombre,string urlImagen){
     for(i = listaContactosGrupoElegidos.begin(); i != listaContactosGrupoElegidos.end(); ++i){
         DtContacto dtContacto = i->second;
         Usuario* contacto = manejadorUsuario->findUsuario(dtContacto.getCelular());
+        nuevoGrupo->agregarReceptor(contacto);
         UsuarioConversacion* nuevoUsuarioConversacion = new UsuarioConversacion(activa,nuevoGrupo);
         contacto->agregarUsuarioConversacion(nuevoUsuarioConversacion);
     }
     return true;
 }
 
-//DtConversacion ConversacionController::obtenerConversacion(int){
-//
-//}
-//
 //DtConversacion ConversacionController::iniciarConversacion(int){
 //
 //}

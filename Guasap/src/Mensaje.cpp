@@ -43,6 +43,11 @@ void Mensaje::setEmisor(Usuario* emisor){
     this->emisor = emisor;
 }
 
+bool Mensaje::agregarUsuarioMensaje(UsuarioMensaje* um){
+    this->usuarioMensaje.insert(um);
+	return true;
+}
+
 map <string,DtReceptor> Mensaje::getReceptores(){
     map<string,DtReceptor> listaReceptores;
 	set<UsuarioMensaje*>::iterator i;

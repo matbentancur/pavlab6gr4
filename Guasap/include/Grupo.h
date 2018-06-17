@@ -11,6 +11,9 @@ class Grupo : public Conversacion{
         string nombre;
         string urlImagen;
         FechaHora creacion;
+        map<string,Usuario*> administradores;
+        map<string,Usuario*> receptores;
+
     public:
         Grupo(int,string,string,string,FechaHora);
 
@@ -21,6 +24,9 @@ class Grupo : public Conversacion{
         void setNombre(string);
         void setUrlImagen(string);
         void setCreacion(FechaHora);
+
+        bool agregarAdministrador(Usuario*);
+        bool agregarReceptor(Usuario*);
 
         DtConversacion getDtConversacion();
         ~Grupo();
