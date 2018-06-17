@@ -71,7 +71,7 @@ bool ConversacionController::altaGrupo(string nombre,string urlImagen){
     Usuario* usuario = manejadorUsuario->findUsuario(sesion->getSesion());
     int nuevoIdConversaion = this->getUltimoIdConversacion() + 1;
     FechaHora creacion = FechaHora(10,10,10,10,10); //ingresar fecha del reloj
-    Grupo* nuevoGrupo = new Grupo(nuevoIdConversaion,usuario->getCelular(), nombre, urlImagen, creacion);
+    Grupo* nuevoGrupo = new Grupo(nuevoIdConversaion, nombre, usuario, urlImagen, creacion);
     nuevoGrupo->agregarAdministrador(usuario);
     nuevoGrupo->agregarReceptor(usuario);
     UsuarioConversacion* nuevoUsuarioConversacion = new UsuarioConversacion(activa,nuevoGrupo);

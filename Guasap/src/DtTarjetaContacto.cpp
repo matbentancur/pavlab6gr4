@@ -15,7 +15,7 @@ DtTarjetaContacto::DtTarjetaContacto(string nombre, string telefono) : DtMensaje
     this->telefono = telefono;
 }
 
-DtTarjetaContacto::DtTarjetaContacto(int codigo, FechaHora enviado, bool visto, Usuario* emisor, string nombre, string telefono) : DtMensaje(codigo, enviado, visto,emisor){
+DtTarjetaContacto::DtTarjetaContacto(int codigo, FechaHora enviado, bool visto, string nombre, string telefono) : DtMensaje(codigo, enviado, visto){
     this->nombre = nombre;
     this->telefono = telefono;
 }

@@ -17,7 +17,7 @@ DtImagen::DtImagen(string url, string formato, int tamanio, string texto) : DtMe
     this->texto = texto;
 }
 
-DtImagen::DtImagen(int codigo, FechaHora enviado, bool visto, Usuario* emisor, string url, string formato, int tamanio, string texto) : DtMensaje(codigo, enviado, visto, emisor){
+DtImagen::DtImagen(int codigo, FechaHora enviado, bool visto, string url, string formato, int tamanio, string texto) : DtMensaje(codigo, enviado, visto){
     this->url = url;
     this->formato = formato;
     this->tamanio = tamanio;

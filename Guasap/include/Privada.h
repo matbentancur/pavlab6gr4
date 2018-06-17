@@ -2,21 +2,21 @@
 #define PRIVADA_H_INCLUDED
 
 #include "Conversacion.h"
-#include "DtPrivada.h"
+
+using namespace std;
+
+class Usuario;
 
 class Privada : public Conversacion{
 
     private:
-        string nombre;
-        string destino;
+        Usuario* destino;
+
     public:
-        Privada(int,string,string,string);
+        Privada(int,string,Usuario*,Usuario*);
 
-        string getNombre();
-        string getDestino();
-
-        void setNombre(string);
-        void setDestino(string);
+        Usuario* getDestino();
+        void setDestino(Usuario*);
 
         DtConversacion getDtConversacion();
         ~Privada();

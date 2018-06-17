@@ -1,18 +1,16 @@
 #ifndef MENSAJE_H_INCLUDED
 #define MENSAJE_H_INCLUDED
 
+#include <map>
 #include <set>
 #include "FechaHora.h"
 #include "DtMensaje.h"
 #include "DtReceptor.h"
-#include "UsuarioMensaje.h"
-#include "Usuario.h"
 
 using namespace std;
 
 class UsuarioMensaje;
 class Usuario;
-class DtMensaje;
 
 class Mensaje{
 

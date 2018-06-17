@@ -1,4 +1,5 @@
 #include "Usuario.h"
+#include "UsuarioConversacion.h"
 
 Usuario::Usuario()
 {
@@ -153,6 +154,18 @@ bool Usuario::archivarConversacion(int idConversacion){
         UsuarioConversacion * usuarioConversacion = *i;
         if (usuarioConversacion->getConversacion()->getIdConversacion() == idConversacion){
             usuarioConversacion->setEstado(archivada);
+            return true;
+        }
+	}
+	return false;
+}
+
+bool Usuario::activarConversacion(int idConversacion){
+    set<UsuarioConversacion*>::iterator i;
+    for(i = usuarioConversacion.begin(); i != usuarioConversacion.end(); ++i){
+        UsuarioConversacion * usuarioConversacion = *i;
+        if (usuarioConversacion->getConversacion()->getIdConversacion() == idConversacion){
+            usuarioConversacion->setEstado(activa);
             return true;
         }
 	}

@@ -1,29 +1,21 @@
 #include "Grupo.h"
+#include "Usuario.h"
 
-Grupo::Grupo(int idConversacion,string origen,string nombre,string urlImagen,FechaHora creacion) : Conversacion(idConversacion, origen){
-    this->nombre = nombre;
+Grupo::Grupo(int idConversacion,string nombre,Usuario* origen,string urlImagen,FechaHora creacion) : Conversacion(idConversacion, nombre, origen){
     this->urlImagen = urlImagen;
     this->creacion = creacion;
-}
-
-string Grupo::getNombre(){
-    return this->nombre;
 }
 
 string Grupo::getUrlImagen(){
     return this->urlImagen;
 }
 
-FechaHora Grupo::getCreacion(){
-    return this->creacion;
-}
-
-void Grupo::setNombre(string nombre){
-    this->nombre = nombre;
-}
-
 void Grupo::setUrlImagen(string urlImagen){
     this->urlImagen = urlImagen;
+}
+
+FechaHora Grupo::getCreacion(){
+    return this->creacion;
 }
 
 void Grupo::setCreacion(FechaHora creacion){
@@ -41,7 +33,7 @@ bool Grupo::agregarReceptor(Usuario* receptor){
 }
 
 DtConversacion Grupo::getDtConversacion(){
-    DtGrupo dtGrupo = DtGrupo(this->idConversacion, this->nombre);
+    DtGrupo dtGrupo = DtGrupo(this->idConversacion, this->nombre, this->urlImagen, this->creacion);
     return dtGrupo;
 }
 

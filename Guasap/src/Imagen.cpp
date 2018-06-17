@@ -40,7 +40,7 @@ void Imagen::setTamanio(int tamanio){
 }
 
 DtMensaje Imagen::getDtMensaje(){
-    DtImagen dtImagen = DtImagen(this->codigo, this->enviado, this->visto, this->emisor, this->url, this->formato, this->tamanio, this->texto);
+    DtImagen dtImagen = DtImagen(this->codigo, this->enviado, this->visto, this->url, this->formato, this->tamanio, this->texto);
     return dtImagen;
 }
 

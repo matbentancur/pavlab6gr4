@@ -10,15 +10,10 @@ DtPrivada::~DtPrivada()
     //dtor
 }
 
-DtPrivada::DtPrivada(int idConversacion, string destino, string nombre) : DtConversacion(idConversacion){
+DtPrivada::DtPrivada(int idConversacion, string nombre, string destino) : DtConversacion(idConversacion, nombre){
     this->destino = destino;
-    this->nombre = nombre;
 }
 
 string DtPrivada::getDestino(){
     return this->destino;
-}
-
-string DtPrivada::getNombre(){
-    return this->nombre;
 }
