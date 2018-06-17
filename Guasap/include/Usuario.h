@@ -10,8 +10,6 @@
 #include "DtConversacion.h"
 #include "DtMensaje.h"
 #include "DtReceptor.h"
-//#include "UsuarioConversacion.h"
-//#include "Mensaje.h"
 
 class UsuarioConversacion;
 class Mensaje;
@@ -20,7 +18,7 @@ using namespace std;
 
 class Usuario {
 
-    public:
+    private:
         string celular;
         string nombre;
         Fecha registro;

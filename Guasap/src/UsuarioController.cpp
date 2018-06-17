@@ -90,17 +90,17 @@ bool UsuarioController::existeUsuario(string celularIngresado){
     return manejadorUsuario->existeUsuario(celularIngresado);
 }
 
-bool UsuarioController::yaEsContacto(string celularIngresado){
-    bool yaEsContacto = false;
-    ManejadorUsuario* manejadorUsuario = ManejadorUsuario::getInstancia();
-    Sesion* sesion = Sesion::getInstancia();
-    sesion->setSesion(celularIngresado);
-    Usuario* usuario = manejadorUsuario->findUsuario(celularIngresado);
-    map<string,Usuario*>::iterator i;
-    for(i = usuario->contactos.begin(); i != usuario->contactos.end(); ++i){
-        if(i->first == celularIngresado){
-            yaEsContacto = true;
-        }
-	}
-	return yaEsContacto;
-}
+//bool UsuarioController::yaEsContacto(string celularIngresado){
+//    bool yaEsContacto = false;
+//    ManejadorUsuario* manejadorUsuario = ManejadorUsuario::getInstancia();
+//    Sesion* sesion = Sesion::getInstancia();
+//    sesion->setSesion(celularIngresado);
+//    Usuario* usuario = manejadorUsuario->findUsuario(celularIngresado);
+//    map<string,Usuario*>::iterator i;
+//    for(i = usuario->contactos.begin(); i != usuario->contactos.end(); ++i){
+//        if(i->first == celularIngresado){
+//            yaEsContacto = true;
+//        }
+//	}
+//	return yaEsContacto;
+//}
