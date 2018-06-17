@@ -32,7 +32,6 @@ DtContacto UsuarioController::agregarContacto(string celular){
     return contacto->getDtContacto();
 }
 
-
 bool UsuarioController::confirmarContacto(){
     Sesion* sesion = Sesion::getInstancia();
     ManejadorUsuario* manejadorUsuario = ManejadorUsuario::getInstancia();
@@ -67,6 +66,41 @@ void UsuarioController::modificarUsuario(string nombre, string imagen, string de
     usuario->setDescripcion(descripcion);
 }
 
-void UsuarioController::cerrarGuasap(string){
+void UsuarioController::cerrarGuasap(){
+    Sesion* sesion = Sesion::getInstancia();
+    sesion->setSesion("NULL");
+}
 
+void UsuarioController::crearSesion(string celularIngresado){
+    Sesion* sesion = Sesion::getInstancia();
+    sesion->setSesion(celularIngresado);
+}
+
+bool UsuarioController::existeSesion(){
+    Sesion* sesion = Sesion::getInstancia();
+    if(sesion->getSesion() == "NULL"){
+        return false;
+    }else{
+        return true;
+    }
+}
+
+bool UsuarioController::existeUsuario(string celularIngresado){
+    ManejadorUsuario* manejadorUsuario = ManejadorUsuario::getInstancia();
+    return manejadorUsuario->existeUsuario(celularIngresado);
+}
+
+bool UsuarioController::yaEsContacto(string celularIngresado){
+    bool yaEsContacto = false;
+    ManejadorUsuario* manejadorUsuario = ManejadorUsuario::getInstancia();
+    Sesion* sesion = Sesion::getInstancia();
+    sesion->setSesion(celularIngresado);
+    Usuario* usuario = manejadorUsuario->findUsuario(celularIngresado);
+    map<string,Usuario*>::iterator i;
+    for(i = usuario->contactos.begin(); i != usuario->contactos.end(); ++i){
+        if(i->first == celularIngresado){
+            yaEsContacto = true;
+        }
+	}
+	return yaEsContacto;
 }
