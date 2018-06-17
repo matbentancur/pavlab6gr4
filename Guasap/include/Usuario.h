@@ -20,7 +20,7 @@ using namespace std;
 
 class Usuario {
 
-    private:
+    public:
         string celular;
         string nombre;
         Fecha registro;

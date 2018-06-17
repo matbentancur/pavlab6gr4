@@ -19,6 +19,8 @@ class DtContacto {
         string getCelular();
         string getNombre();
         string getImagen();
+
+        friend ostream& operator<<(ostream &os, DtContacto&);
 };
 
 #endif // DTCONTACTO_H

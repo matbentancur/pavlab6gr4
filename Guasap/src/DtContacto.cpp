@@ -1,4 +1,5 @@
 #include "DtContacto.h"
+#include <iostream>
 
 DtContacto::DtContacto()
 {
@@ -26,4 +27,12 @@ string DtContacto::getNombre(){
 
 string DtContacto::getImagen(){
     return this->imagen;
+}
+
+ostream& operator << (ostream& os, DtContacto& dtContacto) {
+    os <<
+        "Celular: " << dtContacto.celular << "\n" <<
+        "Nombre: " << dtContacto.nombre << "\n" <<
+        "Imagen: " << dtContacto.imagen<< "\n";
+    return os;
 }
