@@ -25,9 +25,7 @@ class IMensajeController {
         virtual map<string,DtReceptor> verInfoMensajeEnviado(int) = 0;
         virtual bool enviarMensajeConversacion(DtMensaje) = 0;
         virtual bool enviarMensajeNuevaConversacion(DtMensaje) = 0;
-//        virtual set<DtMensaje*> crearMensajeImagen(DtImagen) = 0;
-//        virtual set<DtMensaje*> crearMensajeSimple(DtSimple) = 0;
-////        virtual void eliminarMensaje(string,listaMensajes) = 0; //ver entrada
+        virtual bool eliminarMensaje(int) = 0;
 
         virtual ~IMensajeController() {}
 };

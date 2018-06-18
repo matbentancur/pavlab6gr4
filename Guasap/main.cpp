@@ -19,7 +19,7 @@ void modificarReloj(FechaHora&);
 
 int main() {
     int numOper = 0;
-    string celularSistema, celularIngresado, celularContacto, nombre, urlImagen, descripcion = "";
+    string celularIngresado, celularContacto, nombre, urlImagen, descripcion = "";
     bool salir = false;
     bool existeUsuario = false;
     bool ingresarOtroNumero = true;
@@ -39,13 +39,11 @@ int main() {
                     switch(estadoIngreso){
                     case userOK: {
                         cout << "\nIniciando sesion...\n";
-                        iUsuarioController->crearSesion(celularIngresado);
-                        celularSistema = celularIngresado;
                         cout << "\nSesion iniciada con exito - Celular: " + celularIngresado + "\n";
+                        ingresarOtroNumero = false;
                         break;
                     }
                     case userInexistente:
-                        celularSistema = celularIngresado;
                         cout << "\nNo existe un usuario con ese numero de celular.\n";
                         do {
                             cout << "\nLista de operaciones disponibles:\n\n";
@@ -61,7 +59,6 @@ int main() {
                                 cout << "\nIngrese el numero de celular: ";
                                 cin >> celularIngresado;
                                 break;
-
                             case 2: {
                                 cout << "\nCrear un usuario\n";
                                 cout << "\nIngrese el nombre: ";
@@ -74,8 +71,6 @@ int main() {
                                     FechaHora fechaHora = iUsuarioController->crearUsuario(celularIngresado, nombre, urlImagen, descripcion);
                                     cout << "\nSe agrego con exito al usuario: " + nombre + ", con celular: " + celularIngresado;
                                     cout << "\n\nIniciando sesion...\n";
-                                    iUsuarioController->crearSesion(celularIngresado);
-                                    celularSistema = celularIngresado;
                                     cout << "\nSesion iniciada con exito - Celular: " + celularIngresado + "\n";
                                 }catch(invalid_argument& ia){
                                     cout << ia.what() << "\n";
@@ -104,14 +99,10 @@ int main() {
                         cout << "\n\nCerrar sesion actual (s/n)?: ";
                         cin >> opcion;
                         if (opcion == 's' || opcion == 'S') {
-                            cout << "\nCerrando sesion...\n";
+                            cout << "\n\nCerrando sesion...\n";
                             iUsuarioController->cerrarGuasap();
                             cout << "\nSesion cerrada con exito.";
-                            cout << "\nIniciando sesion...\n";
-                            iUsuarioController->crearSesion(celularIngresado);
-                            celularSistema = celularIngresado;
-                            cout << "\nSesion iniciada con exito - Celular: " + celularIngresado + "\n";
-                            ingresarOtroNumero = false;
+                            ingresarOtroNumero = true;
                         }
                         break;
                     }
@@ -120,26 +111,25 @@ int main() {
             }
             break;
             case 2: {
-                if(existeSesion() == false){
-                    mensajeSesion();
-                }else{
+                try{
                     cout << "\n\tCerrar Guasap\n";
                     cout << "\nCerrar sesion actual (s/n)?: ";
                     cin >> opcion;
                     if (opcion == 's' || opcion == 'S') {
-                        cout << "\nCerrando sesion...\n";
                         UsuarioFactory* usuarioFactory = UsuarioFactory::getInstancia();
                         IUsuarioController* iUsuarioController = usuarioFactory->getIUsuarioController();
                         iUsuarioController->cerrarGuasap();
+                        cout << "\n\nCerrando sesion...\n";
                         cout << "\nSesion cerrada con exito.";
                     }
+                }catch(logic_error& ia){
+                    cout << ia.what() << "\n";
+                    cin.get();
                 }
                 break;
             }
             case 3: {
-                if(existeSesion() == false){
-                    mensajeSesion();
-                }else{
+                try {
                     cout << "\n\nLista de contactos\n\n";
                     listarContactos();
                     cout << "\nQuiere agregar un nuevo contacto (s/n)?: ";
@@ -149,71 +139,58 @@ int main() {
                         cin >> celularContacto;
                         UsuarioFactory* usuarioFactory = UsuarioFactory::getInstancia();
                         IUsuarioController* iUsuarioController = usuarioFactory->getIUsuarioController();
-                        if(iUsuarioController->existeUsuario(celularContacto) == false){
-                            cout << "\nNo existe un usuario con ese numero.\n";
-                        }else{
-                            if(iUsuarioController->yaEsContacto(celularContacto) == true){
-                                cout << "\nYa es contacto del usuario con celular: " + celularContacto + "\n";
+                        DtContacto dtContacto = iUsuarioController->agregarContacto(celularContacto);
+                        cout << "\n";
+                        cout << dtContacto;
+                        cout << "\nPresione \"s\" para confirmar la accion: ";
+                        cin >> opcion;
+                        if (opcion == 's' || opcion == 'S') {
+                            if(iUsuarioController->confirmarContacto()){
+                                cout << "\nSe agrego con exito al usuario.";
                             }else{
-                                DtContacto dtContacto = iUsuarioController->agregarContacto(celularContacto);
-                                cout << "\n";
-                                cout << dtContacto;
-                                cout << "\nPresione \"s\" para confirmar la accion: ";
-                                cin >> opcion;
-                                if (opcion == 's' || opcion == 'S') {
-                                    if(iUsuarioController->confirmarContacto()){
-                                        cout << "\nSe agrego con exito al usuario.";
-                                    }else{
-                                        cout << "\nNo se pudo agregar al usuario.";
-                                    }
-                                }
+                                cout << "\nYa es contacto del usuario con celular: " + celularContacto + "\n";
                             }
                         }
                     }
+                }catch(logic_error& ia){
+                    cout << ia.what() << "\n";
+                    cin.get();
                 }
                 break;
             }
             case 4:
-                if(existeSesion() == false){
-                    mensajeSesion();
-                }else{
-                    cout << "\n\tAlta grupo\n\n";
-                }
+                cout << "\n\tAlta grupo\n\n";
                 break;
             case 5:
-                if(existeSesion() == false){
-                    mensajeSesion();
-                }else{
-                    cout << "\n\tEnviar mensajes\n\n";
-                }
+                cout << "\n\tEnviar mensajes\n\n";
                 break;
             case 6:
-                if(existeSesion() == false){
-                    mensajeSesion();
-                }else{
-                    cout << "\n\nVer mensajes\n\n";
-                }
+                cout << "\n\nVer mensajes\n\n";
                 break;
             case 7:
-                if(existeSesion() == false){
-                    mensajeSesion();
-                }else{
-                    cout << "\n\nArchivar conversaciones\n\n";
-                }
+                cout << "\n\nArchivar conversaciones\n\n";
                 break;
-            case 8:
-                if(existeSesion() == false){
-                    mensajeSesion();
-                }else{
+            case 8: {
+                try{
                     cout << "\n\tModificar usuario\n\n";
+                    UsuarioFactory* usuarioFactory = UsuarioFactory::getInstancia();
+                    IUsuarioController* iUsuarioController = usuarioFactory->getIUsuarioController();
+                    cout << "\nIngrese el nuevo nombre: ";
+                    cin >> nombre;
+                    cout << "\nIngrese la nueva URL de la imagen: ";
+                    cin >> urlImagen;
+                    cout << "\nIngrese una nueva descripcion: ";
+                    cin >> descripcion;
+                    iUsuarioController->modificarUsuario(nombre, urlImagen, descripcion);
+                    cout << "\nLos datos se modificaron con exito.";
+                }catch(logic_error& ia){
+                    cout << ia.what() << "\n";
+                    cin.get();
                 }
+            }
                 break;
             case 9:
-                if(existeSesion() == false){
-                    mensajeSesion();
-                }else{
-                    cout << "\n\tEliminar mensajes\n\n";
-                }
+                cout << "\n\tEliminar mensajes\n\n";
                 break;
             case 10:
                 cout << "\n\tModificar fecha del sistema\n\n";
@@ -294,16 +271,6 @@ void listarContactos(){
             cout << i->second;
         }
     }
-}
-
-bool existeSesion(){
-    UsuarioFactory* usuarioFactory = UsuarioFactory::getInstancia();
-    IUsuarioController* iUsuarioController = usuarioFactory->getIUsuarioController();
-    return iUsuarioController->existeSesion();
-}
-
-void mensajeSesion(){
-    cout << "\nNo hay ninguna sesion activa, primero debe iniciar sesion.\n";
 }
 
 void modificarReloj(FechaHora& fechaHora){
