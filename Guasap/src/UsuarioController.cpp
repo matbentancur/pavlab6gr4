@@ -20,16 +20,29 @@ void UsuarioController::setCelularContacto(string celularContacto){
 
 map<string,DtContacto> UsuarioController::listarContactos(){
     Sesion* sesion = Sesion::getInstancia();
-    ManejadorUsuario* manejadorUsuario = ManejadorUsuario::getInstancia();
-    Usuario* usuario = manejadorUsuario->findUsuario(sesion->getSesion());
-    return usuario->obtenerContactos();
+    if(sesion->getSesion() == "NULL"){
+        throw logic_error("\nNo hay ninguna sesion activa, primero debe iniciar sesion.\n");
+    }else{
+        ManejadorUsuario* manejadorUsuario = ManejadorUsuario::getInstancia();
+        Usuario* usuario = manejadorUsuario->findUsuario(sesion->getSesion());
+        return usuario->obtenerContactos();
+    }
 }
 
 DtContacto UsuarioController::agregarContacto(string celular){
-    this->setCelularContacto(celular);
-    ManejadorUsuario* manejadorUsuario = ManejadorUsuario::getInstancia();
-    Usuario* contacto = manejadorUsuario->findUsuario(celular);
-    return contacto->getDtContacto();
+    Sesion* sesion = Sesion::getInstancia();
+    if(sesion->getSesion() == "NULL"){
+        throw logic_error("\nNo hay ninguna sesion activa, primero debe iniciar sesion.\n");
+    }else{
+        this->setCelularContacto(celular);
+        ManejadorUsuario* manejadorUsuario = ManejadorUsuario::getInstancia();
+        Usuario* contacto = manejadorUsuario->findUsuario(celular);
+        if(contacto == NULL){
+            throw logic_error("\nNo existe un usuario con numero de celular: " + celular + "\n");
+        }else{
+            return contacto->getDtContacto();
+        }
+    }
 }
 
 bool UsuarioController::confirmarContacto(){
@@ -45,62 +58,43 @@ bool UsuarioController::confirmarContacto(){
 
 EstadoIngreso UsuarioController::ingresar(string celularIngresado){
     Sesion* sesion = Sesion::getInstancia();
-    return sesion->getEstado(celularIngresado);
+    EstadoIngreso estadoIngreso = sesion->getEstado(celularIngresado);
+    if(estadoIngreso == userOK){
+        sesion->setSesion(celularIngresado);
+    }
+    return estadoIngreso;
 }
 
 FechaHora UsuarioController::crearUsuario(string celular, string nombre, string imagen, string descripcion){
+    Sesion* sesion = Sesion::getInstancia();
     Usuario* usuario = new Usuario(celular, nombre, imagen, descripcion);
     FechaHora registro = FechaHora(10,10,2018,10,10); //ingresar fecha del reloj
     usuario->setRegistro(registro);
     ManejadorUsuario* manejadorUsuario = ManejadorUsuario::getInstancia();
-    manejadorUsuario->agregarUsuario(usuario);
+    if(manejadorUsuario->agregarUsuario(usuario)){
+        sesion->setSesion(celular);
+    }
     return registro;
 }
 
 void UsuarioController::modificarUsuario(string nombre, string imagen, string descripcion){
     Sesion* sesion = Sesion::getInstancia();
-    ManejadorUsuario* manejadorUsuario = ManejadorUsuario::getInstancia();
-    Usuario* usuario = manejadorUsuario->findUsuario(sesion->getSesion());
-    usuario->setNombre(nombre);
-    usuario->setImagen(imagen);
-    usuario->setDescripcion(descripcion);
+    if(sesion->getSesion() == "NULL"){
+        throw logic_error("\nNo hay ninguna sesion activa, primero debe iniciar sesion.\n");
+    }else{
+        ManejadorUsuario* manejadorUsuario = ManejadorUsuario::getInstancia();
+        Usuario* usuario = manejadorUsuario->findUsuario(sesion->getSesion());
+        usuario->setNombre(nombre);
+        usuario->setImagen(imagen);
+        usuario->setDescripcion(descripcion);
+    }
 }
 
 void UsuarioController::cerrarGuasap(){
     Sesion* sesion = Sesion::getInstancia();
-    sesion->setSesion("NULL");
-}
-
-void UsuarioController::crearSesion(string celularIngresado){
-    Sesion* sesion = Sesion::getInstancia();
-    sesion->setSesion(celularIngresado);
-}
-
-bool UsuarioController::existeSesion(){
-    Sesion* sesion = Sesion::getInstancia();
     if(sesion->getSesion() == "NULL"){
-        return false;
+        throw logic_error("\nNo hay ninguna sesion activa, primero debe iniciar sesion.\n");
     }else{
-        return true;
+        sesion->setSesion("NULL");
     }
-}
-
-bool UsuarioController::existeUsuario(string celularIngresado){
-    ManejadorUsuario* manejadorUsuario = ManejadorUsuario::getInstancia();
-    return manejadorUsuario->existeUsuario(celularIngresado);
-}
-
-bool UsuarioController::yaEsContacto(string celularIngresado){
-    bool yaEsContacto = false;
-    ManejadorUsuario* manejadorUsuario = ManejadorUsuario::getInstancia();
-    Sesion* sesion = Sesion::getInstancia();
-    sesion->setSesion(celularIngresado);
-    Usuario* usuario = manejadorUsuario->findUsuario(celularIngresado);
-    map<string,Usuario*>::iterator i;
-    for(i = usuario->contactos.begin(); i != usuario->contactos.end(); ++i){
-        if(i->first == celularIngresado){
-            yaEsContacto = true;
-        }
-	}
-	return yaEsContacto;
 }

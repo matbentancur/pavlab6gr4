@@ -23,10 +23,6 @@ class IUsuarioController {
         virtual FechaHora crearUsuario(string,string,string,string) = 0;
         virtual void modificarUsuario(string,string,string) = 0;
         virtual void cerrarGuasap() = 0;
-        virtual void crearSesion(string) = 0;
-        virtual bool existeUsuario(string) = 0;
-        virtual bool existeSesion() = 0;
-        virtual bool yaEsContacto(string) = 0;
 
         virtual ~IUsuarioController() {}
 };
