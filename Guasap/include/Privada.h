@@ -6,6 +6,7 @@
 using namespace std;
 
 class Usuario;
+class Mensaje;
 
 class Privada : public Conversacion{
 
@@ -19,6 +20,9 @@ class Privada : public Conversacion{
         void setDestino(Usuario*);
 
         DtConversacion getDtConversacion();
+
+        bool agregrarMensaje(Mensaje*);
+
         ~Privada();
 
 };

@@ -47,12 +47,12 @@ bool MensajeController::enviarMensajeConversacion(DtMensaje nuevoMensaje){
     Usuario* usuario = manejadorUsuario->findUsuario(sesion->getSesion());
 
     Mensaje* mensaje;
+    int nuevoCodigoMensaje = this->getUltimoCodigoMensaje() + 1;
+    FechaHora enviado = FechaHora(10,10,10,10,10);
     bool mensajeCreado = false;
 
     try{
         DtSimple& dtMensaje = dynamic_cast<DtSimple&>(nuevoMensaje);
-        int nuevoCodigoMensaje = this->getUltimoCodigoMensaje() + 1;
-        FechaHora enviado = FechaHora(10,10,10,10,10);
         mensaje = new Simple(nuevoCodigoMensaje, enviado, false, usuario, dtMensaje.getTexto());
         mensajeCreado = true;
     }catch(std::bad_cast){
@@ -61,8 +61,6 @@ bool MensajeController::enviarMensajeConversacion(DtMensaje nuevoMensaje){
 
     try{
         DtTarjetaContacto& dtMensaje = dynamic_cast<DtTarjetaContacto&>(nuevoMensaje);
-        int nuevoCodigoMensaje = this->getUltimoCodigoMensaje() + 1;
-        FechaHora enviado = FechaHora(10,10,10,10,10);
         mensaje = new TarjetaContacto(nuevoCodigoMensaje, enviado, false, usuario, dtMensaje.getNombre(), dtMensaje.getTelefono());
         mensajeCreado = true;
     }catch(std::bad_cast){
@@ -71,8 +69,6 @@ bool MensajeController::enviarMensajeConversacion(DtMensaje nuevoMensaje){
 
     try{
         DtImagen& dtMensaje = dynamic_cast<DtImagen&>(nuevoMensaje);
-        int nuevoCodigoMensaje = this->getUltimoCodigoMensaje() + 1;
-        FechaHora enviado = FechaHora(10,10,10,10,10);
         mensaje = new Imagen(nuevoCodigoMensaje, enviado, false, usuario, dtMensaje.getUrl(), dtMensaje.getFormato(), dtMensaje.getTexto(), dtMensaje.getTamanio());
         mensajeCreado = true;
     }catch(std::bad_cast){
@@ -81,8 +77,6 @@ bool MensajeController::enviarMensajeConversacion(DtMensaje nuevoMensaje){
 
     try{
         DtVideo& dtMensaje = dynamic_cast<DtVideo&>(nuevoMensaje);
-        int nuevoCodigoMensaje = this->getUltimoCodigoMensaje() + 1;
-        FechaHora enviado = FechaHora(10,10,10,10,10);
         mensaje = new Video(nuevoCodigoMensaje, enviado, false, usuario, dtMensaje.getUrl(), dtMensaje.getDuracion());
     }catch(std::bad_cast){
         cout << "Error en cast para Video\n";
@@ -96,5 +90,9 @@ bool MensajeController::enviarMensajeConversacion(DtMensaje nuevoMensaje){
 }
 
 bool MensajeController::enviarMensajeNuevaConversacion(DtMensaje){
+    return true;
+}
+
+bool MensajeController::eliminarMensaje(int codigoMensaje){
     return true;
 }

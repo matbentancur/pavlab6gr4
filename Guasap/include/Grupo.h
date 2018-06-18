@@ -7,6 +7,7 @@
 using namespace std;
 
 class Usuario;
+class Mensaje;
 
 class Grupo : public Conversacion{
 
@@ -29,6 +30,9 @@ class Grupo : public Conversacion{
         bool agregarReceptor(Usuario*);
 
         DtConversacion getDtConversacion();
+
+        bool agregrarMensaje(Mensaje*);
+
         ~Grupo();
 
 };

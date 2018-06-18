@@ -12,6 +12,7 @@ class UsuarioMensaje {
         Usuario* usuario;
 
     public:
+        UsuarioMensaje(bool, Usuario*);
         UsuarioMensaje(bool, FechaHora, Usuario*);
 
         bool getVisto();

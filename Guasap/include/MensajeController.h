@@ -4,6 +4,7 @@
 #include "IMensajeController.h"
 
 class MensajeController : public IMensajeController{
+
     private:
         int idConversacion;
         int ultimoCodigoMensaje;
@@ -23,9 +24,7 @@ class MensajeController : public IMensajeController{
         bool enviarMensajeConversacion(DtMensaje);
         bool enviarMensajeNuevaConversacion(DtMensaje);
 
-        set<DtMensaje*> crearMensajeImagen(DtImagen);
-        set<DtMensaje*> crearMensajeSimple(DtSimple);
-//        void eliminarMensaje(string,listaMensajes); //ver entrada
+        bool eliminarMensaje(int);
 };
 
 #endif // MENSAJECONTROLLER_H

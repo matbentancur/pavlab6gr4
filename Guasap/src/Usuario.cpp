@@ -76,7 +76,7 @@ map<string,DtContacto> Usuario::obtenerContactos(){
 	map<string,Usuario*>::iterator i;
     for(i = contactos.begin(); i != contactos.end(); ++i){
 //		DtContacto dtContacto = (*i)->getDtContacto();
-        Usuario * usuario = i->second;
+        Usuario* usuario = i->second;
         DtContacto dtContacto = usuario->getDtContacto();
         listaContactos.insert(std::pair<string, DtContacto>(usuario->getCelular(), dtContacto));
 	}
@@ -102,7 +102,7 @@ map<int,DtConversacion> Usuario::obtenerConversacionesActivas(){
     map<int,DtConversacion> listaConversaciones;
 	set<UsuarioConversacion*>::iterator i;
     for(i = usuarioConversacion.begin(); i != usuarioConversacion.end(); ++i){
-        UsuarioConversacion * usuarioConversacion = *i;
+        UsuarioConversacion* usuarioConversacion = *i;
         if (usuarioConversacion->getEstado() == 1){
             DtConversacion dtConversacion = usuarioConversacion->obtenerConversacion();
             listaConversaciones.insert(std::pair<int, DtConversacion>(dtConversacion.getIdConversacion(), dtConversacion));
@@ -115,7 +115,7 @@ map<int,DtConversacion> Usuario::obtenerConversacionesArchivadas(){
     map<int,DtConversacion> listaConversaciones;
 	set<UsuarioConversacion*>::iterator i;
     for(i = usuarioConversacion.begin(); i != usuarioConversacion.end(); ++i){
-        UsuarioConversacion * usuarioConversacion = *i;
+        UsuarioConversacion* usuarioConversacion = *i;
         if (usuarioConversacion->getEstado() == 2){
             DtConversacion dtConversacion = usuarioConversacion->obtenerConversacion();
             listaConversaciones.insert(std::pair<int, DtConversacion>(dtConversacion.getIdConversacion(), dtConversacion));
@@ -128,7 +128,7 @@ map<int,DtMensaje> Usuario::obtenerMensajes(int idConversacion){
     map<int,DtMensaje> listaMensajes;
     set<UsuarioConversacion*>::iterator i;
     for(i = usuarioConversacion.begin(); i != usuarioConversacion.end(); ++i){
-        UsuarioConversacion * usuarioConversacion = *i;
+        UsuarioConversacion* usuarioConversacion = *i;
         if (usuarioConversacion->getConversacion()->getIdConversacion() == idConversacion){
             listaMensajes = usuarioConversacion->obtenerMensajes();
         }
@@ -140,7 +140,7 @@ map<string,DtReceptor> Usuario::verInfoMensaje(int idConversacion, int codigo){
     map<string,DtReceptor> listaReceptores;
     set<UsuarioConversacion*>::iterator i;
     for(i = usuarioConversacion.begin(); i != usuarioConversacion.end(); ++i){
-        UsuarioConversacion * usuarioConversacion = *i;
+        UsuarioConversacion* usuarioConversacion = *i;
         if (usuarioConversacion->getConversacion()->getIdConversacion() == idConversacion){
             listaReceptores = usuarioConversacion->verInfoMensaje(codigo);
         }
@@ -151,7 +151,7 @@ map<string,DtReceptor> Usuario::verInfoMensaje(int idConversacion, int codigo){
 bool Usuario::archivarConversacion(int idConversacion){
     set<UsuarioConversacion*>::iterator i;
     for(i = usuarioConversacion.begin(); i != usuarioConversacion.end(); ++i){
-        UsuarioConversacion * usuarioConversacion = *i;
+        UsuarioConversacion* usuarioConversacion = *i;
         if (usuarioConversacion->getConversacion()->getIdConversacion() == idConversacion){
             usuarioConversacion->setEstado(archivada);
             return true;
@@ -163,7 +163,7 @@ bool Usuario::archivarConversacion(int idConversacion){
 bool Usuario::activarConversacion(int idConversacion){
     set<UsuarioConversacion*>::iterator i;
     for(i = usuarioConversacion.begin(); i != usuarioConversacion.end(); ++i){
-        UsuarioConversacion * usuarioConversacion = *i;
+        UsuarioConversacion* usuarioConversacion = *i;
         if (usuarioConversacion->getConversacion()->getIdConversacion() == idConversacion){
             usuarioConversacion->setEstado(activa);
             return true;
@@ -180,7 +180,7 @@ bool Usuario::agregarUsuarioConversacion(UsuarioConversacion* usuarioConversacio
 bool Usuario::enviarMensajeConversacion(int idConversacion, Mensaje* nuevoMensaje){
     set<UsuarioConversacion*>::iterator i;
     for(i = usuarioConversacion.begin(); i != usuarioConversacion.end(); ++i){
-        UsuarioConversacion * usuarioConversacion = *i;
+        UsuarioConversacion* usuarioConversacion = *i;
         if (usuarioConversacion->getConversacion()->getIdConversacion() == idConversacion){
             return usuarioConversacion->enviarMensajeConversacion(nuevoMensaje);
         }
