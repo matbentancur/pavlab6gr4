@@ -1,28 +1,20 @@
 #include "Privada.h"
+#include "Usuario.h"
 
-Privada::Privada(int idConversacion, string origen,string nombre,string destino) : Conversacion(idConversacion, origen){
-    this->nombre         = nombre;
-    this->destino        = destino;
+Privada::Privada(int idConversacion, string nombre, Usuario* origen, Usuario* destino) : Conversacion(idConversacion, nombre, origen){
+    this->destino = destino;
 }
 
-string Privada::getNombre(){
-    return this->nombre;
-}
-
-string Privada::getDestino(){
+Usuario* Privada::getDestino(){
     return this->destino;
 }
 
-void Privada::setNombre(string nombre){
-    this->nombre = nombre;
-}
-
-void Privada::setDestino(string destino){
+void Privada::setDestino(Usuario* destino){
     this->destino = destino;
 }
 
 DtConversacion Privada::getDtConversacion(){
-    DtPrivada dtPrivada = DtPrivada(this->idConversacion, this->destino, this->nombre);
+    DtPrivada dtPrivada = DtPrivada(this->idConversacion, this->nombre, this->destino->getCelular());
     return dtPrivada;
 }
 

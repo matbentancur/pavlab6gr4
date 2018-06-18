@@ -1,21 +1,23 @@
 #ifndef DTGRUPO_H
 #define DTGRUPO_H
 
-#include <string>
 #include "DtConversacion.h"
-
-using namespace std;
+#include "FechaHora.h"
 
 class DtGrupo : public DtConversacion {
 
     private:
-        string nombre;
+        string urlImagen;
+        FechaHora creacion;
 
     public:
         DtGrupo();
         virtual ~DtGrupo();
-        DtGrupo(int,string);
-        string getNombre();
+
+        DtGrupo(int,string,string,FechaHora);
+
+        string getUrlImagen();
+        FechaHora getCreacion();
 };
 
 #endif // DTGRUPO_H

@@ -22,7 +22,7 @@ void Video::setDuracion(int duracion){
 }
 
 DtMensaje Video::getDtMensaje(){
-    DtVideo dtVideo = DtVideo(this->codigo, this->enviado, this->visto, this->emisor, this->url, this->duracion);
+    DtVideo dtVideo = DtVideo(this->codigo, this->enviado, this->visto, this->url, this->duracion);
     return dtVideo;
 }
 

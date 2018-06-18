@@ -22,7 +22,7 @@ void TarjetaContacto::setTelefono(){
 }
 
 DtMensaje TarjetaContacto::getDtMensaje(){
-    DtTarjetaContacto dtTarjetaContacto = DtTarjetaContacto(this->codigo, this->enviado, this->visto, this->emisor, this->nombre, this->telefono);
+    DtTarjetaContacto dtTarjetaContacto = DtTarjetaContacto(this->codigo, this->enviado, this->visto, this->nombre, this->telefono);
     return dtTarjetaContacto;
 }
 

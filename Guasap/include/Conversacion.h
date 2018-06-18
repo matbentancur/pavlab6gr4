@@ -1,30 +1,37 @@
 #ifndef CONVERSACION_H_INCLUDED
 #define CONVERSACION_H_INCLUDED
 
-#include <set>
 #include <map>
-#include "DtConversacion.h"
+#include "DtPrivada.h"
+#include "DtGrupo.h"
 #include "DtMensaje.h"
 #include "DtReceptor.h"
-#include "Mensaje.h"
 
+
+using namespace std;
+
+class Usuario;
 class Mensaje;
-class DtMensaje;
 
 class Conversacion{
 
     protected:
         int idConversacion;
-        string origen;
+        string nombre;
+        Usuario* origen;
         map<int,Mensaje*> mensajes;
 
     public:
-        Conversacion(int,string);
+        Conversacion(int,string,Usuario*);
 
         int getIdConversacion();
-        string getOrigen();
         void setIdConversacion(int);
-        void setOrigen(string);
+
+        string getNombre();
+        void setNombre(string);
+
+        Usuario* getOrigen();
+        void setOrigen(Usuario*);
 
         virtual DtConversacion getDtConversacion() = 0;
         map<int,DtMensaje> getMensajes();

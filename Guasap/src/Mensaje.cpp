@@ -1,4 +1,5 @@
 #include "Mensaje.h"
+#include "UsuarioMensaje.h"
 
 Mensaje::Mensaje(){
 

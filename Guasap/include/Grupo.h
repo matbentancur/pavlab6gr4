@@ -2,27 +2,27 @@
 #define GRUPO_H_INCLUDED
 
 #include "Conversacion.h"
-#include "DtGrupo.h"
 #include "FechaHora.h"
+
+using namespace std;
+
+class Usuario;
 
 class Grupo : public Conversacion{
 
     private:
-        string nombre;
         string urlImagen;
         FechaHora creacion;
         map<string,Usuario*> administradores;
         map<string,Usuario*> receptores;
 
     public:
-        Grupo(int,string,string,string,FechaHora);
+        Grupo(int,string,Usuario*,string,FechaHora);
 
-        string getNombre();
         string getUrlImagen();
-        FechaHora getCreacion();
-
-        void setNombre(string);
         void setUrlImagen(string);
+
+        FechaHora getCreacion();
         void setCreacion(FechaHora);
 
         bool agregarAdministrador(Usuario*);

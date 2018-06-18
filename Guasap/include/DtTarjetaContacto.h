@@ -13,7 +13,7 @@ class DtTarjetaContacto : public DtMensaje {
     public:
         DtTarjetaContacto();
         DtTarjetaContacto(string, string);
-        DtTarjetaContacto(int, FechaHora, bool, Usuario*, string, string);
+        DtTarjetaContacto(int, FechaHora, bool, string, string);
         virtual ~DtTarjetaContacto();
         string getNombre();
         string getTelefono();

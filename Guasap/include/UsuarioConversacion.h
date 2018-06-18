@@ -1,17 +1,22 @@
 #ifndef USUARIOCONVERSACION_H
 #define USUARIOCONVERSACION_H
 
+#include <iostream> //cout
+#include <typeinfo> //bad_cast
 #include <set>
 #include <map>
 #include "EstadoConversacion.h"
 #include "DtConversacion.h"
+#include "DtPrivada.h"
+#include "DtGrupo.h"
 #include "DtMensaje.h"
 #include "DtReceptor.h"
 #include "Conversacion.h"
+#include "Privada.h"
+#include "Grupo.h"
 #include "Mensaje.h"
 
 class Conversacion;
-class DtMensaje;
 
 class UsuarioConversacion {
 
