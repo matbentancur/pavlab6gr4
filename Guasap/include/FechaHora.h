@@ -17,6 +17,8 @@ class FechaHora : public Fecha {
         FechaHora(int,int,int,int,int);
         int getHora();
         int getMinuto();
+    
+        friend ostream& operator << (ostream &salida, FechaHora&);
 };
 
 #endif // FECHAHORA_H
