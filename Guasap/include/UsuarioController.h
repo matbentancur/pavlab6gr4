@@ -21,10 +21,6 @@ class UsuarioController : public IUsuarioController {
         FechaHora crearUsuario(string,string,string,string);
         void modificarUsuario(string,string,string);
         void cerrarGuasap();
-        void crearSesion(string);
-        bool existeSesion();
-        bool existeUsuario(string);
-        bool yaEsContacto(string);
 };
 
 #endif // USUARIOCONTROLLER_H
