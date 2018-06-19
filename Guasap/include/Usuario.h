@@ -9,6 +9,10 @@
 #include "DtContacto.h"
 #include "DtConversacion.h"
 #include "DtMensaje.h"
+#include "DtSimple.h"
+#include "DtTarjetaContacto.h"
+#include "DtImagen.h"
+#include "DtVideo.h"
 #include "DtReceptor.h"
 
 class UsuarioConversacion;
@@ -62,10 +66,8 @@ class Usuario {
         bool activarConversacion(int);
 
         bool agregarUsuarioConversacion(UsuarioConversacion*);
-        bool enviarMensajeConversacion(int,Mensaje*);
-
-        bool buscarConversacion(int);
-        bool iniciarConversacion(Usuario);
+        bool enviarMensajeConversacion(int,Usuario*,DtMensaje);
+        bool enviarMensajeNuevaConversacion(Usuario*,Usuario*,DtMensaje);
 
 };
 

@@ -65,7 +65,7 @@ bool ConversacionController::altaGrupo(string nombre,string urlImagen){
     int nuevoIdConversaion = almacenamiento->getUltimoIdConversacion() + 1;
     almacenamiento->setUltimoIdConversacion(nuevoIdConversaion);
     FechaHora creacion = almacenamiento->getReloj();
-    Grupo* nuevoGrupo = new Grupo(nuevoIdConversaion, nombre, usuario, urlImagen, creacion);
+    Grupo* nuevoGrupo = new Grupo(nuevoIdConversaion, usuario, nombre, urlImagen, creacion);
     nuevoGrupo->agregarAdministrador(usuario);
     nuevoGrupo->agregarReceptor(usuario);
     UsuarioConversacion* nuevoUsuarioConversacion = new UsuarioConversacion(activa,nuevoGrupo);

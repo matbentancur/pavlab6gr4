@@ -3,9 +3,18 @@
 #include "Mensaje.h"
 #include "UsuarioMensaje.h"
 
-Grupo::Grupo(int idConversacion,string nombre,Usuario* origen,string urlImagen,FechaHora creacion) : Conversacion(idConversacion, nombre, origen){
+Grupo::Grupo(int idConversacion, Usuario* origen, string nombre, string urlImagen, FechaHora creacion) : Conversacion(idConversacion, origen){
+    this->nombre = nombre;
     this->urlImagen = urlImagen;
     this->creacion = creacion;
+}
+
+string Grupo::getNombre(){
+    return this->nombre;
+}
+
+void Grupo::setNombre(string nombre){
+    this->nombre = nombre;
 }
 
 string Grupo::getUrlImagen(){

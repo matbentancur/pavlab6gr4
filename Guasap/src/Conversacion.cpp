@@ -1,9 +1,8 @@
 #include "Conversacion.h"
 #include "Mensaje.h"
 
-Conversacion::Conversacion(int idConversacion, string nombre, Usuario* origen){
+Conversacion::Conversacion(int idConversacion, Usuario* origen){
      this->idConversacion = idConversacion;
-     this->nombre = nombre;
      this->origen = origen;
 }
 
@@ -13,14 +12,6 @@ int Conversacion::getIdConversacion(){
 
 void Conversacion::setIdConversacion(int idConversacion){
         this->idConversacion = idConversacion;
-}
-
-string Conversacion::getNombre(){
-    return this->nombre;
-}
-
-void Conversacion::setNombre(string nombre){
-    this->nombre = nombre;
 }
 
 Usuario* Conversacion::getOrigen(){
