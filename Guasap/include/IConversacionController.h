@@ -4,6 +4,7 @@
 #include <set>
 #include <map>
 #include "Sesion.h"
+#include "Almacenamiento.h"
 #include "DtConversacion.h"
 #include "ManejadorUsuario.h"
 #include "Grupo.h"

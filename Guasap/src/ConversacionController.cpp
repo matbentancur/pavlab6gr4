@@ -10,14 +10,6 @@ ConversacionController::~ConversacionController()
     //dtor
 }
 
-int ConversacionController::getUltimoIdConversacion(){
-    return this->ultimoIdConversacion;
-}
-
-void ConversacionController::setUltimoIdConversacion(int idConversacion){
-    this->ultimoIdConversacion = idConversacion;
-}
-
 map<int,DtConversacion> ConversacionController::listarConversacionesActivas(){
     Sesion* sesion = Sesion::getInstancia();
     ManejadorUsuario* manejadorUsuario = ManejadorUsuario::getInstancia();
@@ -69,7 +61,8 @@ bool ConversacionController::altaGrupo(string nombre,string urlImagen){
     Sesion* sesion = Sesion::getInstancia();
     ManejadorUsuario* manejadorUsuario = ManejadorUsuario::getInstancia();
     Usuario* usuario = manejadorUsuario->findUsuario(sesion->getSesion());
-    int nuevoIdConversaion = this->getUltimoIdConversacion() + 1;
+    Almacenamiento* almacenamiento = Almacenamiento::getInstancia();
+    int nuevoIdConversaion = almacenamiento->getUltimoIdConversacion() + 1;
     FechaHora creacion = FechaHora(10,10,10,10,10); //ingresar fecha del reloj
     Grupo* nuevoGrupo = new Grupo(nuevoIdConversaion, nombre, usuario, urlImagen, creacion);
     nuevoGrupo->agregarAdministrador(usuario);

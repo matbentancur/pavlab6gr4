@@ -6,6 +6,7 @@
 #include <set>
 #include <map>
 #include "Sesion.h"
+#include "Almacenamiento.h"
 #include "DtMensaje.h"
 #include "DtSimple.h"
 #include "DtTarjetaContacto.h"

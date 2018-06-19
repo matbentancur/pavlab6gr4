@@ -18,14 +18,6 @@ void MensajeController::setIdConversacion(int idConversacion){
     this->idConversacion = idConversacion;
 }
 
-int MensajeController::getUltimoCodigoMensaje(){
-    return this->ultimoCodigoMensaje;
-}
-
-void MensajeController::setUltimoCodigoMensaje(int codigoMensaje){
-    this->ultimoCodigoMensaje = codigoMensaje;
-}
-
 map<int,DtMensaje> MensajeController::listarMensajes(int idConversacion){
     this->setIdConversacion(idConversacion);
     Sesion* sesion = Sesion::getInstancia();
@@ -47,7 +39,8 @@ bool MensajeController::enviarMensajeConversacion(DtMensaje nuevoMensaje){
     Usuario* usuario = manejadorUsuario->findUsuario(sesion->getSesion());
 
     Mensaje* mensaje;
-    int nuevoCodigoMensaje = this->getUltimoCodigoMensaje() + 1;
+    Almacenamiento* almacenamiento = Almacenamiento::getInstancia();
+    int nuevoCodigoMensaje = almacenamiento->getUltimoCodigoMensaje() + 1;
     FechaHora enviado = FechaHora(10,10,10,10,10);
     bool mensajeCreado = false;
 

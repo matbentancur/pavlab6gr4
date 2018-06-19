@@ -98,3 +98,25 @@ void UsuarioController::cerrarGuasap(){
         sesion->setSesion("NULL");
     }
 }
+
+bool UsuarioController::modificarReloj(FechaHora fechaHora){
+    Sesion* sesion = Sesion::getInstancia();
+    if(sesion->getSesion() == "NULL"){
+        throw logic_error("\nNo hay ninguna sesion activa, primero debe iniciar sesion.\n");
+    }else{
+        Almacenamiento* almacenamiento = Almacenamiento::getInstancia();
+        almacenamiento->setReloj(fechaHora);
+        return true;
+    }
+    return false;
+}
+
+FechaHora UsuarioController::consultarReloj(){
+    Sesion* sesion = Sesion::getInstancia();
+    if(sesion->getSesion() == "NULL"){
+        throw logic_error("\nNo hay ninguna sesion activa, primero debe iniciar sesion.\n");
+    }else{
+        Almacenamiento* almacenamiento = Almacenamiento::getInstancia();
+        return almacenamiento->getReloj();
+    }
+}

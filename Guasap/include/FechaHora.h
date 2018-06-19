@@ -1,6 +1,7 @@
 #ifndef FECHAHORA_H
 #define FECHAHORA_H
 
+#include <iostream>
 #include "Fecha.h"
 
 using namespace std;
@@ -17,7 +18,7 @@ class FechaHora : public Fecha {
         FechaHora(int,int,int,int,int);
         int getHora();
         int getMinuto();
-    
+
         friend ostream& operator << (ostream &salida, FechaHora&);
 };
 

@@ -14,8 +14,6 @@ void menuPrincipal();
 void listarContactos();
 bool existeSesion();
 void mensajeSesion();
-FechaHora consultarReloj();
-void modificarReloj(FechaHora&);
 
 int main() {
     int numOper = 0;
@@ -193,6 +191,11 @@ int main() {
                 cout << "\n\tEliminar mensajes\n\n";
                 break;
             case 10:
+                int dia;
+                int mes;
+                int anio;
+                int hora;
+                int minuto;
                 cout << "\n\tModificar fecha del sistema\n\n";
                 cout << "Ingrese dia\n";
                 cin >> dia;
@@ -206,16 +209,25 @@ int main() {
                 cin >> minuto;
                 try{
                     FechaHora fechaHora = FechaHora(dia, mes, anio, hora, minuto);
-                    modificarReloj(fechaHora);
+                    UsuarioFactory* usuarioFactory = UsuarioFactory::getInstancia();
+                    IUsuarioController* iUsuarioController = usuarioFactory->getIUsuarioController();
+                    iUsuarioController->modificarReloj(fechaHora);
                 }catch(invalid_argument& ia){
                     cout<< ia.what()<<"\n";
                     cin.get();
                 }
                 break;
             case 11:
-                cout << "\n\nConsultar fecha del sistema\n\n";
-                datosReloj = consultarReloj();
-                cout<< "La fecha/hora es "<< datosReloj;
+                try{
+                    UsuarioFactory* usuarioFactory = UsuarioFactory::getInstancia();
+                    IUsuarioController* iUsuarioController = usuarioFactory->getIUsuarioController();
+                    cout << "\n\nConsultar fecha del sistema\n\n";
+                    FechaHora datosReloj = iUsuarioController->consultarReloj();
+                    cout<< "La fecha/hora es "<< datosReloj;
+                }catch(invalid_argument& ia){
+                    cout<< ia.what()<<"\n";
+                    cin.get();
+                }
                 break;
             case 12:
                 cout << "\n\tInicializar/cargar un conjunto de datos de prueba\n\n";
@@ -271,14 +283,4 @@ void listarContactos(){
             cout << i->second;
         }
     }
-}
-
-void modificarReloj(FechaHora& fechaHora){
-    FechaHora* nuevaFechaHora = new FechaHora(fechaHora);
-    cout<< "Fecha actualizada\n";
-}
-
-FechaHora consultarReloj(){
-    FechaHora dReloj = FechaHora();
-    return dReloj;
 }
