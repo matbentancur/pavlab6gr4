@@ -37,11 +37,11 @@ bool MensajeController::enviarMensajeConversacion(DtMensaje nuevoMensaje){
     Sesion* sesion = Sesion::getInstancia();
     ManejadorUsuario* manejadorUsuario = ManejadorUsuario::getInstancia();
     Usuario* usuario = manejadorUsuario->findUsuario(sesion->getSesion());
-
     Mensaje* mensaje;
     Almacenamiento* almacenamiento = Almacenamiento::getInstancia();
     int nuevoCodigoMensaje = almacenamiento->getUltimoCodigoMensaje() + 1;
-    FechaHora enviado = FechaHora(10,10,10,10,10);
+    almacenamiento->setUltimoCodigoMensaje(nuevoCodigoMensaje);
+    FechaHora enviado = almacenamiento->getReloj();
     bool mensajeCreado = false;
 
     try{
