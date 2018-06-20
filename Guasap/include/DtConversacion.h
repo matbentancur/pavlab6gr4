@@ -7,7 +7,7 @@ using namespace std;
 
 class DtConversacion {
 
-    private:
+    protected:
         int idConversacion;
         string nombre;
 

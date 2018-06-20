@@ -39,3 +39,15 @@ int DtImagen::getTamanio(){
 string DtImagen::getTexto(){
     return this->texto;
 }
+
+ostream& operator << (ostream& salida, DtImagen& dtImagen) {
+    salida <<
+        "Codigo: " << dtImagen.codigo << "\n" <<
+        "Enviado: " << dtImagen.enviado << "\n" <<
+        "Visto: " << dtImagen.visto << "\n" <<
+        "URL: " << dtImagen.url << "\n" <<
+        "Formato: " << dtImagen.formato << "\n" <<
+        "Tamanio: " << dtImagen.tamanio << "\n" <<
+        "Texto: " << dtImagen.texto << "\n";
+    return salida;
+}
