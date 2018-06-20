@@ -53,7 +53,7 @@ bool Grupo::agregrarMensaje(Mensaje* nuevoMensaje){
     for(i = this->receptores.begin(); i != this->receptores.end(); ++i){
         Usuario* receptor = i->second;
         if (nuevoMensaje->getEmisor()->getCelular() != receptor->getCelular()){
-            UsuarioMensaje* usuarioMensaje = new UsuarioMensaje(false, receptor);
+            UsuarioMensaje* usuarioMensaje = new UsuarioMensaje(false, false, receptor);
             nuevoMensaje->agregarUsuarioMensaje(usuarioMensaje);
         }
 	}

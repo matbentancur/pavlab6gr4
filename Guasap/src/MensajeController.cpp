@@ -49,5 +49,8 @@ bool MensajeController::enviarMensajeNuevaConversacion(string destino, DtMensaje
 }
 
 bool MensajeController::eliminarMensaje(int codigoMensaje){
-    return true;
+    Sesion* sesion = Sesion::getInstancia();
+    ManejadorUsuario* manejadorUsuario = ManejadorUsuario::getInstancia();
+    Usuario* usuario = manejadorUsuario->findUsuario(sesion->getSesion());
+    return usuario->eliminarMensaje(this->idConversacion, codigoMensaje);
 }

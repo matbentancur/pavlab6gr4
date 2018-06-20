@@ -35,6 +35,8 @@ class Conversacion{
 
         virtual bool agregrarMensaje(Mensaje*) = 0;
 
+        bool eliminarMensaje(int);
+
         ~Conversacion();
 };
 

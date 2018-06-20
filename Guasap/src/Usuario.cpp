@@ -248,3 +248,14 @@ bool Usuario::enviarMensajeNuevaConversacion(Usuario* origen, Usuario* destino, 
 
     return this->enviarMensajeConversacion(nuevoIdConversacion, origen, nuevoMensaje);
 }
+
+bool Usuario::eliminarMensaje(int idConversacion,int codigoMensaje){
+	set<UsuarioConversacion*>::iterator i;
+    for(i = this->usuarioConversacion.begin(); i != this->usuarioConversacion.end(); ++i){
+        UsuarioConversacion* usuarioConversacion = *i;
+        if (usuarioConversacion->getConversacion()->getIdConversacion() == idConversacion){
+            return usuarioConversacion->eliminarMensaje(codigoMensaje);
+        }
+	}
+    return false;
+}

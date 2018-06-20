@@ -34,11 +34,11 @@ DtConversacion Privada::getDtConversacion(){
 
 bool Privada::agregrarMensaje(Mensaje* nuevoMensaje){
     if (nuevoMensaje->getEmisor()->getCelular() == this->getDestino()->getCelular()){
-        UsuarioMensaje* usuarioMensaje = new UsuarioMensaje(false, this->getOrigen());
+        UsuarioMensaje* usuarioMensaje = new UsuarioMensaje(false, false, this->getOrigen());
         nuevoMensaje->agregarUsuarioMensaje(usuarioMensaje);
     }
     else{
-        UsuarioMensaje* usuarioMensaje = new UsuarioMensaje(false, this->getDestino());
+        UsuarioMensaje* usuarioMensaje = new UsuarioMensaje(false, false, this->getDestino());
         nuevoMensaje->agregarUsuarioMensaje(usuarioMensaje);
     }
     mensajes.insert(std::pair<int, Mensaje*>(nuevoMensaje->getCodigo(), nuevoMensaje));

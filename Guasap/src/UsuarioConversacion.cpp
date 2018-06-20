@@ -41,3 +41,7 @@ map<string,DtReceptor> UsuarioConversacion::verInfoMensaje(int codigo){
 bool UsuarioConversacion::enviarMensajeConversacion(Mensaje* nuevoMensaje){
     return this->conversacion->agregrarMensaje(nuevoMensaje);
 }
+
+bool UsuarioConversacion::eliminarMensaje(int codigoMensaje){
+    return this->conversacion->eliminarMensaje(codigoMensaje);
+}
