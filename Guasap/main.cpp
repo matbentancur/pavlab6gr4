@@ -180,8 +180,10 @@ int main() {
                     cin >> urlImagen;
                     cout << "\nIngrese una nueva descripcion: ";
                     cin >> descripcion;
-                    iUsuarioController->modificarUsuario(nombre, urlImagen, descripcion);
-                    cout << "\nLos datos se modificaron con exito.";
+                    cout << "\nLos datos se modificaron con exito.\n\n";
+                    DtContacto dtContacto = iUsuarioController->modificarUsuario(nombre, urlImagen, descripcion);
+                    cout << dtContacto;
+                    cin.get();
                 }catch(logic_error& ia){
                     cout << ia.what() << "\n";
                     cin.get();
@@ -294,7 +296,7 @@ void listarContactos(){
         cout << "\nLa lista de contactos esta vacia.\n";
     }else{
         for(i = contactos.begin(); i != contactos.end(); ++i){
-            cout << i->second;
+            cout << i->second << "\n";
         }
     }
 }

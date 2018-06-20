@@ -44,3 +44,13 @@ int Almacenamiento::getUltimoCodigoMensaje(){
 void Almacenamiento::setUltimoCodigoMensaje(int codigoMensaje){
     this->ultimoCodigoMensaje = codigoMensaje;
 }
+
+int Almacenamiento::getNuevoIdConversacion(){
+    this->ultimoIdConversacion++;
+    return ultimoIdConversacion;
+}
+
+int Almacenamiento::getNuevoCodigoMensaje(){
+    this->ultimoCodigoMensaje++;
+    return ultimoCodigoMensaje;
+}

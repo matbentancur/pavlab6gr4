@@ -62,7 +62,7 @@ bool ConversacionController::altaGrupo(string nombre,string urlImagen){
     ManejadorUsuario* manejadorUsuario = ManejadorUsuario::getInstancia();
     Usuario* usuario = manejadorUsuario->findUsuario(sesion->getSesion());
     Almacenamiento* almacenamiento = Almacenamiento::getInstancia();
-    int nuevoIdConversaion = almacenamiento->getUltimoIdConversacion() + 1;
+    int nuevoIdConversaion = almacenamiento->getNuevoIdConversacion();
     almacenamiento->setUltimoIdConversacion(nuevoIdConversaion);
     FechaHora creacion = almacenamiento->getReloj();
     Grupo* nuevoGrupo = new Grupo(nuevoIdConversaion, usuario, nombre, urlImagen, creacion);
@@ -82,7 +82,3 @@ bool ConversacionController::altaGrupo(string nombre,string urlImagen){
     }
     return true;
 }
-
-//DtConversacion ConversacionController::iniciarConversacion(int){
-//
-//}

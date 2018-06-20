@@ -19,7 +19,7 @@ class UsuarioController : public IUsuarioController {
         bool confirmarContacto();
         EstadoIngreso ingresar(string);
         FechaHora crearUsuario(string,string,string,string);
-        void modificarUsuario(string,string,string);
+        DtContacto modificarUsuario(string,string,string);
         void cerrarGuasap();
 
         bool modificarReloj(FechaHora);

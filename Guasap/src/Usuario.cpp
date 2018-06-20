@@ -194,7 +194,7 @@ bool Usuario::agregarUsuarioConversacion(UsuarioConversacion* usuarioConversacio
 bool Usuario::enviarMensajeConversacion(int idConversacion, Usuario* emisor, DtMensaje nuevoMensaje){
     Mensaje* mensaje;
     Almacenamiento* almacenamiento = Almacenamiento::getInstancia();
-    int nuevoCodigoMensaje = almacenamiento->getUltimoCodigoMensaje() + 1;
+    int nuevoCodigoMensaje = almacenamiento->getNuevoCodigoMensaje();
     almacenamiento->setUltimoCodigoMensaje(nuevoCodigoMensaje);
     FechaHora enviado = almacenamiento->getReloj();
     bool mensajeCreado = false;
@@ -244,7 +244,7 @@ bool Usuario::enviarMensajeConversacion(int idConversacion, Usuario* emisor, DtM
 
 bool Usuario::enviarMensajeNuevaConversacion(Usuario* origen, Usuario* destino, DtMensaje nuevoMensaje){
     Almacenamiento* almacenamiento = Almacenamiento::getInstancia();
-    int nuevoIdConversacion = almacenamiento->getUltimoIdConversacion() + 1;
+    int nuevoIdConversacion = almacenamiento->getNuevoIdConversacion();
     almacenamiento->setUltimoIdConversacion(nuevoIdConversacion);
     Privada* conversacion = new Privada(nuevoIdConversacion, origen, destino);
 

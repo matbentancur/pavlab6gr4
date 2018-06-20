@@ -22,6 +22,9 @@ class Almacenamiento {
         int getUltimoCodigoMensaje();
         void setUltimoCodigoMensaje(int);
 
+        int getNuevoIdConversacion();
+        int getNuevoCodigoMensaje();
+
         static Almacenamiento* getInstancia();
         virtual ~Almacenamiento();
 };

@@ -22,7 +22,7 @@ class IUsuarioController {
         virtual bool confirmarContacto() = 0;
         virtual EstadoIngreso ingresar(string) = 0;
         virtual FechaHora crearUsuario(string,string,string,string) = 0;
-        virtual void modificarUsuario(string,string,string) = 0;
+        virtual DtContacto modificarUsuario(string,string,string) = 0;
         virtual void cerrarGuasap() = 0;
         virtual bool modificarReloj(FechaHora) = 0;
         virtual FechaHora consultarReloj() = 0;
