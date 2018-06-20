@@ -34,8 +34,9 @@ class Usuario {
 
     public:
         Usuario();
-        Usuario(string, string);
-        Usuario(string, string,string,string);
+        Usuario(string,string);
+        Usuario(string,string,string,string);
+        Usuario(string,Fecha,string,string,string);
         virtual ~Usuario();
 
         string getCelular();

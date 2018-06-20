@@ -29,6 +29,14 @@ Usuario::Usuario(string celular, string nombre, string imagen, string descripcio
     this->descripcion = descripcion;
 }
 
+Usuario::Usuario(string celular, Fecha registro, string nombre, string imagen, string descripcion) {
+    this->celular = celular;
+    this->registro = registro;
+    this->nombre = nombre;
+    this->imagen = imagen;
+    this->descripcion = descripcion;
+}
+
 string Usuario::getCelular() {
     return this->celular;
 }

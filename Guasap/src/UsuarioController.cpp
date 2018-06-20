@@ -121,3 +121,24 @@ FechaHora UsuarioController::consultarReloj(){
         return almacenamiento->getReloj();
     }
 }
+
+void UsuarioController::cargarDatosPrueba(){
+    Almacenamiento* almacenamiento = Almacenamiento::getInstancia();
+    ManejadorUsuario* manejadorUsuario = ManejadorUsuario::getInstancia();
+    FechaHora registro = almacenamiento->getReloj();
+
+    Usuario* u1 = new Usuario("090123654", registro, "Juan Pérez", "home/img/perfil/juan.png", "Amo usar Guasap");
+    manejadorUsuario->agregarUsuario(u1);
+
+    Usuario* u2 = new Usuario("090765432", registro, "María Fernández", "home/img/perfil/maria.png", "Me encanta Avanzada");
+    manejadorUsuario->agregarUsuario(u2);
+
+    Usuario* u3 = new Usuario("090246810", registro, "Pablo Iglesias", "home/img/perfil/pablo.png", "Me gustan los animales");
+    manejadorUsuario->agregarUsuario(u3);
+
+    Usuario* u4 = new Usuario("090666777", registro, "Sara Ruiz", "home/img/perfil/sara.png", "¡Estoy feliz!");
+    manejadorUsuario->agregarUsuario(u4);
+
+    Usuario* u5 = new Usuario("098197161", registro, "Matias Bentancur", "home/img/perfil/matias.png", "Este lab es una matanza");
+    manejadorUsuario->agregarUsuario(u5);
+}

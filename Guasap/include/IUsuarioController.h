@@ -26,6 +26,7 @@ class IUsuarioController {
         virtual void cerrarGuasap() = 0;
         virtual bool modificarReloj(FechaHora) = 0;
         virtual FechaHora consultarReloj() = 0;
+        virtual void cargarDatosPrueba() = 0;
 
         virtual ~IUsuarioController() {}
 };

@@ -24,6 +24,7 @@ class UsuarioController : public IUsuarioController {
 
         bool modificarReloj(FechaHora);
         FechaHora consultarReloj();
+        void cargarDatosPrueba();
 };
 
 #endif // USUARIOCONTROLLER_H

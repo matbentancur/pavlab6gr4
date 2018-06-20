@@ -6,6 +6,7 @@
 #include <stdexcept>
 #include "UsuarioFactory.h"
 #include "FechaHora.h"
+#include "Almacenamiento.h"
 
 using namespace std;
 
@@ -212,6 +213,8 @@ int main() {
                     UsuarioFactory* usuarioFactory = UsuarioFactory::getInstancia();
                     IUsuarioController* iUsuarioController = usuarioFactory->getIUsuarioController();
                     iUsuarioController->modificarReloj(fechaHora);
+                    cout<< "La fecha/hora ha sido modificada a: "<< fechaHora;
+                    cin.get();
                 }catch(invalid_argument& ia){
                     cout<< ia.what()<<"\n";
                     cin.get();
@@ -222,15 +225,26 @@ int main() {
                     UsuarioFactory* usuarioFactory = UsuarioFactory::getInstancia();
                     IUsuarioController* iUsuarioController = usuarioFactory->getIUsuarioController();
                     cout << "\n\nConsultar fecha del sistema\n\n";
-                    FechaHora datosReloj = iUsuarioController->consultarReloj();
-                    cout<< "La fecha/hora es "<< datosReloj;
+                    FechaHora reloj = iUsuarioController->consultarReloj();
+                    cout<< "La fecha/hora es "<< reloj;
+                    cin.get();
                 }catch(invalid_argument& ia){
                     cout<< ia.what()<<"\n";
                     cin.get();
                 }
                 break;
             case 12:
-                cout << "\n\tInicializar/cargar un conjunto de datos de prueba\n\n";
+                try{
+                    UsuarioFactory* usuarioFactory = UsuarioFactory::getInstancia();
+                    IUsuarioController* iUsuarioController = usuarioFactory->getIUsuarioController();
+                    iUsuarioController->cargarDatosPrueba();
+                    cout << "\nDatos de prueba cargados con exito\n\n";
+                    cin.get();
+                }catch(invalid_argument& ia){
+                    cout<< ia.what()<<"\n";
+                    cin.get();
+                }
+
                 break;
             case 13:
               cout << "\nEsta seguro de que desea salir (s/n)?: ";
@@ -264,10 +278,10 @@ void menuPrincipal() {
   cout << "7)  Archivar conversaciones\n";
   cout << "8)  Modificar usuario\n";
   cout << "9)  Eliminar mensajes\n";
-  cout << "10)  Modificar fecha del sistema\n";
-  cout << "11)  Consultar fecha del sistema\n";
-  cout << "12)  Inicializar/cargar un conjunto de datos de prueba\n";
-  cout << "13)  Salir\n\n";
+  cout << "10) Modificar fecha del sistema\n";
+  cout << "11) Consultar fecha del sistema\n";
+  cout << "12) Inicializar/cargar un conjunto de datos de prueba\n";
+  cout << "13) Salir\n\n";
   cout << "Ingrese el numero de la operacion a realizar: ";
 }
 
