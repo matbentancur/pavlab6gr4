@@ -13,14 +13,16 @@ using namespace std;
 
 //FUNCIONES AUXILIARES
 void menuPrincipal();
+void menuEnviarMensaje();
 void listarContactos();
 void listarConversacionesActivas();
+void listarConversacionesArchivadas();
 bool existeSesion();
 void mensajeSesion();
 
 int main() {
-    int numOper = 0;
-    string celularIngresado, celularContacto, nombre, urlImagen, descripcion = "";
+    int numOper, idConversacion = 0;
+    string celularIngresado, celularContacto, nombre, urlImagen, descripcion, textoMensaje, urlVideo, formatoMensaje, tamanioMensaje, descripcionMensaje, duracionMensaje = "";
     bool salir = false;
     bool existeUsuario = false;
     bool ingresarOtroNumero = true;
@@ -97,7 +99,7 @@ int main() {
                         break;
                     case distintoUserLog: {
                         cout << "\nYa hay una sesion iniciada. \nDebe cerrar la sesion actual para inciar sesion con el celular: " + celularIngresado;
-                        cout << "\n\nCerrar sesion actual (s/n)?: ";
+                        cout << "\n\nCerrar sesion actual? (s/n): ";
                         cin >> opcion;
                         if (opcion == 's' || opcion == 'S') {
                             cout << "\n\nCerrando sesion...\n";
@@ -114,7 +116,7 @@ int main() {
             case 2: {
                 try{
                     cout << "\n\tCerrar Guasap\n";
-                    cout << "\nCerrar sesion actual (s/n)?: ";
+                    cout << "\nCerrar sesion actual? (s/n): ";
                     cin >> opcion;
                     if (opcion == 's' || opcion == 'S') {
                         UsuarioFactory* usuarioFactory = UsuarioFactory::getInstancia();
@@ -133,7 +135,7 @@ int main() {
                 try {
                     cout << "\n\nLista de contactos\n\n";
                     listarContactos();
-                    cout << "\nQuiere agregar un nuevo contacto (s/n)?: ";
+                    cout << "\nQuiere agregar un nuevo contacto? (s/n): ";
                     cin >> opcion;
                     if (opcion == 's' || opcion == 'S') {
                         cout << "\nIngrese el celular que desea agregar: ";
@@ -164,15 +166,71 @@ int main() {
                 break;
             case 5: {
                 try {
-//                cout << "\n\tEnviar mensajes\n\n";
                 cout << "\n\nLista de conversaciones\n\n";
-                cout << "\nActivas\n\n";
+                cout << "\nActivas:\n\n";
                 listarConversacionesActivas();
                 ConversacionFactory* conversacionFactory = ConversacionFactory::getInstancia();
                 IConversacionController* iConversacionController = conversacionFactory->getIConversacionController();
                 int cantConvArchivadas = iConversacionController->cantConversacionesArchivadas();
                 cout << "\nArchivadas: ";
                 cout << cantConvArchivadas;
+                menuEnviarMensaje();
+                cin >> numOper;
+                switch (numOper) {
+                case 1:
+                    cout << "\nIngrese el identificador de la conversacion: ";
+                    cin >> idConversacion;
+                    break;
+                case 2:
+                    listarConversacionesArchivadas();
+                    if(cantConvArchivadas > 0){
+                        cout << "\nIngrese el identificador de la conversacion: ";
+                        cin >> idConversacion;
+                    }
+                    break;
+                case 3:
+                    cout << "\n\nLista de contactos\n\n";
+                    listarContactos();
+                    cout << "\nIngrese el numero de celular con el que desea iniciar una nueva conversacion: ";
+                    cin >> celularContacto;
+                    cout << "\n\tTipo de mensaje a enviar";
+                    cout << "1)  Simple\n";
+                    cout << "2)  Imagen\n";
+                    cout << "3)  Video\n";
+                    cout << "4)  Contacto\n";
+                    cout << "\nIngrese una opcion: ";
+                    cin >> numOper;
+                    switch(numOper){
+                    case 1:
+                        cout << "\n\tMensaje Simple\n";
+                        cout << "\nIngrese el texto del mensaje: ";
+                        cin >> textoMensaje;
+                    case 2:
+                        cout << "\n\tMensaje de Imagen\n";
+                        cout << "\nIngrese la URL de la imagen: ";
+                        cin >> urlImagen;
+                        cout << "\nIngrese el formato de la imagen: ";
+                        cin >> formatoMensaje;
+                        cout << "\n\nQuiere ingresar un texto descriptivo? (s/n): ";
+                        cin >> opcion;
+                        if (opcion == 's' || opcion == 'S') {
+                            cout << "\nIngrese una descripcion: ";
+                            cin >> urlImagen;
+                        }
+                    case 3:
+                        cout << "\n\tMensaje de Video\n";
+                        cout << "\nIngrese la URL del video: ";
+                        cin >> urlVideo;
+                        cout << "\nIngrese la duracion del video: ";
+                        cin >> duracionMensaje;
+                    case 4:
+                        cout << "\n\tMensaje de Contacto\n";
+                        listarContactos();
+                        cout << "\nIngrese el numero de celular del contacto que desea compartir: ";
+                        cin >> celularContacto;
+                    }
+                    break;
+                }
                 }catch(logic_error& ia){
                     cout << ia.what() << "\n";
                     cin.get();
@@ -265,7 +323,7 @@ int main() {
 
                 break;
             case 13:
-              cout << "\nEsta seguro de que desea salir (s/n)?: ";
+              cout << "\nEsta seguro de que desea salir? (s/n): ";
               cin >> opcion;
               if (opcion == 's' || opcion == 'S') {
                 cout << "Saliendo...\n";
@@ -303,6 +361,14 @@ void menuPrincipal() {
   cout << "Ingrese el numero de la operacion a realizar: ";
 }
 
+void menuEnviarMensaje() {
+    cout << "\n\nLista de operaciones disponibles:\n\n";
+    cout << "1)  Seleccionar una conversacion activa\n";
+    cout << "2)  Ver las conversaciones archivadas\n";
+    cout << "3)  Enviar un mensaje nuevo\n";
+    cout << "Ingrese una opcion: ";
+}
+
 void listarContactos(){
     UsuarioFactory* usuarioFactory = UsuarioFactory::getInstancia();
     IUsuarioController* iUsuarioController = usuarioFactory->getIUsuarioController();
@@ -326,7 +392,21 @@ void listarConversacionesActivas(){
         cout << "\nLa lista de conversaciones activas esta vacia.\n";
     }else{
         for(i = conversacionesActivas.begin(); i != conversacionesActivas.end(); ++i){
-//            cout << i->second;
+            cout << &i->second << "\n";
+        }
+    }
+}
+
+void listarConversacionesArchivadas(){
+    ConversacionFactory* conversacionFactory = ConversacionFactory::getInstancia();
+    IConversacionController* iConversacionController = conversacionFactory->getIConversacionController();
+    map<int,DtConversacion> conversacionesArchivadas= iConversacionController->listarConversacionesArchivadas();
+    map<int,DtConversacion>::iterator i;
+    if(conversacionesArchivadas.begin() == conversacionesArchivadas.end()){
+        cout << "\nLa lista de conversaciones archivadas esta vacia.\n";
+    }else{
+        for(i = conversacionesArchivadas.begin(); i != conversacionesArchivadas.end(); ++i){
+            cout << &i->second << "\n";
         }
     }
 }
