@@ -147,8 +147,8 @@ void UsuarioController::cargarDatosPrueba(){
     Usuario* u4 = new Usuario("090666777", registro, "Sara Ruiz", "home/img/perfil/sara.png", "¡Estoy feliz!");
     manejadorUsuario->agregarUsuario(u4);
 
-    Usuario* u5 = new Usuario("1", registro, "Matías Bentancur", "home/img/perfil/matias.png", "Este lab es una matanza");
-    manejadorUsuario->agregarUsuario(u5);
+    Usuario* u5 = new Usuario("1", registro, "Matías Bentancur", "home/img/perfil/matias.png", "Este lab es una matanza"); //PRUEBAS
+    manejadorUsuario->agregarUsuario(u5); //PRUEBAS
 
     //CONTACTOS
     u1->agregarContacto(u2);
@@ -165,10 +165,10 @@ void UsuarioController::cargarDatosPrueba(){
     u4->agregarContacto(u1);
     u4->agregarContacto(u3);
 
-    u5->agregarContacto(u1);
-    u5->agregarContacto(u2);
-    u5->agregarContacto(u3);
-    u5->agregarContacto(u4);
+    u5->agregarContacto(u1); //PRUEBAS
+    u5->agregarContacto(u2); //PRUEBAS
+    u5->agregarContacto(u3); //PRUEBAS
+    u5->agregarContacto(u4); //PRUEBAS
 
     //CONVERSACIONES
     FechaHora creacion = FechaHora(22,5,2017,15,35);
@@ -178,6 +178,7 @@ void UsuarioController::cargarDatosPrueba(){
     g1->agregarReceptor(u2);
     g1->agregarReceptor(u3);
     g1->agregarReceptor(u4);
+    g1->agregarReceptor(u5); //PRUEBAS
 
     UsuarioConversacion* u1g1 = new UsuarioConversacion(activa,g1);
     u1->agregarUsuarioConversacion(u1g1);
@@ -191,6 +192,9 @@ void UsuarioController::cargarDatosPrueba(){
     UsuarioConversacion* u4g1 = new UsuarioConversacion(activa,g1);
     u4->agregarUsuarioConversacion(u4g1);
 
+    UsuarioConversacion* u5g1 = new UsuarioConversacion(activa,g1); //PRUEBAS
+    u5->agregarUsuarioConversacion(u5g1); //PRUEBAS
+
     Privada* cs2 = new Privada(almacenamiento->getNuevoIdConversacion(), u1, u2);
     UsuarioConversacion* u1cs2 = new UsuarioConversacion(activa,cs2);
     u1->agregarUsuarioConversacion(u1cs2);
@@ -202,6 +206,12 @@ void UsuarioController::cargarDatosPrueba(){
     u3->agregarUsuarioConversacion(u3cs3);
     UsuarioConversacion* u4cs3 = new UsuarioConversacion(activa,cs3);
     u4->agregarUsuarioConversacion(u4cs3);
+
+//    Privada* cs4 = new Privada(almacenamiento->getNuevoIdConversacion(), u5, u4); //PRUEBAS
+//    UsuarioConversacion* u5cs4 = new UsuarioConversacion(activa,cs4); //PRUEBAS
+//    u5->agregarUsuarioConversacion(u5cs4); //PRUEBAS
+//    UsuarioConversacion* u4cs4 = new UsuarioConversacion(activa,cs4); //PRUEBAS
+//    u4->agregarUsuarioConversacion(u4cs4); //PRUEBAS
 
     //MENSAJES
     FechaHora fhm1 = FechaHora(22,5,2017,18,04);

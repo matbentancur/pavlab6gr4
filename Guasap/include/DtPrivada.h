@@ -18,6 +18,7 @@ class DtPrivada : public DtConversacion {
 
         string getDestino();
 
+        void print();
         friend ostream& operator << (ostream &salida, DtPrivada&);
 };
 

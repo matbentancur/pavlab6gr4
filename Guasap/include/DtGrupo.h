@@ -22,6 +22,7 @@ class DtGrupo : public DtConversacion {
         string getUrlImagen();
         FechaHora getCreacion();
 
+        void print();
         friend ostream& operator << (ostream &salida, DtGrupo&);
 };
 

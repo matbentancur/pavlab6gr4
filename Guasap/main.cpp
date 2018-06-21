@@ -4,10 +4,15 @@
 #include <iostream>
 #include <stdio.h>
 #include <stdexcept>
+#include <typeinfo>
+#include <exception>
 #include "UsuarioFactory.h"
 #include "ConversacionFactory.h"
 #include "FechaHora.h"
 #include "Almacenamiento.h"
+#include "DtConversacion.h"
+#include "DtGrupo.h"
+#include "DtPrivada.h"
 
 using namespace std;
 
@@ -239,6 +244,38 @@ int main() {
             }
             case 6:
                 cout << "\n\nVer mensajes\n\n";
+                try {
+                cout << "\n\nLista de conversaciones\n\n";
+                cout << "\nActivas:\n\n";
+                listarConversacionesActivas();
+                ConversacionFactory* conversacionFactory = ConversacionFactory::getInstancia();
+                IConversacionController* iConversacionController = conversacionFactory->getIConversacionController();
+                int cantConvArchivadas = iConversacionController->cantConversacionesArchivadas();
+                cout << "\nArchivadas: ";
+                cout << cantConvArchivadas;
+                menuEnviarMensaje();
+                cin >> numOper;
+                switch (numOper) {
+                case 1:
+                    cout << "\nIngrese el identificador de la conversacion: ";
+                    cin >> idConversacion;
+                    break;
+                case 2:
+                    listarConversacionesArchivadas();
+                    if(cantConvArchivadas > 0){
+                        cout << "\nIngrese el identificador de la conversacion: ";
+                        cin >> idConversacion;
+                    }
+                    break;
+                case 3:
+                    cout << "\n\nListar Mensajes\n\n";
+                    listarContactos();
+                    break;
+                }
+                }catch(logic_error& ia){
+                    cout << ia.what() << "\n";
+                    cin.get();
+                }
                 break;
             case 7:
                 cout << "\n\nArchivar conversaciones\n\n";
@@ -388,11 +425,24 @@ void listarConversacionesActivas(){
     IConversacionController* iConversacionController = conversacionFactory->getIConversacionController();
     map<int,DtConversacion> conversacionesActivas = iConversacionController->listarConversacionesActivas();
     map<int,DtConversacion>::iterator i;
-    if(conversacionesActivas.begin() == conversacionesActivas.end()){
+    if(i == conversacionesActivas.end()){
         cout << "\nLa lista de conversaciones activas esta vacia.\n";
     }else{
         for(i = conversacionesActivas.begin(); i != conversacionesActivas.end(); ++i){
-            cout << &i->second << "\n";
+            DtConversacion conversacion = i->second;
+            cout << conversacion.getIdConversacion() << " - " << conversacion.getNombre() << "\n";
+//            try{
+//                DtPrivada dtcp = dynamic_cast<DtPrivada&>(conversacion);
+//                cout << dtcp << "\n";
+//            }catch(exception& e){
+//                cout << "Error en cast para Privada\n";
+//            }
+//            try{
+//                DtGrupo dtcg = dynamic_cast<DtGrupo&>(conversacion);
+//                cout << dtcg << "\n";
+//            }catch(exception& e){
+//                cout << "Error en cast para Grupo\n";
+//            }
         }
     }
 }
@@ -406,7 +456,8 @@ void listarConversacionesArchivadas(){
         cout << "\nLa lista de conversaciones archivadas esta vacia.\n";
     }else{
         for(i = conversacionesArchivadas.begin(); i != conversacionesArchivadas.end(); ++i){
-            cout << &i->second << "\n";
+            DtConversacion conversacion = i->second;
+            cout << conversacion.getIdConversacion() << " - " << conversacion.getNombre() << "\n";
         }
     }
 }
