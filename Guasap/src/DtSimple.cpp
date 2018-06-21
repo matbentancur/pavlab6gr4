@@ -21,3 +21,12 @@ DtSimple::DtSimple(int codigo, FechaHora enviado, bool visto, string texto) : Dt
 string DtSimple::getTexto(){
     return this->texto;
 }
+
+ostream& operator << (ostream& salida, DtSimple& dtSimple) {
+    salida <<
+        "Codigo: " << dtSimple.codigo << "\n" <<
+        "Enviado: " << dtSimple.enviado << "\n" <<
+        "Visto: " << dtSimple.visto << "\n" <<
+        "Texto: " << dtSimple.texto << "\n";
+    return salida;
+}

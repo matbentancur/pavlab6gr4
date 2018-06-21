@@ -6,6 +6,8 @@
 #include <stdexcept>
 #include "UsuarioFactory.h"
 #include "ConversacionFactory.h"
+#include "FechaHora.h"
+#include "Almacenamiento.h"
 
 using namespace std;
 
@@ -194,8 +196,10 @@ int main() {
                     cin >> urlImagen;
                     cout << "\nIngrese una nueva descripcion: ";
                     cin >> descripcion;
-                    iUsuarioController->modificarUsuario(nombre, urlImagen, descripcion);
-                    cout << "\nLos datos se modificaron con exito.";
+                    cout << "\nLos datos se modificaron con exito.\n\n";
+                    DtContacto dtContacto = iUsuarioController->modificarUsuario(nombre, urlImagen, descripcion);
+                    cout << dtContacto;
+                    cin.get();
                 }catch(logic_error& ia){
                     cout << ia.what() << "\n";
                     cin.get();
@@ -206,13 +210,59 @@ int main() {
                 cout << "\n\tEliminar mensajes\n\n";
                 break;
             case 10:
+                int dia;
+                int mes;
+                int anio;
+                int hora;
+                int minuto;
                 cout << "\n\tModificar fecha del sistema\n\n";
+                cout << "Ingrese dia\n";
+                cin >> dia;
+                cout << "Ingrese mes\n";
+                cin >> mes;
+                cout << "Ingrese anio\n";
+                cin >> anio;
+                cout << "Ingrese hora\n";
+                cin >> hora;
+                cout << "Ingrese minuto\n";
+                cin >> minuto;
+                try{
+                    FechaHora fechaHora = FechaHora(dia, mes, anio, hora, minuto);
+                    UsuarioFactory* usuarioFactory = UsuarioFactory::getInstancia();
+                    IUsuarioController* iUsuarioController = usuarioFactory->getIUsuarioController();
+                    iUsuarioController->modificarReloj(fechaHora);
+                    cout<< "La fecha/hora ha sido modificada a: "<< fechaHora;
+                    cin.get();
+                }catch(invalid_argument& ia){
+                    cout<< ia.what()<<"\n";
+                    cin.get();
+                }
                 break;
             case 11:
-                cout << "\n\nConsultar fecha del sistema\n\n";
+                try{
+                    UsuarioFactory* usuarioFactory = UsuarioFactory::getInstancia();
+                    IUsuarioController* iUsuarioController = usuarioFactory->getIUsuarioController();
+                    cout << "\n\nConsultar fecha del sistema\n\n";
+                    FechaHora reloj = iUsuarioController->consultarReloj();
+                    cout<< "La fecha/hora es "<< reloj;
+                    cin.get();
+                }catch(invalid_argument& ia){
+                    cout<< ia.what()<<"\n";
+                    cin.get();
+                }
                 break;
             case 12:
-                cout << "\n\tInicializar/cargar un conjunto de datos de prueba\n\n";
+                try{
+                    UsuarioFactory* usuarioFactory = UsuarioFactory::getInstancia();
+                    IUsuarioController* iUsuarioController = usuarioFactory->getIUsuarioController();
+                    iUsuarioController->cargarDatosPrueba();
+                    cout << "\nDatos de prueba cargados con exito\n\n";
+                    cin.get();
+                }catch(invalid_argument& ia){
+                    cout<< ia.what()<<"\n";
+                    cin.get();
+                }
+
                 break;
             case 13:
               cout << "\nEsta seguro de que desea salir (s/n)?: ";
@@ -246,10 +296,10 @@ void menuPrincipal() {
   cout << "7)  Archivar conversaciones\n";
   cout << "8)  Modificar usuario\n";
   cout << "9)  Eliminar mensajes\n";
-  cout << "10)  Modificar fecha del sistema\n";
-  cout << "11)  Consultar fecha del sistema\n";
-  cout << "12)  Inicializar/cargar un conjunto de datos de prueba\n";
-  cout << "13)  Salir\n\n";
+  cout << "10) Modificar fecha del sistema\n";
+  cout << "11) Consultar fecha del sistema\n";
+  cout << "12) Inicializar/cargar un conjunto de datos de prueba\n";
+  cout << "13) Salir\n\n";
   cout << "Ingrese el numero de la operacion a realizar: ";
 }
 
@@ -262,7 +312,7 @@ void listarContactos(){
         cout << "\nLa lista de contactos esta vacia.\n";
     }else{
         for(i = contactos.begin(); i != contactos.end(); ++i){
-            cout << i->second;
+            cout << i->second << "\n";
         }
     }
 }

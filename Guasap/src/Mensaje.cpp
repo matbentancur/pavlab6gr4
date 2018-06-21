@@ -60,4 +60,16 @@ map <string,DtReceptor> Mensaje::getReceptores(){
 	return listaReceptores;
 }
 
+bool Mensaje::eliminarMensajeLogico(Usuario* usuario){
+    set<UsuarioMensaje*>::iterator i;
+    for(i = usuarioMensaje.begin(); i != usuarioMensaje.end(); ++i){
+        UsuarioMensaje* um = *i;
+        if(usuario->getCelular() == um->getUsuario()->getCelular()){
+            um->setEliminado(true);
+            return true;
+        }
+	}
+	return false;
+}
+
 Mensaje::~Mensaje(){}

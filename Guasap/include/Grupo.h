@@ -7,17 +7,22 @@
 using namespace std;
 
 class Usuario;
+class Mensaje;
 
 class Grupo : public Conversacion{
 
     private:
+        string nombre;
         string urlImagen;
         FechaHora creacion;
         map<string,Usuario*> administradores;
         map<string,Usuario*> receptores;
 
     public:
-        Grupo(int,string,Usuario*,string,FechaHora);
+        Grupo(int,Usuario*,string,string,FechaHora);
+
+        string getNombre();
+        void setNombre(string);
 
         string getUrlImagen();
         void setUrlImagen(string);
@@ -29,6 +34,9 @@ class Grupo : public Conversacion{
         bool agregarReceptor(Usuario*);
 
         DtConversacion getDtConversacion();
+
+        bool agregrarMensaje(Mensaje*);
+
         ~Grupo();
 
 };

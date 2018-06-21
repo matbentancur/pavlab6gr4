@@ -2,6 +2,7 @@
 #define DTVIDEO_H
 
 #include <string>
+#include <iostream>
 #include "DtMensaje.h"
 
 class DtVideo : public DtMensaje {
@@ -16,6 +17,8 @@ class DtVideo : public DtMensaje {
         virtual ~DtVideo();
         string getUrl();
         int getDuracion();
+
+        friend ostream& operator << (ostream &salida, DtVideo&);
 };
 
 #endif // DTVIDEO_H

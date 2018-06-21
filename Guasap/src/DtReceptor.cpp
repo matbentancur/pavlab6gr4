@@ -27,3 +27,11 @@ string DtReceptor::getNombre(){
 FechaHora DtReceptor::getVistoFechaHora(){
     return this->vistoFechaHora;
 }
+
+ostream& operator << (ostream& salida, DtReceptor& dtReceptor) {
+    salida <<
+        "Celular: " << dtReceptor.celular << "\n" <<
+        "Nombre: " << dtReceptor.nombre << "\n" <<
+        "Visto: " << dtReceptor.vistoFechaHora << "\n";
+    return salida;
+}

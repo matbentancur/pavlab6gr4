@@ -6,19 +6,25 @@
 class Usuario;
 
 class UsuarioMensaje {
+
     private:
         bool visto;
         FechaHora vistoFechaHora;
+        bool eliminado;
         Usuario* usuario;
 
     public:
-        UsuarioMensaje(bool, FechaHora, Usuario*);
+        UsuarioMensaje(bool, bool, Usuario*);
+        UsuarioMensaje(bool, FechaHora, bool, Usuario*);
 
         bool getVisto();
         void setVisto(bool);
 
         FechaHora getVistoFechaHora();
         void setVistoFechaHora(FechaHora);
+
+        bool getEliminado();
+        void setEliminado(bool);
 
         Usuario* getUsuario();
 

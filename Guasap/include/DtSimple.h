@@ -2,6 +2,7 @@
 #define DTSIMPLE_H
 
 #include <string>
+#include <iostream>
 #include "DtMensaje.h"
 
 class DtSimple : public DtMensaje {
@@ -15,6 +16,8 @@ class DtSimple : public DtMensaje {
         DtSimple(int, FechaHora, bool, string);
         virtual ~DtSimple();
         string getTexto();
+
+        friend ostream& operator << (ostream &salida, DtSimple&);
 };
 
 #endif // DTSIMPLE_H

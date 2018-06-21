@@ -39,19 +39,9 @@ map<string,DtReceptor> UsuarioConversacion::verInfoMensaje(int codigo){
 }
 
 bool UsuarioConversacion::enviarMensajeConversacion(Mensaje* nuevoMensaje){
-
-    try{
-        Privada* c = dynamic_cast<Privada*>(this->conversacion);
-    }catch(std::bad_cast){
-        cout << "Error en cast para Privada\n";
-    }
-
-    try{
-        Grupo* c = dynamic_cast<Grupo*>(this->conversacion);
-
-    }catch(std::bad_cast){
-        cout << "Error en cast para Privada\n";
-    }
-
     return this->conversacion->agregrarMensaje(nuevoMensaje);
+}
+
+bool UsuarioConversacion::eliminarMensaje(int codigoMensaje){
+    return this->conversacion->eliminarMensaje(codigoMensaje);
 }

@@ -10,14 +10,6 @@ ConversacionController::~ConversacionController()
     //dtor
 }
 
-int ConversacionController::getUltimoIdConversacion(){
-    return this->ultimoIdConversacion;
-}
-
-void ConversacionController::setUltimoIdConversacion(int idConversacion){
-    this->ultimoIdConversacion = idConversacion;
-}
-
 map<int,DtConversacion> ConversacionController::listarConversacionesActivas(){
     Sesion* sesion = Sesion::getInstancia();
     if(sesion->getSesion() == "NULL"){
@@ -74,9 +66,11 @@ bool ConversacionController::altaGrupo(string nombre,string urlImagen){
     Sesion* sesion = Sesion::getInstancia();
     ManejadorUsuario* manejadorUsuario = ManejadorUsuario::getInstancia();
     Usuario* usuario = manejadorUsuario->findUsuario(sesion->getSesion());
-    int nuevoIdConversaion = this->getUltimoIdConversacion() + 1;
-    FechaHora creacion = FechaHora(10,10,2018,10,10); //ingresar fecha del reloj
-    Grupo* nuevoGrupo = new Grupo(nuevoIdConversaion, nombre, usuario, urlImagen, creacion);
+    Almacenamiento* almacenamiento = Almacenamiento::getInstancia();
+    int nuevoIdConversaion = almacenamiento->getNuevoIdConversacion();
+    almacenamiento->setUltimoIdConversacion(nuevoIdConversaion);
+    FechaHora creacion = almacenamiento->getReloj();
+    Grupo* nuevoGrupo = new Grupo(nuevoIdConversaion, usuario, nombre, urlImagen, creacion);
     nuevoGrupo->agregarAdministrador(usuario);
     nuevoGrupo->agregarReceptor(usuario);
     UsuarioConversacion* nuevoUsuarioConversacion = new UsuarioConversacion(activa,nuevoGrupo);

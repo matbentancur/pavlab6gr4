@@ -27,3 +27,13 @@ string DtTarjetaContacto::getNombre(){
 string DtTarjetaContacto::getTelefono(){
     return this->telefono;
 }
+
+ostream& operator << (ostream& salida, DtTarjetaContacto& dtTarjetaContacto) {
+    salida <<
+        "Codigo: " << dtTarjetaContacto.codigo << "\n" <<
+        "Enviado: " << dtTarjetaContacto.enviado << "\n" <<
+        "Visto: " << dtTarjetaContacto.visto << "\n" <<
+        "Nombre: " << dtTarjetaContacto.nombre << "\n" <<
+        "Telefono: " << dtTarjetaContacto.telefono << "\n";
+    return salida;
+}

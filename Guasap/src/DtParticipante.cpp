@@ -4,10 +4,14 @@ DtParticipante::DtParticipante(){
 
 }
 
+DtParticipante::~DtParticipante(){
+
+}
+
 DtParticipante::DtParticipante(string celular, string nombre,bool administrador, FechaHora vistoFechaHora){
-    this->celular        = celular;
-    this->nombre         = nombre;
-    this->administrador  = administrador;
+    this->celular = celular;
+    this->nombre = nombre;
+    this->administrador = administrador;
     this->vistoFechaHora = vistoFechaHora;
 }
 
@@ -27,4 +31,11 @@ FechaHora DtParticipante::getFechaHora(){
     return this->vistoFechaHora;
 }
 
-DtParticipante::~DtParticipante(){}
+ostream& operator << (ostream& salida, DtParticipante& dtParticipante) {
+    salida <<
+        "Celular: " << dtParticipante.celular << "\n" <<
+        "Nombre: " << dtParticipante.nombre << "\n" <<
+        "Administrador: " << dtParticipante.administrador << "\n" <<
+        "Visto: " << dtParticipante.vistoFechaHora << "\n";
+    return salida;
+}

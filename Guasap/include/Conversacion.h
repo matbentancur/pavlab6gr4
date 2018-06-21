@@ -17,18 +17,14 @@ class Conversacion{
 
     protected:
         int idConversacion;
-        string nombre;
         Usuario* origen;
         map<int,Mensaje*> mensajes;
 
     public:
-        Conversacion(int,string,Usuario*);
+        Conversacion(int,Usuario*);
 
         int getIdConversacion();
         void setIdConversacion(int);
-
-        string getNombre();
-        void setNombre(string);
 
         Usuario* getOrigen();
         void setOrigen(Usuario*);
@@ -37,7 +33,9 @@ class Conversacion{
         map<int,DtMensaje> getMensajes();
         map<string,DtReceptor> verInfoMensaje(int);
 
-        bool agregrarMensaje(Mensaje*);
+        virtual bool agregrarMensaje(Mensaje*) = 0;
+
+        bool eliminarMensaje(int);
 
         ~Conversacion();
 };

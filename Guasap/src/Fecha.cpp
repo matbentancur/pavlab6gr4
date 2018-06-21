@@ -44,3 +44,9 @@ int Fecha::getMes(){
 int Fecha::getAnio(){
     return this->anio;
 }
+
+ostream& operator << (ostream& salida, Fecha& fecha){
+    salida <<
+        fecha.getDia() << "/" << fecha.getMes() << "/" << fecha.getAnio() << "\n";
+    return salida;
+}

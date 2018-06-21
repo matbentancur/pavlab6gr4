@@ -24,8 +24,11 @@ FechaHora DtGrupo::getCreacion(){
     return this->creacion;
 }
 
-ostream& operator << (ostream& os, DtGrupo& dtGrupo) {
-    os <<
-        "Nombre: " << dtGrupo.getNombre()<< "\n";
-    return os;
+ostream& operator << (ostream& salida, DtGrupo& dtGrupo) {
+    salida <<
+        "ID: " << dtGrupo.idConversacion << "\n" <<
+        "Nombre: " << dtGrupo.nombre << "\n" <<
+        "URL Imagen: " << dtGrupo.urlImagen << "\n" <<
+        "Creacion: " << dtGrupo.creacion << "\n";
+    return salida;
 }

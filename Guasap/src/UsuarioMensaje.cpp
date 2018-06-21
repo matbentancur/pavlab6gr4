@@ -1,9 +1,16 @@
 #include "UsuarioMensaje.h"
 
-UsuarioMensaje::UsuarioMensaje(bool visto, FechaHora vistoFechaHora, Usuario* usuario) {
+UsuarioMensaje::UsuarioMensaje(bool visto, bool eliminado, Usuario* usuario) {
+    this->visto = visto;
+    this->eliminado = eliminado;
+    this->usuario = usuario;
+}
+
+UsuarioMensaje::UsuarioMensaje(bool visto, FechaHora vistoFechaHora, bool eliminado, Usuario* usuario) {
     this->visto = visto;
     this->vistoFechaHora = vistoFechaHora;
-//    this->usuario = usuario;
+    this->eliminado = eliminado;
+    this->usuario = usuario;
 }
 
 UsuarioMensaje::~UsuarioMensaje()
@@ -25,6 +32,14 @@ FechaHora UsuarioMensaje::getVistoFechaHora(){
 
 void UsuarioMensaje::setVistoFechaHora(FechaHora vistoFechaHora){
     this->vistoFechaHora = vistoFechaHora;
+}
+
+bool UsuarioMensaje::getEliminado(){
+    return this->eliminado;
+}
+
+void UsuarioMensaje::setEliminado(bool eliminado){
+    this->eliminado = eliminado;
 }
 
 Usuario* UsuarioMensaje::getUsuario(){

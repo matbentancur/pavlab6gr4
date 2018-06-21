@@ -27,3 +27,13 @@ string DtVideo::getUrl(){
 int DtVideo::getDuracion(){
     return this->duracion;
 }
+
+ostream& operator << (ostream& salida, DtVideo& dtVideo) {
+    salida <<
+        "Codigo: " << dtVideo.codigo << "\n" <<
+        "Enviado: " << dtVideo.enviado << "\n" <<
+        "Visto: " << dtVideo.visto << "\n" <<
+        "URL: " << dtVideo.url << "\n" <<
+        "Duracion: " << dtVideo.duracion << "\n";
+    return salida;
+}
