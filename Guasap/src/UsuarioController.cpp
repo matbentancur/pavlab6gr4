@@ -207,11 +207,11 @@ void UsuarioController::cargarDatosPrueba(){
     UsuarioConversacion* u4cs3 = new UsuarioConversacion(activa,cs3);
     u4->agregarUsuarioConversacion(u4cs3);
 
-//    Privada* cs4 = new Privada(almacenamiento->getNuevoIdConversacion(), u5, u4); //PRUEBAS
-//    UsuarioConversacion* u5cs4 = new UsuarioConversacion(activa,cs4); //PRUEBAS
-//    u5->agregarUsuarioConversacion(u5cs4); //PRUEBAS
-//    UsuarioConversacion* u4cs4 = new UsuarioConversacion(activa,cs4); //PRUEBAS
-//    u4->agregarUsuarioConversacion(u4cs4); //PRUEBAS
+    Privada* cs4 = new Privada(almacenamiento->getNuevoIdConversacion(), u5, u4); //PRUEBAS
+    UsuarioConversacion* u5cs4 = new UsuarioConversacion(archivada,cs4); //PRUEBAS
+    u5->agregarUsuarioConversacion(u5cs4); //PRUEBAS
+    UsuarioConversacion* u4cs4 = new UsuarioConversacion(activa,cs4); //PRUEBAS
+    u4->agregarUsuarioConversacion(u4cs4); //PRUEBAS
 
     //MENSAJES
     FechaHora fhm1 = FechaHora(22,5,2017,18,04);

@@ -23,10 +23,10 @@ DtConversacion Privada::getDtConversacion(){
     Usuario* usuario = manejadorUsuario->findUsuario(sesion->getSesion());
     string nombre;
     if(usuario->getCelular() != this->destino->getCelular()){
-        nombre = this->destino->getNombre() + this->destino->getCelular();
+        nombre = this->destino->getNombre() + " - " + this->destino->getCelular();
     }
     else{
-        nombre = this->origen->getNombre() + this->origen->getCelular();
+        nombre = this->origen->getNombre() + " - " + this->origen->getCelular();
     }
     DtPrivada dtPrivada = DtPrivada(this->idConversacion, nombre, this->destino->getCelular());
     return dtPrivada;

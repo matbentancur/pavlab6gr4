@@ -8,6 +8,7 @@
 #include <exception>
 #include "UsuarioFactory.h"
 #include "ConversacionFactory.h"
+#include "MensajeFactory.h"
 #include "FechaHora.h"
 #include "Almacenamiento.h"
 #include "DtConversacion.h"
@@ -19,6 +20,7 @@ using namespace std;
 //FUNCIONES AUXILIARES
 void menuPrincipal();
 void menuEnviarMensaje();
+void menuVerMensaje();
 void listarContactos();
 void listarConversacionesActivas();
 void listarConversacionesArchivadas();
@@ -245,33 +247,31 @@ int main() {
             case 6:
                 cout << "\n\nVer mensajes\n\n";
                 try {
-                cout << "\n\nLista de conversaciones\n\n";
-                cout << "\nActivas:\n\n";
-                listarConversacionesActivas();
-                ConversacionFactory* conversacionFactory = ConversacionFactory::getInstancia();
-                IConversacionController* iConversacionController = conversacionFactory->getIConversacionController();
-                int cantConvArchivadas = iConversacionController->cantConversacionesArchivadas();
-                cout << "\nArchivadas: ";
-                cout << cantConvArchivadas;
-                menuEnviarMensaje();
-                cin >> numOper;
-                switch (numOper) {
-                case 1:
-                    cout << "\nIngrese el identificador de la conversacion: ";
-                    cin >> idConversacion;
-                    break;
-                case 2:
-                    listarConversacionesArchivadas();
-                    if(cantConvArchivadas > 0){
-                        cout << "\nIngrese el identificador de la conversacion: ";
-                        cin >> idConversacion;
+                    cout << "\n\nLista de conversaciones\n\n";
+                    cout << "\nActivas:\n\n";
+                    listarConversacionesActivas();
+                    ConversacionFactory* conversacionFactory = ConversacionFactory::getInstancia();
+                    IConversacionController* iConversacionController = conversacionFactory->getIConversacionController();
+                    int cantConvArchivadas = iConversacionController->cantConversacionesArchivadas();
+                    cout << "\nArchivadas: ";
+                    cout << cantConvArchivadas;
+                    menuVerMensaje();
+                    cin >> numOper;
+                    switch (numOper) {
+                        case 1:
+                            cout << "\nIngrese el identificador de la conversacion: ";
+                            cin >> idConversacion;
+                            break;
+                        case 2:
+                            cout << "\n\nLista de conversaciones\n\n";
+                            cout << "\nArchivadas:\n\n";
+                            listarConversacionesArchivadas();
+                            if(cantConvArchivadas > 0){
+                                cout << "\nIngrese el identificador de la conversacion: ";
+                                cin >> idConversacion;
+                            }
+                            break;
                     }
-                    break;
-                case 3:
-                    cout << "\n\nListar Mensajes\n\n";
-                    listarContactos();
-                    break;
-                }
                 }catch(logic_error& ia){
                     cout << ia.what() << "\n";
                     cin.get();
@@ -406,6 +406,13 @@ void menuEnviarMensaje() {
     cout << "Ingrese una opcion: ";
 }
 
+void menuVerMensaje() {
+    cout << "\n\nLista de operaciones disponibles:\n\n";
+    cout << "1)  Seleccionar una conversacion activa\n";
+    cout << "2)  Ver las conversaciones archivadas\n";
+    cout << "Ingrese una opcion: ";
+}
+
 void listarContactos(){
     UsuarioFactory* usuarioFactory = UsuarioFactory::getInstancia();
     IUsuarioController* iUsuarioController = usuarioFactory->getIUsuarioController();
@@ -458,6 +465,21 @@ void listarConversacionesArchivadas(){
         for(i = conversacionesArchivadas.begin(); i != conversacionesArchivadas.end(); ++i){
             DtConversacion conversacion = i->second;
             cout << conversacion.getIdConversacion() << " - " << conversacion.getNombre() << "\n";
+        }
+    }
+}
+
+void listarMensajes(int idConversacion){
+    MensajeFactory* mensajeFactory = MensajeFactory::getInstancia();
+    IMensajeController* iMensajeController = mensajeFactory->getIMensajeController();
+    map<int,DtMensaje> mensajes = iMensajeController->listarMensajes(idConversacion);
+    map<int,DtMensaje>::iterator i;
+    if(mensajes.begin() == mensajes.end()){
+        cout << "\nLa conversacion esta vacia.\n";
+    }else{
+        for(i = mensajes.begin(); i != mensajes.end(); ++i){
+            DtMensaje mensaje = i->second;
+            cout << mensaje.getCodigo() << "\n";
         }
     }
 }
