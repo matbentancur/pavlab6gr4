@@ -5,12 +5,14 @@
 #include <stdio.h>
 #include <stdexcept>
 #include "UsuarioFactory.h"
+#include "ConversacionFactory.h"
 
 using namespace std;
 
 //FUNCIONES AUXILIARES
 void menuPrincipal();
 void listarContactos();
+void listarConversacionesActivas();
 bool existeSesion();
 void mensajeSesion();
 
@@ -158,9 +160,23 @@ int main() {
             case 4:
                 cout << "\n\tAlta grupo\n\n";
                 break;
-            case 5:
-                cout << "\n\tEnviar mensajes\n\n";
+            case 5: {
+                try {
+//                cout << "\n\tEnviar mensajes\n\n";
+                cout << "\n\nLista de conversaciones\n\n";
+                cout << "\nActivas\n\n";
+                listarConversacionesActivas();
+                ConversacionFactory* conversacionFactory = ConversacionFactory::getInstancia();
+                IConversacionController* iConversacionController = conversacionFactory->getIConversacionController();
+                int cantConvArchivadas = iConversacionController->cantConversacionesArchivadas();
+                cout << "\nArchivadas: ";
+                cout << cantConvArchivadas;
+                }catch(logic_error& ia){
+                    cout << ia.what() << "\n";
+                    cin.get();
+                }
                 break;
+            }
             case 6:
                 cout << "\n\nVer mensajes\n\n";
                 break;
@@ -247,6 +263,20 @@ void listarContactos(){
     }else{
         for(i = contactos.begin(); i != contactos.end(); ++i){
             cout << i->second;
+        }
+    }
+}
+
+void listarConversacionesActivas(){
+    ConversacionFactory* conversacionFactory = ConversacionFactory::getInstancia();
+    IConversacionController* iConversacionController = conversacionFactory->getIConversacionController();
+    map<int,DtConversacion> conversacionesActivas = iConversacionController->listarConversacionesActivas();
+    map<int,DtConversacion>::iterator i;
+    if(conversacionesActivas.begin() == conversacionesActivas.end()){
+        cout << "\nLa lista de conversaciones activas esta vacia.\n";
+    }else{
+        for(i = conversacionesActivas.begin(); i != conversacionesActivas.end(); ++i){
+//            cout << i->second;
         }
     }
 }

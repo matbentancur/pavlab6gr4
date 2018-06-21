@@ -67,6 +67,8 @@ class Usuario {
         bool buscarConversacion(int);
         bool iniciarConversacion(Usuario);
 
+        int obtenerCantConversacionesArchivadas();
+
 };
 
 #endif // USUARIO_H

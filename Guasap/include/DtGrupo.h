@@ -18,6 +18,8 @@ class DtGrupo : public DtConversacion {
 
         string getUrlImagen();
         FechaHora getCreacion();
+
+        friend ostream& operator<<(ostream &os, DtGrupo&);
 };
 
 #endif // DTGRUPO_H

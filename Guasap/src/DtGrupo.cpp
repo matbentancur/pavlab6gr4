@@ -1,4 +1,5 @@
 #include "DtGrupo.h"
+#include <iostream>
 
 DtGrupo::DtGrupo()
 {
@@ -21,4 +22,10 @@ string DtGrupo::getUrlImagen(){
 
 FechaHora DtGrupo::getCreacion(){
     return this->creacion;
+}
+
+ostream& operator << (ostream& os, DtGrupo& dtGrupo) {
+    os <<
+        "Nombre: " << dtGrupo.getNombre()<< "\n";
+    return os;
 }

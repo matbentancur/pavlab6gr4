@@ -1,4 +1,5 @@
 #include "DtPrivada.h"
+#include <iostream>
 
 DtPrivada::DtPrivada()
 {
@@ -16,4 +17,11 @@ DtPrivada::DtPrivada(int idConversacion, string nombre, string destino) : DtConv
 
 string DtPrivada::getDestino(){
     return this->destino;
+}
+
+ostream& operator << (ostream& os, DtPrivada& dtPrivada) {
+    os <<
+        "Celular: " << dtPrivada.destino<< "\n" <<
+        "Nombre: " << dtPrivada.getNombre()<< "\n";
+    return os;
 }

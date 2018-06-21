@@ -188,6 +188,18 @@ bool Usuario::enviarMensajeConversacion(int idConversacion, Mensaje* nuevoMensaj
 	return false;
 }
 
+int Usuario::obtenerCantConversacionesArchivadas(){
+    int cantConversacionesArchivadas = 0;
+	set<UsuarioConversacion*>::iterator i;
+    for(i = usuarioConversacion.begin(); i != usuarioConversacion.end(); ++i){
+        UsuarioConversacion * usuarioConversacion = *i;
+        if (usuarioConversacion->getEstado() == 2){
+            cantConversacionesArchivadas++;
+        }
+	}
+	return cantConversacionesArchivadas;
+}
+
 //bool Usuario::buscarConversacion(int){
 //
 //}

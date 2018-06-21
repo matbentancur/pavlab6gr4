@@ -20,9 +20,14 @@ void ConversacionController::setUltimoIdConversacion(int idConversacion){
 
 map<int,DtConversacion> ConversacionController::listarConversacionesActivas(){
     Sesion* sesion = Sesion::getInstancia();
-    ManejadorUsuario* manejadorUsuario = ManejadorUsuario::getInstancia();
-    Usuario* usuario = manejadorUsuario->findUsuario(sesion->getSesion());
-    return usuario->obtenerConversacionesActivas();
+    if(sesion->getSesion() == "NULL"){
+        throw logic_error("\nNo hay ninguna sesion activa, primero debe iniciar sesion.\n");
+    }else{
+        Sesion* sesion = Sesion::getInstancia();
+        ManejadorUsuario* manejadorUsuario = ManejadorUsuario::getInstancia();
+        Usuario* usuario = manejadorUsuario->findUsuario(sesion->getSesion());
+        return usuario->obtenerConversacionesActivas();
+    }
 }
 
 map<int,DtConversacion> ConversacionController::listarConversacionesArchivadas(){
@@ -70,7 +75,7 @@ bool ConversacionController::altaGrupo(string nombre,string urlImagen){
     ManejadorUsuario* manejadorUsuario = ManejadorUsuario::getInstancia();
     Usuario* usuario = manejadorUsuario->findUsuario(sesion->getSesion());
     int nuevoIdConversaion = this->getUltimoIdConversacion() + 1;
-    FechaHora creacion = FechaHora(10,10,10,10,10); //ingresar fecha del reloj
+    FechaHora creacion = FechaHora(10,10,2018,10,10); //ingresar fecha del reloj
     Grupo* nuevoGrupo = new Grupo(nuevoIdConversaion, nombre, usuario, urlImagen, creacion);
     nuevoGrupo->agregarAdministrador(usuario);
     nuevoGrupo->agregarReceptor(usuario);
@@ -92,3 +97,10 @@ bool ConversacionController::altaGrupo(string nombre,string urlImagen){
 //DtConversacion ConversacionController::iniciarConversacion(int){
 //
 //}
+
+int ConversacionController::cantConversacionesArchivadas(){
+    Sesion* sesion = Sesion::getInstancia();
+    ManejadorUsuario* manejadorUsuario = ManejadorUsuario::getInstancia();
+    Usuario* usuario = manejadorUsuario->findUsuario(sesion->getSesion());
+    return usuario->obtenerCantConversacionesArchivadas();
+}
