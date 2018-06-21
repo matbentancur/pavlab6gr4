@@ -14,8 +14,8 @@ using namespace std;
 
 class IConversacionController {
     public:
-        virtual map<int,DtConversacion> listarConversacionesActivas() = 0;
-        virtual map<int,DtConversacion> listarConversacionesArchivadas() = 0;
+        virtual map<int,DtConversacion*> listarConversacionesActivas() = 0;
+        virtual map<int,DtConversacion*> listarConversacionesArchivadas() = 0;
         virtual bool archivarConversacion(int) = 0;
         virtual bool agregarSeleccionContactoGrupo(string) = 0;
         virtual bool quitarSeleccionContactoGrupo(string) = 0;

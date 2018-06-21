@@ -43,8 +43,8 @@ bool Grupo::agregarReceptor(Usuario* receptor){
     return true;
 }
 
-DtConversacion Grupo::getDtConversacion(){
-    DtGrupo dtGrupo = DtGrupo(this->idConversacion, this->nombre, this->urlImagen, this->creacion);
+DtConversacion* Grupo::getDtConversacion(){
+    DtConversacion* dtGrupo = new DtGrupo(this->idConversacion, this->nombre, this->urlImagen, this->creacion);
     return dtGrupo;
 }
 

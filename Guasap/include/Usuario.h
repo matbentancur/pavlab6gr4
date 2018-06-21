@@ -57,8 +57,8 @@ class Usuario {
 
         bool agregarContacto(Usuario*);
 
-        map<int,DtConversacion> obtenerConversacionesActivas();
-        map<int,DtConversacion> obtenerConversacionesArchivadas();
+        map<int,DtConversacion*> obtenerConversacionesActivas();
+        map<int,DtConversacion*> obtenerConversacionesArchivadas();
 
         map<int,DtMensaje> obtenerMensajes(int);
         map<string,DtReceptor> verInfoMensaje(int,int);

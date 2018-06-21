@@ -1,6 +1,7 @@
 #ifndef DTCONVERSACION_H
 #define DTCONVERSACION_H
 
+#include <iostream>
 #include <string>
 
 using namespace std;
@@ -19,6 +20,7 @@ class DtConversacion {
 
         int getIdConversacion();
         string getNombre();
+
 };
 
 #endif // DTCONVERSACION_H

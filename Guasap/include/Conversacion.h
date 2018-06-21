@@ -29,7 +29,7 @@ class Conversacion{
         Usuario* getOrigen();
         void setOrigen(Usuario*);
 
-        virtual DtConversacion getDtConversacion() = 0;
+        virtual DtConversacion* getDtConversacion() = 0;
         map<int,DtMensaje> getMensajes();
         map<string,DtReceptor> verInfoMensaje(int);
 

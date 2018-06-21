@@ -14,7 +14,7 @@ class DtGrupo : public DtConversacion {
 
     public:
         DtGrupo();
-        virtual ~DtGrupo();
+        ~DtGrupo();
 
         DtGrupo(int,string,string,FechaHora);
 
@@ -22,7 +22,6 @@ class DtGrupo : public DtConversacion {
         string getUrlImagen();
         FechaHora getCreacion();
 
-        void print();
         friend ostream& operator << (ostream &salida, DtGrupo&);
 };
 

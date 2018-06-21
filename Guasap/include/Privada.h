@@ -19,7 +19,7 @@ class Privada : public Conversacion{
         Usuario* getDestino();
         void setDestino(Usuario*);
 
-        DtConversacion getDtConversacion();
+        DtConversacion* getDtConversacion();
 
         bool agregrarMensaje(Mensaje*);
 

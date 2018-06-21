@@ -13,8 +13,8 @@ class ConversacionController : public IConversacionController {
         ConversacionController();
         virtual ~ConversacionController();
 
-        map<int,DtConversacion> listarConversacionesActivas();
-        map<int,DtConversacion> listarConversacionesArchivadas();
+        map<int,DtConversacion*> listarConversacionesActivas();
+        map<int,DtConversacion*> listarConversacionesArchivadas();
         bool archivarConversacion(int);
         bool agregarSeleccionContactoGrupo(string);
         bool quitarSeleccionContactoGrupo(string);

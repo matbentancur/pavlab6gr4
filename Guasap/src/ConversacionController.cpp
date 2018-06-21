@@ -10,7 +10,7 @@ ConversacionController::~ConversacionController()
     //dtor
 }
 
-map<int,DtConversacion> ConversacionController::listarConversacionesActivas(){
+map<int,DtConversacion*> ConversacionController::listarConversacionesActivas(){
     Sesion* sesion = Sesion::getInstancia();
     if(sesion->getSesion() == "NULL"){
         throw logic_error("\nNo hay ninguna sesion activa, primero debe iniciar sesion.\n");
@@ -22,7 +22,7 @@ map<int,DtConversacion> ConversacionController::listarConversacionesActivas(){
     }
 }
 
-map<int,DtConversacion> ConversacionController::listarConversacionesArchivadas(){
+map<int,DtConversacion*> ConversacionController::listarConversacionesArchivadas(){
     Sesion* sesion = Sesion::getInstancia();
     ManejadorUsuario* manejadorUsuario = ManejadorUsuario::getInstancia();
     Usuario* usuario = manejadorUsuario->findUsuario(sesion->getSesion());

@@ -5,9 +5,9 @@ MensajeFactory* MensajeFactory::instancia = NULL;
 MensajeFactory::MensajeFactory(){}
 
 MensajeFactory* MensajeFactory::getInstancia(){
-    if(instancia == NULL)
+    if(instancia == NULL){
         instancia = new MensajeFactory();
-
+    }
         return instancia;
 }
 

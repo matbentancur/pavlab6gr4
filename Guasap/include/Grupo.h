@@ -33,7 +33,7 @@ class Grupo : public Conversacion{
         bool agregarAdministrador(Usuario*);
         bool agregarReceptor(Usuario*);
 
-        DtConversacion getDtConversacion();
+        DtConversacion* getDtConversacion();
 
         bool agregrarMensaje(Mensaje*);
 

@@ -13,12 +13,11 @@ class DtPrivada : public DtConversacion {
 
     public:
         DtPrivada();
-        virtual ~DtPrivada();
+        ~DtPrivada();
         DtPrivada(int,string,string);
 
         string getDestino();
 
-        void print();
         friend ostream& operator << (ostream &salida, DtPrivada&);
 };
 

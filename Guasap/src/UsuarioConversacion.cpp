@@ -26,7 +26,7 @@ void UsuarioConversacion::setConversacion(Conversacion* conversacion) {
     this->conversacion = conversacion;
 }
 
-DtConversacion UsuarioConversacion::obtenerConversacion(){
+DtConversacion* UsuarioConversacion::obtenerConversacion(){
     return this->conversacion->getDtConversacion();
 }
 

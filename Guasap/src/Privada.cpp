@@ -17,7 +17,7 @@ void Privada::setDestino(Usuario* destino){
     this->destino = destino;
 }
 
-DtConversacion Privada::getDtConversacion(){
+DtConversacion* Privada::getDtConversacion(){
     Sesion* sesion = Sesion::getInstancia();
     ManejadorUsuario* manejadorUsuario = ManejadorUsuario::getInstancia();
     Usuario* usuario = manejadorUsuario->findUsuario(sesion->getSesion());
@@ -28,7 +28,7 @@ DtConversacion Privada::getDtConversacion(){
     else{
         nombre = this->origen->getNombre() + " - " + this->origen->getCelular();
     }
-    DtPrivada dtPrivada = DtPrivada(this->idConversacion, nombre, this->destino->getCelular());
+    DtPrivada* dtPrivada = new DtPrivada(this->idConversacion, nombre, this->destino->getCelular());
     return dtPrivada;
 }
 

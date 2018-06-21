@@ -35,7 +35,7 @@ class UsuarioConversacion {
         Conversacion* getConversacion();
         void setConversacion(Conversacion*);
 
-        DtConversacion obtenerConversacion();
+        DtConversacion* obtenerConversacion();
         map<int,DtMensaje> obtenerMensajes();
         map<string,DtReceptor> verInfoMensaje(int);
 
