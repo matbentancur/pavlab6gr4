@@ -1,4 +1,5 @@
 #include "DtPrivada.h"
+#include <iostream>
 
 DtPrivada::DtPrivada()
 {

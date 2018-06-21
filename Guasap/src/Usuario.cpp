@@ -242,6 +242,10 @@ bool Usuario::enviarMensajeConversacion(int idConversacion, Usuario* emisor, DtM
     return false;
 }
 
+//bool Usuario::buscarConversacion(int){
+//
+//}
+
 bool Usuario::enviarMensajeNuevaConversacion(Usuario* origen, Usuario* destino, DtMensaje nuevoMensaje){
     Almacenamiento* almacenamiento = Almacenamiento::getInstancia();
     int nuevoIdConversacion = almacenamiento->getNuevoIdConversacion();
@@ -253,7 +257,6 @@ bool Usuario::enviarMensajeNuevaConversacion(Usuario* origen, Usuario* destino, 
 
     UsuarioConversacion* destinoUsuarioConversacion = new UsuarioConversacion(activa,conversacion);
     destino->agregarUsuarioConversacion(destinoUsuarioConversacion);
-
     return this->enviarMensajeConversacion(nuevoIdConversacion, origen, nuevoMensaje);
 }
 
@@ -266,4 +269,16 @@ bool Usuario::eliminarMensaje(int idConversacion,int codigoMensaje){
         }
 	}
     return false;
+}
+
+int Usuario::obtenerCantConversacionesArchivadas(){
+    int cantConversacionesArchivadas = 0;
+	set<UsuarioConversacion*>::iterator i;
+    for(i = usuarioConversacion.begin(); i != usuarioConversacion.end(); ++i){
+        UsuarioConversacion * usuarioConversacion = *i;
+        if (usuarioConversacion->getEstado() == 2){
+            cantConversacionesArchivadas++;
+        }
+	}
+	return cantConversacionesArchivadas;
 }

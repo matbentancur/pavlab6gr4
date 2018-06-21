@@ -1,4 +1,5 @@
 #include "DtGrupo.h"
+#include <iostream>
 
 DtGrupo::DtGrupo()
 {

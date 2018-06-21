@@ -12,9 +12,14 @@ ConversacionController::~ConversacionController()
 
 map<int,DtConversacion> ConversacionController::listarConversacionesActivas(){
     Sesion* sesion = Sesion::getInstancia();
-    ManejadorUsuario* manejadorUsuario = ManejadorUsuario::getInstancia();
-    Usuario* usuario = manejadorUsuario->findUsuario(sesion->getSesion());
-    return usuario->obtenerConversacionesActivas();
+    if(sesion->getSesion() == "NULL"){
+        throw logic_error("\nNo hay ninguna sesion activa, primero debe iniciar sesion.\n");
+    }else{
+        Sesion* sesion = Sesion::getInstancia();
+        ManejadorUsuario* manejadorUsuario = ManejadorUsuario::getInstancia();
+        Usuario* usuario = manejadorUsuario->findUsuario(sesion->getSesion());
+        return usuario->obtenerConversacionesActivas();
+    }
 }
 
 map<int,DtConversacion> ConversacionController::listarConversacionesArchivadas(){
@@ -81,4 +86,15 @@ bool ConversacionController::altaGrupo(string nombre,string urlImagen){
         contacto->agregarUsuarioConversacion(nuevoUsuarioConversacion);
     }
     return true;
+}
+
+//DtConversacion ConversacionController::iniciarConversacion(int){
+//
+//}
+
+int ConversacionController::cantConversacionesArchivadas(){
+    Sesion* sesion = Sesion::getInstancia();
+    ManejadorUsuario* manejadorUsuario = ManejadorUsuario::getInstancia();
+    Usuario* usuario = manejadorUsuario->findUsuario(sesion->getSesion());
+    return usuario->obtenerCantConversacionesArchivadas();
 }
