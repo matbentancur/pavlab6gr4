@@ -6,7 +6,6 @@
 class ConversacionController : public IConversacionController {
 
     private:
-        int ultimoIdConversacion;
         map<string,DtContacto> listaContactosGrupoElegidos;
         map<string,DtContacto> listaContactosGrupoRestantes;
 
@@ -14,15 +13,13 @@ class ConversacionController : public IConversacionController {
         ConversacionController();
         virtual ~ConversacionController();
 
-        int getUltimoIdConversacion();
-        void setUltimoIdConversacion(int);
-
         map<int,DtConversacion> listarConversacionesActivas();
         map<int,DtConversacion> listarConversacionesArchivadas();
         bool archivarConversacion(int);
         bool agregarSeleccionContactoGrupo(string);
         bool quitarSeleccionContactoGrupo(string);
         bool altaGrupo(string,string);
+        int cantConversacionesArchivadas();
 
         DtConversacion iniciarConversacion(int);
 };

@@ -8,7 +8,7 @@ using namespace std;
 
 class DtMensaje {
 
-    private:
+    protected:
         int codigo;
         FechaHora enviado;
         bool visto;

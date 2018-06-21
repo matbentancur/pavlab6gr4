@@ -40,7 +40,7 @@ class UsuarioConversacion {
         map<string,DtReceptor> verInfoMensaje(int);
 
         bool enviarMensajeConversacion(Mensaje*);
-
+        bool eliminarMensaje(int);
 };
 
 #endif

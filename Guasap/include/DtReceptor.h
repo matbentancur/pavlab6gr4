@@ -2,6 +2,7 @@
 #define DTRECEPTOR_H_INCLUDED
 
 #include <string>
+#include <iostream>
 #include "FechaHora.h"
 
 using namespace std;
@@ -20,6 +21,8 @@ class DtReceptor{
         string getCelular();
         string getNombre();
         FechaHora getVistoFechaHora();
+
+        friend ostream& operator << (ostream &salida, DtReceptor&);
 };
 
 #endif // DTRECEPTOR_H_INCLUDED

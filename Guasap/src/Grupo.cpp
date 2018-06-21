@@ -3,9 +3,18 @@
 #include "Mensaje.h"
 #include "UsuarioMensaje.h"
 
-Grupo::Grupo(int idConversacion,string nombre,Usuario* origen,string urlImagen,FechaHora creacion) : Conversacion(idConversacion, nombre, origen){
+Grupo::Grupo(int idConversacion, Usuario* origen, string nombre, string urlImagen, FechaHora creacion) : Conversacion(idConversacion, origen){
+    this->nombre = nombre;
     this->urlImagen = urlImagen;
     this->creacion = creacion;
+}
+
+string Grupo::getNombre(){
+    return this->nombre;
+}
+
+void Grupo::setNombre(string nombre){
+    this->nombre = nombre;
 }
 
 string Grupo::getUrlImagen(){
@@ -44,7 +53,7 @@ bool Grupo::agregrarMensaje(Mensaje* nuevoMensaje){
     for(i = this->receptores.begin(); i != this->receptores.end(); ++i){
         Usuario* receptor = i->second;
         if (nuevoMensaje->getEmisor()->getCelular() != receptor->getCelular()){
-            UsuarioMensaje* usuarioMensaje = new UsuarioMensaje(false, receptor);
+            UsuarioMensaje* usuarioMensaje = new UsuarioMensaje(false, false, receptor);
             nuevoMensaje->agregarUsuarioMensaje(usuarioMensaje);
         }
 	}

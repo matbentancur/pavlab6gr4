@@ -5,21 +5,24 @@
 #include <stdio.h>
 #include <stdexcept>
 #include "UsuarioFactory.h"
+#include "ConversacionFactory.h"
 #include "FechaHora.h"
+#include "Almacenamiento.h"
 
 using namespace std;
 
 //FUNCIONES AUXILIARES
 void menuPrincipal();
+void menuEnviarMensaje();
 void listarContactos();
+void listarConversacionesActivas();
+void listarConversacionesArchivadas();
 bool existeSesion();
 void mensajeSesion();
-FechaHora consultarReloj();
-void modificarReloj(FechaHora&);
 
 int main() {
-    int numOper = 0;
-    string celularIngresado, celularContacto, nombre, urlImagen, descripcion = "";
+    int numOper, idConversacion = 0;
+    string celularIngresado, celularContacto, nombre, urlImagen, descripcion, textoMensaje, urlVideo, formatoMensaje, tamanioMensaje, descripcionMensaje, duracionMensaje = "";
     bool salir = false;
     bool existeUsuario = false;
     bool ingresarOtroNumero = true;
@@ -96,7 +99,7 @@ int main() {
                         break;
                     case distintoUserLog: {
                         cout << "\nYa hay una sesion iniciada. \nDebe cerrar la sesion actual para inciar sesion con el celular: " + celularIngresado;
-                        cout << "\n\nCerrar sesion actual (s/n)?: ";
+                        cout << "\n\nCerrar sesion actual? (s/n): ";
                         cin >> opcion;
                         if (opcion == 's' || opcion == 'S') {
                             cout << "\n\nCerrando sesion...\n";
@@ -113,7 +116,7 @@ int main() {
             case 2: {
                 try{
                     cout << "\n\tCerrar Guasap\n";
-                    cout << "\nCerrar sesion actual (s/n)?: ";
+                    cout << "\nCerrar sesion actual? (s/n): ";
                     cin >> opcion;
                     if (opcion == 's' || opcion == 'S') {
                         UsuarioFactory* usuarioFactory = UsuarioFactory::getInstancia();
@@ -132,7 +135,7 @@ int main() {
                 try {
                     cout << "\n\nLista de contactos\n\n";
                     listarContactos();
-                    cout << "\nQuiere agregar un nuevo contacto (s/n)?: ";
+                    cout << "\nQuiere agregar un nuevo contacto? (s/n): ";
                     cin >> opcion;
                     if (opcion == 's' || opcion == 'S') {
                         cout << "\nIngrese el celular que desea agregar: ";
@@ -161,9 +164,79 @@ int main() {
             case 4:
                 cout << "\n\tAlta grupo\n\n";
                 break;
-            case 5:
-                cout << "\n\tEnviar mensajes\n\n";
+            case 5: {
+                try {
+                cout << "\n\nLista de conversaciones\n\n";
+                cout << "\nActivas:\n\n";
+                listarConversacionesActivas();
+                ConversacionFactory* conversacionFactory = ConversacionFactory::getInstancia();
+                IConversacionController* iConversacionController = conversacionFactory->getIConversacionController();
+                int cantConvArchivadas = iConversacionController->cantConversacionesArchivadas();
+                cout << "\nArchivadas: ";
+                cout << cantConvArchivadas;
+                menuEnviarMensaje();
+                cin >> numOper;
+                switch (numOper) {
+                case 1:
+                    cout << "\nIngrese el identificador de la conversacion: ";
+                    cin >> idConversacion;
+                    break;
+                case 2:
+                    listarConversacionesArchivadas();
+                    if(cantConvArchivadas > 0){
+                        cout << "\nIngrese el identificador de la conversacion: ";
+                        cin >> idConversacion;
+                    }
+                    break;
+                case 3:
+                    cout << "\n\nLista de contactos\n\n";
+                    listarContactos();
+                    cout << "\nIngrese el numero de celular con el que desea iniciar una nueva conversacion: ";
+                    cin >> celularContacto;
+                    cout << "\n\tTipo de mensaje a enviar";
+                    cout << "1)  Simple\n";
+                    cout << "2)  Imagen\n";
+                    cout << "3)  Video\n";
+                    cout << "4)  Contacto\n";
+                    cout << "\nIngrese una opcion: ";
+                    cin >> numOper;
+                    switch(numOper){
+                    case 1:
+                        cout << "\n\tMensaje Simple\n";
+                        cout << "\nIngrese el texto del mensaje: ";
+                        cin >> textoMensaje;
+                    case 2:
+                        cout << "\n\tMensaje de Imagen\n";
+                        cout << "\nIngrese la URL de la imagen: ";
+                        cin >> urlImagen;
+                        cout << "\nIngrese el formato de la imagen: ";
+                        cin >> formatoMensaje;
+                        cout << "\n\nQuiere ingresar un texto descriptivo? (s/n): ";
+                        cin >> opcion;
+                        if (opcion == 's' || opcion == 'S') {
+                            cout << "\nIngrese una descripcion: ";
+                            cin >> urlImagen;
+                        }
+                    case 3:
+                        cout << "\n\tMensaje de Video\n";
+                        cout << "\nIngrese la URL del video: ";
+                        cin >> urlVideo;
+                        cout << "\nIngrese la duracion del video: ";
+                        cin >> duracionMensaje;
+                    case 4:
+                        cout << "\n\tMensaje de Contacto\n";
+                        listarContactos();
+                        cout << "\nIngrese el numero de celular del contacto que desea compartir: ";
+                        cin >> celularContacto;
+                    }
+                    break;
+                }
+                }catch(logic_error& ia){
+                    cout << ia.what() << "\n";
+                    cin.get();
+                }
                 break;
+            }
             case 6:
                 cout << "\n\nVer mensajes\n\n";
                 break;
@@ -181,8 +254,10 @@ int main() {
                     cin >> urlImagen;
                     cout << "\nIngrese una nueva descripcion: ";
                     cin >> descripcion;
-                    iUsuarioController->modificarUsuario(nombre, urlImagen, descripcion);
-                    cout << "\nLos datos se modificaron con exito.";
+                    cout << "\nLos datos se modificaron con exito.\n\n";
+                    DtContacto dtContacto = iUsuarioController->modificarUsuario(nombre, urlImagen, descripcion);
+                    cout << dtContacto;
+                    cin.get();
                 }catch(logic_error& ia){
                     cout << ia.what() << "\n";
                     cin.get();
@@ -193,6 +268,11 @@ int main() {
                 cout << "\n\tEliminar mensajes\n\n";
                 break;
             case 10:
+                int dia;
+                int mes;
+                int anio;
+                int hora;
+                int minuto;
                 cout << "\n\tModificar fecha del sistema\n\n";
                 cout << "Ingrese dia\n";
                 cin >> dia;
@@ -206,22 +286,44 @@ int main() {
                 cin >> minuto;
                 try{
                     FechaHora fechaHora = FechaHora(dia, mes, anio, hora, minuto);
-                    modificarReloj(fechaHora);
+                    UsuarioFactory* usuarioFactory = UsuarioFactory::getInstancia();
+                    IUsuarioController* iUsuarioController = usuarioFactory->getIUsuarioController();
+                    iUsuarioController->modificarReloj(fechaHora);
+                    cout<< "La fecha/hora ha sido modificada a: "<< fechaHora;
+                    cin.get();
                 }catch(invalid_argument& ia){
                     cout<< ia.what()<<"\n";
                     cin.get();
                 }
                 break;
             case 11:
-                cout << "\n\nConsultar fecha del sistema\n\n";
-                datosReloj = consultarReloj();
-                cout<< "La fecha/hora es "<< datosReloj;
+                try{
+                    UsuarioFactory* usuarioFactory = UsuarioFactory::getInstancia();
+                    IUsuarioController* iUsuarioController = usuarioFactory->getIUsuarioController();
+                    cout << "\n\nConsultar fecha del sistema\n\n";
+                    FechaHora reloj = iUsuarioController->consultarReloj();
+                    cout<< "La fecha/hora es "<< reloj;
+                    cin.get();
+                }catch(invalid_argument& ia){
+                    cout<< ia.what()<<"\n";
+                    cin.get();
+                }
                 break;
             case 12:
-                cout << "\n\tInicializar/cargar un conjunto de datos de prueba\n\n";
+                try{
+                    UsuarioFactory* usuarioFactory = UsuarioFactory::getInstancia();
+                    IUsuarioController* iUsuarioController = usuarioFactory->getIUsuarioController();
+                    iUsuarioController->cargarDatosPrueba();
+                    cout << "\nDatos de prueba cargados con exito\n\n";
+                    cin.get();
+                }catch(invalid_argument& ia){
+                    cout<< ia.what()<<"\n";
+                    cin.get();
+                }
+
                 break;
             case 13:
-              cout << "\nEsta seguro de que desea salir (s/n)?: ";
+              cout << "\nEsta seguro de que desea salir? (s/n): ";
               cin >> opcion;
               if (opcion == 's' || opcion == 'S') {
                 cout << "Saliendo...\n";
@@ -252,11 +354,19 @@ void menuPrincipal() {
   cout << "7)  Archivar conversaciones\n";
   cout << "8)  Modificar usuario\n";
   cout << "9)  Eliminar mensajes\n";
-  cout << "10)  Modificar fecha del sistema\n";
-  cout << "11)  Consultar fecha del sistema\n";
-  cout << "12)  Inicializar/cargar un conjunto de datos de prueba\n";
-  cout << "13)  Salir\n\n";
+  cout << "10) Modificar fecha del sistema\n";
+  cout << "11) Consultar fecha del sistema\n";
+  cout << "12) Inicializar/cargar un conjunto de datos de prueba\n";
+  cout << "13) Salir\n\n";
   cout << "Ingrese el numero de la operacion a realizar: ";
+}
+
+void menuEnviarMensaje() {
+    cout << "\n\nLista de operaciones disponibles:\n\n";
+    cout << "1)  Seleccionar una conversacion activa\n";
+    cout << "2)  Ver las conversaciones archivadas\n";
+    cout << "3)  Enviar un mensaje nuevo\n";
+    cout << "Ingrese una opcion: ";
 }
 
 void listarContactos(){
@@ -268,17 +378,35 @@ void listarContactos(){
         cout << "\nLa lista de contactos esta vacia.\n";
     }else{
         for(i = contactos.begin(); i != contactos.end(); ++i){
-            cout << i->second;
+            cout << i->second << "\n";
         }
     }
 }
 
-void modificarReloj(FechaHora& fechaHora){
-    FechaHora* nuevaFechaHora = new FechaHora(fechaHora);
-    cout<< "Fecha actualizada\n";
+void listarConversacionesActivas(){
+    ConversacionFactory* conversacionFactory = ConversacionFactory::getInstancia();
+    IConversacionController* iConversacionController = conversacionFactory->getIConversacionController();
+    map<int,DtConversacion> conversacionesActivas = iConversacionController->listarConversacionesActivas();
+    map<int,DtConversacion>::iterator i;
+    if(conversacionesActivas.begin() == conversacionesActivas.end()){
+        cout << "\nLa lista de conversaciones activas esta vacia.\n";
+    }else{
+        for(i = conversacionesActivas.begin(); i != conversacionesActivas.end(); ++i){
+            cout << &i->second << "\n";
+        }
+    }
 }
 
-FechaHora consultarReloj(){
-    FechaHora dReloj = FechaHora();
-    return dReloj;
+void listarConversacionesArchivadas(){
+    ConversacionFactory* conversacionFactory = ConversacionFactory::getInstancia();
+    IConversacionController* iConversacionController = conversacionFactory->getIConversacionController();
+    map<int,DtConversacion> conversacionesArchivadas= iConversacionController->listarConversacionesArchivadas();
+    map<int,DtConversacion>::iterator i;
+    if(conversacionesArchivadas.begin() == conversacionesArchivadas.end()){
+        cout << "\nLa lista de conversaciones archivadas esta vacia.\n";
+    }else{
+        for(i = conversacionesArchivadas.begin(); i != conversacionesArchivadas.end(); ++i){
+            cout << &i->second << "\n";
+        }
+    }
 }

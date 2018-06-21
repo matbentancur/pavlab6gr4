@@ -36,7 +36,8 @@ int FechaHora::getMinuto(){
 }
 
 ostream& operator << (ostream& salida, FechaHora& fechaHora){
-    salida<<
-        fechaHora.getDia()<<"/"<<fechaHora.getMes()<<"/"<<fechaHora.getAnio()<<" "<<fechaHora.getHora()<<":"<<fechaHora.getMinuto();
+    salida <<
+        fechaHora.getDia() << "/" << fechaHora.getMes() << "/" << fechaHora.getAnio()
+            << " " << fechaHora.getHora() << ":" <<fechaHora.getMinuto() << "\n";
     return salida;
 }

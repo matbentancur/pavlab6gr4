@@ -2,6 +2,7 @@
 #define DTTARJETACONTACTO_H
 
 #include <string>
+#include <iostream>
 #include "DtMensaje.h"
 
 class DtTarjetaContacto : public DtMensaje {
@@ -17,6 +18,8 @@ class DtTarjetaContacto : public DtMensaje {
         virtual ~DtTarjetaContacto();
         string getNombre();
         string getTelefono();
+
+        friend ostream& operator << (ostream &salida, DtTarjetaContacto&);
 };
 
 #endif // DTTARJETACONTACTO_H

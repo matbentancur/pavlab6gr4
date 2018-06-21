@@ -1,9 +1,10 @@
 #include "Conversacion.h"
 #include "Mensaje.h"
+#include "Sesion.h"
+#include "ManejadorUsuario.h"
 
-Conversacion::Conversacion(int idConversacion, string nombre, Usuario* origen){
+Conversacion::Conversacion(int idConversacion, Usuario* origen){
      this->idConversacion = idConversacion;
-     this->nombre = nombre;
      this->origen = origen;
 }
 
@@ -13,14 +14,6 @@ int Conversacion::getIdConversacion(){
 
 void Conversacion::setIdConversacion(int idConversacion){
         this->idConversacion = idConversacion;
-}
-
-string Conversacion::getNombre(){
-    return this->nombre;
-}
-
-void Conversacion::setNombre(string nombre){
-    this->nombre = nombre;
 }
 
 Usuario* Conversacion::getOrigen(){
@@ -52,6 +45,25 @@ map<string,DtReceptor> Conversacion::verInfoMensaje(int codigo){
         }
 	}
 	return listaReceptores;
+}
+
+bool Conversacion::eliminarMensaje(int codigoMensaje){
+    Sesion* sesion = Sesion::getInstancia();
+    ManejadorUsuario* manejadorUsuario = ManejadorUsuario::getInstancia();
+    Usuario* usuario = manejadorUsuario->findUsuario(sesion->getSesion());
+
+    map<int,Mensaje*>::iterator i;
+    i = this->mensajes.find(codigoMensaje);
+    if (i != mensajes.end()){
+        Mensaje* mensaje = i->second;
+        if(usuario->getCelular() == mensaje->getEmisor()->getCelular()){
+            mensajes.erase (i);
+        }
+        else{
+
+        }
+    }
+    return false;
 }
 
 Conversacion::~Conversacion(){}

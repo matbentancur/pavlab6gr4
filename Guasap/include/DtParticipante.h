@@ -2,6 +2,7 @@
 #define DTPARTICIPANTE_H_INCLUDED
 
 #include <string>
+#include <iostream>
 #include "FechaHora.h"
 
 using namespace std;
@@ -22,6 +23,8 @@ class DtParticipante{
         string getNombre();
         bool getAdministrador();
         FechaHora getFechaHora();
+
+        friend ostream& operator << (ostream &salida, DtParticipante&);
 };
 
 #endif // DTPARTICIPANTE_H_INCLUDED

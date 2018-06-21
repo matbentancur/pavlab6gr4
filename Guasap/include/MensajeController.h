@@ -7,7 +7,6 @@ class MensajeController : public IMensajeController{
 
     private:
         int idConversacion;
-        int ultimoCodigoMensaje;
 
     public:
         MensajeController();
@@ -16,13 +15,10 @@ class MensajeController : public IMensajeController{
         int getIdConversacion();
         void setIdConversacion(int);
 
-        int getUltimoCodigoMensaje();
-        void setUltimoCodigoMensaje(int);
-
         map<int,DtMensaje> listarMensajes(int);
         map<string,DtReceptor> verInfoMensajeEnviado(int);
         bool enviarMensajeConversacion(DtMensaje);
-        bool enviarMensajeNuevaConversacion(DtMensaje);
+        bool enviarMensajeNuevaConversacion(string, DtMensaje);
 
         bool eliminarMensaje(int);
 };

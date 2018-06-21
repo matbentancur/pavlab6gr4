@@ -4,6 +4,7 @@
 #include <set>
 #include <map>
 #include "Sesion.h"
+#include "Almacenamiento.h"
 #include "DtConversacion.h"
 #include "ManejadorUsuario.h"
 #include "Grupo.h"
@@ -19,6 +20,7 @@ class IConversacionController {
         virtual bool agregarSeleccionContactoGrupo(string) = 0;
         virtual bool quitarSeleccionContactoGrupo(string) = 0;
         virtual bool altaGrupo(string,string) = 0;
+        virtual int cantConversacionesArchivadas() = 0;
 //        virtual DtConversacion iniciarConversacion(int) = 0;
 
         virtual ~IConversacionController(){};

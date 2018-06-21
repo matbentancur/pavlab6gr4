@@ -1,6 +1,7 @@
 #ifndef DTIMAGEN_H
 #define DTIMAGEN_H
 
+#include <iostream>
 #include "DtMensaje.h"
 
 class DtImagen : public DtMensaje {
@@ -20,6 +21,8 @@ class DtImagen : public DtMensaje {
         string getFormato();
         int getTamanio();
         string getTexto();
+
+        friend ostream& operator << (ostream &salida, DtImagen&);
 };
 
 #endif // DTIMAGEN_H

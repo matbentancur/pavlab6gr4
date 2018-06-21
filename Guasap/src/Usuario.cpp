@@ -1,5 +1,11 @@
 #include "Usuario.h"
 #include "UsuarioConversacion.h"
+#include "Almacenamiento.h"
+#include "Simple.h"
+#include "TarjetaContacto.h"
+#include "Imagen.h"
+#include "Video.h"
+#include "Privada.h"
 
 Usuario::Usuario()
 {
@@ -18,6 +24,14 @@ Usuario::Usuario(string celular, string nombre) {
 
 Usuario::Usuario(string celular, string nombre, string imagen, string descripcion) {
     this->celular = celular;
+    this->nombre = nombre;
+    this->imagen = imagen;
+    this->descripcion = descripcion;
+}
+
+Usuario::Usuario(string celular, Fecha registro, string nombre, string imagen, string descripcion) {
+    this->celular = celular;
+    this->registro = registro;
     this->nombre = nombre;
     this->imagen = imagen;
     this->descripcion = descripcion;
@@ -177,21 +191,94 @@ bool Usuario::agregarUsuarioConversacion(UsuarioConversacion* usuarioConversacio
     return true;
 }
 
-bool Usuario::enviarMensajeConversacion(int idConversacion, Mensaje* nuevoMensaje){
-    set<UsuarioConversacion*>::iterator i;
-    for(i = usuarioConversacion.begin(); i != usuarioConversacion.end(); ++i){
-        UsuarioConversacion* usuarioConversacion = *i;
-        if (usuarioConversacion->getConversacion()->getIdConversacion() == idConversacion){
-            return usuarioConversacion->enviarMensajeConversacion(nuevoMensaje);
+bool Usuario::enviarMensajeConversacion(int idConversacion, Usuario* emisor, DtMensaje nuevoMensaje){
+    Mensaje* mensaje;
+    Almacenamiento* almacenamiento = Almacenamiento::getInstancia();
+    int nuevoCodigoMensaje = almacenamiento->getNuevoCodigoMensaje();
+    almacenamiento->setUltimoCodigoMensaje(nuevoCodigoMensaje);
+    FechaHora enviado = almacenamiento->getReloj();
+    bool mensajeCreado = false;
+
+    try{
+        DtSimple& dtMensaje = dynamic_cast<DtSimple&>(nuevoMensaje);
+        mensaje = new Simple(nuevoCodigoMensaje, enviado, false, emisor, dtMensaje.getTexto());
+        mensajeCreado = true;
+    }catch(std::bad_cast){
+        cout << "Error en cast para Simple\n";
+    }
+
+    try{
+        DtTarjetaContacto& dtMensaje = dynamic_cast<DtTarjetaContacto&>(nuevoMensaje);
+        mensaje = new TarjetaContacto(nuevoCodigoMensaje, enviado, false, emisor, dtMensaje.getNombre(), dtMensaje.getTelefono());
+        mensajeCreado = true;
+    }catch(std::bad_cast){
+        cout << "Error en cast para Tarjeta de Contacto\n";
+    }
+
+    try{
+        DtImagen& dtMensaje = dynamic_cast<DtImagen&>(nuevoMensaje);
+        mensaje = new Imagen(nuevoCodigoMensaje, enviado, false, emisor, dtMensaje.getUrl(), dtMensaje.getFormato(), dtMensaje.getTexto(), dtMensaje.getTamanio());
+        mensajeCreado = true;
+    }catch(std::bad_cast){
+        cout << "Error en cast para Imagen\n";
+    }
+
+    try{
+        DtVideo& dtMensaje = dynamic_cast<DtVideo&>(nuevoMensaje);
+        mensaje = new Video(nuevoCodigoMensaje, enviado, false, emisor, dtMensaje.getUrl(), dtMensaje.getDuracion());
+    }catch(std::bad_cast){
+        cout << "Error en cast para Video\n";
+    }
+
+    if (mensajeCreado){
+        set<UsuarioConversacion*>::iterator i;
+        for(i = usuarioConversacion.begin(); i != usuarioConversacion.end(); ++i){
+            UsuarioConversacion* usuarioConversacion = *i;
+            if (usuarioConversacion->getConversacion()->getIdConversacion() == idConversacion){
+                return usuarioConversacion->enviarMensajeConversacion(mensaje);
+            }
         }
-	}
-	return false;
+    }
+    return false;
 }
 
 //bool Usuario::buscarConversacion(int){
 //
 //}
 
-//bool Usuario::iniciarConversacion(Usuario){
-//
-//}
+bool Usuario::enviarMensajeNuevaConversacion(Usuario* origen, Usuario* destino, DtMensaje nuevoMensaje){
+    Almacenamiento* almacenamiento = Almacenamiento::getInstancia();
+    int nuevoIdConversacion = almacenamiento->getNuevoIdConversacion();
+    almacenamiento->setUltimoIdConversacion(nuevoIdConversacion);
+    Privada* conversacion = new Privada(nuevoIdConversacion, origen, destino);
+
+    UsuarioConversacion* origenUsuarioConversacion = new UsuarioConversacion(activa,conversacion);
+    origen->agregarUsuarioConversacion(origenUsuarioConversacion);
+
+    UsuarioConversacion* destinoUsuarioConversacion = new UsuarioConversacion(activa,conversacion);
+    destino->agregarUsuarioConversacion(destinoUsuarioConversacion);
+    return this->enviarMensajeConversacion(nuevoIdConversacion, origen, nuevoMensaje);
+}
+
+bool Usuario::eliminarMensaje(int idConversacion,int codigoMensaje){
+	set<UsuarioConversacion*>::iterator i;
+    for(i = this->usuarioConversacion.begin(); i != this->usuarioConversacion.end(); ++i){
+        UsuarioConversacion* usuarioConversacion = *i;
+        if (usuarioConversacion->getConversacion()->getIdConversacion() == idConversacion){
+            return usuarioConversacion->eliminarMensaje(codigoMensaje);
+        }
+	}
+    return false;
+}
+
+int Usuario::obtenerCantConversacionesArchivadas(){
+    int cantConversacionesArchivadas = 0;
+	set<UsuarioConversacion*>::iterator i;
+    for(i = usuarioConversacion.begin(); i != usuarioConversacion.end(); ++i){
+        UsuarioConversacion * usuarioConversacion = *i;
+        if (usuarioConversacion->getEstado() == 2){
+            cantConversacionesArchivadas++;
+        }
+	}
+	return cantConversacionesArchivadas;
+}

@@ -1,4 +1,5 @@
 #include "DtGrupo.h"
+#include <iostream>
 
 DtGrupo::DtGrupo()
 {
@@ -21,4 +22,13 @@ string DtGrupo::getUrlImagen(){
 
 FechaHora DtGrupo::getCreacion(){
     return this->creacion;
+}
+
+ostream& operator << (ostream& salida, DtGrupo& dtGrupo) {
+    salida <<
+        "ID: " << dtGrupo.idConversacion << "\n" <<
+        "Nombre: " << dtGrupo.nombre << "\n" <<
+        "URL Imagen: " << dtGrupo.urlImagen << "\n" <<
+        "Creacion: " << dtGrupo.creacion << "\n";
+    return salida;
 }

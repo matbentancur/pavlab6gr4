@@ -14,7 +14,7 @@ class Privada : public Conversacion{
         Usuario* destino;
 
     public:
-        Privada(int,string,Usuario*,Usuario*);
+        Privada(int,Usuario*,Usuario*);
 
         Usuario* getDestino();
         void setDestino(Usuario*);
