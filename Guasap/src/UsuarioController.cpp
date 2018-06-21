@@ -205,4 +205,32 @@ void UsuarioController::cargarDatosPrueba(){
     FechaHora fhm1 = FechaHora(22,5,2017,18,04);
     Simple* m1 = new Simple(almacenamiento->getNuevoCodigoMensaje(), fhm1, false, u4, "¡Miren que bueno este video!");
     g1->agregrarMensaje(m1);
+
+    FechaHora fhm2 = FechaHora(22,05,2018,18,05);
+    Video* m2 = new Video(almacenamiento->getNuevoCodigoMensaje(), fhm2, false, u4, "Duración: 05 min");
+    g1->agregrarMensaje(m2);
+
+    FechaHora fhm3 = FechaHora(22,05,2018,18,12);
+    Simple* m3 = new Simple(almacenamiento->getNuevoCodigoMensaje(), fhm3, false, u1, "¡Muy gracioso!");
+    g1->agregrarMensaje(m3);
+
+    FechaHora fhm4 = FechaHora(22,05,2018,18,13);
+    Simple* m4 = new Simple(almacenamiento->getNuevoCodigoMensaje(), fhm4, false, u3, "¡Excelente!");
+    g1->agregrarMensaje(m4);
+
+    FechaHora fhm5 = FechaHora(23,05,2018,12,23);
+    Simple* m5 = new Simple(almacenamiento->getNuevoCodigoMensaje(), fhm5, false, u2, "Hola, me pasas el contacto de Sara que no lo tengo");
+    cs2->agregrarMensaje(m5);
+
+    FechaHora fhm6 = FechaHora(23,05,2018,12,25);
+    Contacto* m6 = new Contacto(almacenamiento->getNuevoCodigoMensaje(), fhm6, false, u1, "Sara Ruiz, 090 66 67 77");
+    cs2->agregrarMensaje(m6);
+
+    FechaHora fhm7 = FechaHora(23,05,2018,12,26);
+    Simple* m7 = new Simple(almacenamiento->getNuevoCodigoMensaje(), fhm7, false, u2, "Gracias");
+    cs2->agregrarMensaje(m7);
+
+    FechaHora fhm8 = FechaHora(23,05,2018,18,30);
+    Simple* m8 = new Simple(almacenamiento->getNuevoCodigoMensaje(), fhm8, false, u4, "Hola Pablo, ¿cómo estas?");
+    cs3->agregrarMensaje(m8);
 }
