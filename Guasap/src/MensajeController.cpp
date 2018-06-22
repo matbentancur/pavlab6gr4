@@ -18,7 +18,7 @@ void MensajeController::setIdConversacion(int idConversacion){
     this->idConversacion = idConversacion;
 }
 
-map<int,DtMensaje> MensajeController::listarMensajes(int idConversacion){
+map<int,DtMensaje*> MensajeController::listarMensajes(int idConversacion){
     this->setIdConversacion(idConversacion);
     Sesion* sesion = Sesion::getInstancia();
     ManejadorUsuario* manejadorUsuario = ManejadorUsuario::getInstancia();

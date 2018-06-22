@@ -30,7 +30,7 @@ class Conversacion{
         void setOrigen(Usuario*);
 
         virtual DtConversacion* getDtConversacion() = 0;
-        map<int,DtMensaje> getMensajes();
+        map<int,DtMensaje*> getMensajes();
         map<string,DtReceptor> verInfoMensaje(int);
 
         virtual bool agregrarMensaje(Mensaje*) = 0;

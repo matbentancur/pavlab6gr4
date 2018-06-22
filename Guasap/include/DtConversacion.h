@@ -21,6 +21,8 @@ class DtConversacion {
         int getIdConversacion();
         string getNombre();
 
+        friend ostream& operator << (ostream &salida, DtConversacion&);
+
 };
 
 #endif // DTCONVERSACION_H

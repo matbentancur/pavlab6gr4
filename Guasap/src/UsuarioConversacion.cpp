@@ -30,7 +30,7 @@ DtConversacion* UsuarioConversacion::obtenerConversacion(){
     return this->conversacion->getDtConversacion();
 }
 
-map<int,DtMensaje> UsuarioConversacion::obtenerMensajes(){
+map<int,DtMensaje*> UsuarioConversacion::obtenerMensajes(){
     return this->conversacion->getMensajes();
 }
 

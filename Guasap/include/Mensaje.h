@@ -38,7 +38,7 @@ class Mensaje{
 
         bool eliminarMensajeLogico(Usuario*);
 
-        virtual DtMensaje getDtMensaje() = 0;
+        virtual DtMensaje* getDtMensaje() = 0;
         map<string,DtReceptor> getReceptores();
 
         ~Mensaje();

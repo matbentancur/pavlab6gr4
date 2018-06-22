@@ -138,8 +138,8 @@ map<int,DtConversacion*> Usuario::obtenerConversacionesArchivadas(){
 	return listaConversaciones;
 }
 
-map<int,DtMensaje> Usuario::obtenerMensajes(int idConversacion){
-    map<int,DtMensaje> listaMensajes;
+map<int,DtMensaje*> Usuario::obtenerMensajes(int idConversacion){
+    map<int,DtMensaje*> listaMensajes;
     set<UsuarioConversacion*>::iterator i;
     for(i = usuarioConversacion.begin(); i != usuarioConversacion.end(); ++i){
         UsuarioConversacion* usuarioConversacion = *i;

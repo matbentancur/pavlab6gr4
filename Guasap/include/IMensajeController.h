@@ -14,7 +14,7 @@ using namespace std;
 
 class IMensajeController {
     public:
-        virtual map<int,DtMensaje> listarMensajes(int) = 0;
+        virtual map<int,DtMensaje*> listarMensajes(int) = 0;
         virtual map<string,DtReceptor> verInfoMensajeEnviado(int) = 0;
         virtual bool enviarMensajeConversacion(DtMensaje) = 0;
         virtual bool enviarMensajeNuevaConversacion(string, DtMensaje) = 0;

@@ -18,7 +18,7 @@ class TarjetaContacto : public Mensaje{
         void setTelefono();
 
         ~TarjetaContacto();
-        DtMensaje getDtMensaje();
+        DtMensaje* getDtMensaje();
 };
 
 #endif // TARJETACONTACTO_H_INCLUDED

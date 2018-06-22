@@ -60,7 +60,7 @@ class Usuario {
         map<int,DtConversacion*> obtenerConversacionesActivas();
         map<int,DtConversacion*> obtenerConversacionesArchivadas();
 
-        map<int,DtMensaje> obtenerMensajes(int);
+        map<int,DtMensaje*> obtenerMensajes(int);
         map<string,DtReceptor> verInfoMensaje(int,int);
 
         bool archivarConversacion(int);

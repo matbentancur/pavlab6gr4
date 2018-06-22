@@ -22,3 +22,10 @@ int DtConversacion::getIdConversacion(){
 string DtConversacion::getNombre(){
     return this->nombre;
 }
+
+ostream& operator << (ostream& salida, DtConversacion& dtConversacion) {
+    salida <<
+        dtConversacion.idConversacion << " - " <<
+        dtConversacion.nombre << "\n";
+    return salida;
+}

@@ -26,3 +26,11 @@ ostream& operator << (ostream& salida, DtPrivada& dtPrivada) {
         "Destino: " << dtPrivada.destino << "\n";
     return salida;
 }
+
+//ostream& operator << (ostream& salida, DtPrivada& dtPrivada) {
+//    salida <<
+//        "ID: " << dtPrivada.idConversacion << "\n" <<
+//        "Nombre: " << dtPrivada.nombre << "\n" <<
+//        "Destino: " << dtPrivada.destino << "\n";
+//    return salida;
+//}

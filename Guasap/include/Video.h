@@ -16,7 +16,7 @@ class Video : public Multimedia{
         void setUrl(string);
         void setDuracion(int);
 
-        DtMensaje getDtMensaje();
+        DtMensaje* getDtMensaje();
         ~Video();
 };
 

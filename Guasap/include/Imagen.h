@@ -24,7 +24,7 @@ class Imagen : public Multimedia{
         void setTexto(string);
         void setTamanio(int);
 
-        DtMensaje getDtMensaje();
+        DtMensaje* getDtMensaje();
 
         ~Imagen();
 

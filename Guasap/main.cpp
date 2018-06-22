@@ -437,7 +437,7 @@ void listarConversacionesActivas(){
     }else{
         for(i = conversacionesActivas.begin(); i != conversacionesActivas.end(); ++i){
             DtConversacion* conversacion = i->second;
-            cout << conversacion->getIdConversacion() << " - " << conversacion->getNombre() << "\n";
+            cout << *conversacion;
 //            try{
 //                DtPrivada* dtc = dynamic_cast<DtPrivada*>(conversacion);
 //                if (dtc != NULL){
@@ -476,14 +476,14 @@ void listarConversacionesArchivadas(){
 void listarMensajes(int idConversacion){
     MensajeFactory* mensajeFactory = MensajeFactory::getInstancia();
     IMensajeController* iMensajeController = mensajeFactory->getIMensajeController();
-    map<int,DtMensaje> mensajes = iMensajeController->listarMensajes(idConversacion);
-    map<int,DtMensaje>::iterator i;
+    map<int,DtMensaje*> mensajes = iMensajeController->listarMensajes(idConversacion);
+    map<int,DtMensaje*>::iterator i;
     if(mensajes.begin() == mensajes.end()){
         cout << "\nLa conversacion esta vacia.\n";
     }else{
         for(i = mensajes.begin(); i != mensajes.end(); ++i){
-            DtMensaje mensaje = i->second;
-            cout << mensaje.getCodigo() << "\n";
+            DtMensaje* mensaje = i->second;
+            cout << mensaje->getCodigo() << "\n";
         }
     }
 }
