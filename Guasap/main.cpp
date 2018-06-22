@@ -390,7 +390,45 @@ void menuAltaGrupo(){
 }
 
 void menuArchivarConversacion(){
+    int opcion;
+    int idConversacion;
     cout << "\n\nArchivar conversaciones\n\n";
+    try {
+        cout << "\n\nLista de conversaciones\n\n";
+        cout << "\nActivas:\n\n";
+        listarConversacionesActivas();
+        cout << "\n\nLista de operaciones disponibles:\n\n";
+        cout << "1)  Archivar una conversacion\n";
+        cout << "2)  Volver\n";
+        cout << "Ingrese una opcion: ";
+        cin >> opcion;
+        switch (opcion) {
+            case 1:
+                cout << "\nIngrese el identificador de la conversacion: ";
+                cin >> idConversacion;
+                try{
+                    ConversacionFactory* conversacionFactory = ConversacionFactory::getInstancia();
+                    IConversacionController* iConversacionController = conversacionFactory->getIConversacionController();
+                    if (iConversacionController->archivarConversacion(idConversacion)){
+                        cout << "Se ha archivado la conversacion " << idConversacion;
+                    }
+                    else{
+                        cout << "No se pudo archivar la conversacion " << idConversacion;
+                    }
+                }catch(logic_error& ia){
+                    cout << ia.what() << "\n";
+                    cin.get();
+                }
+                cin.get();
+                break;
+            case 2:
+                menuPrincipal();
+                break;
+        }
+    }catch(logic_error& ia){
+        cout << ia.what() << "\n";
+        cin.get();
+    }
 }
 
 void menuModificarUsuario() {
@@ -551,7 +589,7 @@ void listarContactos(){
     IUsuarioController* iUsuarioController = usuarioFactory->getIUsuarioController();
     map<string,DtContacto> contactos = iUsuarioController->listarContactos();
     map<string,DtContacto>::iterator i;
-    if(contactos.begin() == contactos.end()){
+    if(contactos.size() == 0){
         cout << "\nLa lista de contactos esta vacia.\n";
     }else{
         for(i = contactos.begin(); i != contactos.end(); ++i){
@@ -565,28 +603,12 @@ void listarConversacionesActivas(){
     IConversacionController* iConversacionController = conversacionFactory->getIConversacionController();
     map<int,DtConversacion*> conversacionesActivas = iConversacionController->listarConversacionesActivas();
     map<int,DtConversacion*>::iterator i;
-    if(i == conversacionesActivas.end()){
+    if(conversacionesActivas.size() == 0){
         cout << "\nLa lista de conversaciones activas esta vacia.\n";
     }else{
         for(i = conversacionesActivas.begin(); i != conversacionesActivas.end(); ++i){
             DtConversacion* conversacion = i->second;
             cout << *conversacion;
-//            try{
-//                DtPrivada* dtc = dynamic_cast<DtPrivada*>(conversacion);
-//                if (dtc != NULL){
-//                cout << *dtc << "\n";
-//                }
-//            }catch(exception& e){
-//                cout << "Error en cast para Privada\n";
-//            }
-//            try{
-//                DtGrupo* dtc = dynamic_cast<DtGrupo*>(conversacion);
-//                if (dtc != NULL){
-//                cout << *dtc << "\n";
-//                }
-//            }catch(exception& e){
-//                cout << "Error en cast para Grupo\n";
-//            }
         }
     }
 }
@@ -596,28 +618,12 @@ void listarConversacionesArchivadas(){
     IConversacionController* iConversacionController = conversacionFactory->getIConversacionController();
     map<int,DtConversacion*> conversacionesArchivadas = iConversacionController->listarConversacionesArchivadas();
     map<int,DtConversacion*>::iterator i;
-    if(i == conversacionesArchivadas.end()){
+    if(conversacionesArchivadas.size() == 0){
         cout << "\nLa lista de conversaciones activas esta vacia.\n";
     }else{
         for(i = conversacionesArchivadas.begin(); i != conversacionesArchivadas.end(); ++i){
             DtConversacion* conversacion = i->second;
             cout << *conversacion;
-//            try{
-//                DtPrivada* dtc = dynamic_cast<DtPrivada*>(conversacion);
-//                if (dtc != NULL){
-//                cout << *dtc << "\n";
-//                }
-//            }catch(exception& e){
-//                cout << "Error en cast para Privada\n";
-//            }
-//            try{
-//                DtGrupo* dtc = dynamic_cast<DtGrupo*>(conversacion);
-//                if (dtc != NULL){
-//                cout << *dtc << "\n";
-//                }
-//            }catch(exception& e){
-//                cout << "Error en cast para Grupo\n";
-//            }
         }
     }
 }
@@ -627,7 +633,7 @@ void listarMensajes(int idConversacion){
     IMensajeController* iMensajeController = mensajeFactory->getIMensajeController();
     map<int,DtMensaje*> mensajes = iMensajeController->listarMensajes(idConversacion);
     map<int,DtMensaje*>::iterator i;
-    if(mensajes.begin() == mensajes.end()){
+    if(mensajes.size() == 0){
         cout << "\nLa conversacion esta vacia.\n";
     }else{
         for(i = mensajes.begin(); i != mensajes.end(); ++i){
