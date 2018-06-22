@@ -25,7 +25,7 @@ string DtSimple::getTexto(){
 ostream& operator << (ostream& salida, DtSimple& dtSimple) {
     salida <<
         "Codigo: " << dtSimple.codigo << "\n" <<
-        "Enviado: " << dtSimple.enviado << "\n" <<
+        "Enviado: " << dtSimple.enviado <<
         "Visto: " << dtSimple.visto << "\n" <<
         "Texto: " << dtSimple.texto << "\n";
     return salida;

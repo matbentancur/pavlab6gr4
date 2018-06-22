@@ -43,7 +43,7 @@ string DtImagen::getTexto(){
 ostream& operator << (ostream& salida, DtImagen& dtImagen) {
     salida <<
         "Codigo: " << dtImagen.codigo << "\n" <<
-        "Enviado: " << dtImagen.enviado << "\n" <<
+        "Enviado: " << dtImagen.enviado <<
         "Visto: " << dtImagen.visto << "\n" <<
         "URL: " << dtImagen.url << "\n" <<
         "Formato: " << dtImagen.formato << "\n" <<

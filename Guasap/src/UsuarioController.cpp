@@ -3,6 +3,7 @@
 #include "EstadoConversacion.h"
 #include "UsuarioConversacion.h"
 #include "Simple.h"
+#include "Imagen.h"
 #include "Video.h"
 #include "TarjetaContacto.h"
 
@@ -245,4 +246,19 @@ void UsuarioController::cargarDatosPrueba(){
     FechaHora fhm8 = FechaHora(23,05,2018,18,30);
     Simple* m8 = new Simple(almacenamiento->getNuevoCodigoMensaje(), fhm8, false, u4, "Hola Pablo, ¿cómo estas?");
     cs3->agregrarMensaje(m8);
+
+
+    FechaHora fhm9 = FechaHora(22,6,2018,14,24); //PRUEBAS
+
+    Simple* m9 = new Simple(almacenamiento->getNuevoCodigoMensaje(), fhm9, false, u5, "¡Miren que bueno este video!");
+    cs4->agregrarMensaje(m9);
+
+    Video* m10 = new Video(almacenamiento->getNuevoCodigoMensaje(), fhm9, false, u5, "home/img/video.mkv",5);
+    cs4->agregrarMensaje(m10);
+
+    TarjetaContacto* m11 = new TarjetaContacto(almacenamiento->getNuevoCodigoMensaje(), fhm9, false, u5, "Sara Ruiz", "090666777");
+    cs4->agregrarMensaje(m11);
+
+    Imagen* m12 = new Imagen(almacenamiento->getNuevoCodigoMensaje(), fhm9, false, u5, "home/img/miFoto.jpeg", "JPEG", "Esta es mi foto", 12000);
+    cs4->agregrarMensaje(m12);
 }
