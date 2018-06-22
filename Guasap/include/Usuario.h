@@ -71,8 +71,6 @@ class Usuario {
         bool enviarMensajeNuevaConversacion(Usuario*,Usuario*,DtMensaje);
         bool eliminarMensaje(int,int);
 
-        int obtenerCantConversacionesArchivadas();
-
 };
 
 #endif // USUARIO_H

@@ -87,14 +87,3 @@ bool ConversacionController::altaGrupo(string nombre,string urlImagen){
     }
     return true;
 }
-
-//DtConversacion ConversacionController::iniciarConversacion(int){
-//
-//}
-
-int ConversacionController::cantConversacionesArchivadas(){
-    Sesion* sesion = Sesion::getInstancia();
-    ManejadorUsuario* manejadorUsuario = ManejadorUsuario::getInstancia();
-    Usuario* usuario = manejadorUsuario->findUsuario(sesion->getSesion());
-    return usuario->obtenerCantConversacionesArchivadas();
-}

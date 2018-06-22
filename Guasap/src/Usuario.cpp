@@ -89,7 +89,6 @@ map<string,DtContacto> Usuario::obtenerContactos(){
     map<string,DtContacto> listaContactos;
 	map<string,Usuario*>::iterator i;
     for(i = contactos.begin(); i != contactos.end(); ++i){
-//		DtContacto dtContacto = (*i)->getDtContacto();
         Usuario* usuario = i->second;
         DtContacto dtContacto = usuario->getDtContacto();
         listaContactos.insert(std::pair<string, DtContacto>(usuario->getCelular(), dtContacto));
@@ -242,10 +241,6 @@ bool Usuario::enviarMensajeConversacion(int idConversacion, Usuario* emisor, DtM
     return false;
 }
 
-//bool Usuario::buscarConversacion(int){
-//
-//}
-
 bool Usuario::enviarMensajeNuevaConversacion(Usuario* origen, Usuario* destino, DtMensaje nuevoMensaje){
     Almacenamiento* almacenamiento = Almacenamiento::getInstancia();
     int nuevoIdConversacion = almacenamiento->getNuevoIdConversacion();
@@ -269,16 +264,4 @@ bool Usuario::eliminarMensaje(int idConversacion,int codigoMensaje){
         }
 	}
     return false;
-}
-
-int Usuario::obtenerCantConversacionesArchivadas(){
-    int cantConversacionesArchivadas = 0;
-	set<UsuarioConversacion*>::iterator i;
-    for(i = usuarioConversacion.begin(); i != usuarioConversacion.end(); ++i){
-        UsuarioConversacion * usuarioConversacion = *i;
-        if (usuarioConversacion->getEstado() == 2){
-            cantConversacionesArchivadas++;
-        }
-	}
-	return cantConversacionesArchivadas;
 }
