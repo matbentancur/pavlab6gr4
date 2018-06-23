@@ -52,5 +52,6 @@ bool MensajeController::eliminarMensaje(int codigoMensaje){
     Sesion* sesion = Sesion::getInstancia();
     ManejadorUsuario* manejadorUsuario = ManejadorUsuario::getInstancia();
     Usuario* usuario = manejadorUsuario->findUsuario(sesion->getSesion());
+    cout << this->idConversacion << " - " << codigoMensaje;
     return usuario->eliminarMensaje(this->idConversacion, codigoMensaje);
 }
