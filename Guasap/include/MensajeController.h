@@ -17,8 +17,8 @@ class MensajeController : public IMensajeController{
 
         map<int,DtMensaje*> listarMensajes(int);
         map<string,DtReceptor> verInfoMensajeEnviado(int);
-        bool enviarMensajeConversacion(DtMensaje);
-        bool enviarMensajeNuevaConversacion(string, DtMensaje);
+        bool enviarMensajeConversacion(int, DtMensaje*);
+        bool enviarMensajeNuevaConversacion(string, DtMensaje*);
 
         bool eliminarMensaje(int);
 };
