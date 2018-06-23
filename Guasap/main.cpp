@@ -430,15 +430,10 @@ void menuEnviarMensaje() {
     case 1: {
         cout << "\nIngrese el identificador de la conversacion: ";
         cin >> idConversacion;
-        ConversacionFactory* conversacionFactory = ConversacionFactory::getInstancia();
-        IConversacionController* iConversacionController = conversacionFactory->getIConversacionController();
-        DtConversacion* dtConversacion = iConversacionController->obtenerConversacionActiva(idConversacion);
-        cout << "\n";
-        cout << *dtConversacion;
         DtMensaje* dtMensaje = menuNuevoMensaje();
         MensajeFactory* mensajeFactory = MensajeFactory::getInstancia();
         IMensajeController* iMensajeController = mensajeFactory->getIMensajeController();
-        if(iMensajeController->enviarMensajeConversacion(idConversacion, dtMensaje)){
+        if(iMensajeController->enviarMensajeConversacion(dtMensaje)){
             cout << "\nEl mensaje se envio con exito.";
         }else{
             cout << "\nOcurrio un error y el mensaje no se pudo enviar.";
@@ -450,15 +445,10 @@ void menuEnviarMensaje() {
         if(cantidadConversacionesArchivadas() > 0){
             cout << "\nIngrese el identificador de la conversacion: ";
             cin >> idConversacion;
-            ConversacionFactory* conversacionFactory = ConversacionFactory::getInstancia();
-            IConversacionController* iConversacionController = conversacionFactory->getIConversacionController();
-            DtConversacion* dtConversacion = iConversacionController->obtenerConversacionArchivada(idConversacion);
-            cout << "\n";
-            cout << *dtConversacion;
             DtMensaje* dtMensaje = menuNuevoMensaje();
             MensajeFactory* mensajeFactory = MensajeFactory::getInstancia();
             IMensajeController* iMensajeController = mensajeFactory->getIMensajeController();
-            if(iMensajeController->enviarMensajeConversacion(idConversacion, dtMensaje)){
+            if(iMensajeController->enviarMensajeConversacion(dtMensaje)){
                 cout << "\nEl mensaje se envio con exito.\n";
             }else{
                 cout << "\nOcurrio un error y el mensaje no se pudo enviar.\n";
@@ -535,11 +525,25 @@ DtMensaje* menuNuevoMensaje(){
         }
         case 4: {
             cout << "\n\tMensaje de Contacto\n";
-            listarContactos();
+            UsuarioFactory* usuarioFactory = UsuarioFactory::getInstancia();
+            IUsuarioController* iUsuarioController = usuarioFactory->getIUsuarioController();
+            map<string,DtContacto> contactos = iUsuarioController->listarContactos();
+            map<string,DtContacto>::iterator i;
+            if(contactos.size() == 0){
+                cout << "\nLa lista de contactos esta vacia.\n";
+            }else{
+                for(i = contactos.begin(); i != contactos.end(); ++i){
+                    cout << i->second << "\n";
+                }
+            }
             cout << "\nIngrese el numero de celular del contacto que desea compartir: ";
             cin >> celularContacto;
-            DtTarjetaContacto* dtMensaje = new DtTarjetaContacto("", celularContacto);
-            return dtMensaje;
+            for(i = contactos.begin(); i != contactos.end(); ++i){
+                if(i->second.getCelular() == celularContacto){
+                    DtTarjetaContacto* dtMensaje = new DtTarjetaContacto(i->second.getNombre(), celularContacto);
+                    return dtMensaje;
+                }
+            }
             break;
         }
     }
@@ -713,7 +717,6 @@ void menuCargarDatosPrueba() {
         cin.get();
     }
 }
-
 
 void listarContactos(){
     UsuarioFactory* usuarioFactory = UsuarioFactory::getInstancia();
