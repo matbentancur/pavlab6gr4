@@ -37,6 +37,7 @@ class Mensaje{
         bool agregarUsuarioMensaje(UsuarioMensaje*);
 
         bool eliminarMensajeLogico(Usuario*);
+        bool estaEliminado(Usuario*);
 
         virtual DtMensaje* getDtMensaje() = 0;
         map<string,DtReceptor> getReceptores();

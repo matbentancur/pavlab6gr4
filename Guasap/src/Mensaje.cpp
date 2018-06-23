@@ -72,4 +72,15 @@ bool Mensaje::eliminarMensajeLogico(Usuario* usuario){
 	return false;
 }
 
+bool Mensaje::estaEliminado(Usuario* usuario){
+    set<UsuarioMensaje*>::iterator i;
+    for(i = usuarioMensaje.begin(); i != usuarioMensaje.end(); ++i){
+        UsuarioMensaje* um = *i;
+        if(usuario->getCelular() == um->getUsuario()->getCelular()){
+            return um->getEliminado();
+        }
+	}
+	return false;
+}
+
 Mensaje::~Mensaje(){}

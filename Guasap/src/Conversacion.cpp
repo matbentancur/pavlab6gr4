@@ -25,12 +25,18 @@ void Conversacion::setOrigen(Usuario* origen){
 }
 
 map<int,DtMensaje*> Conversacion::getMensajes(){
+    Sesion* sesion = Sesion::getInstancia();
+    ManejadorUsuario* manejadorUsuario = ManejadorUsuario::getInstancia();
+    Usuario* usuario = manejadorUsuario->findUsuario(sesion->getSesion());
+
     map<int,DtMensaje*> listaMensajes;
 	map<int,Mensaje*>::iterator i;
     for(i = mensajes.begin(); i != mensajes.end(); ++i){
         Mensaje * mensaje = i->second;
-        DtMensaje* dtMensaje = mensaje->getDtMensaje();
-        listaMensajes.insert(std::pair<int, DtMensaje*>(mensaje->getCodigo(), dtMensaje));
+        if (!mensaje->estaEliminado(usuario)){
+            DtMensaje* dtMensaje = mensaje->getDtMensaje();
+            listaMensajes.insert(std::pair<int, DtMensaje*>(mensaje->getCodigo(), dtMensaje));
+        }
 	}
 	return listaMensajes;
 }
@@ -57,10 +63,11 @@ bool Conversacion::eliminarMensaje(int codigoMensaje){
     if (i != mensajes.end()){
         Mensaje* mensaje = i->second;
         if(usuario->getCelular() == mensaje->getEmisor()->getCelular()){
-            mensajes.erase (i);
+            mensajes.erase(i);
+            return true;
         }
         else{
-
+            return mensaje->eliminarMensajeLogico(usuario);
         }
     }
     return false;
