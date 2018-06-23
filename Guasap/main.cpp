@@ -473,8 +473,7 @@ void menuEnviarMensaje() {
         cout << "\nIngrese el identificador de la conversacion: ";
         cin >> idConversacion;
         DtMensaje* dtMensaje = menuNuevoMensaje();
-        MensajeFactory* mensajeFactory = MensajeFactory::getInstancia();
-        IMensajeController* iMensajeController = mensajeFactory->getIMensajeController();
+        iMensajeController->listarMensajes(idConversacion);
         if(iMensajeController->enviarMensajeConversacion(dtMensaje)){
             cout << "\nEl mensaje se envio con exito.";
         }else{
@@ -488,8 +487,6 @@ void menuEnviarMensaje() {
             cout << "\nIngrese el identificador de la conversacion: ";
             cin >> idConversacion;
             DtMensaje* dtMensaje = menuNuevoMensaje();
-            MensajeFactory* mensajeFactory = MensajeFactory::getInstancia();
-            IMensajeController* iMensajeController = mensajeFactory->getIMensajeController();
             if(iMensajeController->enviarMensajeConversacion(dtMensaje)){
                 cout << "\nEl mensaje se envio con exito.\n";
             }else{
@@ -503,8 +500,6 @@ void menuEnviarMensaje() {
         cout << "\nIngrese el numero de celular con el que desea iniciar una nueva conversacion: ";
         cin >> celularContacto;
         DtMensaje* dtMensaje = menuNuevoMensaje();
-        MensajeFactory* mensajeFactory = MensajeFactory::getInstancia();
-        IMensajeController* iMensajeController = mensajeFactory->getIMensajeController();
         if(iMensajeController->enviarMensajeNuevaConversacion(celularContacto, dtMensaje)){
             cout << "\nEl mensaje se envio con exito.\n";
         }else{
@@ -567,8 +562,6 @@ DtMensaje* menuNuevoMensaje(){
         }
         case 4: {
             cout << "\n\tMensaje de Contacto\n";
-            UsuarioFactory* usuarioFactory = UsuarioFactory::getInstancia();
-            IUsuarioController* iUsuarioController = usuarioFactory->getIUsuarioController();
             map<string,DtContacto> contactos = iUsuarioController->listarContactos();
             map<string,DtContacto>::iterator i;
             if(contactos.size() == 0){
