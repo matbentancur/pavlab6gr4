@@ -54,7 +54,6 @@ class Usuario {
 
         map<string,DtContacto> obtenerContactos();
         DtContacto getDtContacto();
-        DtTarjetaContacto* getDtTarjetaContacto();
 
         bool agregarContacto(Usuario*);
 
@@ -68,11 +67,9 @@ class Usuario {
         bool activarConversacion(int);
 
         bool agregarUsuarioConversacion(UsuarioConversacion*);
-        bool enviarMensajeConversacion(int,Usuario*,DtMensaje*);
-        bool enviarMensajeNuevaConversacion(Usuario*,Usuario*,DtMensaje*);
+        bool enviarMensajeConversacion(int,Usuario*,DtMensaje);
+        bool enviarMensajeNuevaConversacion(Usuario*,Usuario*,DtMensaje);
         bool eliminarMensaje(int,int);
-        DtConversacion* obtenerConversacionActiva(int);
-        DtConversacion* obtenerConversacionArchivada(int);
 
 };
 

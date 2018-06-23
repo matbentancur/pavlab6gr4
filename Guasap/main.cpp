@@ -13,6 +13,7 @@
 #include "Almacenamiento.h"
 #include "DtConversacion.h"
 #include "DtGrupo.h"
+#include "DtPrivada.h"
 #include "DtSimple.h"
 #include "DtImagen.h"
 #include "DtVideo.h"

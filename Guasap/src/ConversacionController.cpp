@@ -87,27 +87,3 @@ bool ConversacionController::altaGrupo(string nombre,string urlImagen){
     }
     return true;
 }
-
-DtConversacion* ConversacionController::obtenerConversacionActiva(int idConversacion){
-    Sesion* sesion = Sesion::getInstancia();
-    if(sesion->getSesion() == "NULL"){
-        throw logic_error("\nNo hay ninguna sesion activa, primero debe iniciar sesion.\n");
-    }else{
-        Sesion* sesion = Sesion::getInstancia();
-        ManejadorUsuario* manejadorUsuario = ManejadorUsuario::getInstancia();
-        Usuario* usuario = manejadorUsuario->findUsuario(sesion->getSesion());
-        return usuario->obtenerConversacionActiva(idConversacion);
-    }
-}
-
-DtConversacion* ConversacionController::obtenerConversacionArchivada(int idConversacion){
-    Sesion* sesion = Sesion::getInstancia();
-    if(sesion->getSesion() == "NULL"){
-        throw logic_error("\nNo hay ninguna sesion activa, primero debe iniciar sesion.\n");
-    }else{
-        Sesion* sesion = Sesion::getInstancia();
-        ManejadorUsuario* manejadorUsuario = ManejadorUsuario::getInstancia();
-        Usuario* usuario = manejadorUsuario->findUsuario(sesion->getSesion());
-        return usuario->obtenerConversacionActiva(idConversacion);
-    }
-}
