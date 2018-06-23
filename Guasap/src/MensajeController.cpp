@@ -33,14 +33,15 @@ map<string,DtReceptor> MensajeController::verInfoMensajeEnviado(int codigo){
     return usuario->verInfoMensaje(this->getIdConversacion(), codigo);
 }
 
-bool MensajeController::enviarMensajeConversacion(DtMensaje nuevoMensaje){
+bool MensajeController::enviarMensajeConversacion(int idConversacion, DtMensaje* nuevoMensaje){
+    this->setIdConversacion(idConversacion);
     Sesion* sesion = Sesion::getInstancia();
     ManejadorUsuario* manejadorUsuario = ManejadorUsuario::getInstancia();
     Usuario* usuario = manejadorUsuario->findUsuario(sesion->getSesion());
     return usuario->enviarMensajeConversacion(this->idConversacion, usuario, nuevoMensaje);
 }
 
-bool MensajeController::enviarMensajeNuevaConversacion(string destino, DtMensaje nuevoMensaje){
+bool MensajeController::enviarMensajeNuevaConversacion(string destino, DtMensaje* nuevoMensaje){
     Sesion* sesion = Sesion::getInstancia();
     ManejadorUsuario* manejadorUsuario = ManejadorUsuario::getInstancia();
     Usuario* usuarioOrigen = manejadorUsuario->findUsuario(sesion->getSesion());
