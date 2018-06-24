@@ -10,6 +10,14 @@ UsuarioConversacion::UsuarioConversacion(EstadoConversacion estado, Conversacion
     this->conversacion = conversacion;
 }
 
+FechaHora UsuarioConversacion::getAgregadoEnConversacion(){
+    return this->agregadoEnConversacion;
+}
+
+void UsuarioConversacion::setAgregadoEnConversacion(FechaHora agregadoEnConversacion){
+    this->agregadoEnConversacion = agregadoEnConversacion;
+}
+
 EstadoConversacion UsuarioConversacion::getEstado() {
     return this->estado;
 }

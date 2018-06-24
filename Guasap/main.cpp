@@ -712,13 +712,36 @@ void menuEliminarMensaje() {
                             cout << "\nIngrese el identificador de la conversacion: ";
                             cin >> idConversacion;
                             listarMensajes(idConversacion);
+                            cout << "\n\nLista de operaciones disponibles:\n\n";
+                            cout << "1)  Eliminiar mensaje\n";
+                            cout << "2)  Volver\n";
+                            cout << "Ingrese una opcion: ";
+                            cin >> opcion;
+                            switch (opcion) {
+                                case 1:
+                                    cout << "\nIngrese el codigo del mensaje: ";
+                                    cin >> codigoMensaje;
+                                    try{
+                                        if (iMensajeController->eliminarMensaje(codigoMensaje)){
+                                            cout << "Se ha eliminado el mensaje " << codigoMensaje;
+                                        }
+                                        else{
+                                            cout << "No se pudo eliminar el mensaje " << codigoMensaje;
+                                        }
+                                    }catch(logic_error& ia){
+                                        cout << ia.what() << "\n";
+                                        cin.get();
+                                    }
+                                    cin.get();
+                                    break;
+                                case 2:
+                                    menuEliminarMensaje();
+                                    break;
+                            }
                             cin.get();
                             break;
-                        case 2:
-                            menuVerMensaje();
-                            break;
+                        }
                     }
-                }
                 break;
             case 3:
                 menuPrincipal();

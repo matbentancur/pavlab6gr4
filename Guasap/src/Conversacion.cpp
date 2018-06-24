@@ -34,6 +34,7 @@ map<int,DtMensaje*> Conversacion::getMensajes(){
     for(i = mensajes.begin(); i != mensajes.end(); ++i){
         Mensaje * mensaje = i->second;
         if (!mensaje->estaEliminado(usuario)){
+            mensaje->marcarComoVisto(usuario);
             DtMensaje* dtMensaje = mensaje->getDtMensaje();
             listaMensajes.insert(std::pair<int, DtMensaje*>(mensaje->getCodigo(), dtMensaje));
         }
