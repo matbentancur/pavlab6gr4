@@ -60,7 +60,6 @@
 		<Unit filename="include/IUsuarioController.h" />
 		<Unit filename="include/Imagen.h" />
 		<Unit filename="include/ManejadorUsuario.h" />
-		<Unit filename="include/ManejadorUsuarioConversacion.h" />
 		<Unit filename="include/Mensaje.h" />
 		<Unit filename="include/MensajeController.h" />
 		<Unit filename="include/MensajeFactory.h" />
@@ -97,7 +96,6 @@
 		<Unit filename="src/Grupo.cpp" />
 		<Unit filename="src/Imagen.cpp" />
 		<Unit filename="src/ManejadorUsuario.cpp" />
-		<Unit filename="src/ManejadorUsuarioConversacion.cpp" />
 		<Unit filename="src/Mensaje.cpp" />
 		<Unit filename="src/MensajeController.cpp" />
 		<Unit filename="src/MensajeFactory.cpp" />

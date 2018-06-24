@@ -218,35 +218,46 @@ void UsuarioController::cargarDatosPrueba(){
     FechaHora fhm1 = FechaHora(22,5,2017,18,04);
     Simple* m1 = new Simple(almacenamiento->getNuevoCodigoMensaje(), fhm1, false, u4, "¡Miren que bueno este video!");
     g1->agregrarMensaje(m1);
+    m1->marcarComoVisto(u1);
+    m1->marcarComoVisto(u3);
 
     FechaHora fhm2 = FechaHora(22,05,2018,18,05);
     Video* m2 = new Video(almacenamiento->getNuevoCodigoMensaje(), fhm2, false, u4, "home/img/video.mkv",5);
     g1->agregrarMensaje(m2);
+    m2->marcarComoVisto(u1);
+    m2->marcarComoVisto(u3);
 
     FechaHora fhm3 = FechaHora(22,05,2018,18,12);
     Simple* m3 = new Simple(almacenamiento->getNuevoCodigoMensaje(), fhm3, false, u1, "¡Muy gracioso!");
     g1->agregrarMensaje(m3);
+    m3->marcarComoVisto(u3);
+    m3->marcarComoVisto(u4);
 
     FechaHora fhm4 = FechaHora(22,05,2018,18,13);
     Simple* m4 = new Simple(almacenamiento->getNuevoCodigoMensaje(), fhm4, false, u3, "¡Excelente!");
     g1->agregrarMensaje(m4);
+    m4->marcarComoVisto(u1);
+    m4->marcarComoVisto(u4);
 
     FechaHora fhm5 = FechaHora(23,05,2018,12,23);
     Simple* m5 = new Simple(almacenamiento->getNuevoCodigoMensaje(), fhm5, false, u2, "Hola, me pasas el contacto de Sara que no lo tengo");
     cs2->agregrarMensaje(m5);
+    m5->marcarComoVisto(u1);
 
     FechaHora fhm6 = FechaHora(23,05,2018,12,25);
     TarjetaContacto* m6 = new TarjetaContacto(almacenamiento->getNuevoCodigoMensaje(), fhm6, false, u1, "Sara Ruiz", "090666777");
     cs2->agregrarMensaje(m6);
+    m6->marcarComoVisto(u2);
 
     FechaHora fhm7 = FechaHora(23,05,2018,12,26);
     Simple* m7 = new Simple(almacenamiento->getNuevoCodigoMensaje(), fhm7, false, u2, "Gracias");
     cs2->agregrarMensaje(m7);
+    m7->marcarComoVisto(u1);
 
     FechaHora fhm8 = FechaHora(23,05,2018,18,30);
     Simple* m8 = new Simple(almacenamiento->getNuevoCodigoMensaje(), fhm8, false, u4, "Hola Pablo, ¿cómo estas?");
     cs3->agregrarMensaje(m8);
-
+    m8->marcarComoVisto(u3);
 
     FechaHora fhm9 = FechaHora(22,6,2018,14,24); //PRUEBAS
 
