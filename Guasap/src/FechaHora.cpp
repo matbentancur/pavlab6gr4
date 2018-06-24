@@ -81,3 +81,41 @@ ostream& operator << (ostream& salida, FechaHora& fechaHora){
             << " " << horaString << ":" << minutoString << "\n";
     return salida;
 }
+
+bool operator < (const FechaHora& l, FechaHora& r){
+    if (l.anio < r.anio){
+        return true;
+    }
+    else if (l.anio > r.anio){
+        return false;
+    }
+
+    if (l.mes < r.mes){
+        return true;
+    }
+    else if (l.mes > r.mes){
+        return false;
+    }
+
+    if (l.dia < r.dia){
+        return true;
+    }
+    else if (l.dia > r.dia){
+        return false;
+    }
+
+    if (l.hora < r.hora){
+        return true;
+    }
+    else if (l.hora > r.hora){
+        return false;
+    }
+
+    if (l.minuto < r.minuto){
+        return true;
+    }
+    else if (l.minuto > r.minuto){
+        return false;
+    }
+    return false;
+}

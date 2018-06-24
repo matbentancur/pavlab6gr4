@@ -9,7 +9,7 @@ using namespace std;
 
 class Fecha {
 
-    private:
+    protected:
         int dia;
         int mes;
         int anio;
