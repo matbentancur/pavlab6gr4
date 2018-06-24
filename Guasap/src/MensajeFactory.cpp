@@ -13,7 +13,6 @@ MensajeFactory* MensajeFactory::getInstancia(){
 
 IMensajeController* MensajeFactory::getIMensajeController(){
     IMensajeController* m = new MensajeController();
-
     return m;
 }
 

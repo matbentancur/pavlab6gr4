@@ -67,8 +67,8 @@ class Usuario {
         bool activarConversacion(int);
 
         bool agregarUsuarioConversacion(UsuarioConversacion*);
-        bool enviarMensajeConversacion(int,Usuario*,DtMensaje);
-        bool enviarMensajeNuevaConversacion(Usuario*,Usuario*,DtMensaje);
+        bool enviarMensajeConversacion(int,Usuario*,DtMensaje*);
+        bool enviarMensajeNuevaConversacion(Usuario*,Usuario*,DtMensaje*);
         bool eliminarMensaje(int,int);
 
 };

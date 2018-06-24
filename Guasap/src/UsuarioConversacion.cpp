@@ -5,9 +5,18 @@ UsuarioConversacion::~UsuarioConversacion()
     //dtor
 }
 
-UsuarioConversacion::UsuarioConversacion(EstadoConversacion estado, Conversacion* conversacion) {
+UsuarioConversacion::UsuarioConversacion(FechaHora agregadoEnConversacion, EstadoConversacion estado, Conversacion* conversacion) {
+    this->agregadoEnConversacion = agregadoEnConversacion;
     this->estado = estado;
     this->conversacion = conversacion;
+}
+
+FechaHora UsuarioConversacion::getAgregadoEnConversacion(){
+    return this->agregadoEnConversacion;
+}
+
+void UsuarioConversacion::setAgregadoEnConversacion(FechaHora agregadoEnConversacion){
+    this->agregadoEnConversacion = agregadoEnConversacion;
 }
 
 EstadoConversacion UsuarioConversacion::getEstado() {

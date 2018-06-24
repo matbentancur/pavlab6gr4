@@ -1,6 +1,6 @@
 #include "Imagen.h"
 
-Imagen::Imagen(int codigo, FechaHora enviado, bool visto, Usuario* emisor, string url,string formato,string texto,int tamanio) : Multimedia(codigo,enviado,visto,emisor){
+Imagen::Imagen(int codigo, FechaHora enviado, bool visto, Usuario* emisor, string url, string formato, string texto, int tamanio) : Multimedia(codigo,enviado,visto,emisor){
     this->url = url;
     this->formato = formato;
     this->texto = texto;

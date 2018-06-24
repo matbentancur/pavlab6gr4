@@ -190,7 +190,7 @@ bool Usuario::agregarUsuarioConversacion(UsuarioConversacion* usuarioConversacio
     return true;
 }
 
-bool Usuario::enviarMensajeConversacion(int idConversacion, Usuario* emisor, DtMensaje nuevoMensaje){
+bool Usuario::enviarMensajeConversacion(int idConversacion, Usuario* emisor, DtMensaje* nuevoMensaje){
     Mensaje* mensaje;
     Almacenamiento* almacenamiento = Almacenamiento::getInstancia();
     int nuevoCodigoMensaje = almacenamiento->getNuevoCodigoMensaje();
@@ -199,34 +199,41 @@ bool Usuario::enviarMensajeConversacion(int idConversacion, Usuario* emisor, DtM
     bool mensajeCreado = false;
 
     try{
-        DtSimple& dtMensaje = dynamic_cast<DtSimple&>(nuevoMensaje);
-        mensaje = new Simple(nuevoCodigoMensaje, enviado, false, emisor, dtMensaje.getTexto());
-        mensajeCreado = true;
+        DtSimple* dtm = dynamic_cast<DtSimple*>(nuevoMensaje);
+        if (dtm != NULL){
+            mensaje = new Simple(nuevoCodigoMensaje, enviado, false, emisor, dtm->getTexto());
+            mensajeCreado = true;
+        }
     }catch(std::bad_cast){
         cout << "Error en cast para Simple\n";
     }
-
     try{
-        DtTarjetaContacto& dtMensaje = dynamic_cast<DtTarjetaContacto&>(nuevoMensaje);
-        mensaje = new TarjetaContacto(nuevoCodigoMensaje, enviado, false, emisor, dtMensaje.getNombre(), dtMensaje.getTelefono());
-        mensajeCreado = true;
-    }catch(std::bad_cast){
-        cout << "Error en cast para Tarjeta de Contacto\n";
-    }
-
-    try{
-        DtImagen& dtMensaje = dynamic_cast<DtImagen&>(nuevoMensaje);
-        mensaje = new Imagen(nuevoCodigoMensaje, enviado, false, emisor, dtMensaje.getUrl(), dtMensaje.getFormato(), dtMensaje.getTexto(), dtMensaje.getTamanio());
-        mensajeCreado = true;
-    }catch(std::bad_cast){
+        DtImagen* dtm = dynamic_cast<DtImagen*>(nuevoMensaje);
+        if (dtm != NULL){
+            mensaje = new Imagen(nuevoCodigoMensaje, enviado, false, emisor, dtm->getUrl(), dtm->getFormato(), dtm->getTexto(), dtm->getTamanio());
+            mensajeCreado = true;
+        }
+    }catch(exception& e){
         cout << "Error en cast para Imagen\n";
     }
+    try{
+        DtVideo* dtm = dynamic_cast<DtVideo*>(nuevoMensaje);
+        if (dtm != NULL){
+            mensaje = new Video(nuevoCodigoMensaje, enviado, false, emisor, dtm->getUrl(), dtm->getDuracion());
+            mensajeCreado = true;
+        }
+    }catch(exception& e){
+        cout << "Error en cast para Video\n";
+    }
 
     try{
-        DtVideo& dtMensaje = dynamic_cast<DtVideo&>(nuevoMensaje);
-        mensaje = new Video(nuevoCodigoMensaje, enviado, false, emisor, dtMensaje.getUrl(), dtMensaje.getDuracion());
-    }catch(std::bad_cast){
-        cout << "Error en cast para Video\n";
+        DtTarjetaContacto* dtm = dynamic_cast<DtTarjetaContacto*>(nuevoMensaje);
+        if (dtm != NULL){
+            mensaje = new TarjetaContacto(nuevoCodigoMensaje, enviado, false, emisor, dtm->getNombre(), dtm->getTelefono());
+            mensajeCreado = true;
+        }
+    }catch(exception& e){
+        cout << "Error en cast para Tarjeta de Contacto\n";
     }
 
     if (mensajeCreado){
@@ -241,16 +248,17 @@ bool Usuario::enviarMensajeConversacion(int idConversacion, Usuario* emisor, DtM
     return false;
 }
 
-bool Usuario::enviarMensajeNuevaConversacion(Usuario* origen, Usuario* destino, DtMensaje nuevoMensaje){
+bool Usuario::enviarMensajeNuevaConversacion(Usuario* origen, Usuario* destino, DtMensaje* nuevoMensaje){
     Almacenamiento* almacenamiento = Almacenamiento::getInstancia();
     int nuevoIdConversacion = almacenamiento->getNuevoIdConversacion();
     almacenamiento->setUltimoIdConversacion(nuevoIdConversacion);
     Privada* conversacion = new Privada(nuevoIdConversacion, origen, destino);
 
-    UsuarioConversacion* origenUsuarioConversacion = new UsuarioConversacion(activa,conversacion);
+    FechaHora agregado = almacenamiento->getReloj();
+    UsuarioConversacion* origenUsuarioConversacion = new UsuarioConversacion(agregado,activa,conversacion);
     origen->agregarUsuarioConversacion(origenUsuarioConversacion);
 
-    UsuarioConversacion* destinoUsuarioConversacion = new UsuarioConversacion(activa,conversacion);
+    UsuarioConversacion* destinoUsuarioConversacion = new UsuarioConversacion(agregado,activa,conversacion);
     destino->agregarUsuarioConversacion(destinoUsuarioConversacion);
     return this->enviarMensajeConversacion(nuevoIdConversacion, origen, nuevoMensaje);
 }

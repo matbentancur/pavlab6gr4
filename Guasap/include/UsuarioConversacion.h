@@ -21,13 +21,17 @@ class Conversacion;
 class UsuarioConversacion {
 
     private:
+        FechaHora agregadoEnConversacion;
         EstadoConversacion estado;
         Conversacion* conversacion;
 
     public:
-        UsuarioConversacion(EstadoConversacion, Conversacion*);
+        UsuarioConversacion(FechaHora, EstadoConversacion, Conversacion*);
 
         ~UsuarioConversacion();
+
+        FechaHora getAgregadoEnConversacion();
+        void setAgregadoEnConversacion(FechaHora);
 
         EstadoConversacion getEstado();
         void setEstado(EstadoConversacion);

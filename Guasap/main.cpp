@@ -9,23 +9,52 @@
 #include "MensajeFactory.h"
 #include "FechaHora.h"
 #include "Almacenamiento.h"
+#include "DtConversacion.h"
+#include "DtGrupo.h"
+#include "DtPrivada.h"
+#include "DtSimple.h"
+#include "DtImagen.h"
+#include "DtVideo.h"
+#include "DtContacto.h"
 
 using namespace std;
 
 //FUNCIONES AUXILIARES
 void menuPrincipal();
+void menuCerrarGuasap();
+void menuAgregarContactos();
+void menuAltaGrupo();
+void menuArchivarConversacion();
+void menuModificarUsuario();
+void menuEnviarMensaje();
+DtMensaje* menuNuevoMensaje();
+void menuVerMensaje();
+int menuVerInfoMensaje();
+void menuEliminarMensaje();
+void menuModificarReloj();
+void menuConsultarReloj();
+void menuCargarDatosPrueba();
 void listarContactos();
-bool existeSesion();
-void mensajeSesion();
+void listarConversacionesActivas();
+void listarConversacionesArchivadas();
+int cantidadConversacionesArchivadas();
+void listarMensajes(int);
+void listarReceptores(int);
+
+UsuarioFactory* usuarioFactory = UsuarioFactory::getInstancia();
+IUsuarioController* iUsuarioController = usuarioFactory->getIUsuarioController();
+
+ConversacionFactory* conversacionFactory = ConversacionFactory::getInstancia();
+IConversacionController* iConversacionController = conversacionFactory->getIConversacionController();
+
+MensajeFactory* mensajeFactory = MensajeFactory::getInstancia();
+IMensajeController* iMensajeController = mensajeFactory->getIMensajeController();
+
 
 int main() {
     int numOper = 0;
-    int opGrupo;
-    string celularIngresado, celularContacto, nombre, urlImagen, descripcion = "";
-    string nomGrupo, urlGrupo;
-    bool grupoCreado = false;
+    string celularIngresado, celularContacto, nombre, urlImagen, descripcion, textoMensaje, urlVideo, formatoMensaje, tamanioMensaje, descripcionMensaje, duracionMensaje = "";
     bool salir = false;
-    bool salirGrupo = false;
     bool existeUsuario = false;
     bool ingresarOtroNumero = true;
     char opcion = 'n';
@@ -38,8 +67,6 @@ int main() {
                 cout << "\nIngrese el numero de celular: ";
                 cin >> celularIngresado;
                 do {
-                    UsuarioFactory* usuarioFactory = UsuarioFactory::getInstancia();
-                    IUsuarioController* iUsuarioController = usuarioFactory->getIUsuarioController();
                     EstadoIngreso estadoIngreso = iUsuarioController->ingresar(celularIngresado);
                     switch(estadoIngreso){
                     case userOK: {
@@ -134,82 +161,31 @@ int main() {
                 break;
             }
             case 3: {
-                try {
-                    cout << "\n\nLista de contactos\n\n";
-                    listarContactos();
-                    cout << "\nQuiere agregar un nuevo contacto (s/n)?: ";
-                    cin >> opcion;
-                    if (opcion == 's' || opcion == 'S') {
-                        cout << "\nIngrese el celular que desea agregar: ";
-                        cin >> celularContacto;
-                        UsuarioFactory* usuarioFactory = UsuarioFactory::getInstancia();
-                        IUsuarioController* iUsuarioController = usuarioFactory->getIUsuarioController();
-                        DtContacto dtContacto = iUsuarioController->agregarContacto(celularContacto);
-                        cout << "\n";
-                        cout << dtContacto;
-                        cout << "\nPresione \"s\" para confirmar la accion: ";
-                        cin >> opcion;
-                        if (opcion == 's' || opcion == 'S') {
-                            if(iUsuarioController->confirmarContacto()){
-                                cout << "\nSe agrego con exito al usuario.";
-                            }else{
-                                cout << "\nYa es contacto del usuario con celular: " + celularContacto + "\n";
-                            }
-                        }
-                    }
-                }catch(logic_error& ia){
+                try{
+                    menuAgregarContactos();
+                }
+                catch(logic_error& ia){
                     cout << ia.what() << "\n";
                     cin.get();
                 }
                 break;
             }
             case 4:
-              try{
-                cout << "\n\tAlta grupo\n\n";
-                cout<< "Ingrese el nombre del grupo\n";
-                cin>> nomGrupo;
-                cout<< "Ingrese URL del grupo\n";
-                cin>> urlGrupo;
-                ConversacionFactory* conversacionFactory = ConversacionFactory::getInstancia();
-                IConversacionController* iconversacionController = conversacionFactory->getIConversacionController();
-                if(iconversacionController->altaGrupo(nomGrupo,urlGrupo)){
-                    cout<< "Se creo el grupo con nombre "+nomGrupo+" y URL "+urlGrupo+"\n";
+                try{
+                    menuAltaGrupo();
                 }
-                do{
-                   cout<< "\nSeleccione opcion\n";
-                   cout<< "1) Agregar contactos al grupo\n";
-                   cout<< "2) Quitar contactos al grupo\n";
-                   cout<< "3) Salir\n";
-                   cin>> opGrupo;
-                switch(opGrupo){
-                    case 1:{
-                        if(iconversacionController->agregarSeleccionContactoGrupo(celularIngresado)){
-                            cout<< "Contacto agregado OK\n";
-                        }
-                    break;
-                    }
-                    case 2:{
-                        if(iconversacionController->quitarSeleccionContactoGrupo(celularIngresado)){
-                            cout<< "Contacto eliminado OK\n";
-                        }
-                    break;
-                    }
-                    case 3:{
-                            salirGrupo = true;
-                            cout<< "Saliendo...";
-                    break;
-                    }
-                    default:
-                            cout << "\nNo ingreso una opcion valida, vuelva a intentarlo...\n";
-                }
-                }while(!salirGrupo);
-              }catch(logic_error& ia){
-                    cout<< ia.what()<<"\n";
+                catch(logic_error& ia){
+                    cout << ia.what() << "\n";
                     cin.get();
-              }
-              break;
+                }
+                break;
             case 5:
-                cout << "\n\tEnviar mensajes\n\n";
+                try {
+                    menuEnviarMensaje();
+                }catch(logic_error& ia){
+                    cout << ia.what() << "\n";
+                    cin.get();
+                }
                 break;
             case 6:
                 cout << "\n\nVer mensajes\n\n";
@@ -335,15 +311,642 @@ void menuPrincipal() {
   cout << "Ingrese el numero de la operacion a realizar: ";
 }
 
+void menuCerrarGuasap(){
+    char opcion;
+    try{
+        cout << "\n\tCerrar Guasap\n";
+        cout << "\nCerrar sesion actual? (s/n): ";
+        cin >> opcion;
+        if (opcion == 's' || opcion == 'S') {
+            iUsuarioController->cerrarGuasap();
+            cout << "\n\nCerrando sesion...\n";
+            cout << "\nSesion cerrada con exito.";
+        }
+    }catch(logic_error& ia){
+        cout << ia.what() << "\n";
+        cin.get();
+    }
+}
+
+void menuAgregarContactos(){
+    int opcion;
+    char confirmar;
+    string celularContacto;
+    try {
+        cout << "\n\nLista de contactos\n\n";
+        listarContactos();
+        cout << "\n\nLista de operaciones disponibles:\n\n";
+        cout << "1)  Agregar nuevo contacto\n";
+        cout << "2)  Volver\n";
+        cout << "Ingrese una opcion: ";
+        cin >> opcion;
+        switch (opcion) {
+            case 1:
+                try{
+                    cout << "\nIngrese el celular que desea agregar: ";
+                    cin >> celularContacto;
+                    DtContacto dtContacto = iUsuarioController->agregarContacto(celularContacto);
+                    cout << "\n";
+                    cout << dtContacto;
+                    cout << "\nPresione \"s\" para confirmar la accion: ";
+                    cin >> confirmar;
+                    if (confirmar == 's' || confirmar == 'S') {
+                        if(iUsuarioController->confirmarContacto()){
+                            cout << "\nSe agrego con exito al usuario.";
+                        }else{
+                            cout << "\nYa es contacto del usuario con celular: " + celularContacto + "\n";
+                        }
+                    }
+                }catch(logic_error& ia){
+                    cout << ia.what() << "\n";
+                    cin.get();
+                }
+                cin.get();
+                break;
+            case 2:
+                menuPrincipal();
+                break;
+        }
+    }catch(logic_error& ia){
+        cout << ia.what() << "\n";
+        cin.get();
+    }
+}
+
+void menuAltaGrupo(){
+    string nomGrupo;
+    string urlGrupo;
+    string celularContacto;
+    int opGrupo;
+    bool salirGrupo = false;
+    try{
+        cout << "\n\tAlta grupo\n";
+        cout<< "\nIngrese el nombre del grupo: ";
+        cin>> nomGrupo;
+        cout<< "\nIngrese URL del grupo: ";
+        cin>> urlGrupo;
+        if(iConversacionController->altaGrupo(nomGrupo,urlGrupo)){
+            cout<< "\n\nSe creo el grupo con nombre "+ nomGrupo + " y URL " + urlGrupo +"\n";
+        }
+        do{
+            cout << "\n\nLista de operaciones disponibles:\n\n";
+            cout<< "1) Agregar contactos al grupo\n";
+            cout<< "2) Quitar contactos al grupo\n";
+            cout<< "3) Volver\n";
+            cout << "\nIngrese una opcion: ";
+            cin>> opGrupo;
+            switch(opGrupo){
+                case 1:
+                    cout << "\nIngrese el celular del contacto que quiere agregar al grupo: ";
+                    cin >> celularContacto;
+                    if(iConversacionController->agregarSeleccionContactoGrupo(celularContacto)){
+                        cout<< "\nContacto agregado con exito.\n";
+                    }
+                    break;
+                case 2:
+                    cout << "\nIngrese el celular del contacto que quiere eliminar del grupo: ";
+                    cin >> celularContacto;
+                    if(iConversacionController->quitarSeleccionContactoGrupo(celularContacto)){
+                        cout<< "\nContacto eliminado con exito.\n";
+                    }
+                    break;
+                case 3:
+                    salirGrupo = true;
+                    break;
+                default:
+                    cout << "\nNo ingreso una opcion valida, vuelva a intentarlo...\n";
+            }
+        } while(!salirGrupo);
+    }catch(logic_error& ia){
+        cout<< ia.what()<<"\n";
+        cin.get();
+    }
+}
+
+void menuArchivarConversacion(){
+    int opcion;
+    int idConversacion;
+    cout << "\n\nArchivar conversaciones\n\n";
+    try {
+        cout << "\n\nLista de conversaciones\n\n";
+        cout << "\nActivas:\n\n";
+        listarConversacionesActivas();
+        cout << "\n\nLista de operaciones disponibles:\n\n";
+        cout << "1)  Archivar una conversacion\n";
+        cout << "2)  Volver\n";
+        cout << "\nIngrese una opcion: ";
+        cin >> opcion;
+        switch (opcion) {
+            case 1:
+                cout << "\nIngrese el identificador de la conversacion: ";
+                cin >> idConversacion;
+                try{
+                    if (iConversacionController->archivarConversacion(idConversacion)){
+                        cout << "Se ha archivado la conversacion " << idConversacion;
+                    }
+                    else{
+                        cout << "No se pudo archivar la conversacion " << idConversacion;
+                    }
+                }catch(logic_error& ia){
+                    cout << ia.what() << "\n";
+                    cin.get();
+                }
+                cin.get();
+                break;
+            case 2:
+                menuPrincipal();
+                break;
+        }
+    }catch(logic_error& ia){
+        cout << ia.what() << "\n";
+        cin.get();
+    }
+}
+
+void menuModificarUsuario() {
+    string nombre;
+    string urlImagen;
+    string descripcion;
+    try{
+        cout << "\n\tModificar usuario\n\n";
+        cout << "\nIngrese el nuevo nombre: ";
+        cin >> nombre;
+        cout << "\nIngrese la nueva URL de la imagen: ";
+        cin >> urlImagen;
+        cout << "\nIngrese una nueva descripcion: ";
+        cin >> descripcion;
+        DtContacto dtContacto = iUsuarioController->modificarUsuario(nombre, urlImagen, descripcion);
+        cout << "\nLos datos se modificaron con exito.\n\n";
+        cout << dtContacto;
+        cin.get();
+    }catch(logic_error& ia){
+        cout << ia.what() << "\n";
+        cin.get();
+    }
+}
+
+void menuEnviarMensaje() {
+    int numOper;
+    int idConversacion;
+    string celularIngresado, celularContacto, nombre, urlImagen, descripcion, textoMensaje, urlVideo, formatoMensaje, tamanioMensaje, descripcionMensaje, duracionMensaje = "";
+    cout << "\n\nLista de conversaciones\n\n";
+    cout << "\nActivas:\n\n";
+    listarConversacionesActivas();
+    cout << "\nArchivadas: ";
+    cout << cantidadConversacionesArchivadas();
+    cout << "\n\nLista de operaciones disponibles:\n\n";
+    cout << "1)  Seleccionar una conversacion activa\n";
+    cout << "2)  Ver las conversaciones archivadas\n";
+    cout << "3)  Enviar un mensaje nuevo\n";
+    cout << "\nIngrese una opcion: ";
+    cin >> numOper;
+    switch (numOper) {
+    case 1: {
+        cout << "\nIngrese el identificador de la conversacion: ";
+        cin >> idConversacion;
+        DtMensaje* dtMensaje = menuNuevoMensaje();
+        iMensajeController->listarMensajes(idConversacion);
+        if(iMensajeController->enviarMensajeConversacion(dtMensaje)){
+            cout << "\nEl mensaje se envio con exito.";
+        }else{
+            cout << "\nOcurrio un error y el mensaje no se pudo enviar.";
+        }
+        break;
+    }
+    case 2:
+        listarConversacionesArchivadas();
+        if(cantidadConversacionesArchivadas() > 0){
+            cout << "\nIngrese el identificador de la conversacion: ";
+            cin >> idConversacion;
+            DtMensaje* dtMensaje = menuNuevoMensaje();
+            if(iMensajeController->enviarMensajeConversacion(dtMensaje)){
+                cout << "\nEl mensaje se envio con exito.\n";
+            }else{
+                cout << "\nOcurrio un error y el mensaje no se pudo enviar.\n";
+            }
+        }
+        break;
+    case 3:
+        cout << "\n\nLista de contactos\n\n";
+        listarContactos();
+        cout << "\nIngrese el numero de celular con el que desea iniciar una nueva conversacion: ";
+        cin >> celularContacto;
+        DtMensaje* dtMensaje = menuNuevoMensaje();
+        if(iMensajeController->enviarMensajeNuevaConversacion(celularContacto, dtMensaje)){
+            cout << "\nEl mensaje se envio con exito.\n";
+        }else{
+            cout << "\nOcurrio un error y el mensaje no se pudo enviar.\n";
+        }
+        break;
+    }
+}
+
+DtMensaje* menuNuevoMensaje(){
+    char opcion;
+    int numOper;
+    int tamanio;
+    int duracion;
+    string celularIngresado, celularContacto, nombre, url, descripcion, texto, formato = "";
+    cout << "\n\tTipo de mensaje a enviar\n\n";
+    cout << "1)  Simple\n";
+    cout << "2)  Imagen\n";
+    cout << "3)  Video\n";
+    cout << "4)  Contacto\n";
+    cout << "\nIngrese una opcion: ";
+    cin >> numOper;
+    switch(numOper){
+        case 1: {
+            cout << "\n\tMensaje Simple\n";
+            cout << "\nIngrese el texto del mensaje: ";
+            cin >> texto;
+            DtSimple* dtMensaje = new DtSimple(texto);
+            return dtMensaje;
+            break;
+        }
+        case 2: {
+            cout << "\n\tMensaje de Imagen\n";
+            cout << "\nIngrese la URL de la imagen: ";
+            cin >> url;
+            cout << "\nIngrese el formato de la imagen: ";
+            cin >> formato;
+            cout << "\nIngrese el tamanio de la imagen: ";
+            cin >> tamanio;
+            cout << "\n\nQuiere ingresar un texto descriptivo? (s/n): ";
+            cin >> opcion;
+            descripcion = "";
+            if (opcion == 's' || opcion == 'S') {
+                cout << "\nIngrese una descripcion: ";
+                cin >> descripcion;
+            }
+            DtImagen* dtMensaje = new DtImagen(url, formato, tamanio, descripcion);
+            return dtMensaje;
+            break;
+        }
+        case 3: {
+            cout << "\n\tMensaje de Video\n";
+            cout << "\nIngrese la URL del video: ";
+            cin >> url;
+            cout << "\nIngrese la duracion del video: ";
+            cin >> duracion;
+            DtVideo* dtMensaje = new DtVideo(url, duracion);
+            return dtMensaje;
+            break;
+        }
+        case 4: {
+            cout << "\n\tMensaje de Contacto\n";
+            map<string,DtContacto> contactos = iUsuarioController->listarContactos();
+            map<string,DtContacto>::iterator i;
+            if(contactos.size() == 0){
+                cout << "\nLa lista de contactos esta vacia.\n";
+            }else{
+                for(i = contactos.begin(); i != contactos.end(); ++i){
+                    cout << i->second << "\n";
+                }
+            }
+            cout << "\nIngrese el numero de celular del contacto que desea compartir: ";
+            cin >> celularContacto;
+            for(i = contactos.begin(); i != contactos.end(); ++i){
+                if(i->second.getCelular() == celularContacto){
+                    DtTarjetaContacto* dtMensaje = new DtTarjetaContacto(i->second.getNombre(), celularContacto);
+                    return dtMensaje;
+                }
+            }
+            break;
+        }
+    }
+}
+
+void menuVerMensaje() {
+    int opcion;
+    int idConversacion;
+    cout << "\n\nVer mensajes\n\n";
+    try {
+        cout << "\n\nLista de conversaciones\n\n";
+        cout << "\nActivas:\n\n";
+        listarConversacionesActivas();
+        cout << "\nArchivadas: ";
+        cout << cantidadConversacionesArchivadas();
+        cout << "\n\nLista de operaciones disponibles:\n\n";
+        cout << "1)  Ver mensajes de una conversacion activa\n";
+        cout << "2)  Ver las conversaciones archivadas\n";
+        cout << "3)  Volver\n";
+        cout << "\nIngrese una opcion: ";
+        cin >> opcion;
+        switch (opcion) {
+            case 1:
+                cout << "\nIngrese el identificador de la conversacion: ";
+                cin >> idConversacion;
+                do{
+                    listarMensajes(idConversacion);
+                } while(menuVerInfoMensaje() != 2);
+                menuVerMensaje();
+                break;
+            case 2:
+                cout << "\n\nLista de conversaciones\n\n";
+                cout << "\nArchivadas:\n\n";
+                listarConversacionesArchivadas();
+                if(cantidadConversacionesArchivadas() > 0){
+                    cout << "\n\nLista de operaciones disponibles:\n\n";
+                    cout << "1)  Ver mensajes de una conversacion archivada\n";
+                    cout << "2)  Volver\n";
+                    cout << "Ingrese una opcion: ";
+                    cin >> opcion;
+                    switch (opcion) {
+                        case 1:
+                            cout << "\nIngrese el identificador de la conversacion: ";
+                            cin >> idConversacion;
+                            do{
+                                listarMensajes(idConversacion);
+                            } while(menuVerInfoMensaje() != 2);
+                            menuVerMensaje();
+                            break;
+                        case 2:
+                            menuVerMensaje();
+                            break;
+                    }
+                }
+                break;
+            case 3:
+                menuPrincipal();
+                break;
+        }
+    }catch(logic_error& ia){
+        cout << ia.what() << "\n";
+        cin.get();
+    }
+}
+
+int menuVerInfoMensaje(){
+    int opcion;
+    int codigoMensaje;
+    cout << "\n\nLista de operaciones disponibles:\n\n";
+    cout << "1)  Ver información del mensaje\n";
+    cout << "2)  Volver\n";
+    cout << "\nIngrese una opcion: ";
+    cin >> opcion;
+    switch (opcion) {
+        case 1:
+            cout << "\nIngrese el codigo del mensaje: ";
+            cin >> codigoMensaje;
+            listarReceptores(codigoMensaje);
+            cin.get();
+            cin.get();
+            break;
+    }
+    return opcion;
+}
+
+void menuEliminarMensaje() {
+    int opcion;
+    int idConversacion;
+    int codigoMensaje;
+    cout << "\n\tEliminar mensajes\n\n";
+    try {
+        cout << "\n\nLista de conversaciones\n\n";
+        cout << "\nActivas:\n\n";
+        listarConversacionesActivas();
+        cout << "\nArchivadas: ";
+        cout << cantidadConversacionesArchivadas();
+        cout << "\n\nLista de operaciones disponibles:\n\n";
+        cout << "1)  Ver mensajes de una conversacion activa\n";
+        cout << "2)  Ver las conversaciones archivadas\n";
+        cout << "3)  Volver\n";
+        cout << "Ingrese una opcion: ";
+        cin >> opcion;
+        switch (opcion) {
+            case 1:
+                cout << "\nIngrese el identificador de la conversacion: ";
+                cin >> idConversacion;
+                listarMensajes(idConversacion);
+                cout << "\n\nLista de operaciones disponibles:\n\n";
+                cout << "1)  Eliminiar mensaje\n";
+                cout << "2)  Volver\n";
+                cout << "Ingrese una opcion: ";
+                cin >> opcion;
+                switch (opcion) {
+                    case 1:
+                        cout << "\nIngrese el codigo del mensaje: ";
+                        cin >> codigoMensaje;
+                        try{
+                            if (iMensajeController->eliminarMensaje(codigoMensaje)){
+                                cout << "Se ha eliminado el mensaje " << codigoMensaje;
+                            }
+                            else{
+                                cout << "No se pudo eliminar el mensaje " << codigoMensaje;
+                            }
+                        }catch(logic_error& ia){
+                            cout << ia.what() << "\n";
+                            cin.get();
+                        }
+                        cin.get();
+                        break;
+                    case 2:
+                        menuEliminarMensaje();
+                        break;
+                }
+                cin.get();
+                break;
+            case 2:
+                cout << "\n\nLista de conversaciones\n\n";
+                cout << "\nArchivadas:\n\n";
+                listarConversacionesArchivadas();
+                if(cantidadConversacionesArchivadas() > 0){
+                    cout << "\n\nLista de operaciones disponibles:\n\n";
+                    cout << "1)  Ver mensajes de una conversacion archivada\n";
+                    cout << "2)  Volver\n";
+                    cout << "Ingrese una opcion: ";
+                    cin >> opcion;
+                    switch (opcion) {
+                        case 1:
+                            cout << "\nIngrese el identificador de la conversacion: ";
+                            cin >> idConversacion;
+                            listarMensajes(idConversacion);
+                            cout << "\n\nLista de operaciones disponibles:\n\n";
+                            cout << "1)  Eliminiar mensaje\n";
+                            cout << "2)  Volver\n";
+                            cout << "Ingrese una opcion: ";
+                            cin >> opcion;
+                            switch (opcion) {
+                                case 1:
+                                    cout << "\nIngrese el codigo del mensaje: ";
+                                    cin >> codigoMensaje;
+                                    try{
+                                        if (iMensajeController->eliminarMensaje(codigoMensaje)){
+                                            cout << "Se ha eliminado el mensaje " << codigoMensaje;
+                                        }
+                                        else{
+                                            cout << "No se pudo eliminar el mensaje " << codigoMensaje;
+                                        }
+                                    }catch(logic_error& ia){
+                                        cout << ia.what() << "\n";
+                                        cin.get();
+                                    }
+                                    cin.get();
+                                    break;
+                                case 2:
+                                    menuEliminarMensaje();
+                                    break;
+                            }
+                            cin.get();
+                            break;
+                        }
+                    }
+                break;
+            case 3:
+                menuPrincipal();
+                break;
+        }
+    }catch(logic_error& ia){
+        cout << ia.what() << "\n";
+        cin.get();
+    }
+}
+
+void menuModificarReloj() {
+    int dia;
+    int mes;
+    int anio;
+    int hora;
+    int minuto;
+    cout << "\n\tModificar fecha del sistema\n\n";
+    cout << "Ingrese dia\n";
+    cin >> dia;
+    cout << "Ingrese mes\n";
+    cin >> mes;
+    cout << "Ingrese anio\n";
+    cin >> anio;
+    cout << "Ingrese hora\n";
+    cin >> hora;
+    cout << "Ingrese minuto\n";
+    cin >> minuto;
+    try{
+        FechaHora fechaHora = FechaHora(dia, mes, anio, hora, minuto);
+        iUsuarioController->modificarReloj(fechaHora);
+        cout << "La fecha/hora ha sido modificada a: " << fechaHora;
+        cin.get();
+    }catch(invalid_argument& ia){
+        cout << ia.what() <<"\n";
+        cin.get();
+    }
+}
+
+void menuConsultarReloj() {
+    try{
+        cout << "\n\nConsultar fecha del sistema\n\n";
+        FechaHora reloj = iUsuarioController->consultarReloj();
+        cout << "La fecha/hora es " << reloj;
+        cin.get();
+    }catch(invalid_argument& ia){
+        cout << ia.what() << "\n";
+        cin.get();
+    }
+}
+
+void menuCargarDatosPrueba() {
+    try{
+        iUsuarioController->cargarDatosPrueba();
+        cout << "\nDatos de prueba cargados con exito\n\n";
+        cin.get();
+    }catch(invalid_argument& ia){
+        cout << ia.what() << "\n";
+        cin.get();
+    }
+}
+
 void listarContactos(){
-    UsuarioFactory* usuarioFactory = UsuarioFactory::getInstancia();
-    IUsuarioController* iUsuarioController = usuarioFactory->getIUsuarioController();
     map<string,DtContacto> contactos = iUsuarioController->listarContactos();
     map<string,DtContacto>::iterator i;
     if(contactos.begin() == contactos.end()){
         cout << "\nLa lista de contactos esta vacia.\n";
     }else{
         for(i = contactos.begin(); i != contactos.end(); ++i){
+            cout << i->second << "\n";
+        }
+    }
+}
+
+void listarConversacionesActivas(){
+    map<int,DtConversacion*> conversacionesActivas = iConversacionController->listarConversacionesActivas();
+    map<int,DtConversacion*>::iterator i;
+    if(conversacionesActivas.size() == 0){
+        cout << "\nLa lista de conversaciones activas esta vacia.\n";
+    }else{
+        for(i = conversacionesActivas.begin(); i != conversacionesActivas.end(); ++i){
+            DtConversacion* conversacion = i->second;
+            cout << *conversacion;
+        }
+    }
+}
+
+void listarConversacionesArchivadas(){
+    map<int,DtConversacion*> conversacionesArchivadas = iConversacionController->listarConversacionesArchivadas();
+    map<int,DtConversacion*>::iterator i;
+    if(conversacionesArchivadas.size() == 0){
+        cout << "\nLa lista de conversaciones archivadas esta vacia.\n";
+    }else{
+        for(i = conversacionesArchivadas.begin(); i != conversacionesArchivadas.end(); ++i){
+            DtConversacion* conversacion = i->second;
+            cout << *conversacion;
+        }
+    }
+}
+
+int cantidadConversacionesArchivadas(){
+    map<int,DtConversacion*> conversacionesArchivadas = iConversacionController->listarConversacionesArchivadas();
+    return conversacionesArchivadas.size();
+}
+
+void listarMensajes(int idConversacion){
+    map<int,DtMensaje*> mensajes = iMensajeController->listarMensajes(idConversacion);
+    map<int,DtMensaje*>::iterator i;
+    if(mensajes.size() == 0){
+        cout << "\nLa conversacion esta vacia.\n";
+    }else{
+        for(i = mensajes.begin(); i != mensajes.end(); ++i){
+            DtMensaje* mensaje = i->second;
+            try{
+                DtSimple* dtm = dynamic_cast<DtSimple*>(mensaje);
+                if (dtm != NULL){
+                cout << *dtm << "\n";
+                }
+            }catch(exception& e){
+                cout << "Error en cast para Simple\n";
+            }
+            try{
+                DtImagen* dtm = dynamic_cast<DtImagen*>(mensaje);
+                if (dtm != NULL){
+                cout << *dtm << "\n";
+                }
+            }catch(exception& e){
+                cout << "Error en cast para Imagen\n";
+            }
+            try{
+                DtVideo* dtm = dynamic_cast<DtVideo*>(mensaje);
+                if (dtm != NULL){
+                cout << *dtm << "\n";
+                }
+            }catch(exception& e){
+                cout << "Error en cast para Video\n";
+            }
+            try{
+                DtTarjetaContacto* dtm = dynamic_cast<DtTarjetaContacto*>(mensaje);
+                if (dtm != NULL){
+                cout << *dtm << "\n";
+                }
+            }catch(exception& e){
+                cout << "Error en cast para TarjetaContacto\n";
+            }
+        }
+    }
+}
+
+void listarReceptores(int codigoMensaje){
+    map<string,DtReceptor> receptores = iMensajeController->verInfoMensajeEnviado(codigoMensaje);
+    map<string,DtReceptor>::iterator i;
+    if(receptores.size() == 0){
+        cout << "\nEl mensaje no tiene receptores.\n";
+    }else{
+        for(i = receptores.begin(); i != receptores.end(); ++i){
             cout << i->second << "\n";
         }
     }

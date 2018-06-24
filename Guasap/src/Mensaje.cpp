@@ -1,5 +1,8 @@
 #include "Mensaje.h"
 #include "UsuarioMensaje.h"
+#include "Sesion.h"
+#include "Almacenamiento.h"
+#include "ManejadorUsuario.h"
 
 Mensaje::Mensaje(){
 
@@ -50,19 +53,25 @@ bool Mensaje::agregarUsuarioMensaje(UsuarioMensaje* um){
 }
 
 map <string,DtReceptor> Mensaje::getReceptores(){
+    Sesion* sesion = Sesion::getInstancia();
+    ManejadorUsuario* manejadorUsuario = ManejadorUsuario::getInstancia();
+    Usuario* usuario = manejadorUsuario->findUsuario(sesion->getSesion());
+
     map<string,DtReceptor> listaReceptores;
 	set<UsuarioMensaje*>::iterator i;
-    for(i = usuarioMensaje.begin(); i != usuarioMensaje.end(); ++i){
+    for(i = this->usuarioMensaje.begin(); i != this->usuarioMensaje.end(); ++i){
         UsuarioMensaje* um = *i;
-        DtReceptor dtReceptor = um->getDtReceptor();
-        listaReceptores.insert(std::pair<string, DtReceptor>(dtReceptor.getCelular(), dtReceptor));
+        if (um->getUsuario()->getCelular() != usuario->getCelular()){
+            DtReceptor dtReceptor = um->getDtReceptor();
+            listaReceptores.insert(std::pair<string, DtReceptor>(dtReceptor.getCelular(), dtReceptor));
+        }
 	}
 	return listaReceptores;
 }
 
 bool Mensaje::eliminarMensajeLogico(Usuario* usuario){
     set<UsuarioMensaje*>::iterator i;
-    for(i = usuarioMensaje.begin(); i != usuarioMensaje.end(); ++i){
+    for(i = this->usuarioMensaje.begin(); i != this->usuarioMensaje.end(); ++i){
         UsuarioMensaje* um = *i;
         if(usuario->getCelular() == um->getUsuario()->getCelular()){
             um->setEliminado(true);
@@ -70,6 +79,50 @@ bool Mensaje::eliminarMensajeLogico(Usuario* usuario){
         }
 	}
 	return false;
+}
+
+bool Mensaje::estaEliminado(Usuario* usuario){
+    set<UsuarioMensaje*>::iterator i;
+    for(i = this->usuarioMensaje.begin(); i != this->usuarioMensaje.end(); ++i){
+        UsuarioMensaje* um = *i;
+        if(usuario->getCelular() == um->getUsuario()->getCelular()){
+            return um->getEliminado();
+        }
+	}
+	return false;
+}
+
+void Mensaje::marcarComoVisto(Usuario* usuario){
+    if (!this->getVisto()){
+        set<UsuarioMensaje*>::iterator i;
+        for(i = this->usuarioMensaje.begin(); i != this->usuarioMensaje.end(); ++i){
+            UsuarioMensaje* um = *i;
+            if(usuario->getCelular() == um->getUsuario()->getCelular()){
+                if(!um->getVisto()){
+                    Almacenamiento* almacenamiento = Almacenamiento::getInstancia();
+                    FechaHora vistoFechaHora = almacenamiento->getReloj();
+                    um->setVisto(true);
+                    um->setVistoFechaHora(vistoFechaHora);
+                }
+            }
+        }
+    }
+}
+
+void Mensaje::verificarVisto(){
+    if (!this->getVisto()){
+        unsigned int cantidadDeVistos;
+        set<UsuarioMensaje*>::iterator i;
+        for(i = this->usuarioMensaje.begin(); i != this->usuarioMensaje.end(); ++i){
+            UsuarioMensaje* um = *i;
+            if(um->getVisto()){
+                cantidadDeVistos++;
+            }
+        }
+        if(cantidadDeVistos == this->usuarioMensaje.size()){
+            this->setVisto(true);
+        }
+    }
 }
 
 Mensaje::~Mensaje(){}
