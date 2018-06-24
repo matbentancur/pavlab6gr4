@@ -348,47 +348,51 @@ void menuAgregarContactos(){
 void menuAltaGrupo(){
     string nomGrupo;
     string urlGrupo;
+    string celularContacto;
     int opGrupo;
-//    try{
-//        cout << "\n\tAlta grupo\n\n";
-//        cout<< "Ingrese el nombre del grupo\n";
-//        cin>> nomGrupo;
-//        cout<< "Ingrese URL del grupo\n";
-//        cin>> urlGrupo;
-//        ConversacionFactory* conversacionFactory = ConversacionFactory::getInstancia();
-//        IConversacionController* iconversacionController = conversacionFactory->getIConversacionController();
-//        if(iconversacionController->altaGrupo(nomGrupo,urlGrupo)){
-//            cout<< "Se creo el grupo con nombre "+nomGrupo+" y URL "+urlGrupo+"\n";
-//        }
-//        do{
-//            cout<< "\nSeleccione opcion\n";
-//            cout<< "1) Agregar contactos al grupo\n";
-//            cout<< "2) Quitar contactos al grupo\n";
-//            cout<< "3) Salir\n";
-//            cin>> opGrupo;
-//            switch(opGrupo){
-//                case 1:
-//                    if(iconversacionController->agregarSeleccionContactoGrupo(celularIngresado)){
-//                        cout<< "Contacto agregado OK\n";
-//                    }
-//                    break;
-//                case 2:
-//                    if(iconversacionController->quitarSeleccionContactoGrupo(celularIngresado)){
-//                        cout<< "Contacto eliminado OK\n";
-//                    }
-//                    break;
-//                case 3:
-//                    salirGrupo = true;
-//                    cout<< "Saliendo...";
-//                    break;
-//                default:
-//                    cout << "\nNo ingreso una opcion valida, vuelva a intentarlo...\n";
-//            }
-//        } while(!salirGrupo);
-//    }catch(logic_error& ia){
-//        cout<< ia.what()<<"\n";
-//        cin.get();
-//    }
+    bool salirGrupo = false;
+    try{
+        cout << "\n\tAlta grupo\n";
+        cout<< "\nIngrese el nombre del grupo: ";
+        cin>> nomGrupo;
+        cout<< "\nIngrese URL del grupo: ";
+        cin>> urlGrupo;
+        if(iConversacionController->altaGrupo(nomGrupo,urlGrupo)){
+            cout<< "\n\nSe creo el grupo con nombre "+ nomGrupo + " y URL " + urlGrupo +"\n";
+        }
+        do{
+            cout << "\n\nLista de operaciones disponibles:\n\n";
+            cout<< "1) Agregar contactos al grupo\n";
+            cout<< "2) Quitar contactos al grupo\n";
+            cout<< "3) Volver\n";
+            cout << "\nIngrese una opcion: ";
+            cin>> opGrupo;
+            switch(opGrupo){
+                case 1:
+                    cout << "\nIngrese el celular del contacto que quiere agregar al grupo: ";
+                    cin >> celularContacto;
+                    if(iConversacionController->agregarSeleccionContactoGrupo(celularContacto)){
+                        cout<< "\nContacto agregado con exito.\n";
+                    }
+                    break;
+                case 2:
+                    cout << "\nIngrese el celular del contacto que quiere eliminar del grupo: ";
+                    cin >> celularContacto;
+                    if(iConversacionController->quitarSeleccionContactoGrupo(celularContacto)){
+                        cout<< "\nContacto eliminado con exito.\n";
+                    }
+                    break;
+                case 3:
+                    salirGrupo = true;
+                    break;
+                default:
+                    cout << "\nNo ingreso una opcion valida, vuelva a intentarlo...\n";
+            }
+        } while(!salirGrupo);
+    }catch(logic_error& ia){
+        cout<< ia.what()<<"\n";
+        cin.get();
+    }
 }
 
 void menuArchivarConversacion(){
@@ -402,7 +406,7 @@ void menuArchivarConversacion(){
         cout << "\n\nLista de operaciones disponibles:\n\n";
         cout << "1)  Archivar una conversacion\n";
         cout << "2)  Volver\n";
-        cout << "Ingrese una opcion: ";
+        cout << "\nIngrese una opcion: ";
         cin >> opcion;
         switch (opcion) {
             case 1:
@@ -598,7 +602,7 @@ void menuVerMensaje() {
         cout << "1)  Ver mensajes de una conversacion activa\n";
         cout << "2)  Ver las conversaciones archivadas\n";
         cout << "3)  Volver\n";
-        cout << "Ingrese una opcion: ";
+        cout << "\nIngrese una opcion: ";
         cin >> opcion;
         switch (opcion) {
             case 1:
