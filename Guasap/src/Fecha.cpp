@@ -46,7 +46,27 @@ int Fecha::getAnio(){
 }
 
 ostream& operator << (ostream& salida, Fecha& fecha){
+    string diaString;
+    ostringstream diaConvert;
+    if (fecha.getDia() < 10){
+        diaConvert << "0" << fecha.getDia();
+    }
+    else{
+        diaConvert << fecha.getDia();
+    }
+    diaString = diaConvert.str();
+
+    string mesString;
+    ostringstream mesConvert;
+    if (fecha.getMes() < 10){
+        mesConvert << "0" << fecha.getMes();
+    }
+    else{
+        mesConvert << fecha.getMes();
+    }
+    mesString = mesConvert.str();
+
     salida <<
-        fecha.getDia() << "/" << fecha.getMes() << "/" << fecha.getAnio() << "\n";
+        diaString << "/" << mesString << "/" << fecha.getAnio() << "\n";
     return salida;
 }

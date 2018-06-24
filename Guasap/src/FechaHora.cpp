@@ -36,8 +36,48 @@ int FechaHora::getMinuto(){
 }
 
 ostream& operator << (ostream& salida, FechaHora& fechaHora){
+    string diaString;
+    ostringstream diaConvert;
+    if (fechaHora.getDia() < 10){
+        diaConvert << "0" << fechaHora.getDia();
+    }
+    else{
+        diaConvert << fechaHora.getDia();
+    }
+    diaString = diaConvert.str();
+
+    string mesString;
+    ostringstream mesConvert;
+    if (fechaHora.getMes() < 10){
+        mesConvert << "0" << fechaHora.getMes();
+    }
+    else{
+        mesConvert << fechaHora.getMes();
+    }
+    mesString = mesConvert.str();
+
+    string horaString;
+    ostringstream horaConvert;
+    if (fechaHora.getHora() < 10){
+        horaConvert << "0" << fechaHora.getHora();
+    }
+    else{
+        horaConvert << fechaHora.getHora();
+    }
+    horaString = horaConvert.str();
+
+    string minutoString;
+    ostringstream minutoConvert;
+    if (fechaHora.getMinuto() < 10){
+        minutoConvert << "0" << fechaHora.getMinuto();
+    }
+    else{
+        minutoConvert << fechaHora.getMinuto();
+    }
+    minutoString = minutoConvert.str();
+
     salida <<
-        fechaHora.getDia() << "/" << fechaHora.getMes() << "/" << fechaHora.getAnio()
-            << " " << fechaHora.getHora() << ":" <<fechaHora.getMinuto() << "\n";
+        diaString << "/" << mesString << "/" << fechaHora.getAnio()
+            << " " << horaString << ":" << minutoString << "\n";
     return salida;
 }
