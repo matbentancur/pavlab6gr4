@@ -1,6 +1,8 @@
 #include "Mensaje.h"
 #include "UsuarioMensaje.h"
+#include "Sesion.h"
 #include "Almacenamiento.h"
+#include "ManejadorUsuario.h"
 
 Mensaje::Mensaje(){
 
@@ -51,12 +53,18 @@ bool Mensaje::agregarUsuarioMensaje(UsuarioMensaje* um){
 }
 
 map <string,DtReceptor> Mensaje::getReceptores(){
+    Sesion* sesion = Sesion::getInstancia();
+    ManejadorUsuario* manejadorUsuario = ManejadorUsuario::getInstancia();
+    Usuario* usuario = manejadorUsuario->findUsuario(sesion->getSesion());
+
     map<string,DtReceptor> listaReceptores;
 	set<UsuarioMensaje*>::iterator i;
     for(i = this->usuarioMensaje.begin(); i != this->usuarioMensaje.end(); ++i){
         UsuarioMensaje* um = *i;
-        DtReceptor dtReceptor = um->getDtReceptor();
-        listaReceptores.insert(std::pair<string, DtReceptor>(dtReceptor.getCelular(), dtReceptor));
+        if (um->getUsuario()->getCelular() != usuario->getCelular()){
+            DtReceptor dtReceptor = um->getDtReceptor();
+            listaReceptores.insert(std::pair<string, DtReceptor>(dtReceptor.getCelular(), dtReceptor));
+        }
 	}
 	return listaReceptores;
 }

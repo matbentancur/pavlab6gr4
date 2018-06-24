@@ -31,6 +31,7 @@ void menuModificarUsuario();
 void menuEnviarMensaje();
 DtMensaje* menuNuevoMensaje();
 void menuVerMensaje();
+int menuVerInfoMensaje();
 void menuEliminarMensaje();
 void menuModificarReloj();
 void menuConsultarReloj();
@@ -40,8 +41,7 @@ void listarConversacionesActivas();
 void listarConversacionesArchivadas();
 int cantidadConversacionesArchivadas();
 void listarMensajes(int);
-bool existeSesion();
-void mensajeSesion();
+void listarReceptores(int);
 
 UsuarioFactory* usuarioFactory = UsuarioFactory::getInstancia();
 IUsuarioController* iUsuarioController = usuarioFactory->getIUsuarioController();
@@ -608,8 +608,10 @@ void menuVerMensaje() {
             case 1:
                 cout << "\nIngrese el identificador de la conversacion: ";
                 cin >> idConversacion;
-                listarMensajes(idConversacion);
-                cin.get();
+                do{
+                    listarMensajes(idConversacion);
+                } while(menuVerInfoMensaje() != 2);
+                menuVerMensaje();
                 break;
             case 2:
                 cout << "\n\nLista de conversaciones\n\n";
@@ -625,8 +627,10 @@ void menuVerMensaje() {
                         case 1:
                             cout << "\nIngrese el identificador de la conversacion: ";
                             cin >> idConversacion;
-                            listarMensajes(idConversacion);
-                            cin.get();
+                            do{
+                                listarMensajes(idConversacion);
+                            } while(menuVerInfoMensaje() != 2);
+                            menuVerMensaje();
                             break;
                         case 2:
                             menuVerMensaje();
@@ -642,6 +646,26 @@ void menuVerMensaje() {
         cout << ia.what() << "\n";
         cin.get();
     }
+}
+
+int menuVerInfoMensaje(){
+    int opcion;
+    int codigoMensaje;
+    cout << "\n\nLista de operaciones disponibles:\n\n";
+    cout << "1)  Ver información del mensaje\n";
+    cout << "2)  Volver\n";
+    cout << "\nIngrese una opcion: ";
+    cin >> opcion;
+    switch (opcion) {
+        case 1:
+            cout << "\nIngrese el codigo del mensaje: ";
+            cin >> codigoMensaje;
+            listarReceptores(codigoMensaje);
+            cin.get();
+            cin.get();
+            break;
+    }
+    return opcion;
 }
 
 void menuEliminarMensaje() {
@@ -884,6 +908,18 @@ void listarMensajes(int idConversacion){
             }catch(exception& e){
                 cout << "Error en cast para TarjetaContacto\n";
             }
+        }
+    }
+}
+
+void listarReceptores(int codigoMensaje){
+    map<string,DtReceptor> receptores = iMensajeController->verInfoMensajeEnviado(codigoMensaje);
+    map<string,DtReceptor>::iterator i;
+    if(receptores.size() == 0){
+        cout << "\nEl mensaje no tiene receptores.\n";
+    }else{
+        for(i = receptores.begin(); i != receptores.end(); ++i){
+            cout << i->second << "\n";
         }
     }
 }
