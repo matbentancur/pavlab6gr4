@@ -20,6 +20,8 @@ class IConversacionController {
         virtual bool agregarSeleccionContactoGrupo(string) = 0;
         virtual bool quitarSeleccionContactoGrupo(string) = 0;
         virtual bool altaGrupo(string,string) = 0;
+        virtual map<string,DtContacto> listarContactosElegidos() = 0;
+        virtual map<string,DtContacto> listarContactosRestantes() = 0;
         virtual ~IConversacionController(){};
 };
 

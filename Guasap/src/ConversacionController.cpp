@@ -92,5 +92,11 @@ map<string,DtContacto> ConversacionController::listarContactosElegidos(){
     return this->listaContactosGrupoElegidos;
 }
 map<string,DtContacto> ConversacionController::listarContactosRestantes(){
-    return this->listaContactosGrupoRestantes;
+    Sesion* sesion = Sesion::getInstancia();
+    ManejadorUsuario* manejadorUsuario = ManejadorUsuario::getInstancia();
+    Usuario* usuario = manejadorUsuario->findUsuario(sesion->getSesion());
+    if (this->listaContactosGrupoElegidos.size() == 0){
+        listaContactosGrupoRestantes = usuario->obtenerContactos();
+    }
+    return listaContactosGrupoRestantes;
 }

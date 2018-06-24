@@ -42,6 +42,8 @@ void listarConversacionesArchivadas();
 int cantidadConversacionesArchivadas();
 void listarMensajes(int);
 void listarReceptores(int);
+void listarContactosElegidos();
+void listarContactosRestantes();
 
 UsuarioFactory* usuarioFactory = UsuarioFactory::getInstancia();
 IUsuarioController* iUsuarioController = usuarioFactory->getIUsuarioController();
@@ -309,7 +311,7 @@ void menuAgregarContactos(){
         cout << "\n\nLista de operaciones disponibles:\n\n";
         cout << "1)  Agregar nuevo contacto\n";
         cout << "2)  Volver\n";
-        cout << "Ingrese una opcion: ";
+        cout << "\nIngrese una opcion: ";
         cin >> opcion;
         switch (opcion) {
             case 1:
@@ -350,20 +352,16 @@ void menuAltaGrupo(){
     string celularContacto;
     int opGrupo;
     bool salirGrupo = false;
-    try{
-        cout << "\n\tAlta grupo\n";
-        cout<< "\nIngrese el nombre del grupo: ";
-        cin>> nomGrupo;
-        cout<< "\nIngrese URL del grupo: ";
-        cin>> urlGrupo;
-        if(iConversacionController->altaGrupo(nomGrupo,urlGrupo)){
-            cout<< "\n\nSe creo el grupo con nombre "+ nomGrupo + " y URL " + urlGrupo +"\n";
-        }
+    try {
         do{
-            cout << "\n\nLista de operaciones disponibles:\n\n";
-            cout<< "1) Agregar contactos al grupo\n";
-            cout<< "2) Quitar contactos al grupo\n";
-            cout<< "3) Volver\n";
+            cout << "\n\nContactos elegidos\n\n";
+            listarContactosElegidos();
+            cout << "\nContactos restantes\n\n";
+            listarContactosRestantes();
+            cout << "\nLista de operaciones disponibles:\n\n";
+            cout<< "1)  Agregar contactos al grupo\n";
+            cout<< "2)  Quitar contactos al grupo\n";
+            cout<< "3)  Continuar con la creacion del grupo\n";
             cout << "\nIngrese una opcion: ";
             cin>> opGrupo;
             switch(opGrupo){
@@ -374,16 +372,61 @@ void menuAltaGrupo(){
                         cout<< "\nContacto agregado con exito.\n";
                     }
                     break;
-                case 2:
-                    cout << "\nIngrese el celular del contacto que quiere eliminar del grupo: ";
-                    cin >> celularContacto;
-                    if(iConversacionController->quitarSeleccionContactoGrupo(celularContacto)){
-                        cout<< "\nContacto eliminado con exito.\n";
+                case 2: {
+                    map<string,DtContacto> elegidos = iConversacionController->listarContactosElegidos();
+                    if(elegidos.size() == 0){
+                        cout << "\nDebe elegir al menos un contacto para crear el grupo.\n";
+                        cout << "\nLista de operaciones disponibles:\n\n";
+                        cout<< "1)  Volver al menu alta grupo\n";
+                        cout<< "2)  Volver al menu principal\n";
+                        cout << "\nIngrese una opcion: ";
+                        cin>> opGrupo;
+                        switch(opGrupo){
+                        case 1:
+                            menuAltaGrupo();
+                            break;
+                        case 2:
+                            menuPrincipal();
+                            break;
+                        }
+                    }else{
+                        cout << "\nIngrese el celular del contacto que quiere eliminar del grupo: ";
+                        cin >> celularContacto;
+                        if(iConversacionController->quitarSeleccionContactoGrupo(celularContacto)){
+                            cout<< "\nContacto eliminado con exito.\n";
+                        }
                     }
                     break;
-                case 3:
-                    salirGrupo = true;
+                }
+                case 3: {
+                    map<string,DtContacto> elegidos = iConversacionController->listarContactosElegidos();
+                    if(elegidos.size() == 0){
+                        cout << "\nDebe elegir al menos un contacto para crear el grupo.\n";
+                        cout << "\nLista de operaciones disponibles:\n\n";
+                        cout<< "1)  Volver al menu alta grupo\n";
+                        cout<< "2)  Volver al menu principal\n";
+                        cout << "\nIngrese una opcion: ";
+                        cin>> opGrupo;
+                        switch(opGrupo){
+                        case 1:
+                            menuAltaGrupo();
+                            break;
+                        case 2:
+                            menuPrincipal();
+                            break;
+                        }
+                    }else{
+                        cout<< "\nIngrese el nombre del grupo: ";
+                        cin>> nomGrupo;
+                        cout<< "\nIngrese URL del grupo: ";
+                        cin>> urlGrupo;
+                        if(iConversacionController->altaGrupo(nomGrupo,urlGrupo)){
+                            cout<< "\n\nSe creo el grupo con nombre " + nomGrupo + " y URL " + urlGrupo + "\n";
+                        }
+                        salirGrupo = true;
+                    }
                     break;
+                }
                 default:
                     cout << "\nNo ingreso una opcion valida, vuelva a intentarlo...\n";
             }
@@ -517,6 +560,7 @@ DtMensaje* menuNuevoMensaje(){
     int numOper;
     int tamanio;
     int duracion;
+    DtMensaje* dtMensaje = new DtMensaje();
     string celularIngresado, celularContacto, nombre, url, descripcion, texto, formato = "";
     cout << "\n\tTipo de mensaje a enviar\n\n";
     cout << "1)  Simple\n";
@@ -532,7 +576,6 @@ DtMensaje* menuNuevoMensaje(){
             cin >> texto;
             DtSimple* dtMensaje = new DtSimple(texto);
             return dtMensaje;
-            break;
         }
         case 2: {
             cout << "\n\tMensaje de Imagen\n";
@@ -551,7 +594,6 @@ DtMensaje* menuNuevoMensaje(){
             }
             DtImagen* dtMensaje = new DtImagen(url, formato, tamanio, descripcion);
             return dtMensaje;
-            break;
         }
         case 3: {
             cout << "\n\tMensaje de Video\n";
@@ -561,7 +603,6 @@ DtMensaje* menuNuevoMensaje(){
             cin >> duracion;
             DtVideo* dtMensaje = new DtVideo(url, duracion);
             return dtMensaje;
-            break;
         }
         case 4: {
             cout << "\n\tMensaje de Contacto\n";
@@ -582,9 +623,9 @@ DtMensaje* menuNuevoMensaje(){
                     return dtMensaje;
                 }
             }
-            break;
         }
     }
+    return dtMensaje;
 }
 
 void menuVerMensaje() {
@@ -918,6 +959,30 @@ void listarReceptores(int codigoMensaje){
         cout << "\nEl mensaje no tiene receptores.\n";
     }else{
         for(i = receptores.begin(); i != receptores.end(); ++i){
+            cout << i->second << "\n";
+        }
+    }
+}
+
+void listarContactosElegidos(){
+    map<string,DtContacto> elegidos = iConversacionController->listarContactosElegidos();
+    map<string,DtContacto>::iterator i;
+    if(elegidos.size() == 0){
+        cout << "\nNo se han elegido contactos por el momento.\n";
+    }else{
+        for(i = elegidos.begin(); i != elegidos.end(); ++i){
+            cout << i->second << "\n";
+        }
+    }
+}
+
+void listarContactosRestantes(){
+    map<string,DtContacto> restantes = iConversacionController->listarContactosRestantes();
+    map<string,DtContacto>::iterator i;
+    if(restantes.size() == 0){
+        cout << "\nNo quedan mas contactos para elegir.\n";
+    }else{
+        for(i = restantes.begin(); i != restantes.end(); ++i){
             cout << i->second << "\n";
         }
     }
