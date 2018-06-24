@@ -26,7 +26,7 @@ class UsuarioConversacion {
         Conversacion* conversacion;
 
     public:
-        UsuarioConversacion(EstadoConversacion, Conversacion*);
+        UsuarioConversacion(FechaHora, EstadoConversacion, Conversacion*);
 
         ~UsuarioConversacion();
 

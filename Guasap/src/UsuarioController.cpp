@@ -181,37 +181,37 @@ void UsuarioController::cargarDatosPrueba(){
     g1->agregarReceptor(u4);
     g1->agregarReceptor(u5); //PRUEBAS
 
-    UsuarioConversacion* u1g1 = new UsuarioConversacion(activa,g1);
+    UsuarioConversacion* u1g1 = new UsuarioConversacion(creacion,activa,g1);
     u1->agregarUsuarioConversacion(u1g1);
 
-    UsuarioConversacion* u2g1 = new UsuarioConversacion(activa,g1);
+    UsuarioConversacion* u2g1 = new UsuarioConversacion(creacion,activa,g1);
     u2->agregarUsuarioConversacion(u2g1);
 
-    UsuarioConversacion* u3g1 = new UsuarioConversacion(activa,g1);
+    UsuarioConversacion* u3g1 = new UsuarioConversacion(creacion,activa,g1);
     u3->agregarUsuarioConversacion(u3g1);
 
-    UsuarioConversacion* u4g1 = new UsuarioConversacion(activa,g1);
+    UsuarioConversacion* u4g1 = new UsuarioConversacion(creacion,activa,g1);
     u4->agregarUsuarioConversacion(u4g1);
 
-    UsuarioConversacion* u5g1 = new UsuarioConversacion(activa,g1); //PRUEBAS
+    UsuarioConversacion* u5g1 = new UsuarioConversacion(creacion,activa,g1); //PRUEBAS
     u5->agregarUsuarioConversacion(u5g1); //PRUEBAS
 
     Privada* cs2 = new Privada(almacenamiento->getNuevoIdConversacion(), u1, u2);
-    UsuarioConversacion* u1cs2 = new UsuarioConversacion(activa,cs2);
+    UsuarioConversacion* u1cs2 = new UsuarioConversacion(creacion,activa,cs2);
     u1->agregarUsuarioConversacion(u1cs2);
-    UsuarioConversacion* u2cs2 = new UsuarioConversacion(activa,cs2);
+    UsuarioConversacion* u2cs2 = new UsuarioConversacion(creacion,activa,cs2);
     u2->agregarUsuarioConversacion(u2cs2);
 
     Privada* cs3 = new Privada(almacenamiento->getNuevoIdConversacion(), u3, u4);
-    UsuarioConversacion* u3cs3 = new UsuarioConversacion(activa,cs3);
+    UsuarioConversacion* u3cs3 = new UsuarioConversacion(creacion,activa,cs3);
     u3->agregarUsuarioConversacion(u3cs3);
-    UsuarioConversacion* u4cs3 = new UsuarioConversacion(activa,cs3);
+    UsuarioConversacion* u4cs3 = new UsuarioConversacion(creacion,activa,cs3);
     u4->agregarUsuarioConversacion(u4cs3);
 
     Privada* cs4 = new Privada(almacenamiento->getNuevoIdConversacion(), u5, u4); //PRUEBAS
-    UsuarioConversacion* u5cs4 = new UsuarioConversacion(archivada,cs4); //PRUEBAS
+    UsuarioConversacion* u5cs4 = new UsuarioConversacion(creacion,archivada,cs4); //PRUEBAS
     u5->agregarUsuarioConversacion(u5cs4); //PRUEBAS
-    UsuarioConversacion* u4cs4 = new UsuarioConversacion(activa,cs4); //PRUEBAS
+    UsuarioConversacion* u4cs4 = new UsuarioConversacion(creacion,activa,cs4); //PRUEBAS
     u4->agregarUsuarioConversacion(u4cs4); //PRUEBAS
 
     //MENSAJES

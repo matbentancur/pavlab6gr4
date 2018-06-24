@@ -73,7 +73,7 @@ bool ConversacionController::altaGrupo(string nombre,string urlImagen){
     Grupo* nuevoGrupo = new Grupo(nuevoIdConversaion, usuario, nombre, urlImagen, creacion);
     nuevoGrupo->agregarAdministrador(usuario);
     nuevoGrupo->agregarReceptor(usuario);
-    UsuarioConversacion* nuevoUsuarioConversacion = new UsuarioConversacion(activa,nuevoGrupo);
+    UsuarioConversacion* nuevoUsuarioConversacion = new UsuarioConversacion(creacion,activa,nuevoGrupo);
     usuario->agregarUsuarioConversacion(nuevoUsuarioConversacion);
 
     //agrega para cada contacto elegido un usuarioConversacion
@@ -82,7 +82,7 @@ bool ConversacionController::altaGrupo(string nombre,string urlImagen){
         DtContacto dtContacto = i->second;
         Usuario* contacto = manejadorUsuario->findUsuario(dtContacto.getCelular());
         nuevoGrupo->agregarReceptor(contacto);
-        UsuarioConversacion* nuevoUsuarioConversacion = new UsuarioConversacion(activa,nuevoGrupo);
+        UsuarioConversacion* nuevoUsuarioConversacion = new UsuarioConversacion(creacion,activa,nuevoGrupo);
         contacto->agregarUsuarioConversacion(nuevoUsuarioConversacion);
     }
     return true;

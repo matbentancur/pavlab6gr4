@@ -254,10 +254,11 @@ bool Usuario::enviarMensajeNuevaConversacion(Usuario* origen, Usuario* destino, 
     almacenamiento->setUltimoIdConversacion(nuevoIdConversacion);
     Privada* conversacion = new Privada(nuevoIdConversacion, origen, destino);
 
-    UsuarioConversacion* origenUsuarioConversacion = new UsuarioConversacion(activa,conversacion);
+    FechaHora agregado = almacenamiento->getReloj();
+    UsuarioConversacion* origenUsuarioConversacion = new UsuarioConversacion(agregado,activa,conversacion);
     origen->agregarUsuarioConversacion(origenUsuarioConversacion);
 
-    UsuarioConversacion* destinoUsuarioConversacion = new UsuarioConversacion(activa,conversacion);
+    UsuarioConversacion* destinoUsuarioConversacion = new UsuarioConversacion(agregado,activa,conversacion);
     destino->agregarUsuarioConversacion(destinoUsuarioConversacion);
     return this->enviarMensajeConversacion(nuevoIdConversacion, origen, nuevoMensaje);
 }
