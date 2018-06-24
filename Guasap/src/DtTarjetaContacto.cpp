@@ -29,10 +29,11 @@ string DtTarjetaContacto::getTelefono(){
 }
 
 ostream& operator << (ostream& salida, DtTarjetaContacto& dtTarjetaContacto) {
+    string vistoString = (dtTarjetaContacto.visto == 0) ? "No" : "Si";
     salida <<
         "Codigo: " << dtTarjetaContacto.codigo << "\n" <<
         "Enviado: " << dtTarjetaContacto.enviado <<
-        "Visto: " << dtTarjetaContacto.visto << "\n" <<
+        "Visto: " << vistoString << "\n" <<
         "Nombre: " << dtTarjetaContacto.nombre << "\n" <<
         "Telefono: " << dtTarjetaContacto.telefono << "\n";
     return salida;

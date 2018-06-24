@@ -23,10 +23,11 @@ string DtSimple::getTexto(){
 }
 
 ostream& operator << (ostream& salida, DtSimple& dtSimple) {
+    string vistoString = (dtSimple.visto == 0) ? "No" : "Si";
     salida <<
         "Codigo: " << dtSimple.codigo << "\n" <<
         "Enviado: " << dtSimple.enviado <<
-        "Visto: " << dtSimple.visto << "\n" <<
+        "Visto: " << vistoString << "\n" <<
         "Texto: " << dtSimple.texto << "\n";
     return salida;
 }

@@ -87,3 +87,10 @@ bool ConversacionController::altaGrupo(string nombre,string urlImagen){
     }
     return true;
 }
+
+map<string,DtContacto> ConversacionController::listarContactosElegidos(){
+    return this->listaContactosGrupoElegidos;
+}
+map<string,DtContacto> ConversacionController::listarContactosRestantes(){
+    return this->listaContactosGrupoRestantes;
+}

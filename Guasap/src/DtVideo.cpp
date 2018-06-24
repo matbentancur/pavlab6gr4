@@ -29,10 +29,11 @@ int DtVideo::getDuracion(){
 }
 
 ostream& operator << (ostream& salida, DtVideo& dtVideo) {
+    string vistoString = (dtVideo.visto == 0) ? "No" : "Si";
     salida <<
         "Codigo: " << dtVideo.codigo << "\n" <<
         "Enviado: " << dtVideo.enviado <<
-        "Visto: " << dtVideo.visto << "\n" <<
+        "Visto: " << vistoString << "\n" <<
         "URL: " << dtVideo.url << "\n" <<
         "Duracion: " << dtVideo.duracion << "\n";
     return salida;

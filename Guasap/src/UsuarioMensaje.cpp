@@ -47,6 +47,6 @@ Usuario* UsuarioMensaje::getUsuario(){
 }
 
 DtReceptor UsuarioMensaje::getDtReceptor(){
-    DtReceptor dtReceptor = DtReceptor(this->usuario->getCelular(), this->usuario->getNombre(), this->vistoFechaHora);
+    DtReceptor dtReceptor = DtReceptor(this->usuario->getCelular(), this->usuario->getNombre(), this->visto, this->vistoFechaHora);
     return dtReceptor;
 }

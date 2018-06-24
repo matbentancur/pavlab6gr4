@@ -52,7 +52,6 @@ IConversacionController* iConversacionController = conversacionFactory->getIConv
 MensajeFactory* mensajeFactory = MensajeFactory::getInstancia();
 IMensajeController* iMensajeController = mensajeFactory->getIMensajeController();
 
-
 int main() {
     int numOper = 0;
     string celularIngresado, celularContacto, nombre, urlImagen, descripcion, textoMensaje, urlVideo, formatoMensaje, tamanioMensaje, descripcionMensaje, duracionMensaje = "";

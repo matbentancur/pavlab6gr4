@@ -19,6 +19,8 @@ class ConversacionController : public IConversacionController {
         bool agregarSeleccionContactoGrupo(string);
         bool quitarSeleccionContactoGrupo(string);
         bool altaGrupo(string,string);
+        map<string,DtContacto> listarContactosElegidos();
+        map<string,DtContacto> listarContactosRestantes();
 };
 
 #endif // CONVERSACIONCONTROLLER_H

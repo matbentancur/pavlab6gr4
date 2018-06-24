@@ -12,14 +12,16 @@ class DtReceptor{
     private:
         string celular;
         string nombre;
+        bool visto;
         FechaHora vistoFechaHora;
 
     public:
         DtReceptor();
-        DtReceptor(string,string,FechaHora);
+        DtReceptor(string,string,bool,FechaHora);
         virtual ~DtReceptor();
         string getCelular();
         string getNombre();
+        bool getVisto();
         FechaHora getVistoFechaHora();
 
         friend ostream& operator << (ostream &salida, DtReceptor&);

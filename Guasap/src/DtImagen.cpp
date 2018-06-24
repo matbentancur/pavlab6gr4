@@ -41,10 +41,11 @@ string DtImagen::getTexto(){
 }
 
 ostream& operator << (ostream& salida, DtImagen& dtImagen) {
+    string vistoString = (dtImagen.visto == 0) ? "No" : "Si";
     salida <<
         "Codigo: " << dtImagen.codigo << "\n" <<
         "Enviado: " << dtImagen.enviado <<
-        "Visto: " << dtImagen.visto << "\n" <<
+        "Visto: " << vistoString << "\n" <<
         "URL: " << dtImagen.url << "\n" <<
         "Formato: " << dtImagen.formato << "\n" <<
         "Tamanio: " << dtImagen.tamanio << "\n" <<
