@@ -54,35 +54,47 @@ DtContacto UsuarioController::agregarContacto(string celular){
 
 bool UsuarioController::confirmarContacto(){
     Sesion* sesion = Sesion::getInstancia();
-    ManejadorUsuario* manejadorUsuario = ManejadorUsuario::getInstancia();
-    Usuario* usuario = manejadorUsuario->findUsuario(sesion->getSesion());
-    Usuario* contacto = manejadorUsuario->findUsuario(this->getCelularContacto());
-    if(usuario->agregarContacto(contacto)){
-        return true;
+    if(sesion->getSesion() == "NULL"){
+        throw logic_error("\nNo hay ninguna sesion activa, primero debe iniciar sesion.\n");
+    }else{
+        ManejadorUsuario* manejadorUsuario = ManejadorUsuario::getInstancia();
+        Usuario* usuario = manejadorUsuario->findUsuario(sesion->getSesion());
+        Usuario* contacto = manejadorUsuario->findUsuario(this->getCelularContacto());
+        if(usuario->agregarContacto(contacto)){
+            return true;
+        }
+        return false;
     }
-    return false;
 }
 
 EstadoIngreso UsuarioController::ingresar(string celularIngresado){
     Sesion* sesion = Sesion::getInstancia();
-    EstadoIngreso estadoIngreso = sesion->getEstado(celularIngresado);
-    if(estadoIngreso == userOK){
-        sesion->setSesion(celularIngresado);
+    if(sesion->getSesion() == "NULL"){
+        throw logic_error("\nNo hay ninguna sesion activa, primero debe iniciar sesion.\n");
+    }else{
+        EstadoIngreso estadoIngreso = sesion->getEstado(celularIngresado);
+        if(estadoIngreso == userOK){
+            sesion->setSesion(celularIngresado);
+        }
+        return estadoIngreso;
     }
-    return estadoIngreso;
 }
 
 FechaHora UsuarioController::crearUsuario(string celular, string nombre, string imagen, string descripcion){
     Sesion* sesion = Sesion::getInstancia();
-    Usuario* usuario = new Usuario(celular, nombre, imagen, descripcion);
-    Almacenamiento* almacenamiento = Almacenamiento::getInstancia();
-    FechaHora registro = almacenamiento->getReloj();
-    usuario->setRegistro(registro);
-    ManejadorUsuario* manejadorUsuario = ManejadorUsuario::getInstancia();
-    if(manejadorUsuario->agregarUsuario(usuario)){
-        sesion->setSesion(celular);
+    if(sesion->getSesion() == "NULL"){
+        throw logic_error("\nNo hay ninguna sesion activa, primero debe iniciar sesion.\n");
+    }else{
+        Usuario* usuario = new Usuario(celular, nombre, imagen, descripcion);
+        Almacenamiento* almacenamiento = Almacenamiento::getInstancia();
+        FechaHora registro = almacenamiento->getReloj();
+        usuario->setRegistro(registro);
+        ManejadorUsuario* manejadorUsuario = ManejadorUsuario::getInstancia();
+        if(manejadorUsuario->agregarUsuario(usuario)){
+            sesion->setSesion(celular);
+        }
+        return registro;
     }
-    return registro;
 }
 
 DtContacto UsuarioController::modificarUsuario(string nombre, string imagen, string descripcion){
