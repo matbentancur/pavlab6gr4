@@ -15,7 +15,6 @@ map<int,DtConversacion*> ConversacionController::listarConversacionesActivas(){
     if(sesion->getSesion() == "NULL"){
         throw logic_error("\nNo hay ninguna sesion activa, primero debe iniciar sesion.\n");
     }else{
-        Sesion* sesion = Sesion::getInstancia();
         ManejadorUsuario* manejadorUsuario = ManejadorUsuario::getInstancia();
         Usuario* usuario = manejadorUsuario->findUsuario(sesion->getSesion());
         return usuario->obtenerConversacionesActivas();
@@ -24,68 +23,88 @@ map<int,DtConversacion*> ConversacionController::listarConversacionesActivas(){
 
 map<int,DtConversacion*> ConversacionController::listarConversacionesArchivadas(){
     Sesion* sesion = Sesion::getInstancia();
-    ManejadorUsuario* manejadorUsuario = ManejadorUsuario::getInstancia();
-    Usuario* usuario = manejadorUsuario->findUsuario(sesion->getSesion());
-    return usuario->obtenerConversacionesArchivadas();
+    if(sesion->getSesion() == "NULL"){
+        throw logic_error("\nNo hay ninguna sesion activa, primero debe iniciar sesion.\n");
+    }else{
+        ManejadorUsuario* manejadorUsuario = ManejadorUsuario::getInstancia();
+        Usuario* usuario = manejadorUsuario->findUsuario(sesion->getSesion());
+        return usuario->obtenerConversacionesArchivadas();
+    }
 }
 
 bool ConversacionController::archivarConversacion(int idConversacion){
     Sesion* sesion = Sesion::getInstancia();
-    ManejadorUsuario* manejadorUsuario = ManejadorUsuario::getInstancia();
-    Usuario* usuario = manejadorUsuario->findUsuario(sesion->getSesion());
-    return usuario->archivarConversacion(idConversacion);
+    if(sesion->getSesion() == "NULL"){
+        throw logic_error("\nNo hay ninguna sesion activa, primero debe iniciar sesion.\n");
+    }else{
+        ManejadorUsuario* manejadorUsuario = ManejadorUsuario::getInstancia();
+        Usuario* usuario = manejadorUsuario->findUsuario(sesion->getSesion());
+        return usuario->archivarConversacion(idConversacion);
+    }
 }
 
 bool ConversacionController::agregarSeleccionContactoGrupo(string celular){
     Sesion* sesion = Sesion::getInstancia();
-    ManejadorUsuario* manejadorUsuario = ManejadorUsuario::getInstancia();
-    Usuario* usuario = manejadorUsuario->findUsuario(sesion->getSesion());
-    if (this->listaContactosGrupoElegidos.size() == 0){
-        listaContactosGrupoRestantes = usuario->obtenerContactos();
+    if(sesion->getSesion() == "NULL"){
+        throw logic_error("\nNo hay ninguna sesion activa, primero debe iniciar sesion.\n");
+    }else{
+        ManejadorUsuario* manejadorUsuario = ManejadorUsuario::getInstancia();
+        Usuario* usuario = manejadorUsuario->findUsuario(sesion->getSesion());
+        if (this->listaContactosGrupoElegidos.size() == 0){
+            listaContactosGrupoRestantes = usuario->obtenerContactos();
+        }
+        Usuario* contacto = manejadorUsuario->findUsuario(celular);
+        listaContactosGrupoElegidos.insert(std::pair<string, DtContacto>(celular, contacto->getDtContacto()));
+        listaContactosGrupoRestantes.erase(celular);
+        return true;
     }
-    Usuario* contacto = manejadorUsuario->findUsuario(celular);
-    listaContactosGrupoElegidos.insert(std::pair<string, DtContacto>(celular, contacto->getDtContacto()));
-    listaContactosGrupoRestantes.erase(celular);
-    return true;
 }
 
 bool ConversacionController::quitarSeleccionContactoGrupo(string celular){
     Sesion* sesion = Sesion::getInstancia();
-    ManejadorUsuario* manejadorUsuario = ManejadorUsuario::getInstancia();
-    Usuario* usuario = manejadorUsuario->findUsuario(sesion->getSesion());
-    if (this->listaContactosGrupoElegidos.size() == 0){
-        listaContactosGrupoRestantes = usuario->obtenerContactos();
+    if(sesion->getSesion() == "NULL"){
+        throw logic_error("\nNo hay ninguna sesion activa, primero debe iniciar sesion.\n");
+    }else{
+        ManejadorUsuario* manejadorUsuario = ManejadorUsuario::getInstancia();
+        Usuario* usuario = manejadorUsuario->findUsuario(sesion->getSesion());
+        if (this->listaContactosGrupoElegidos.size() == 0){
+            listaContactosGrupoRestantes = usuario->obtenerContactos();
+        }
+        Usuario* contacto = manejadorUsuario->findUsuario(celular);
+        listaContactosGrupoRestantes.insert(std::pair<string, DtContacto>(celular, contacto->getDtContacto()));
+        listaContactosGrupoElegidos.erase(celular);
+        return true;
     }
-    Usuario* contacto = manejadorUsuario->findUsuario(celular);
-    listaContactosGrupoRestantes.insert(std::pair<string, DtContacto>(celular, contacto->getDtContacto()));
-    listaContactosGrupoElegidos.erase(celular);
-    return true;
 }
 
 bool ConversacionController::altaGrupo(string nombre,string urlImagen){
     Sesion* sesion = Sesion::getInstancia();
-    ManejadorUsuario* manejadorUsuario = ManejadorUsuario::getInstancia();
-    Usuario* usuario = manejadorUsuario->findUsuario(sesion->getSesion());
-    Almacenamiento* almacenamiento = Almacenamiento::getInstancia();
-    int nuevoIdConversaion = almacenamiento->getNuevoIdConversacion();
-    almacenamiento->setUltimoIdConversacion(nuevoIdConversaion);
-    FechaHora creacion = almacenamiento->getReloj();
-    Grupo* nuevoGrupo = new Grupo(nuevoIdConversaion, usuario, nombre, urlImagen, creacion);
-    nuevoGrupo->agregarAdministrador(usuario);
-    nuevoGrupo->agregarReceptor(usuario);
-    UsuarioConversacion* nuevoUsuarioConversacion = new UsuarioConversacion(creacion,activa,nuevoGrupo);
-    usuario->agregarUsuarioConversacion(nuevoUsuarioConversacion);
-
-    //agrega para cada contacto elegido un usuarioConversacion
-    map<string,DtContacto>::iterator i;
-    for(i = listaContactosGrupoElegidos.begin(); i != listaContactosGrupoElegidos.end(); ++i){
-        DtContacto dtContacto = i->second;
-        Usuario* contacto = manejadorUsuario->findUsuario(dtContacto.getCelular());
-        nuevoGrupo->agregarReceptor(contacto);
+    if(sesion->getSesion() == "NULL"){
+        throw logic_error("\nNo hay ninguna sesion activa, primero debe iniciar sesion.\n");
+    }else{
+        ManejadorUsuario* manejadorUsuario = ManejadorUsuario::getInstancia();
+        Usuario* usuario = manejadorUsuario->findUsuario(sesion->getSesion());
+        Almacenamiento* almacenamiento = Almacenamiento::getInstancia();
+        int nuevoIdConversaion = almacenamiento->getNuevoIdConversacion();
+        almacenamiento->setUltimoIdConversacion(nuevoIdConversaion);
+        FechaHora creacion = almacenamiento->getReloj();
+        Grupo* nuevoGrupo = new Grupo(nuevoIdConversaion, usuario, nombre, urlImagen, creacion);
+        nuevoGrupo->agregarAdministrador(usuario);
+        nuevoGrupo->agregarReceptor(usuario);
         UsuarioConversacion* nuevoUsuarioConversacion = new UsuarioConversacion(creacion,activa,nuevoGrupo);
-        contacto->agregarUsuarioConversacion(nuevoUsuarioConversacion);
-    }
+        usuario->agregarUsuarioConversacion(nuevoUsuarioConversacion);
+
+        //agrega para cada contacto elegido un usuarioConversacion
+        map<string,DtContacto>::iterator i;
+        for(i = listaContactosGrupoElegidos.begin(); i != listaContactosGrupoElegidos.end(); ++i){
+            DtContacto dtContacto = i->second;
+            Usuario* contacto = manejadorUsuario->findUsuario(dtContacto.getCelular());
+            nuevoGrupo->agregarReceptor(contacto);
+            UsuarioConversacion* nuevoUsuarioConversacion = new UsuarioConversacion(creacion,activa,nuevoGrupo);
+            contacto->agregarUsuarioConversacion(nuevoUsuarioConversacion);
+        }
     return true;
+    }
 }
 
 map<string,DtContacto> ConversacionController::listarContactosElegidos(){
@@ -93,10 +112,14 @@ map<string,DtContacto> ConversacionController::listarContactosElegidos(){
 }
 map<string,DtContacto> ConversacionController::listarContactosRestantes(){
     Sesion* sesion = Sesion::getInstancia();
-    ManejadorUsuario* manejadorUsuario = ManejadorUsuario::getInstancia();
-    Usuario* usuario = manejadorUsuario->findUsuario(sesion->getSesion());
-    if (this->listaContactosGrupoElegidos.size() == 0){
-        listaContactosGrupoRestantes = usuario->obtenerContactos();
+    if(sesion->getSesion() == "NULL"){
+        throw logic_error("\nNo hay ninguna sesion activa, primero debe iniciar sesion.\n");
+    }else{
+        ManejadorUsuario* manejadorUsuario = ManejadorUsuario::getInstancia();
+        Usuario* usuario = manejadorUsuario->findUsuario(sesion->getSesion());
+        if (this->listaContactosGrupoElegidos.size() == 0){
+            listaContactosGrupoRestantes = usuario->obtenerContactos();
+        }
+        return listaContactosGrupoRestantes;
     }
-    return listaContactosGrupoRestantes;
 }
