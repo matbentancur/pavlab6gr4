@@ -482,6 +482,12 @@ void menuModificarUsuario() {
     string urlImagen;
     string descripcion;
     try{
+        FechaHora reloj = iUsuarioController->consultarReloj();
+    }catch(invalid_argument& ia){
+        cout << ia.what() << "\n";
+        cin.get();
+    }
+    try{
         cout << "\n\tModificar usuario\n\n";
         cout << "\nIngrese el nuevo nombre: ";
         cin >> nombre;
@@ -820,6 +826,13 @@ void menuModificarReloj() {
     int anio;
     int hora;
     int minuto;
+    try{
+        FechaHora reloj = iUsuarioController->consultarReloj();
+        cout << "La fecha/hora es " << reloj;
+    }catch(invalid_argument& ia){
+        cout << ia.what() << "\n";
+        cin.get();
+    }
     cout << "\n\tModificar fecha del sistema\n\n";
     cout << "Ingrese dia\n";
     cin >> dia;
