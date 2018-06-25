@@ -354,9 +354,9 @@ void menuAltaGrupo(){
     bool salirGrupo = false;
     try {
         do{
-            cout << "\n\nContactos elegidos\n\n";
+            cout << "\n\nContactos elegidos:\n\n";
             listarContactosElegidos();
-            cout << "\nContactos restantes\n\n";
+            cout << "\nContactos restantes:\n\n";
             listarContactosRestantes();
             cout << "\nLista de operaciones disponibles:\n\n";
             cout<< "1)  Agregar contactos al grupo\n";

@@ -140,7 +140,26 @@ map<int,DtConversacion*> Usuario::obtenerConversacionesArchivadas(){
 	return listaConversaciones;
 }
 
+map<int,DtConversacion*> Usuario::obtenerConversaciones(){
+    map<int,DtConversacion*> listaConversaciones;
+	set<UsuarioConversacion*>::iterator i;
+    for(i = usuarioConversacion.begin(); i != usuarioConversacion.end(); ++i){
+        UsuarioConversacion* usuarioConversacion = *i;
+        DtConversacion* dtConversacion = usuarioConversacion->obtenerConversacion();
+        listaConversaciones.insert(std::pair<int, DtConversacion*>(dtConversacion->getIdConversacion(), dtConversacion));
+	}
+	return listaConversaciones;
+}
+
 map<int,DtMensaje*> Usuario::obtenerMensajes(int idConversacion){
+    //Verifica que la conversacion sea del usuario
+    map<int,DtConversacion*>::iterator i2;
+    map<int,DtConversacion*> listaConversaciones = this->obtenerConversaciones();
+    i2 = listaConversaciones.find(idConversacion);
+    if (i2 == listaConversaciones.end()){
+        throw logic_error("\nLa conversacion seleccionada no pertenece al usuario.\n");
+    }
+
     map<int,DtMensaje*> listaMensajes;
     set<UsuarioConversacion*>::iterator i;
     for(i = usuarioConversacion.begin(); i != usuarioConversacion.end(); ++i){

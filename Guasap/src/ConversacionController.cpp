@@ -51,6 +51,9 @@ bool ConversacionController::agregarSeleccionContactoGrupo(string celular){
         listaContactosGrupoRestantes = usuario->obtenerContactos();
     }
     Usuario* contacto = manejadorUsuario->findUsuario(celular);
+    if(contacto == NULL){
+        throw logic_error("\nNo existe un usuario con numero de celular: " + celular + "\n");
+    }
     listaContactosGrupoElegidos.insert(std::pair<string, DtContacto>(celular, contacto->getDtContacto()));
     listaContactosGrupoRestantes.erase(celular);
     return true;
@@ -67,6 +70,9 @@ bool ConversacionController::quitarSeleccionContactoGrupo(string celular){
         listaContactosGrupoRestantes = usuario->obtenerContactos();
     }
     Usuario* contacto = manejadorUsuario->findUsuario(celular);
+    if(contacto == NULL){
+        throw logic_error("\nNo existe un usuario con numero de celular: " + celular + "\n");
+    }
     listaContactosGrupoRestantes.insert(std::pair<string, DtContacto>(celular, contacto->getDtContacto()));
     listaContactosGrupoElegidos.erase(celular);
     return true;
@@ -76,6 +82,9 @@ bool ConversacionController::altaGrupo(string nombre,string urlImagen){
     Sesion* sesion = Sesion::getInstancia();
     if(sesion->getSesion() == "NULL"){
         throw logic_error("\nNo hay ninguna sesion activa, primero debe iniciar sesion.\n");
+    }
+    if (this->listaContactosGrupoElegidos.size() == 0){
+        throw logic_error("\nDebe seleccionar al menos un contacto para crear el grupo.\n");
     }
     ManejadorUsuario* manejadorUsuario = ManejadorUsuario::getInstancia();
     Usuario* usuario = manejadorUsuario->findUsuario(sesion->getSesion());

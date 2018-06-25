@@ -74,9 +74,6 @@ EstadoIngreso UsuarioController::ingresar(string celularIngresado){
 
 FechaHora UsuarioController::crearUsuario(string celular, string nombre, string imagen, string descripcion){
     Sesion* sesion = Sesion::getInstancia();
-    if(sesion->getSesion() == "NULL"){
-        throw logic_error("\nNo hay ninguna sesion activa, primero debe iniciar sesion.\n");
-    }
     Usuario* usuario = new Usuario(celular, nombre, imagen, descripcion);
     Almacenamiento* almacenamiento = Almacenamiento::getInstancia();
     FechaHora registro = almacenamiento->getReloj();
