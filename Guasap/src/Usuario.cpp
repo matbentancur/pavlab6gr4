@@ -172,6 +172,14 @@ map<int,DtMensaje*> Usuario::obtenerMensajes(int idConversacion){
 }
 
 map<string,DtReceptor> Usuario::verInfoMensaje(int idConversacion, int codigo){
+    //Verifica que el mensaje este disponible para el usuario
+    map<int,DtMensaje*>::iterator i2;
+    map<int,DtMensaje*> listaMensajes = this->obtenerMensajes(idConversacion);
+    i2 = listaMensajes.find(codigo);
+    if (i2 == listaMensajes.end()){
+        throw logic_error("\nEl mensaje seleccionado no pertenece al usuario.\n");
+    }
+
     map<string,DtReceptor> listaReceptores;
     set<UsuarioConversacion*>::iterator i;
     for(i = usuarioConversacion.begin(); i != usuarioConversacion.end(); ++i){
@@ -184,6 +192,14 @@ map<string,DtReceptor> Usuario::verInfoMensaje(int idConversacion, int codigo){
 }
 
 bool Usuario::archivarConversacion(int idConversacion){
+    //Verifica que la conversacion sea del usuario
+    map<int,DtConversacion*>::iterator i2;
+    map<int,DtConversacion*> listaConversaciones = this->obtenerConversacionesActivas();
+    i2 = listaConversaciones.find(idConversacion);
+    if (i2 == listaConversaciones.end()){
+        throw logic_error("\nLa conversacion seleccionada no pertenece al usuario o la misma ya fue archivada.\n");
+    }
+
     set<UsuarioConversacion*>::iterator i;
     for(i = usuarioConversacion.begin(); i != usuarioConversacion.end(); ++i){
         UsuarioConversacion* usuarioConversacion = *i;
@@ -196,6 +212,14 @@ bool Usuario::archivarConversacion(int idConversacion){
 }
 
 bool Usuario::activarConversacion(int idConversacion){
+    //Verifica que la conversacion sea del usuario
+    map<int,DtConversacion*>::iterator i2;
+    map<int,DtConversacion*> listaConversaciones = this->obtenerConversacionesArchivadas();
+    i2 = listaConversaciones.find(idConversacion);
+    if (i2 == listaConversaciones.end()){
+        throw logic_error("\nLa conversacion seleccionada no pertenece al usuario o la misma ya esta activa.\n");
+    }
+
     set<UsuarioConversacion*>::iterator i;
     for(i = usuarioConversacion.begin(); i != usuarioConversacion.end(); ++i){
         UsuarioConversacion* usuarioConversacion = *i;
