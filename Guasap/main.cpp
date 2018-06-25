@@ -265,23 +265,30 @@ int main() {
 }
 
 void menuPrincipal() {
-  cout << "\nProgramacion Avanzada - Laboratorio 6\n\n";
-  cout << "\t\tGUASAP\n\n";
-  cout << "Lista de operaciones disponibles:\n\n";
-  cout << "1)  Abrir Guasap\n";
-  cout << "2)  Cerrar Guasap\n";
-  cout << "3)  Agregar contactos\n";
-  cout << "4)  Alta grupo\n";
-  cout << "5)  Enviar mensajes\n";
-  cout << "6)  Ver mensajes\n";
-  cout << "7)  Archivar conversaciones\n";
-  cout << "8)  Modificar usuario\n";
-  cout << "9)  Eliminar mensajes\n";
-  cout << "10) Modificar fecha del sistema\n";
-  cout << "11) Consultar fecha del sistema\n";
-  cout << "12) Inicializar/cargar un conjunto de datos de prueba\n";
-  cout << "13) Salir\n\n";
-  cout << "Ingrese el numero de la operacion a realizar: ";
+    cout << string( 50, '\n' );
+    cout << "  #####                                     \n";
+    cout << " #     # #    #   ##    ####    ##   #####  \n";
+    cout << " #       #    #  #  #  #       #  #  #    # \n";
+    cout << " #  #### #    # #    #  ####  #    # #    # \n";
+    cout << " #     # #    # ######      # ###### #####  \n";
+    cout << " #     # #    # #    # #    # #    # #      \n";
+    cout << "  #####   ####  #    #  ####  #    # #      \n";
+    cout << "\nProgramacion Avanzada - Laboratorio 6\n\n";
+    cout << "Lista de operaciones disponibles:\n\n";
+    cout << "1)  Abrir Guasap\n";
+    cout << "2)  Cerrar Guasap\n";
+    cout << "3)  Agregar contactos\n";
+    cout << "4)  Alta grupo\n";
+    cout << "5)  Enviar mensajes\n";
+    cout << "6)  Ver mensajes\n";
+    cout << "7)  Archivar conversaciones\n";
+    cout << "8)  Modificar usuario\n";
+    cout << "9)  Eliminar mensajes\n";
+    cout << "10) Modificar fecha del sistema\n";
+    cout << "11) Consultar fecha del sistema\n";
+    cout << "12) Inicializar/cargar un conjunto de datos de prueba\n";
+    cout << "13) Salir\n\n";
+    cout << "Ingrese el numero de la operacion a realizar: ";
 }
 
 void menuCerrarGuasap(){
