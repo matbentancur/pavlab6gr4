@@ -2,6 +2,7 @@
 #define CONVERSACION_H_INCLUDED
 
 #include <map>
+#include "FechaHora.h"
 #include "DtPrivada.h"
 #include "DtGrupo.h"
 #include "DtMensaje.h"
@@ -30,7 +31,7 @@ class Conversacion{
         void setOrigen(Usuario*);
 
         virtual DtConversacion* getDtConversacion() = 0;
-        map<int,DtMensaje*> getMensajes();
+        map<int,DtMensaje*> getMensajes(FechaHora);
         map<string,DtReceptor> verInfoMensaje(int);
 
         virtual bool agregrarMensaje(Mensaje*) = 0;

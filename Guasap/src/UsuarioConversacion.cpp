@@ -40,7 +40,7 @@ DtConversacion* UsuarioConversacion::obtenerConversacion(){
 }
 
 map<int,DtMensaje*> UsuarioConversacion::obtenerMensajes(){
-    return this->conversacion->getMensajes();
+    return this->conversacion->getMensajes(this->getAgregadoEnConversacion());
 }
 
 map<string,DtReceptor> UsuarioConversacion::verInfoMensaje(int codigo){

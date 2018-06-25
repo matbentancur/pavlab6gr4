@@ -24,7 +24,7 @@ void Conversacion::setOrigen(Usuario* origen){
         this->origen = origen;
 }
 
-map<int,DtMensaje*> Conversacion::getMensajes(){
+map<int,DtMensaje*> Conversacion::getMensajes(FechaHora agregadoEnConversacion){
     Sesion* sesion = Sesion::getInstancia();
     ManejadorUsuario* manejadorUsuario = ManejadorUsuario::getInstancia();
     Usuario* usuario = manejadorUsuario->findUsuario(sesion->getSesion());
@@ -33,10 +33,13 @@ map<int,DtMensaje*> Conversacion::getMensajes(){
 	map<int,Mensaje*>::iterator i;
     for(i = mensajes.begin(); i != mensajes.end(); ++i){
         Mensaje * mensaje = i->second;
-        if (!mensaje->estaEliminado(usuario)){
-            mensaje->marcarComoVisto(usuario);
-            DtMensaje* dtMensaje = mensaje->getDtMensaje();
-            listaMensajes.insert(std::pair<int, DtMensaje*>(mensaje->getCodigo(), dtMensaje));
+        FechaHora enviado = mensaje->getEnviado();
+        if (agregadoEnConversacion < enviado){
+            if (!mensaje->estaEliminado(usuario)){
+                mensaje->marcarComoVisto(usuario);
+                DtMensaje* dtMensaje = mensaje->getDtMensaje();
+                listaMensajes.insert(std::pair<int, DtMensaje*>(mensaje->getCodigo(), dtMensaje));
+            }
         }
 	}
 	return listaMensajes;
