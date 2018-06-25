@@ -1,6 +1,5 @@
-regla1: Almacenamiento.o Conversacion.o ConversacionController.o ConversacionFactory.o DtContacto.o DtConversacion.o DtGrupo.o DtImagen.o 	
-	DtMensaje.o DtParticipante.o DtPrivada.o DtReceptor.o DtSimple.o DtTarjetaContacto.o DtVideo.o Estado.o Fecha.o FechaHora.o Grupo.o Imagen.o ManejadorUsuario.o ManejadorUsuarioConversacion.o Mensaje.o MensajeController.o MensajeFactory.o Multimedia.o Privada.o Sesion.o Simple.o TarjetaContacto.o Usuario.o UsuarioController.o UsuarioConversacion.o UsuarioFactory.o UsuarioMensaje.o Video.o main.o
-	g++ -I./include/ -Wall -o programa Almacenamiento.o Conversacion.o ConversacionController.o ConversacionFactory.o DtContacto.o DtConversacion.o DtGrupo.o DtImagen.o DtMensaje.o DtParticipante.o DtPrivada.o DtReceptor.o DtSimple.o DtTarjetaContacto.o DtVideo.o Estado.o Fecha.o FechaHora.o Grupo.o Imagen.o ManejadorUsuario.o ManejadorUsuarioConversacion.o Mensaje.o MensajeController.o MensajeFactory.o Multimedia.o Privada.o Sesion.o Simple.o TarjetaContacto.o Usuario.o UsuarioController.o UsuarioConversacion.o UsuarioFactory.o UsuarioMensaje.o Video.o main.o
+regla1: Almacenamiento.o Conversacion.o ConversacionController.o ConversacionFactory.o DtContacto.o DtConversacion.o DtGrupo.o DtImagen.o DtMensaje.o DtParticipante.o DtPrivada.o DtReceptor.o DtSimple.o DtTarjetaContacto.o DtVideo.o Estado.o Fecha.o FechaHora.o Grupo.o Imagen.o ManejadorUsuario.o Mensaje.o MensajeController.o MensajeFactory.o Multimedia.o Privada.o Sesion.o Simple.o TarjetaContacto.o Usuario.o UsuarioController.o UsuarioConversacion.o UsuarioFactory.o UsuarioMensaje.o Video.o main.o
+	g++ -I./include/ -Wall -o programa Almacenamiento.o Conversacion.o ConversacionController.o ConversacionFactory.o DtContacto.o DtConversacion.o DtGrupo.o DtImagen.o DtMensaje.o DtParticipante.o DtPrivada.o DtReceptor.o DtSimple.o DtTarjetaContacto.o DtVideo.o Estado.o Fecha.o FechaHora.o Grupo.o Imagen.o ManejadorUsuario.o Mensaje.o MensajeController.o MensajeFactory.o Multimedia.o Privada.o Sesion.o Simple.o TarjetaContacto.o Usuario.o UsuarioController.o UsuarioConversacion.o UsuarioFactory.o UsuarioMensaje.o Video.o main.o
 
 Almacenamiento.o: src/Almacenamiento.cpp
 	g++ -I./include/ -Wall -c src/Almacenamiento.cpp -o Almacenamiento.o
@@ -65,9 +64,6 @@ Imagen.o: src/Imagen.cpp
 ManejadorUsuario.o: src/ManejadorUsuario.cpp
 	g++ -I./include/ -Wall -c src/ManejadorUsuario.cpp -o ManejadorUsuario.o
 	
-ManejadorUsuarioConversacion.o: src/ManejadorUsuarioConversacion.cpp
-	g++ -I./include/ -Wall -c src/ManejadorUsuarioConversacion.cpp -o ManejadorUsuarioConversacion.o
-	
 Mensaje.o: src/Mensaje.cpp
 	g++ -I./include/ -Wall -c src/Mensaje.cpp -o Mensaje.o
 	
@@ -110,5 +106,5 @@ UsuarioMensaje.o: src/UsuarioMensaje.cpp
 Video.o: src/Video.cpp
 	g++ -I./include/ -Wall -c src/Video.cpp -o Video.o
 	
-main.o: src/main.cpp
+main.o: main.cpp
 	g++ -I./include/ -Wall -c main.cpp -o main.o
