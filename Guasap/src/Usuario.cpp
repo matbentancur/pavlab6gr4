@@ -105,7 +105,10 @@ bool Usuario::agregarContacto(Usuario* usuario){
     map<string,Usuario*>::iterator i;
     i = this->contactos.find(usuario->getCelular());
     if (i != this->contactos.end()){
-        return false;
+        throw logic_error("\nYa existe el celular: " + usuario->getCelular() + " como contacto.\n");
+    }
+    if (this->getCelular() == usuario->getCelular()){
+        throw logic_error("\nNo se puede agregar como contacto usted mismo.\n");
     }
     this->contactos.insert(std::pair<string, Usuario*>(usuario->getCelular(), usuario));
     return true;

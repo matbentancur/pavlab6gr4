@@ -45,9 +45,8 @@ DtContacto UsuarioController::agregarContacto(string celular){
     Usuario* contacto = manejadorUsuario->findUsuario(celular);
     if(contacto == NULL){
         throw logic_error("\nNo existe un usuario con numero de celular: " + celular + "\n");
-    }else{
-        return contacto->getDtContacto();
     }
+    return contacto->getDtContacto();
 }
 
 bool UsuarioController::confirmarContacto(){
@@ -160,12 +159,11 @@ void UsuarioController::cargarDatosPrueba(){
 
     u3->agregarContacto(u1);
     u3->agregarContacto(u2);
-    u3->agregarContacto(u3);
+    u3->agregarContacto(u4);
 
     u4->agregarContacto(u1);
     u4->agregarContacto(u3);
 
-    u5->agregarContacto(u1); //PRUEBAS
     u5->agregarContacto(u2); //PRUEBAS
     u5->agregarContacto(u3); //PRUEBAS
     u5->agregarContacto(u4); //PRUEBAS
