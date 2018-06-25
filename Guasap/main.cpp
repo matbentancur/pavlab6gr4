@@ -706,6 +706,7 @@ int menuVerInfoMensaje(){
         case 1:
             cout << "\nIngrese el codigo del mensaje: ";
             cin >> codigoMensaje;
+            cout << "\n";
             listarReceptores(codigoMensaje);
             cin.get();
             cin.get();

@@ -4,7 +4,7 @@ Almacenamiento* Almacenamiento::instancia = NULL;
 
 Almacenamiento* Almacenamiento::getInstancia(){
     if (instancia == NULL){
-        FechaHora fechaHora = FechaHora(1,1,2018,0,0);
+        FechaHora fechaHora = FechaHora(26,6,2018,18,0);
         instancia = new Almacenamiento(fechaHora,0,0);
     }
     return instancia;
