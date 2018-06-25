@@ -16,6 +16,7 @@ class ConversacionController : public IConversacionController {
         map<int,DtConversacion*> listarConversacionesActivas();
         map<int,DtConversacion*> listarConversacionesArchivadas();
         bool archivarConversacion(int);
+        bool activarConversacion(int);
         bool agregarSeleccionContactoGrupo(string);
         bool quitarSeleccionContactoGrupo(string);
         bool altaGrupo(string,string);
