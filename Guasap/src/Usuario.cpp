@@ -310,6 +310,14 @@ bool Usuario::enviarMensajeNuevaConversacion(Usuario* origen, Usuario* destino, 
 }
 
 bool Usuario::eliminarMensaje(int idConversacion,int codigoMensaje){
+    //Verifica que el mensaje este disponible para el usuario
+    map<int,DtMensaje*>::iterator i2;
+    map<int,DtMensaje*> listaMensajes = this->obtenerMensajes(idConversacion);
+    i2 = listaMensajes.find(codigoMensaje);
+    if (i2 == listaMensajes.end()){
+        throw logic_error("\nEl mensaje seleccionado no pertenece al usuario.\n");
+    }
+
 	set<UsuarioConversacion*>::iterator i;
     for(i = this->usuarioConversacion.begin(); i != this->usuarioConversacion.end(); ++i){
         UsuarioConversacion* usuarioConversacion = *i;
