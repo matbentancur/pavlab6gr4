@@ -249,7 +249,7 @@ int main() {
               cout << "\nEsta seguro de que desea salir? (s/n): ";
               cin >> opcion;
               if (opcion == 's' || opcion == 'S') {
-                cout << "Saliendo...\n";
+                cout << "\nSaliendo...\n";
                 salir = true;
               }
               break;
@@ -440,9 +440,9 @@ void menuAltaGrupo(){
 void menuArchivarConversacion(){
     int opcion;
     int idConversacion;
-    cout << "\n\nArchivar conversaciones\n\n";
+    cout << "\n\nArchivar conversaciones\n";
     try {
-        cout << "\n\nLista de conversaciones\n\n";
+        cout << "\n\nLista de conversaciones\n";
         cout << "\nActivas:\n\n";
         listarConversacionesActivas();
         cout << "\n\nLista de operaciones disponibles:\n\n";
@@ -456,10 +456,10 @@ void menuArchivarConversacion(){
                 cin >> idConversacion;
                 try{
                     if (iConversacionController->archivarConversacion(idConversacion)){
-                        cout << "Se ha archivado la conversacion " << idConversacion;
+                        cout << "\nSe ha archivado la conversacion " << idConversacion << "\n";
                     }
                     else{
-                        cout << "No se pudo archivar la conversacion " << idConversacion;
+                        cout << "\nNo se pudo archivar la conversacion " << idConversacion << "\n";
                     }
                 }catch(logic_error& ia){
                     cout << ia.what() << "\n";
@@ -518,6 +518,7 @@ void menuEnviarMensaje() {
     cout << "1)  Seleccionar una conversacion activa\n";
     cout << "2)  Ver las conversaciones archivadas\n";
     cout << "3)  Enviar un mensaje nuevo\n";
+    cout << "4)  Volver\n";
     cout << "\nIngrese una opcion: ";
     cin >> numOper;
     switch (numOper) {
@@ -534,22 +535,25 @@ void menuEnviarMensaje() {
         break;
     }
     case 2:
+        cout << "\n\nConversaciones archivadas:\n";
         listarConversacionesArchivadas();
         if(cantidadConversacionesArchivadas() > 0){
             cout << "\nIngrese el identificador de la conversacion: ";
             cin >> idConversacion;
             DtMensaje* dtMensaje = menuNuevoMensaje();
+            iMensajeController->listarMensajes(idConversacion);
             if(iMensajeController->enviarMensajeConversacion(dtMensaje)){
                 cout << "\nEl mensaje se envio con exito.\n";
+                iConversacionController->activarConversacion(idConversacion);
             }else{
                 cout << "\nOcurrio un error y el mensaje no se pudo enviar.\n";
             }
         }
         break;
-    case 3:
+    case 3: {
         cout << "\n\nLista de contactos\n\n";
         listarContactos();
-        cout << "\nIngrese el numero de celular con el que desea iniciar una nueva conversacion: ";
+        cout << "Ingrese el numero de celular con el que desea iniciar una nueva conversacion: ";
         cin >> celularContacto;
         DtMensaje* dtMensaje = menuNuevoMensaje();
         if(iMensajeController->enviarMensajeNuevaConversacion(celularContacto, dtMensaje)){
@@ -557,6 +561,10 @@ void menuEnviarMensaje() {
         }else{
             cout << "\nOcurrio un error y el mensaje no se pudo enviar.\n";
         }
+        break;
+    }
+    case 4:
+        menuPrincipal();
         break;
     }
 }
@@ -637,7 +645,7 @@ DtMensaje* menuNuevoMensaje(){
 void menuVerMensaje() {
     int opcion;
     int idConversacion;
-    cout << "\n\nVer mensajes\n\n";
+    cout << "\n\nVer mensajes";
     try {
         cout << "\n\nLista de conversaciones\n\n";
         cout << "\nActivas:\n\n";
@@ -719,7 +727,7 @@ void menuEliminarMensaje() {
     int opcion;
     int idConversacion;
     int codigoMensaje;
-    cout << "\n\tEliminar mensajes\n\n";
+    cout << "\n\tEliminar mensajes";
     try {
         cout << "\n\nLista de conversaciones\n\n";
         cout << "\nActivas:\n\n";
@@ -871,7 +879,7 @@ void menuConsultarReloj() {
 void menuCargarDatosPrueba() {
     try{
         iUsuarioController->cargarDatosPrueba();
-        cout << "\nDatos de prueba cargados con exito\n\n";
+        cout << "\nDatos de prueba cargados con exito\n";
         cin.get();
     }catch(invalid_argument& ia){
         cout << ia.what() << "\n";

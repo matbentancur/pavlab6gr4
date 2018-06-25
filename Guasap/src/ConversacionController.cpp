@@ -40,6 +40,16 @@ bool ConversacionController::archivarConversacion(int idConversacion){
     return usuario->archivarConversacion(idConversacion);
 }
 
+bool ConversacionController::activarConversacion(int idConversacion){
+    Sesion* sesion = Sesion::getInstancia();
+    if(sesion->getSesion() == "NULL"){
+        throw logic_error("\nNo hay ninguna sesion activa, primero debe iniciar sesion.\n");
+    }
+    ManejadorUsuario* manejadorUsuario = ManejadorUsuario::getInstancia();
+    Usuario* usuario = manejadorUsuario->findUsuario(sesion->getSesion());
+    return usuario->activarConversacion(idConversacion);
+}
+
 bool ConversacionController::agregarSeleccionContactoGrupo(string celular){
     Sesion* sesion = Sesion::getInstancia();
     if(sesion->getSesion() == "NULL"){
