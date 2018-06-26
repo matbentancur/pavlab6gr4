@@ -76,6 +76,7 @@ int main() {
                         cout << "\nIniciando sesion...\n";
                         cout << "\nSesion iniciada con exito - Celular: " + celularIngresado + "\n";
                         ingresarOtroNumero = false;
+                        cin.get();
                         break;
                     }
                     case userInexistente:
@@ -128,6 +129,7 @@ int main() {
                     case igualUserLog:
                         cout << "\nYa hay una sesion iniciada con el numero de celular: " + celularIngresado;
                         ingresarOtroNumero = false;
+                        cin.get();
                         break;
                     case distintoUserLog: {
                         cout << "\nYa hay una sesion iniciada. \nDebe cerrar la sesion actual para inciar sesion con el celular: " + celularIngresado;
@@ -139,6 +141,7 @@ int main() {
                             cout << "\nSesion cerrada con exito.";
                             ingresarOtroNumero = true;
                         }
+                        cin.get();
                         break;
                     }
                     }
@@ -255,6 +258,7 @@ int main() {
               break;
             default:
                 cout << "\nNo ingreso una opcion valida, vuelva a intentarlo...\n";
+                cin.get();
         }
         cout << "\nPresione Enter Para continuar";
         fflush(stdin);
@@ -301,6 +305,7 @@ void menuCerrarGuasap(){
             iUsuarioController->cerrarGuasap();
             cout << "\n\nCerrando sesion...\n";
             cout << "\nSesion cerrada con exito.";
+            cin.get();
         }
     }catch(logic_error& ia){
         cout << ia.what() << "\n";
@@ -346,6 +351,9 @@ void menuAgregarContactos(){
             case 2:
                 menuPrincipal();
                 break;
+            default:
+                cout << "\nNo ingreso una opcion valida, vuelva a intentarlo...\n";
+                cin.get();
         }
     }catch(logic_error& ia){
         cout << ia.what() << "\n";
@@ -432,10 +440,12 @@ void menuAltaGrupo(){
                         }
                         salirGrupo = true;
                     }
+                    cin.get();
                     break;
                 }
                 default:
                     cout << "\nNo ingreso una opcion valida, vuelva a intentarlo...\n";
+                    cin.get();
             }
         } while(!salirGrupo);
     }catch(logic_error& ia){
@@ -477,6 +487,9 @@ void menuArchivarConversacion(){
             case 2:
                 menuPrincipal();
                 break;
+            default:
+                cout << "\nNo ingreso una opcion valida, vuelva a intentarlo...\n";
+                cin.get();
         }
     }catch(logic_error& ia){
         cout << ia.what() << "\n";
@@ -539,6 +552,7 @@ void menuEnviarMensaje() {
         }else{
             cout << "\nOcurrio un error y el mensaje no se pudo enviar.";
         }
+        cin.get();
         break;
     }
     case 2:
@@ -556,6 +570,7 @@ void menuEnviarMensaje() {
                 cout << "\nOcurrio un error y el mensaje no se pudo enviar.\n";
             }
         }
+        cin.get();
         break;
     case 3: {
         cout << "\n\nLista de contactos\n\n";
@@ -568,11 +583,15 @@ void menuEnviarMensaje() {
         }else{
             cout << "\nOcurrio un error y el mensaje no se pudo enviar.\n";
         }
+        cin.get();
         break;
     }
     case 4:
         menuPrincipal();
         break;
+    default:
+        cout << "\nNo ingreso una opcion valida, vuelva a intentarlo...\n";
+        cin.get();
     }
 }
 
@@ -645,6 +664,9 @@ DtMensaje* menuNuevoMensaje(){
                 }
             }
         }
+        default:
+            cout << "\nNo ingreso una opcion valida, vuelva a intentarlo...\n";
+            cin.get();
     }
     return dtMensaje;
 }
@@ -703,6 +725,9 @@ void menuVerMensaje() {
             case 3:
                 menuPrincipal();
                 break;
+            default:
+                cout << "\nNo ingreso una opcion valida, vuelva a intentarlo...\n";
+                cin.get();
         }
     }catch(logic_error& ia){
         cout << ia.what() << "\n";
@@ -778,6 +803,9 @@ void menuEliminarMensaje() {
                     case 2:
                         menuEliminarMensaje();
                         break;
+                    default:
+                        cout << "\nNo ingreso una opcion valida, vuelva a intentarlo...\n";
+                        cin.get();
                 }
                 cin.get();
                 break;
@@ -821,6 +849,9 @@ void menuEliminarMensaje() {
                                 case 2:
                                     menuEliminarMensaje();
                                     break;
+                                default:
+                                    cout << "\nNo ingreso una opcion valida, vuelva a intentarlo...\n";
+                                    cin.get();
                             }
                             cin.get();
                             break;
@@ -830,6 +861,9 @@ void menuEliminarMensaje() {
             case 3:
                 menuPrincipal();
                 break;
+            default:
+                cout << "\nNo ingreso una opcion valida, vuelva a intentarlo...\n";
+                cin.get();
         }
     }catch(logic_error& ia){
         cout << ia.what() << "\n";

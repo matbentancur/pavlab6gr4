@@ -143,7 +143,7 @@ void UsuarioController::cargarDatosPrueba(){
     Usuario* u4 = new Usuario("090666777", registro, "Sara Ruiz", "home/img/perfil/sara.png", "¡Estoy feliz!");
     manejadorUsuario->agregarUsuario(u4);
 
-    Usuario* u5 = new Usuario("1", registro, "Matías Bentancur", "home/img/perfil/matias.png", "Este lab es una matanza"); //PRUEBAS
+    Usuario* u5 = new Usuario("1", registro, "Matías Bentancur", "home/img/perfil/matias.png", ":("); //PRUEBAS
     manejadorUsuario->agregarUsuario(u5); //PRUEBAS
 
     //CONTACTOS

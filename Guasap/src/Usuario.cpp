@@ -295,6 +295,13 @@ bool Usuario::enviarMensajeConversacion(int idConversacion, Usuario* emisor, DtM
 }
 
 bool Usuario::enviarMensajeNuevaConversacion(Usuario* origen, Usuario* destino, DtMensaje* nuevoMensaje){
+    if (this->existeConversacionPrivada(origen,destino)){
+        throw logic_error("\nYa existe una conversacion privada con " + destino->getCelular()  + "\n");
+    }
+    if (this->existeConversacionPrivada(destino,origen)){
+        throw logic_error("\nYa existe una conversacion privada con " + destino->getCelular()  + "\n");
+    }
+
     Almacenamiento* almacenamiento = Almacenamiento::getInstancia();
     int nuevoIdConversacion = almacenamiento->getNuevoIdConversacion();
     almacenamiento->setUltimoIdConversacion(nuevoIdConversacion);
@@ -323,6 +330,25 @@ bool Usuario::eliminarMensaje(int idConversacion,int codigoMensaje){
         UsuarioConversacion* usuarioConversacion = *i;
         if (usuarioConversacion->getConversacion()->getIdConversacion() == idConversacion){
             return usuarioConversacion->eliminarMensaje(codigoMensaje);
+        }
+	}
+    return false;
+}
+
+bool Usuario::existeConversacionPrivada(Usuario* origen, Usuario* destino){
+    set<UsuarioConversacion*>::iterator i;
+    for(i = usuarioConversacion.begin(); i != usuarioConversacion.end(); ++i){
+        UsuarioConversacion* usuarioConversacion = *i;
+        Conversacion* conversacion = usuarioConversacion->getConversacion();
+        try{
+            Privada* cp = dynamic_cast<Privada*>(conversacion);
+            if(cp != NULL){
+                if(cp->getOrigen()->getCelular() == origen->getCelular() && cp->getDestino()->getCelular() == destino->getCelular()){
+                    return true;
+                }
+            }
+        }catch(std::bad_cast){
+            cout << "Error en cast para Privada\n";
         }
 	}
     return false;
