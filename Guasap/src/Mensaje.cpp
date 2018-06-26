@@ -103,6 +103,7 @@ void Mensaje::marcarComoVisto(Usuario* usuario){
                     FechaHora vistoFechaHora = almacenamiento->getReloj();
                     um->setVisto(true);
                     um->setVistoFechaHora(vistoFechaHora);
+                    this->verificarVisto();
                 }
             }
         }

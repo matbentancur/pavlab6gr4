@@ -27,7 +27,7 @@ ostream& operator << (ostream& salida, DtSimple& dtSimple) {
     salida <<
         "Codigo: " << dtSimple.codigo << "\n" <<
         "Enviado: " << dtSimple.enviado <<
-        "Visto: " << vistoString << "\n" <<
+        "Visto Todos: " << vistoString << "\n" <<
         "Texto: " << dtSimple.texto << "\n";
     return salida;
 }

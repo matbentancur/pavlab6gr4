@@ -33,7 +33,7 @@ ostream& operator << (ostream& salida, DtTarjetaContacto& dtTarjetaContacto) {
     salida <<
         "Codigo: " << dtTarjetaContacto.codigo << "\n" <<
         "Enviado: " << dtTarjetaContacto.enviado <<
-        "Visto: " << vistoString << "\n" <<
+        "Visto Todos: " << vistoString << "\n" <<
         "Nombre: " << dtTarjetaContacto.nombre << "\n" <<
         "Telefono: " << dtTarjetaContacto.telefono << "\n";
     return salida;

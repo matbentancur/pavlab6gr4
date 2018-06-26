@@ -45,7 +45,7 @@ ostream& operator << (ostream& salida, DtImagen& dtImagen) {
     salida <<
         "Codigo: " << dtImagen.codigo << "\n" <<
         "Enviado: " << dtImagen.enviado <<
-        "Visto: " << vistoString << "\n" <<
+        "Visto Todos: " << vistoString << "\n" <<
         "URL: " << dtImagen.url << "\n" <<
         "Formato: " << dtImagen.formato << "\n" <<
         "Tamanio: " << dtImagen.tamanio << "\n" <<

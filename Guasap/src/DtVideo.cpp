@@ -33,7 +33,7 @@ ostream& operator << (ostream& salida, DtVideo& dtVideo) {
     salida <<
         "Codigo: " << dtVideo.codigo << "\n" <<
         "Enviado: " << dtVideo.enviado <<
-        "Visto: " << vistoString << "\n" <<
+        "Visto Todos: " << vistoString << "\n" <<
         "URL: " << dtVideo.url << "\n" <<
         "Duracion: " << dtVideo.duracion << "\n";
     return salida;
