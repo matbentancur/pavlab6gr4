@@ -20,7 +20,7 @@ class FechaHora : public Fecha {
         int getMinuto();
 
         friend ostream& operator << (ostream &salida, FechaHora&);
-        friend bool operator < (const FechaHora& l, FechaHora& r);
+        friend bool operator <= (const FechaHora& l, FechaHora& r);
 };
 
 #endif // FECHAHORA_H

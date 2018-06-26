@@ -57,6 +57,9 @@ bool MensajeController::enviarMensajeNuevaConversacion(string destino, DtMensaje
     ManejadorUsuario* manejadorUsuario = ManejadorUsuario::getInstancia();
     Usuario* usuarioOrigen = manejadorUsuario->findUsuario(sesion->getSesion());
     Usuario* usuarioDestino = manejadorUsuario->findUsuario(destino);
+    if(usuarioDestino == NULL){
+        throw logic_error("\nNo existe un usuario con numero de celular: " + destino + "\n");
+    }
     return usuarioOrigen->enviarMensajeNuevaConversacion(usuarioOrigen, usuarioDestino, nuevoMensaje);
 }
 

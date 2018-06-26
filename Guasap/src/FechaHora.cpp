@@ -82,7 +82,7 @@ ostream& operator << (ostream& salida, FechaHora& fechaHora){
     return salida;
 }
 
-bool operator < (const FechaHora& l, FechaHora& r){
+bool operator <= (const FechaHora& l, FechaHora& r){
     if (l.anio < r.anio){
         return true;
     }
@@ -117,5 +117,5 @@ bool operator < (const FechaHora& l, FechaHora& r){
     else if (l.minuto > r.minuto){
         return false;
     }
-    return false;
+    return true;
 }

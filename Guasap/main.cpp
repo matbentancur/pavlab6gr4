@@ -670,6 +670,7 @@ void menuVerMensaje() {
                 cout << "\nIngrese el identificador de la conversacion: ";
                 cin >> idConversacion;
                 do{
+                    cout << "\n";
                     listarMensajes(idConversacion);
                 } while(menuVerInfoMensaje() != 2);
                 menuVerMensaje();

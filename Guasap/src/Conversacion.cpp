@@ -34,7 +34,7 @@ map<int,DtMensaje*> Conversacion::getMensajes(FechaHora agregadoEnConversacion){
     for(i = mensajes.begin(); i != mensajes.end(); ++i){
         Mensaje * mensaje = i->second;
         FechaHora enviado = mensaje->getEnviado();
-        if (agregadoEnConversacion < enviado){
+        if (agregadoEnConversacion <= enviado){
             if (!mensaje->estaEliminado(usuario)){
                 mensaje->marcarComoVisto(usuario);
                 DtMensaje* dtMensaje = mensaje->getDtMensaje();
