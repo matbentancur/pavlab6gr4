@@ -377,6 +377,7 @@ void menuAltaGrupo(){
             cout<< "1)  Agregar contactos al grupo\n";
             cout<< "2)  Quitar contactos al grupo\n";
             cout<< "3)  Continuar con la creacion del grupo\n";
+            cout<< "4)  Volver\n";
             cout << "\nIngrese una opcion: ";
             cin>> opGrupo;
             switch(opGrupo){
@@ -397,12 +398,13 @@ void menuAltaGrupo(){
                         cout << "\nIngrese una opcion: ";
                         cin>> opGrupo;
                         switch(opGrupo){
-                        case 1:
-                            menuAltaGrupo();
-                            break;
-                        case 2:
-                            menuPrincipal();
-                            break;
+                            case 1:
+                                menuAltaGrupo();
+                                break;
+                            case 2:
+                                salirGrupo = true;
+                                menuPrincipal();
+                                break;
                         }
                     }else{
                         cout << "\nIngrese el celular del contacto que quiere eliminar del grupo: ";
@@ -427,6 +429,7 @@ void menuAltaGrupo(){
                             menuAltaGrupo();
                             break;
                         case 2:
+                            salirGrupo = true;
                             menuPrincipal();
                             break;
                         }
@@ -443,6 +446,10 @@ void menuAltaGrupo(){
                     cin.get();
                     break;
                 }
+                case 4:
+                    salirGrupo = true;
+                    menuPrincipal();
+                    break;
                 default:
                     cout << "\nNo ingreso una opcion valida, vuelva a intentarlo...\n";
                     cin.get();
